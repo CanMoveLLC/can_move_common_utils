@@ -25,8 +25,8 @@ class _$LoadTearOff {
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
-      @LoadLocationConverter() required LoadLocation dropOff,
       @LoadLocationConverter() required LoadLocation pickUp,
+      @ListLoadLocationConverter() required List<LoadLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() required ShipperMin shipper,
       required VehicleSize size,
@@ -41,8 +41,8 @@ class _$LoadTearOff {
       startDate: startDate,
       endDate: endDate,
       pickUpDate: pickUpDate,
-      dropOff: dropOff,
       pickUp: pickUp,
+      dropOffs: dropOffs,
       driver: driver,
       shipper: shipper,
       size: size,
@@ -74,9 +74,9 @@ mixin _$Load {
   @TimeStampConverter()
   Timestamp get pickUpDate => throw _privateConstructorUsedError;
   @LoadLocationConverter()
-  LoadLocation get dropOff => throw _privateConstructorUsedError;
-  @LoadLocationConverter()
   LoadLocation get pickUp => throw _privateConstructorUsedError;
+  @ListLoadLocationConverter()
+  List<LoadLocation> get dropOffs => throw _privateConstructorUsedError;
   @NullDriverMinConverter()
   DriverMin? get driver => throw _privateConstructorUsedError;
   @UserMinConverter()
@@ -104,8 +104,8 @@ abstract class $LoadCopyWith<$Res> {
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
-      @LoadLocationConverter() LoadLocation dropOff,
       @LoadLocationConverter() LoadLocation pickUp,
+      @ListLoadLocationConverter() List<LoadLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
@@ -116,7 +116,6 @@ abstract class $LoadCopyWith<$Res> {
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
-  $LoadLocationCopyWith<$Res> get dropOff;
   $LoadLocationCopyWith<$Res> get pickUp;
   $DriverMinCopyWith<$Res>? get driver;
   $ShipperMinCopyWith<$Res> get shipper;
@@ -136,8 +135,8 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? pickUpDate = freezed,
-    Object? dropOff = freezed,
     Object? pickUp = freezed,
+    Object? dropOffs = freezed,
     Object? driver = freezed,
     Object? shipper = freezed,
     Object? size = freezed,
@@ -165,14 +164,14 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
           ? _value.pickUpDate
           : pickUpDate // ignore: cast_nullable_to_non_nullable
               as Timestamp,
-      dropOff: dropOff == freezed
-          ? _value.dropOff
-          : dropOff // ignore: cast_nullable_to_non_nullable
-              as LoadLocation,
       pickUp: pickUp == freezed
           ? _value.pickUp
           : pickUp // ignore: cast_nullable_to_non_nullable
               as LoadLocation,
+      dropOffs: dropOffs == freezed
+          ? _value.dropOffs
+          : dropOffs // ignore: cast_nullable_to_non_nullable
+              as List<LoadLocation>,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -213,13 +212,6 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
   }
 
   @override
-  $LoadLocationCopyWith<$Res> get dropOff {
-    return $LoadLocationCopyWith<$Res>(_value.dropOff, (value) {
-      return _then(_value.copyWith(dropOff: value));
-    });
-  }
-
-  @override
   $LoadLocationCopyWith<$Res> get pickUp {
     return $LoadLocationCopyWith<$Res>(_value.pickUp, (value) {
       return _then(_value.copyWith(pickUp: value));
@@ -255,8 +247,8 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
-      @LoadLocationConverter() LoadLocation dropOff,
       @LoadLocationConverter() LoadLocation pickUp,
+      @ListLoadLocationConverter() List<LoadLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
@@ -267,8 +259,6 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
-  @override
-  $LoadLocationCopyWith<$Res> get dropOff;
   @override
   $LoadLocationCopyWith<$Res> get pickUp;
   @override
@@ -292,8 +282,8 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? pickUpDate = freezed,
-    Object? dropOff = freezed,
     Object? pickUp = freezed,
+    Object? dropOffs = freezed,
     Object? driver = freezed,
     Object? shipper = freezed,
     Object? size = freezed,
@@ -321,14 +311,14 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
           ? _value.pickUpDate
           : pickUpDate // ignore: cast_nullable_to_non_nullable
               as Timestamp,
-      dropOff: dropOff == freezed
-          ? _value.dropOff
-          : dropOff // ignore: cast_nullable_to_non_nullable
-              as LoadLocation,
       pickUp: pickUp == freezed
           ? _value.pickUp
           : pickUp // ignore: cast_nullable_to_non_nullable
               as LoadLocation,
+      dropOffs: dropOffs == freezed
+          ? _value.dropOffs
+          : dropOffs // ignore: cast_nullable_to_non_nullable
+              as List<LoadLocation>,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -377,8 +367,8 @@ class _$_Load extends _Load {
       @NullTimeStampConverter() this.startDate,
       @NullTimeStampConverter() this.endDate,
       @TimeStampConverter() required this.pickUpDate,
-      @LoadLocationConverter() required this.dropOff,
       @LoadLocationConverter() required this.pickUp,
+      @ListLoadLocationConverter() required this.dropOffs,
       @NullDriverMinConverter() this.driver,
       @UserMinConverter() required this.shipper,
       required this.size,
@@ -406,10 +396,10 @@ class _$_Load extends _Load {
   final Timestamp pickUpDate;
   @override
   @LoadLocationConverter()
-  final LoadLocation dropOff;
-  @override
-  @LoadLocationConverter()
   final LoadLocation pickUp;
+  @override
+  @ListLoadLocationConverter()
+  final List<LoadLocation> dropOffs;
   @override
   @NullDriverMinConverter()
   final DriverMin? driver;
@@ -435,7 +425,7 @@ class _$_Load extends _Load {
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, dropOff: $dropOff, pickUp: $pickUp, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, status: $status, createdAt: $createdAt)';
+    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -453,11 +443,11 @@ class _$_Load extends _Load {
             (identical(other.pickUpDate, pickUpDate) ||
                 const DeepCollectionEquality()
                     .equals(other.pickUpDate, pickUpDate)) &&
-            (identical(other.dropOff, dropOff) ||
-                const DeepCollectionEquality()
-                    .equals(other.dropOff, dropOff)) &&
             (identical(other.pickUp, pickUp) ||
                 const DeepCollectionEquality().equals(other.pickUp, pickUp)) &&
+            (identical(other.dropOffs, dropOffs) ||
+                const DeepCollectionEquality()
+                    .equals(other.dropOffs, dropOffs)) &&
             (identical(other.driver, driver) ||
                 const DeepCollectionEquality().equals(other.driver, driver)) &&
             (identical(other.shipper, shipper) ||
@@ -488,8 +478,8 @@ class _$_Load extends _Load {
       const DeepCollectionEquality().hash(startDate) ^
       const DeepCollectionEquality().hash(endDate) ^
       const DeepCollectionEquality().hash(pickUpDate) ^
-      const DeepCollectionEquality().hash(dropOff) ^
       const DeepCollectionEquality().hash(pickUp) ^
+      const DeepCollectionEquality().hash(dropOffs) ^
       const DeepCollectionEquality().hash(driver) ^
       const DeepCollectionEquality().hash(shipper) ^
       const DeepCollectionEquality().hash(size) ^
@@ -517,8 +507,8 @@ abstract class _Load extends Load {
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
-      @LoadLocationConverter() required LoadLocation dropOff,
       @LoadLocationConverter() required LoadLocation pickUp,
+      @ListLoadLocationConverter() required List<LoadLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() required ShipperMin shipper,
       required VehicleSize size,
@@ -545,10 +535,10 @@ abstract class _Load extends Load {
   Timestamp get pickUpDate => throw _privateConstructorUsedError;
   @override
   @LoadLocationConverter()
-  LoadLocation get dropOff => throw _privateConstructorUsedError;
-  @override
-  @LoadLocationConverter()
   LoadLocation get pickUp => throw _privateConstructorUsedError;
+  @override
+  @ListLoadLocationConverter()
+  List<LoadLocation> get dropOffs => throw _privateConstructorUsedError;
   @override
   @NullDriverMinConverter()
   DriverMin? get driver => throw _privateConstructorUsedError;
@@ -584,7 +574,7 @@ class _$LoadLocationTearOff {
   const _$LoadLocationTearOff();
 
   _LoadLocation call(
-      {@GeoPointConverter() required GeoPoint location,
+      {@GeoFirePointConverter() required GeoFirePoint location,
       required String address}) {
     return _LoadLocation(
       location: location,
@@ -602,8 +592,8 @@ const $LoadLocation = _$LoadLocationTearOff();
 
 /// @nodoc
 mixin _$LoadLocation {
-  @GeoPointConverter()
-  GeoPoint get location => throw _privateConstructorUsedError;
+  @GeoFirePointConverter()
+  GeoFirePoint get location => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -617,7 +607,7 @@ abstract class $LoadLocationCopyWith<$Res> {
   factory $LoadLocationCopyWith(
           LoadLocation value, $Res Function(LoadLocation) then) =
       _$LoadLocationCopyWithImpl<$Res>;
-  $Res call({@GeoPointConverter() GeoPoint location, String address});
+  $Res call({@GeoFirePointConverter() GeoFirePoint location, String address});
 }
 
 /// @nodoc
@@ -637,7 +627,7 @@ class _$LoadLocationCopyWithImpl<$Res> implements $LoadLocationCopyWith<$Res> {
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as GeoPoint,
+              as GeoFirePoint,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -653,7 +643,7 @@ abstract class _$LoadLocationCopyWith<$Res>
           _LoadLocation value, $Res Function(_LoadLocation) then) =
       __$LoadLocationCopyWithImpl<$Res>;
   @override
-  $Res call({@GeoPointConverter() GeoPoint location, String address});
+  $Res call({@GeoFirePointConverter() GeoFirePoint location, String address});
 }
 
 /// @nodoc
@@ -675,7 +665,7 @@ class __$LoadLocationCopyWithImpl<$Res> extends _$LoadLocationCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as GeoPoint,
+              as GeoFirePoint,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -688,15 +678,15 @@ class __$LoadLocationCopyWithImpl<$Res> extends _$LoadLocationCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LoadLocation extends _LoadLocation {
   const _$_LoadLocation(
-      {@GeoPointConverter() required this.location, required this.address})
+      {@GeoFirePointConverter() required this.location, required this.address})
       : super._();
 
   factory _$_LoadLocation.fromJson(Map<String, dynamic> json) =>
       _$_$_LoadLocationFromJson(json);
 
   @override
-  @GeoPointConverter()
-  final GeoPoint location;
+  @GeoFirePointConverter()
+  final GeoFirePoint location;
   @override
   final String address;
 
@@ -735,7 +725,7 @@ class _$_LoadLocation extends _LoadLocation {
 
 abstract class _LoadLocation extends LoadLocation {
   const factory _LoadLocation(
-      {@GeoPointConverter() required GeoPoint location,
+      {@GeoFirePointConverter() required GeoFirePoint location,
       required String address}) = _$_LoadLocation;
   const _LoadLocation._() : super._();
 
@@ -743,8 +733,8 @@ abstract class _LoadLocation extends LoadLocation {
       _$_LoadLocation.fromJson;
 
   @override
-  @GeoPointConverter()
-  GeoPoint get location => throw _privateConstructorUsedError;
+  @GeoFirePointConverter()
+  GeoFirePoint get location => throw _privateConstructorUsedError;
   @override
   String get address => throw _privateConstructorUsedError;
   @override

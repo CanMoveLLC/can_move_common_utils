@@ -13,10 +13,11 @@ _$_Load _$_$_LoadFromJson(Map<String, dynamic> json) {
     endDate: const NullTimeStampConverter().fromJson(json['endDate']),
     pickUpDate:
         const TimeStampConverter().fromJson(json['pickUpDate'] as Object),
-    dropOff: const LoadLocationConverter().fromJson(json['dropOff'] as Object),
     pickUp: const LoadLocationConverter().fromJson(json['pickUp'] as Object),
+    dropOffs:
+        const ListLoadLocationConverter().fromJson(json['dropOffs'] as Object),
     driver: const NullDriverMinConverter().fromJson(json['driver']),
-    shipper: json['shipper'],
+    shipper: const UserMinConverter().fromJson(json['shipper'] as Object),
     size: _$enumDecode(_$VehicleSizeEnumMap, json['size']),
     detail: json['detail'] as String,
     price: (json['price'] as num).toDouble(),
@@ -33,10 +34,10 @@ Map<String, dynamic> _$_$_LoadToJson(_$_Load instance) => <String, dynamic>{
       'startDate': const NullTimeStampConverter().toJson(instance.startDate),
       'endDate': const NullTimeStampConverter().toJson(instance.endDate),
       'pickUpDate': const TimeStampConverter().toJson(instance.pickUpDate),
-      'dropOff': const LoadLocationConverter().toJson(instance.dropOff),
       'pickUp': const LoadLocationConverter().toJson(instance.pickUp),
+      'dropOffs': const ListLoadLocationConverter().toJson(instance.dropOffs),
       'driver': const NullDriverMinConverter().toJson(instance.driver),
-      'shipper': instance.shipper,
+      'shipper': const UserMinConverter().toJson(instance.shipper),
       'size': _$VehicleSizeEnumMap[instance.size],
       'detail': instance.detail,
       'price': instance.price,
@@ -105,13 +106,14 @@ const _$LoadStatusEnumMap = {
 
 _$_LoadLocation _$_$_LoadLocationFromJson(Map<String, dynamic> json) {
   return _$_LoadLocation(
-    location: const GeoPointConverter().fromJson(json['location'] as Object),
+    location:
+        const GeoFirePointConverter().fromJson(json['location'] as Object),
     address: json['address'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_LoadLocationToJson(_$_LoadLocation instance) =>
     <String, dynamic>{
-      'location': const GeoPointConverter().toJson(instance.location),
+      'location': const GeoFirePointConverter().toJson(instance.location),
       'address': instance.address,
     };

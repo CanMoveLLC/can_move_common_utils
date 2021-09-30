@@ -6,18 +6,6 @@ part of 'driver.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Rating _$_$_RatingFromJson(Map<String, dynamic> json) {
-  return _$_Rating(
-    rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
-    total: json['total'] as int? ?? 0,
-  );
-}
-
-Map<String, dynamic> _$_$_RatingToJson(_$_Rating instance) => <String, dynamic>{
-      'rating': instance.rating,
-      'total': instance.total,
-    };
-
 _$_Driver _$_$_DriverFromJson(Map<String, dynamic> json) {
   return _$_Driver(
     uid: json['uid'] as String,
@@ -26,7 +14,7 @@ _$_Driver _$_$_DriverFromJson(Map<String, dynamic> json) {
     photoUrl: json['photoUrl'] as String?,
     userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
         UserType.driver,
-    rating: Rating.fromJson(json['rating'] as Map<String, dynamic>),
+    rating: const RatingConverter().fromJson(json['rating'] as Object),
     totalLoads: json['totalLoads'] as int? ?? 0,
     location: const NullGeoPointConverter().fromJson(json['location']),
     vehicleSize: _$enumDecode(_$VehicleSizeEnumMap, json['vehicleSize']),
@@ -39,7 +27,7 @@ Map<String, dynamic> _$_$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'email': instance.email,
       'photoUrl': instance.photoUrl,
       'userType': _$UserTypeEnumMap[instance.userType],
-      'rating': instance.rating,
+      'rating': const RatingConverter().toJson(instance.rating),
       'totalLoads': instance.totalLoads,
       'location': const NullGeoPointConverter().toJson(instance.location),
       'vehicleSize': _$VehicleSizeEnumMap[instance.vehicleSize],
@@ -96,6 +84,18 @@ const _$VehicleSizeEnumMap = {
   VehicleSize.Semi_Truck: 'Semi_Truck',
   VehicleSize.Flat_Bed: 'Flat_Bed',
 };
+
+_$_Rating _$_$_RatingFromJson(Map<String, dynamic> json) {
+  return _$_Rating(
+    rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+    total: json['total'] as int? ?? 0,
+  );
+}
+
+Map<String, dynamic> _$_$_RatingToJson(_$_Rating instance) => <String, dynamic>{
+      'rating': instance.rating,
+      'total': instance.total,
+    };
 
 _$_DriverMin _$_$_DriverMinFromJson(Map<String, dynamic> json) {
   return _$_DriverMin(

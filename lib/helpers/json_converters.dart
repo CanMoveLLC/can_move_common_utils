@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geoflutterfire2/geoflutterfire2.dart';
 
 import '../model/driver.dart';
 import '../model/load.dart';
@@ -101,7 +102,13 @@ class LoadLocationConverter implements JsonConverter<LoadLocation, Object> {
   @override
   LoadLocation fromJson(Object json) {
     if (json is Map<String, dynamic>) {
-      return LoadLocation(location: json["location"], address: json["address"]);
+      return LoadLocation(
+        location: GeoFirePoint(
+          json["location"]["geopoint"].latitude,
+          json["location"]["geopoint"].longitude,
+        ),
+        address: json["address"],
+      );
     }
     return json as LoadLocation; // won't work though
   }
@@ -109,8 +116,59 @@ class LoadLocationConverter implements JsonConverter<LoadLocation, Object> {
   @override
   Object toJson(LoadLocation object) {
     return {
-      "location": object.location,
+      "location": object.location.data,
       "address": object.address,
+    };
+  }
+}
+
+class ListLoadLocationConverter
+    implements JsonConverter<List<LoadLocation>, Object> {
+  const ListLoadLocationConverter();
+
+  @override
+  List<LoadLocation> fromJson(Object json) {
+    if (json is List<dynamic>) {
+      return json
+          .map((e) => LoadLocation(
+                location: GeoFirePoint(
+                  e["location"]["geopoint"].latitude,
+                  e["location"]["geopoint"].longitude,
+                ),
+                address: e["address"],
+              ))
+          .toList();
+    }
+    return json as List<LoadLocation>; // won't work though
+  }
+
+  @override
+  Object toJson(List<LoadLocation> object) {
+    return object
+        .map((e) => {
+              "location": e.location.data,
+              "address": e.address,
+            })
+        .toList();
+  }
+}
+
+class RatingConverter implements JsonConverter<Rating, Object> {
+  const RatingConverter();
+
+  @override
+  Rating fromJson(Object json) {
+    if (json is Map<String, dynamic>) {
+      return Rating(rating: json["rating"] + 0.0, total: json["total"]);
+    }
+    return json as Rating; // won't work though
+  }
+
+  @override
+  Object toJson(Rating object) {
+    return {
+      "rating": object.rating,
+      "total": object.total,
     };
   }
 }
@@ -130,6 +188,24 @@ class GeoPointConverter implements JsonConverter<GeoPoint, Object> {
   Object toJson(GeoPoint object) {
     // not a valid json object but we're only working with firestore so no big.
     return object;
+  }
+}
+
+class GeoFirePointConverter implements JsonConverter<GeoFirePoint, Object> {
+  const GeoFirePointConverter();
+
+  @override
+  GeoFirePoint fromJson(Object json) {
+    if (json is Map<String, dynamic>) {
+      return GeoFirePoint(json["latitude"], json["longitude"]);
+    }
+    return json as GeoFirePoint; // won't work though
+  }
+
+  @override
+  Object toJson(GeoFirePoint object) {
+    // not a valid json object but we're only working with firestore so no big.
+    return object.data;
   }
 }
 

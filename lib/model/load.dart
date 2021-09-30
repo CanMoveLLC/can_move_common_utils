@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geoflutterfire2/geoflutterfire2.dart';
 
 import '../helpers/json_converters.dart';
 import 'driver.dart';
@@ -28,8 +29,8 @@ class Load with _$Load {
     @NullTimeStampConverter()
         Timestamp? endDate, // will be set on firebase func
     @TimeStampConverter() required Timestamp pickUpDate,
-    @LoadLocationConverter() required LoadLocation dropOff,
     @LoadLocationConverter() required LoadLocation pickUp,
+    @ListLoadLocationConverter() required List<LoadLocation> dropOffs,
     @NullDriverMinConverter() DriverMin? driver,
     @UserMinConverter() required ShipperMin shipper,
     required VehicleSize size,
@@ -77,41 +78,12 @@ class Load with _$Load {
       size.toString().split('.').last.replaceAll("_", " ").toUpperCase();
 }
 
-Load get dummyLoad => Load(
-      detail: "",
-      image: null,
-      price: 111.0,
-      distance: 111.0,
-      startDate: Timestamp.now(),
-      pickUpDate: Timestamp.now(),
-      dropOff: LoadLocation(
-        location: GeoPoint(-5.32323, 0.32323),
-        address: "dropOffAddress",
-      ),
-      pickUp: LoadLocation(
-        location: GeoPoint(-5.32323, 0.32323),
-        address: "pickUpAddress",
-      ),
-      driver: DriverMin(
-        uid: "driverUid",
-        name: "Driver",
-        location: GeoPoint(-5.32323, 0.32323),
-      ),
-      shipper: ShipperMin(
-        uid: "shipperUid",
-        name: "Shipper",
-      ),
-      size: VehicleSize.Sedan,
-      status: LoadStatus.PENDING,
-      createdAt: FieldValue.serverTimestamp(),
-    );
-
 @freezed
 class LoadLocation with _$LoadLocation {
   const LoadLocation._();
 
   const factory LoadLocation({
-    @GeoPointConverter() required GeoPoint location,
+    @GeoFirePointConverter() required GeoFirePoint location,
     required String address,
   }) = _LoadLocation;
 

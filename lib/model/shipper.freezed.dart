@@ -25,13 +25,15 @@ class _$ShipperTearOff {
       required String name,
       required String email,
       String? photoUrl,
-      UserType userType = UserType.shipper}) {
+      UserType userType = UserType.shipper,
+      @JsonKey(ignore: true) User? user}) {
     return _Shipper(
       uid: uid,
       name: name,
       email: email,
       photoUrl: photoUrl,
       userType: userType,
+      user: user,
     );
   }
 
@@ -50,6 +52,8 @@ mixin _$Shipper {
   String get email => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  User? get user => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,7 +69,8 @@ abstract class $ShipperCopyWith<$Res> {
       String name,
       String email,
       String? photoUrl,
-      UserType userType});
+      UserType userType,
+      @JsonKey(ignore: true) User? user});
 }
 
 /// @nodoc
@@ -83,6 +88,7 @@ class _$ShipperCopyWithImpl<$Res> implements $ShipperCopyWith<$Res> {
     Object? email = freezed,
     Object? photoUrl = freezed,
     Object? userType = freezed,
+    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       uid: uid == freezed
@@ -105,6 +111,10 @@ class _$ShipperCopyWithImpl<$Res> implements $ShipperCopyWith<$Res> {
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 }
@@ -119,7 +129,8 @@ abstract class _$ShipperCopyWith<$Res> implements $ShipperCopyWith<$Res> {
       String name,
       String email,
       String? photoUrl,
-      UserType userType});
+      UserType userType,
+      @JsonKey(ignore: true) User? user});
 }
 
 /// @nodoc
@@ -138,6 +149,7 @@ class __$ShipperCopyWithImpl<$Res> extends _$ShipperCopyWithImpl<$Res>
     Object? email = freezed,
     Object? photoUrl = freezed,
     Object? userType = freezed,
+    Object? user = freezed,
   }) {
     return _then(_Shipper(
       uid: uid == freezed
@@ -160,6 +172,10 @@ class __$ShipperCopyWithImpl<$Res> extends _$ShipperCopyWithImpl<$Res>
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 }
@@ -172,7 +188,8 @@ class _$_Shipper extends _Shipper {
       required this.name,
       required this.email,
       this.photoUrl,
-      this.userType = UserType.shipper})
+      this.userType = UserType.shipper,
+      @JsonKey(ignore: true) this.user})
       : super._();
 
   factory _$_Shipper.fromJson(Map<String, dynamic> json) =>
@@ -189,10 +206,13 @@ class _$_Shipper extends _Shipper {
   @JsonKey(defaultValue: UserType.shipper)
   @override
   final UserType userType;
+  @override
+  @JsonKey(ignore: true)
+  final User? user;
 
   @override
   String toString() {
-    return 'Shipper(uid: $uid, name: $name, email: $email, photoUrl: $photoUrl, userType: $userType)';
+    return 'Shipper(uid: $uid, name: $name, email: $email, photoUrl: $photoUrl, userType: $userType, user: $user)';
   }
 
   @override
@@ -210,7 +230,9 @@ class _$_Shipper extends _Shipper {
                     .equals(other.photoUrl, photoUrl)) &&
             (identical(other.userType, userType) ||
                 const DeepCollectionEquality()
-                    .equals(other.userType, userType)));
+                    .equals(other.userType, userType)) &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)));
   }
 
   @override
@@ -220,7 +242,8 @@ class _$_Shipper extends _Shipper {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(photoUrl) ^
-      const DeepCollectionEquality().hash(userType);
+      const DeepCollectionEquality().hash(userType) ^
+      const DeepCollectionEquality().hash(user);
 
   @JsonKey(ignore: true)
   @override
@@ -239,7 +262,8 @@ abstract class _Shipper extends Shipper {
       required String name,
       required String email,
       String? photoUrl,
-      UserType userType}) = _$_Shipper;
+      UserType userType,
+      @JsonKey(ignore: true) User? user}) = _$_Shipper;
   const _Shipper._() : super._();
 
   factory _Shipper.fromJson(Map<String, dynamic> json) = _$_Shipper.fromJson;
@@ -254,6 +278,9 @@ abstract class _Shipper extends Shipper {
   String? get photoUrl => throw _privateConstructorUsedError;
   @override
   UserType get userType => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  User? get user => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ShipperCopyWith<_Shipper> get copyWith =>

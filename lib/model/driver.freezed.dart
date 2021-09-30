@@ -12,6 +12,399 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Driver _$DriverFromJson(Map<String, dynamic> json) {
+  return _Driver.fromJson(json);
+}
+
+/// @nodoc
+class _$DriverTearOff {
+  const _$DriverTearOff();
+
+  _Driver call(
+      {required String uid,
+      required String name,
+      required String email,
+      String? photoUrl,
+      UserType userType = UserType.driver,
+      @RatingConverter() required Rating rating,
+      int totalLoads = 0,
+      @JsonKey(ignore: true) User? user,
+      @NullGeoPointConverter() GeoPoint? location,
+      required VehicleSize vehicleSize}) {
+    return _Driver(
+      uid: uid,
+      name: name,
+      email: email,
+      photoUrl: photoUrl,
+      userType: userType,
+      rating: rating,
+      totalLoads: totalLoads,
+      user: user,
+      location: location,
+      vehicleSize: vehicleSize,
+    );
+  }
+
+  Driver fromJson(Map<String, Object> json) {
+    return Driver.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $Driver = _$DriverTearOff();
+
+/// @nodoc
+mixin _$Driver {
+  String get uid => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String? get photoUrl => throw _privateConstructorUsedError;
+  UserType get userType => throw _privateConstructorUsedError;
+  @RatingConverter()
+  Rating get rating => throw _privateConstructorUsedError;
+  int get totalLoads => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  User? get user =>
+      throw _privateConstructorUsedError; // for storing in hive/sharedPrefs, make sure this is null first.
+  @NullGeoPointConverter()
+  GeoPoint? get location => throw _privateConstructorUsedError;
+  VehicleSize get vehicleSize => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DriverCopyWith<Driver> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DriverCopyWith<$Res> {
+  factory $DriverCopyWith(Driver value, $Res Function(Driver) then) =
+      _$DriverCopyWithImpl<$Res>;
+  $Res call(
+      {String uid,
+      String name,
+      String email,
+      String? photoUrl,
+      UserType userType,
+      @RatingConverter() Rating rating,
+      int totalLoads,
+      @JsonKey(ignore: true) User? user,
+      @NullGeoPointConverter() GeoPoint? location,
+      VehicleSize vehicleSize});
+
+  $RatingCopyWith<$Res> get rating;
+}
+
+/// @nodoc
+class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
+  _$DriverCopyWithImpl(this._value, this._then);
+
+  final Driver _value;
+  // ignore: unused_field
+  final $Res Function(Driver) _then;
+
+  @override
+  $Res call({
+    Object? uid = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? photoUrl = freezed,
+    Object? userType = freezed,
+    Object? rating = freezed,
+    Object? totalLoads = freezed,
+    Object? user = freezed,
+    Object? location = freezed,
+    Object? vehicleSize = freezed,
+  }) {
+    return _then(_value.copyWith(
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoUrl: photoUrl == freezed
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userType: userType == freezed
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as Rating,
+      totalLoads: totalLoads == freezed
+          ? _value.totalLoads
+          : totalLoads // ignore: cast_nullable_to_non_nullable
+              as int,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as GeoPoint?,
+      vehicleSize: vehicleSize == freezed
+          ? _value.vehicleSize
+          : vehicleSize // ignore: cast_nullable_to_non_nullable
+              as VehicleSize,
+    ));
+  }
+
+  @override
+  $RatingCopyWith<$Res> get rating {
+    return $RatingCopyWith<$Res>(_value.rating, (value) {
+      return _then(_value.copyWith(rating: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
+  factory _$DriverCopyWith(_Driver value, $Res Function(_Driver) then) =
+      __$DriverCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String uid,
+      String name,
+      String email,
+      String? photoUrl,
+      UserType userType,
+      @RatingConverter() Rating rating,
+      int totalLoads,
+      @JsonKey(ignore: true) User? user,
+      @NullGeoPointConverter() GeoPoint? location,
+      VehicleSize vehicleSize});
+
+  @override
+  $RatingCopyWith<$Res> get rating;
+}
+
+/// @nodoc
+class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
+    implements _$DriverCopyWith<$Res> {
+  __$DriverCopyWithImpl(_Driver _value, $Res Function(_Driver) _then)
+      : super(_value, (v) => _then(v as _Driver));
+
+  @override
+  _Driver get _value => super._value as _Driver;
+
+  @override
+  $Res call({
+    Object? uid = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? photoUrl = freezed,
+    Object? userType = freezed,
+    Object? rating = freezed,
+    Object? totalLoads = freezed,
+    Object? user = freezed,
+    Object? location = freezed,
+    Object? vehicleSize = freezed,
+  }) {
+    return _then(_Driver(
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      photoUrl: photoUrl == freezed
+          ? _value.photoUrl
+          : photoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userType: userType == freezed
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as Rating,
+      totalLoads: totalLoads == freezed
+          ? _value.totalLoads
+          : totalLoads // ignore: cast_nullable_to_non_nullable
+              as int,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as GeoPoint?,
+      vehicleSize: vehicleSize == freezed
+          ? _value.vehicleSize
+          : vehicleSize // ignore: cast_nullable_to_non_nullable
+              as VehicleSize,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Driver extends _Driver {
+  const _$_Driver(
+      {required this.uid,
+      required this.name,
+      required this.email,
+      this.photoUrl,
+      this.userType = UserType.driver,
+      @RatingConverter() required this.rating,
+      this.totalLoads = 0,
+      @JsonKey(ignore: true) this.user,
+      @NullGeoPointConverter() this.location,
+      required this.vehicleSize})
+      : super._();
+
+  factory _$_Driver.fromJson(Map<String, dynamic> json) =>
+      _$_$_DriverFromJson(json);
+
+  @override
+  final String uid;
+  @override
+  final String name;
+  @override
+  final String email;
+  @override
+  final String? photoUrl;
+  @JsonKey(defaultValue: UserType.driver)
+  @override
+  final UserType userType;
+  @override
+  @RatingConverter()
+  final Rating rating;
+  @JsonKey(defaultValue: 0)
+  @override
+  final int totalLoads;
+  @override
+  @JsonKey(ignore: true)
+  final User? user;
+  @override // for storing in hive/sharedPrefs, make sure this is null first.
+  @NullGeoPointConverter()
+  final GeoPoint? location;
+  @override
+  final VehicleSize vehicleSize;
+
+  @override
+  String toString() {
+    return 'Driver(uid: $uid, name: $name, email: $email, photoUrl: $photoUrl, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Driver &&
+            (identical(other.uid, uid) ||
+                const DeepCollectionEquality().equals(other.uid, uid)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.photoUrl, photoUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.photoUrl, photoUrl)) &&
+            (identical(other.userType, userType) ||
+                const DeepCollectionEquality()
+                    .equals(other.userType, userType)) &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)) &&
+            (identical(other.totalLoads, totalLoads) ||
+                const DeepCollectionEquality()
+                    .equals(other.totalLoads, totalLoads)) &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)) &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality()
+                    .equals(other.location, location)) &&
+            (identical(other.vehicleSize, vehicleSize) ||
+                const DeepCollectionEquality()
+                    .equals(other.vehicleSize, vehicleSize)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(uid) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(userType) ^
+      const DeepCollectionEquality().hash(rating) ^
+      const DeepCollectionEquality().hash(totalLoads) ^
+      const DeepCollectionEquality().hash(user) ^
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(vehicleSize);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DriverCopyWith<_Driver> get copyWith =>
+      __$DriverCopyWithImpl<_Driver>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_DriverToJson(this);
+  }
+}
+
+abstract class _Driver extends Driver {
+  const factory _Driver(
+      {required String uid,
+      required String name,
+      required String email,
+      String? photoUrl,
+      UserType userType,
+      @RatingConverter() required Rating rating,
+      int totalLoads,
+      @JsonKey(ignore: true) User? user,
+      @NullGeoPointConverter() GeoPoint? location,
+      required VehicleSize vehicleSize}) = _$_Driver;
+  const _Driver._() : super._();
+
+  factory _Driver.fromJson(Map<String, dynamic> json) = _$_Driver.fromJson;
+
+  @override
+  String get uid => throw _privateConstructorUsedError;
+  @override
+  String get name => throw _privateConstructorUsedError;
+  @override
+  String get email => throw _privateConstructorUsedError;
+  @override
+  String? get photoUrl => throw _privateConstructorUsedError;
+  @override
+  UserType get userType => throw _privateConstructorUsedError;
+  @override
+  @RatingConverter()
+  Rating get rating => throw _privateConstructorUsedError;
+  @override
+  int get totalLoads => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  User? get user => throw _privateConstructorUsedError;
+  @override // for storing in hive/sharedPrefs, make sure this is null first.
+  @NullGeoPointConverter()
+  GeoPoint? get location => throw _privateConstructorUsedError;
+  @override
+  VehicleSize get vehicleSize => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$DriverCopyWith<_Driver> get copyWith => throw _privateConstructorUsedError;
+}
+
 Rating _$RatingFromJson(Map<String, dynamic> json) {
   return _Rating.fromJson(json);
 }
@@ -173,396 +566,6 @@ abstract class _Rating extends Rating {
   @override
   @JsonKey(ignore: true)
   _$RatingCopyWith<_Rating> get copyWith => throw _privateConstructorUsedError;
-}
-
-Driver _$DriverFromJson(Map<String, dynamic> json) {
-  return _Driver.fromJson(json);
-}
-
-/// @nodoc
-class _$DriverTearOff {
-  const _$DriverTearOff();
-
-  _Driver call(
-      {required String uid,
-      required String name,
-      required String email,
-      String? photoUrl,
-      UserType userType = UserType.driver,
-      required Rating rating,
-      int totalLoads = 0,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      required VehicleSize vehicleSize}) {
-    return _Driver(
-      uid: uid,
-      name: name,
-      email: email,
-      photoUrl: photoUrl,
-      userType: userType,
-      rating: rating,
-      totalLoads: totalLoads,
-      user: user,
-      location: location,
-      vehicleSize: vehicleSize,
-    );
-  }
-
-  Driver fromJson(Map<String, Object> json) {
-    return Driver.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Driver = _$DriverTearOff();
-
-/// @nodoc
-mixin _$Driver {
-  String get uid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String? get photoUrl => throw _privateConstructorUsedError;
-  UserType get userType => throw _privateConstructorUsedError;
-  Rating get rating => throw _privateConstructorUsedError;
-  int get totalLoads => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  User? get user =>
-      throw _privateConstructorUsedError; // for storing in hive/sharedPrefs, make sure this is null first.
-  @NullGeoPointConverter()
-  GeoPoint? get location => throw _privateConstructorUsedError;
-  VehicleSize get vehicleSize => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DriverCopyWith<Driver> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DriverCopyWith<$Res> {
-  factory $DriverCopyWith(Driver value, $Res Function(Driver) then) =
-      _$DriverCopyWithImpl<$Res>;
-  $Res call(
-      {String uid,
-      String name,
-      String email,
-      String? photoUrl,
-      UserType userType,
-      Rating rating,
-      int totalLoads,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      VehicleSize vehicleSize});
-
-  $RatingCopyWith<$Res> get rating;
-}
-
-/// @nodoc
-class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
-  _$DriverCopyWithImpl(this._value, this._then);
-
-  final Driver _value;
-  // ignore: unused_field
-  final $Res Function(Driver) _then;
-
-  @override
-  $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
-    Object? photoUrl = freezed,
-    Object? userType = freezed,
-    Object? rating = freezed,
-    Object? totalLoads = freezed,
-    Object? user = freezed,
-    Object? location = freezed,
-    Object? vehicleSize = freezed,
-  }) {
-    return _then(_value.copyWith(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      photoUrl: photoUrl == freezed
-          ? _value.photoUrl
-          : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userType: userType == freezed
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as Rating,
-      totalLoads: totalLoads == freezed
-          ? _value.totalLoads
-          : totalLoads // ignore: cast_nullable_to_non_nullable
-              as int,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as GeoPoint?,
-      vehicleSize: vehicleSize == freezed
-          ? _value.vehicleSize
-          : vehicleSize // ignore: cast_nullable_to_non_nullable
-              as VehicleSize,
-    ));
-  }
-
-  @override
-  $RatingCopyWith<$Res> get rating {
-    return $RatingCopyWith<$Res>(_value.rating, (value) {
-      return _then(_value.copyWith(rating: value));
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
-  factory _$DriverCopyWith(_Driver value, $Res Function(_Driver) then) =
-      __$DriverCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {String uid,
-      String name,
-      String email,
-      String? photoUrl,
-      UserType userType,
-      Rating rating,
-      int totalLoads,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      VehicleSize vehicleSize});
-
-  @override
-  $RatingCopyWith<$Res> get rating;
-}
-
-/// @nodoc
-class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
-    implements _$DriverCopyWith<$Res> {
-  __$DriverCopyWithImpl(_Driver _value, $Res Function(_Driver) _then)
-      : super(_value, (v) => _then(v as _Driver));
-
-  @override
-  _Driver get _value => super._value as _Driver;
-
-  @override
-  $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
-    Object? photoUrl = freezed,
-    Object? userType = freezed,
-    Object? rating = freezed,
-    Object? totalLoads = freezed,
-    Object? user = freezed,
-    Object? location = freezed,
-    Object? vehicleSize = freezed,
-  }) {
-    return _then(_Driver(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      photoUrl: photoUrl == freezed
-          ? _value.photoUrl
-          : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userType: userType == freezed
-          ? _value.userType
-          : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as Rating,
-      totalLoads: totalLoads == freezed
-          ? _value.totalLoads
-          : totalLoads // ignore: cast_nullable_to_non_nullable
-              as int,
-      user: user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as GeoPoint?,
-      vehicleSize: vehicleSize == freezed
-          ? _value.vehicleSize
-          : vehicleSize // ignore: cast_nullable_to_non_nullable
-              as VehicleSize,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Driver extends _Driver {
-  const _$_Driver(
-      {required this.uid,
-      required this.name,
-      required this.email,
-      this.photoUrl,
-      this.userType = UserType.driver,
-      required this.rating,
-      this.totalLoads = 0,
-      @JsonKey(ignore: true) this.user,
-      @NullGeoPointConverter() this.location,
-      required this.vehicleSize})
-      : super._();
-
-  factory _$_Driver.fromJson(Map<String, dynamic> json) =>
-      _$_$_DriverFromJson(json);
-
-  @override
-  final String uid;
-  @override
-  final String name;
-  @override
-  final String email;
-  @override
-  final String? photoUrl;
-  @JsonKey(defaultValue: UserType.driver)
-  @override
-  final UserType userType;
-  @override
-  final Rating rating;
-  @JsonKey(defaultValue: 0)
-  @override
-  final int totalLoads;
-  @override
-  @JsonKey(ignore: true)
-  final User? user;
-  @override // for storing in hive/sharedPrefs, make sure this is null first.
-  @NullGeoPointConverter()
-  final GeoPoint? location;
-  @override
-  final VehicleSize vehicleSize;
-
-  @override
-  String toString() {
-    return 'Driver(uid: $uid, name: $name, email: $email, photoUrl: $photoUrl, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Driver &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.photoUrl, photoUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.photoUrl, photoUrl)) &&
-            (identical(other.userType, userType) ||
-                const DeepCollectionEquality()
-                    .equals(other.userType, userType)) &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.totalLoads, totalLoads) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalLoads, totalLoads)) &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.vehicleSize, vehicleSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.vehicleSize, vehicleSize)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(photoUrl) ^
-      const DeepCollectionEquality().hash(userType) ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(totalLoads) ^
-      const DeepCollectionEquality().hash(user) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(vehicleSize);
-
-  @JsonKey(ignore: true)
-  @override
-  _$DriverCopyWith<_Driver> get copyWith =>
-      __$DriverCopyWithImpl<_Driver>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_DriverToJson(this);
-  }
-}
-
-abstract class _Driver extends Driver {
-  const factory _Driver(
-      {required String uid,
-      required String name,
-      required String email,
-      String? photoUrl,
-      UserType userType,
-      required Rating rating,
-      int totalLoads,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      required VehicleSize vehicleSize}) = _$_Driver;
-  const _Driver._() : super._();
-
-  factory _Driver.fromJson(Map<String, dynamic> json) = _$_Driver.fromJson;
-
-  @override
-  String get uid => throw _privateConstructorUsedError;
-  @override
-  String get name => throw _privateConstructorUsedError;
-  @override
-  String get email => throw _privateConstructorUsedError;
-  @override
-  String? get photoUrl => throw _privateConstructorUsedError;
-  @override
-  UserType get userType => throw _privateConstructorUsedError;
-  @override
-  Rating get rating => throw _privateConstructorUsedError;
-  @override
-  int get totalLoads => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  User? get user => throw _privateConstructorUsedError;
-  @override // for storing in hive/sharedPrefs, make sure this is null first.
-  @NullGeoPointConverter()
-  GeoPoint? get location => throw _privateConstructorUsedError;
-  @override
-  VehicleSize get vehicleSize => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$DriverCopyWith<_Driver> get copyWith => throw _privateConstructorUsedError;
 }
 
 DriverMin _$DriverMinFromJson(Map<String, dynamic> json) {

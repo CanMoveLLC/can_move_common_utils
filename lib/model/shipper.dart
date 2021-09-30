@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -18,6 +19,7 @@ class Shipper with _$Shipper {
     required String email,
     String? photoUrl,
     @Default(UserType.shipper) UserType userType,
+    @JsonKey(ignore: true) User? user,
   }) = _Shipper;
 
   factory Shipper.fromJson(Map<String, dynamic> json) =>

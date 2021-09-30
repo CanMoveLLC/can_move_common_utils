@@ -22,18 +22,6 @@ enum VehicleSize {
 }
 
 @freezed
-class Rating with _$Rating {
-  const Rating._();
-
-  const factory Rating({
-    @Default(0.0) double rating,
-    @Default(0) int total,
-  }) = _Rating;
-
-  factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
-}
-
-@freezed
 class Driver with _$Driver {
   const Driver._();
 
@@ -43,7 +31,7 @@ class Driver with _$Driver {
     required String email,
     String? photoUrl,
     @Default(UserType.driver) UserType userType,
-    required Rating rating,
+    @RatingConverter() required Rating rating,
     @Default(0) int totalLoads,
     @JsonKey(ignore: true) User? user,
     // for storing in hive/sharedPrefs, make sure this is null first.
@@ -54,6 +42,18 @@ class Driver with _$Driver {
   factory Driver.fromJson(Map<String, dynamic> json) => _$DriverFromJson(json);
 
   DriverMin get min => DriverMin(uid: uid, name: name, location: location);
+}
+
+@freezed
+class Rating with _$Rating {
+  const Rating._();
+
+  const factory Rating({
+    @Default(0.0) double rating,
+    @Default(0) int total,
+  }) = _Rating;
+
+  factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
 }
 
 @freezed
