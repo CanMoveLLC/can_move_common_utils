@@ -28,9 +28,7 @@ class LoadRouteInformation {
 class MapsService {
   gm.LatLng? location;
   final Stream<loc.LocationData> locationStream =
-      loc
-          .Location()
-          .onLocationChanged;
+      loc.Location().onLocationChanged;
 
   Future changeLocationSettings({
     loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
@@ -38,9 +36,11 @@ class MapsService {
     double? distanceFilter = 200,
   }) async {
     try {
-      return await loc.Location().changeSettings(interval: interval,
+      return await loc.Location().changeSettings(
+        interval: interval,
         accuracy: accuracy,
-        distanceFilter: distanceFilter,);
+        distanceFilter: distanceFilter,
+      );
     } on Exception catch (error, stack) {
       logError(error, stack);
       return false;
@@ -49,7 +49,7 @@ class MapsService {
 
   Future<gm.LatLng?> getUserLocation() async {
     try {
-      var l = await locationStream.first;
+      var l = await loc.Location().getLocation();
       location = gm.LatLng(l.latitude!, l.longitude!);
       return location;
     } on PlatformException catch (error, stack) {
