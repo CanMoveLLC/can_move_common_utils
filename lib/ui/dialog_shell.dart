@@ -12,6 +12,10 @@ class DialogShell extends StatelessWidget {
     this.onCancel,
     required this.child,
     this.loading = false,
+    this.padding = const EdgeInsets.symmetric(
+      horizontal: 30.0,
+      vertical: 10,
+    ),
   }) : super(key: key);
 
   final double height;
@@ -20,6 +24,7 @@ class DialogShell extends StatelessWidget {
   final Widget child;
   final String title;
   final bool loading;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +43,14 @@ class DialogShell extends StatelessWidget {
             bottom: !loading
                 ? null
                 : PreferredSize(
-                    child: LinearProgressIndicator(
-                      minHeight: 2,
-                    ),
-                    preferredSize: Size(
-                      screenWidth(context),
-                      1,
-                    ),
-                  ),
+              child: LinearProgressIndicator(
+                minHeight: 2,
+              ),
+              preferredSize: Size(
+                screenWidth(context),
+                1,
+              ),
+            ),
             centerTitle: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
@@ -55,7 +60,7 @@ class DialogShell extends StatelessWidget {
             leading: IconButton(
               color: Colors.red,
               onPressed:
-                  loading ? null : onCancel ?? () => _defaultAction(context),
+              loading ? null : onCancel ?? () => _defaultAction(context),
               icon: Icon(Icons.close),
             ),
             title: Text(
@@ -65,17 +70,14 @@ class DialogShell extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed:
-                    loading ? null : onOk ?? () => _defaultAction(context),
+                loading ? null : onOk ?? () => _defaultAction(context),
                 icon: Icon(Icons.check),
               )
             ],
           ),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30.0,
-                vertical: 10,
-              ),
+              padding: padding,
               child: child,
             ),
           ),
@@ -89,8 +91,7 @@ class DialogShell extends StatelessWidget {
   }
 }
 
-Future showInfoDialog(
-  BuildContext context, {
+Future showInfoDialog(BuildContext context, {
   String title = 'Info',
   double height = 500,
   double width = 400,
@@ -112,8 +113,7 @@ Future showInfoDialog(
       });
 }
 
-Future showFormDialog(
-  BuildContext context, {
+Future showFormDialog(BuildContext context, {
   String title = 'Form',
   double height = 500,
   double? width,

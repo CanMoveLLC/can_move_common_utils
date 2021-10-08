@@ -28,18 +28,20 @@ class LoadRouteInformation {
 class MapsService {
   gm.LatLng? location;
   final Stream<loc.LocationData> locationStream =
-      loc.Location().onLocationChanged;
+      loc
+          .Location()
+          .onLocationChanged;
 
   Future changeLocationSettings({
     loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
     int? interval = 10000,
-    double? distanceFilter = 0,
+    double? distanceFilter = 200,
   }) async {
     try {
       return await loc.Location().changeSettings(interval: interval,
         accuracy: accuracy,
         distanceFilter: distanceFilter,);
-    } on Exception catch(error,stack) {
+    } on Exception catch (error, stack) {
       logError(error, stack);
       return false;
     }

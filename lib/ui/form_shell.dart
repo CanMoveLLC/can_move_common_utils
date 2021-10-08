@@ -14,6 +14,10 @@ class FormShell extends StatelessWidget {
     this.formKey,
     required this.children,
     this.loading = false,
+    this.padding = const EdgeInsets.symmetric(
+  horizontal: 30.0,
+  vertical: 10,
+  ),
   }) : super(key: key);
 
   final double height;
@@ -23,6 +27,7 @@ class FormShell extends StatelessWidget {
   final List<Widget> children;
   final String title;
   final bool loading;
+  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +37,7 @@ class FormShell extends StatelessWidget {
       title: title,
       loading: loading,
       onCancel: onCancel,
+      padding: padding,
       onOk: () {
         formKey?.currentState?.save();
         if (formKey?.currentState?.validate() == false) {
