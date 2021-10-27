@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:catcher/catcher.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:images_picker/images_picker.dart';
 
@@ -11,7 +12,9 @@ void logError(Exception error, [StackTrace? trace]) {
 }
 
 String get mapKey {
-  if (Platform.isAndroid)
+  if (kIsWeb)
+    return "AIzaSyCb7VJJwNI702hJzsSnyV7xs-ppfSitp0Q";
+  else if (Platform.isAndroid)
     return "AIzaSyALM_J69fPCvTvXVE3DfPXPjBaN3FcvVk0";
   else
     return "AIzaSyCuOdg0tpuyPK3me3oQGYAmo6iTLXAEbBI";
