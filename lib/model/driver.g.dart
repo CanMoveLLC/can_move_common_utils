@@ -11,6 +11,7 @@ _$_Driver _$_$_DriverFromJson(Map<String, dynamic> json) {
     uid: json['uid'] as String,
     name: json['name'] as String,
     email: json['email'] as String,
+    phone: json['phone'] as String,
     photoUrl: json['photoUrl'] as String?,
     userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
         UserType.driver,
@@ -25,6 +26,7 @@ Map<String, dynamic> _$_$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
       'email': instance.email,
+      'phone': instance.phone,
       'photoUrl': instance.photoUrl,
       'userType': _$UserTypeEnumMap[instance.userType],
       'rating': const RatingConverter().toJson(instance.rating),

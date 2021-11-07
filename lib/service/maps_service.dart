@@ -9,6 +9,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as gm;
 import 'package:google_maps_webservice/directions.dart';
 import 'package:location/location.dart' as loc;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../helpers/utils.dart';
 import '../model/load.dart';
@@ -50,6 +51,18 @@ class MapsService {
     } on Exception catch (error, stack) {
       logError(error, stack);
       return false;
+    }
+  }
+
+  Future<LocationPermission> requestPermission() async {
+    try {
+      var perm = await Geolocator.checkPermission();
+      if (perm == LocationPermission.whileInUse ||
+          perm == LocationPermission.always) perm;
+      return await Geolocator.requestPermission();
+    } on PlatformException catch (e, stack) {
+      logError(e, stack);
+      return LocationPermission.denied;
     }
   }
 
@@ -107,10 +120,20 @@ class MapsService {
     var uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) return;
     try {
-      await FirebaseFirestore.instance
+      var fb = FirebaseFirestore.instance;
+      await fb
           .collection(usersCollection)
           .doc(uid)
           .update({"location": GeoPoint(latitude, longitude)});
+      var curLoad =
+          (await SharedPreferences.getInstance()).getString("currentLoad");
+      if (curLoad != null) {
+        fb.collection(loadsCollection).doc(curLoad).set(
+          {
+            "driver.location": GeoPoint(latitude, longitude),
+          },
+        );
+      }
     } on Exception catch (error, stack) {
       logError(error, stack);
     }

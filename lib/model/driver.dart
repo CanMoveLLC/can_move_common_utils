@@ -29,6 +29,7 @@ class Driver with _$Driver {
     required String uid,
     required String name,
     required String email,
+    required String phone,
     String? photoUrl,
     @Default(UserType.driver) UserType userType,
     @RatingConverter() required Rating rating,

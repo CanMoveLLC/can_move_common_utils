@@ -58,7 +58,7 @@ class ElevatedContainer extends StatelessWidget {
         decoration: decoration,
         padding: padding ?? EdgeInsets.zero,
         margin: margin ?? EdgeInsets.zero,
-        duration: Duration(milliseconds: 300),
+        duration: Duration(milliseconds: 200),
         child: child,
       ),
     );
