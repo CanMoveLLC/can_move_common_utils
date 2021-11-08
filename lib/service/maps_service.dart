@@ -128,11 +128,14 @@ class MapsService {
       var curLoad =
           (await SharedPreferences.getInstance()).getString("currentLoad");
       if (curLoad != null) {
-        fb.collection(loadsCollection).doc(curLoad).set(
-          {
-            "driver.location": GeoPoint(latitude, longitude),
-          },
+        var doc = await fb.collection(loadsCollection).doc(curLoad).get();
+        var load = Load.fromJson(doc.data()!).copyWith(uid: doc.id);
+        load = load.copyWith(
+          driver: load.driver?.copyWith(
+            location: GeoPoint(latitude, longitude),
+          ),
         );
+        await fb.collection(loadsCollection).doc(curLoad).update(load.toJson());
       }
     } on Exception catch (error, stack) {
       logError(error, stack);
