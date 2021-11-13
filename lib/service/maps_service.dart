@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 import 'package:can_move_common_utils/model/constants.dart';
 import 'package:can_move_common_utils/ui/notify.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as gm;
 import 'package:google_maps_webservice/directions.dart';
+import 'package:http/http.dart' as http;
 import 'package:location/location.dart' as loc;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -142,22 +146,46 @@ class MapsService {
     }
   }
 
+  Future<DirectionsResponse> getWebDirections({
+    required LoadLocation origin,
+    required LoadLocation destination,
+    List<Waypoint>? waypoints,
+  }) async {
+    var org = Uri.encodeComponent(
+        "${origin.location.latitude},${origin.location.longitude}");
+    var dest = Uri.encodeComponent(
+        "${destination.location.latitude},${destination.location.longitude}");
+    var mapUrl =
+        "https://maps.googleapis.com/maps/api/directions/json?origin=$org&destination=$dest&key=$mapKey";
+    if (waypoints?.isNotEmpty == true) {
+      mapUrl = "$mapUrl&waypoints=${Uri.encodeComponent(waypoints!.join("|"))}";
+    }
+    var url = Uri.parse('$proxyUrl/$mapUrl');
+    var response = await http.get(url);
+    return DirectionsResponse.fromJson(json.decode(response.body));
+  }
+
   Future<LoadRouteInformation?> getDirections({
     required LoadLocation origin,
     required LoadLocation destination,
   }) async {
+    DirectionsResponse res;
     try {
-      var directions = GoogleMapsDirections(apiKey: mapKey);
-      var res = await directions.directionsWithLocation(
-        Location(
-          lat: origin.location.latitude,
-          lng: origin.location.longitude,
-        ),
-        Location(
-          lat: destination.location.latitude,
-          lng: destination.location.longitude,
-        ),
-      );
+      if (kIsWeb)
+        res = await getWebDirections(origin: origin, destination: destination);
+      else {
+        var directions = GoogleMapsDirections(apiKey: mapKey);
+        res = await directions.directionsWithLocation(
+          Location(
+            lat: origin.location.latitude,
+            lng: origin.location.longitude,
+          ),
+          Location(
+            lat: destination.location.latitude,
+            lng: destination.location.longitude,
+          ),
+        );
+      }
       if (res.isOkay &&
           res.routes.isNotEmpty &&
           res.routes.first.legs.isNotEmpty) {
@@ -194,25 +222,40 @@ class MapsService {
     required LoadLocation origin,
     required List<LoadLocation> destinations,
   }) async {
+    DirectionsResponse res;
     try {
-      var directions = GoogleMapsDirections(apiKey: mapKey);
-      var res = await directions.directionsWithLocation(
-        Location(
-          lat: origin.location.latitude,
-          lng: origin.location.longitude,
-        ),
-        Location(
-          lat: destinations.last.location.latitude,
-          lng: destinations.last.location.longitude,
-        ),
-        waypoints: destinations
-            .sublist(0, destinations.length - 1)
-            .map((e) => Waypoint.fromLocation(Location(
-                  lat: e.location.latitude,
-                  lng: e.location.longitude,
-                )))
-            .toList(),
-      );
+      if (kIsWeb)
+        res = await getWebDirections(
+          origin: origin,
+          destination: destinations.last,
+          waypoints: destinations
+              .sublist(0, destinations.length - 1)
+              .map((e) => Waypoint.fromLocation(Location(
+                    lat: e.location.latitude,
+                    lng: e.location.longitude,
+                  )))
+              .toList(),
+        );
+      else {
+        var directions = GoogleMapsDirections(apiKey: mapKey);
+        res = await directions.directionsWithLocation(
+          Location(
+            lat: origin.location.latitude,
+            lng: origin.location.longitude,
+          ),
+          Location(
+            lat: destinations.last.location.latitude,
+            lng: destinations.last.location.longitude,
+          ),
+          waypoints: destinations
+              .sublist(0, destinations.length - 1)
+              .map((e) => Waypoint.fromLocation(Location(
+                    lat: e.location.latitude,
+                    lng: e.location.longitude,
+                  )))
+              .toList(),
+        );
+      }
       if (res.isOkay &&
           res.routes.isNotEmpty &&
           res.routes.first.legs.isNotEmpty) {
