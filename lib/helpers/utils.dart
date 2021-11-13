@@ -12,8 +12,8 @@ void logError(Exception error, [StackTrace? trace]) {
 }
 
 String get proxyUrl {
-  return "http://localhost:5001/canmove-9c01c/us-central1/app";
-  // return "https://canmove-9c01c.web.app";
+  // return "http://localhost:5001/canmove-9c01c/us-central1/app";
+  return "https://canmove-9c01c.web.app";
 }
 
 String get mapKey {
