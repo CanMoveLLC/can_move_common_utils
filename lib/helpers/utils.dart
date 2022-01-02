@@ -16,6 +16,15 @@ String get proxyUrl {
   return "https://canmove-9c01c.web.app";
 }
 
+String get functionsUrl {
+  // return "http://localhost:5001/canmove-9c01c/us-central1/app";
+  return "https://canmove-9c01c.web.app";
+}
+
+String get mapApiUrl {
+  return "maps.googleapis.com:443/maps/api";
+}
+
 String get mapKey {
   if (kIsWeb)
     return "AIzaSyCb7VJJwNI702hJzsSnyV7xs-ppfSitp0Q";

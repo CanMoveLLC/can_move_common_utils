@@ -27,6 +27,8 @@ class Driver with _$Driver {
 
   const factory Driver({
     required String uid,
+    String? payID,
+    @Default(false) bool payEnabled,
     required String name,
     required String email,
     required String phone,
@@ -42,7 +44,8 @@ class Driver with _$Driver {
 
   factory Driver.fromJson(Map<String, dynamic> json) => _$DriverFromJson(json);
 
-  DriverMin get min => DriverMin(uid: uid, name: name, location: location);
+  DriverMin get min =>
+      DriverMin(uid: uid, name: name, location: location, payID: payID);
 }
 
 @freezed
@@ -61,6 +64,7 @@ class Rating with _$Rating {
 class DriverMin with _$DriverMin {
   const factory DriverMin({
     required String uid,
+    String? payID,
     required String name,
     @NullGeoPointConverter() GeoPoint? location,
     @Default(UserType.driver) UserType userType,

@@ -9,6 +9,8 @@ part of 'driver.dart';
 _$_Driver _$_$_DriverFromJson(Map<String, dynamic> json) {
   return _$_Driver(
     uid: json['uid'] as String,
+    payID: json['payID'] as String?,
+    payEnabled: json['payEnabled'] as bool? ?? false,
     name: json['name'] as String,
     email: json['email'] as String,
     phone: json['phone'] as String,
@@ -24,6 +26,8 @@ _$_Driver _$_$_DriverFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'uid': instance.uid,
+      'payID': instance.payID,
+      'payEnabled': instance.payEnabled,
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
@@ -102,6 +106,7 @@ Map<String, dynamic> _$_$_RatingToJson(_$_Rating instance) => <String, dynamic>{
 _$_DriverMin _$_$_DriverMinFromJson(Map<String, dynamic> json) {
   return _$_DriverMin(
     uid: json['uid'] as String,
+    payID: json['payID'] as String?,
     name: json['name'] as String,
     location: const NullGeoPointConverter().fromJson(json['location']),
     userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
@@ -112,6 +117,7 @@ _$_DriverMin _$_$_DriverMinFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$_DriverMinToJson(_$_DriverMin instance) =>
     <String, dynamic>{
       'uid': instance.uid,
+      'payID': instance.payID,
       'name': instance.name,
       'location': const NullGeoPointConverter().toJson(instance.location),
       'userType': _$UserTypeEnumMap[instance.userType],

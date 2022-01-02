@@ -156,7 +156,7 @@ class MapsService {
     var dest = Uri.encodeComponent(
         "${destination.location.latitude},${destination.location.longitude}");
     var mapUrl =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=$org&destination=$dest&key=$mapKey";
+        "$mapApiUrl/directions/json?origin=$org&destination=$dest&key=$mapKey";
     if (waypoints?.isNotEmpty == true) {
       mapUrl = "$mapUrl&waypoints=${Uri.encodeComponent(waypoints!.join("|"))}";
     }

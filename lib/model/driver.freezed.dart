@@ -22,6 +22,8 @@ class _$DriverTearOff {
 
   _Driver call(
       {required String uid,
+      String? payID,
+      bool payEnabled = false,
       required String name,
       required String email,
       required String phone,
@@ -34,6 +36,8 @@ class _$DriverTearOff {
       required VehicleSize vehicleSize}) {
     return _Driver(
       uid: uid,
+      payID: payID,
+      payEnabled: payEnabled,
       name: name,
       email: email,
       phone: phone,
@@ -58,6 +62,8 @@ const $Driver = _$DriverTearOff();
 /// @nodoc
 mixin _$Driver {
   String get uid => throw _privateConstructorUsedError;
+  String? get payID => throw _privateConstructorUsedError;
+  bool get payEnabled => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
@@ -84,6 +90,8 @@ abstract class $DriverCopyWith<$Res> {
       _$DriverCopyWithImpl<$Res>;
   $Res call(
       {String uid,
+      String? payID,
+      bool payEnabled,
       String name,
       String email,
       String phone,
@@ -109,6 +117,8 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
   @override
   $Res call({
     Object? uid = freezed,
+    Object? payID = freezed,
+    Object? payEnabled = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? phone = freezed,
@@ -125,6 +135,14 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      payEnabled: payEnabled == freezed
+          ? _value.payEnabled
+          : payEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -183,6 +201,8 @@ abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
   @override
   $Res call(
       {String uid,
+      String? payID,
+      bool payEnabled,
       String name,
       String email,
       String phone,
@@ -210,6 +230,8 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = freezed,
+    Object? payID = freezed,
+    Object? payEnabled = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? phone = freezed,
@@ -226,6 +248,14 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      payEnabled: payEnabled == freezed
+          ? _value.payEnabled
+          : payEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -275,6 +305,8 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
 class _$_Driver extends _Driver {
   const _$_Driver(
       {required this.uid,
+      this.payID,
+      this.payEnabled = false,
       required this.name,
       required this.email,
       required this.phone,
@@ -292,6 +324,11 @@ class _$_Driver extends _Driver {
 
   @override
   final String uid;
+  @override
+  final String? payID;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool payEnabled;
   @override
   final String name;
   @override
@@ -320,7 +357,7 @@ class _$_Driver extends _Driver {
 
   @override
   String toString() {
-    return 'Driver(uid: $uid, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
+    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
   }
 
   @override
@@ -329,6 +366,11 @@ class _$_Driver extends _Driver {
         (other is _Driver &&
             (identical(other.uid, uid) ||
                 const DeepCollectionEquality().equals(other.uid, uid)) &&
+            (identical(other.payID, payID) ||
+                const DeepCollectionEquality().equals(other.payID, payID)) &&
+            (identical(other.payEnabled, payEnabled) ||
+                const DeepCollectionEquality()
+                    .equals(other.payEnabled, payEnabled)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.email, email) ||
@@ -360,6 +402,8 @@ class _$_Driver extends _Driver {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(uid) ^
+      const DeepCollectionEquality().hash(payID) ^
+      const DeepCollectionEquality().hash(payEnabled) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(phone) ^
@@ -385,6 +429,8 @@ class _$_Driver extends _Driver {
 abstract class _Driver extends Driver {
   const factory _Driver(
       {required String uid,
+      String? payID,
+      bool payEnabled,
       required String name,
       required String email,
       required String phone,
@@ -401,6 +447,10 @@ abstract class _Driver extends Driver {
 
   @override
   String get uid => throw _privateConstructorUsedError;
+  @override
+  String? get payID => throw _privateConstructorUsedError;
+  @override
+  bool get payEnabled => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
@@ -602,11 +652,13 @@ class _$DriverMinTearOff {
 
   _DriverMin call(
       {required String uid,
+      String? payID,
       required String name,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType = UserType.driver}) {
     return _DriverMin(
       uid: uid,
+      payID: payID,
       name: name,
       location: location,
       userType: userType,
@@ -624,6 +676,7 @@ const $DriverMin = _$DriverMinTearOff();
 /// @nodoc
 mixin _$DriverMin {
   String get uid => throw _privateConstructorUsedError;
+  String? get payID => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   @NullGeoPointConverter()
   GeoPoint? get location => throw _privateConstructorUsedError;
@@ -641,6 +694,7 @@ abstract class $DriverMinCopyWith<$Res> {
       _$DriverMinCopyWithImpl<$Res>;
   $Res call(
       {String uid,
+      String? payID,
       String name,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType});
@@ -657,6 +711,7 @@ class _$DriverMinCopyWithImpl<$Res> implements $DriverMinCopyWith<$Res> {
   @override
   $Res call({
     Object? uid = freezed,
+    Object? payID = freezed,
     Object? name = freezed,
     Object? location = freezed,
     Object? userType = freezed,
@@ -666,6 +721,10 @@ class _$DriverMinCopyWithImpl<$Res> implements $DriverMinCopyWith<$Res> {
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -690,6 +749,7 @@ abstract class _$DriverMinCopyWith<$Res> implements $DriverMinCopyWith<$Res> {
   @override
   $Res call(
       {String uid,
+      String? payID,
       String name,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType});
@@ -707,6 +767,7 @@ class __$DriverMinCopyWithImpl<$Res> extends _$DriverMinCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = freezed,
+    Object? payID = freezed,
     Object? name = freezed,
     Object? location = freezed,
     Object? userType = freezed,
@@ -716,6 +777,10 @@ class __$DriverMinCopyWithImpl<$Res> extends _$DriverMinCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -737,6 +802,7 @@ class __$DriverMinCopyWithImpl<$Res> extends _$DriverMinCopyWithImpl<$Res>
 class _$_DriverMin implements _DriverMin {
   const _$_DriverMin(
       {required this.uid,
+      this.payID,
       required this.name,
       @NullGeoPointConverter() this.location,
       this.userType = UserType.driver});
@@ -746,6 +812,8 @@ class _$_DriverMin implements _DriverMin {
 
   @override
   final String uid;
+  @override
+  final String? payID;
   @override
   final String name;
   @override
@@ -757,7 +825,7 @@ class _$_DriverMin implements _DriverMin {
 
   @override
   String toString() {
-    return 'DriverMin(uid: $uid, name: $name, location: $location, userType: $userType)';
+    return 'DriverMin(uid: $uid, payID: $payID, name: $name, location: $location, userType: $userType)';
   }
 
   @override
@@ -766,6 +834,8 @@ class _$_DriverMin implements _DriverMin {
         (other is _DriverMin &&
             (identical(other.uid, uid) ||
                 const DeepCollectionEquality().equals(other.uid, uid)) &&
+            (identical(other.payID, payID) ||
+                const DeepCollectionEquality().equals(other.payID, payID)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.location, location) ||
@@ -780,6 +850,7 @@ class _$_DriverMin implements _DriverMin {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(uid) ^
+      const DeepCollectionEquality().hash(payID) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(userType);
@@ -798,6 +869,7 @@ class _$_DriverMin implements _DriverMin {
 abstract class _DriverMin implements DriverMin {
   const factory _DriverMin(
       {required String uid,
+      String? payID,
       required String name,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType}) = _$_DriverMin;
@@ -807,6 +879,8 @@ abstract class _DriverMin implements DriverMin {
 
   @override
   String get uid => throw _privateConstructorUsedError;
+  @override
+  String? get payID => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override

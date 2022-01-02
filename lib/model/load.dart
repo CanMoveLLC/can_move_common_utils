@@ -17,6 +17,7 @@ enum LoadStatus {
   TO_DROP,
   DROPPED_LOAD,
   RATED,
+  CANCELED,
 }
 
 @freezed
@@ -38,6 +39,8 @@ class Load with _$Load {
     required double price,
     required double distance,
     String? image,
+    String? payID,
+    @Default(false) bool isPaid,
     @Default(LoadStatus.PENDING) LoadStatus status,
     @ServerTimeStampConverter() FieldValue? createdAt,
   }) = _Load;
@@ -71,6 +74,8 @@ class Load with _$Load {
         return "Driver has dropped off the load.";
       case LoadStatus.RATED:
         return "Service completed.";
+      case LoadStatus.CANCELED:
+        return "Service Canceled.";
     }
   }
 

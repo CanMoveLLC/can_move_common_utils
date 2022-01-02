@@ -34,6 +34,8 @@ class _$LoadTearOff {
       required double price,
       required double distance,
       String? image,
+      String? payID,
+      bool isPaid = false,
       LoadStatus status = LoadStatus.PENDING,
       @ServerTimeStampConverter() FieldValue? createdAt}) {
     return _Load(
@@ -50,6 +52,8 @@ class _$LoadTearOff {
       price: price,
       distance: distance,
       image: image,
+      payID: payID,
+      isPaid: isPaid,
       status: status,
       createdAt: createdAt,
     );
@@ -86,6 +90,8 @@ mixin _$Load {
   double get price => throw _privateConstructorUsedError;
   double get distance => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  String? get payID => throw _privateConstructorUsedError;
+  bool get isPaid => throw _privateConstructorUsedError;
   LoadStatus get status => throw _privateConstructorUsedError;
   @ServerTimeStampConverter()
   FieldValue? get createdAt => throw _privateConstructorUsedError;
@@ -113,6 +119,8 @@ abstract class $LoadCopyWith<$Res> {
       double price,
       double distance,
       String? image,
+      String? payID,
+      bool isPaid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
@@ -144,6 +152,8 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
     Object? price = freezed,
     Object? distance = freezed,
     Object? image = freezed,
+    Object? payID = freezed,
+    Object? isPaid = freezed,
     Object? status = freezed,
     Object? createdAt = freezed,
   }) {
@@ -200,6 +210,14 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isPaid: isPaid == freezed
+          ? _value.isPaid
+          : isPaid // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -256,6 +274,8 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       double price,
       double distance,
       String? image,
+      String? payID,
+      bool isPaid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
@@ -291,6 +311,8 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? price = freezed,
     Object? distance = freezed,
     Object? image = freezed,
+    Object? payID = freezed,
+    Object? isPaid = freezed,
     Object? status = freezed,
     Object? createdAt = freezed,
   }) {
@@ -347,6 +369,14 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      payID: payID == freezed
+          ? _value.payID
+          : payID // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isPaid: isPaid == freezed
+          ? _value.isPaid
+          : isPaid // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -376,6 +406,8 @@ class _$_Load extends _Load {
       required this.price,
       required this.distance,
       this.image,
+      this.payID,
+      this.isPaid = false,
       this.status = LoadStatus.PENDING,
       @ServerTimeStampConverter() this.createdAt})
       : super._();
@@ -416,6 +448,11 @@ class _$_Load extends _Load {
   final double distance;
   @override
   final String? image;
+  @override
+  final String? payID;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isPaid;
   @JsonKey(defaultValue: LoadStatus.PENDING)
   @override
   final LoadStatus status;
@@ -425,7 +462,7 @@ class _$_Load extends _Load {
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, status: $status, createdAt: $createdAt)';
+    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, payID: $payID, isPaid: $isPaid, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -464,6 +501,10 @@ class _$_Load extends _Load {
                     .equals(other.distance, distance)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.payID, payID) ||
+                const DeepCollectionEquality().equals(other.payID, payID)) &&
+            (identical(other.isPaid, isPaid) ||
+                const DeepCollectionEquality().equals(other.isPaid, isPaid)) &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.createdAt, createdAt) ||
@@ -487,6 +528,8 @@ class _$_Load extends _Load {
       const DeepCollectionEquality().hash(price) ^
       const DeepCollectionEquality().hash(distance) ^
       const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(payID) ^
+      const DeepCollectionEquality().hash(isPaid) ^
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(createdAt);
 
@@ -516,6 +559,8 @@ abstract class _Load extends Load {
       required double price,
       required double distance,
       String? image,
+      String? payID,
+      bool isPaid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt}) = _$_Load;
   const _Load._() : super._();
@@ -555,6 +600,10 @@ abstract class _Load extends Load {
   double get distance => throw _privateConstructorUsedError;
   @override
   String? get image => throw _privateConstructorUsedError;
+  @override
+  String? get payID => throw _privateConstructorUsedError;
+  @override
+  bool get isPaid => throw _privateConstructorUsedError;
   @override
   LoadStatus get status => throw _privateConstructorUsedError;
   @override

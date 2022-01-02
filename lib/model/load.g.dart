@@ -23,6 +23,8 @@ _$_Load _$_$_LoadFromJson(Map<String, dynamic> json) {
     price: (json['price'] as num).toDouble(),
     distance: (json['distance'] as num).toDouble(),
     image: json['image'] as String?,
+    payID: json['payID'] as String?,
+    isPaid: json['isPaid'] as bool? ?? false,
     status: _$enumDecodeNullable(_$LoadStatusEnumMap, json['status']) ??
         LoadStatus.PENDING,
     createdAt: const ServerTimeStampConverter().fromJson(json['createdAt']),
@@ -43,6 +45,8 @@ Map<String, dynamic> _$_$_LoadToJson(_$_Load instance) => <String, dynamic>{
       'price': instance.price,
       'distance': instance.distance,
       'image': instance.image,
+      'payID': instance.payID,
+      'isPaid': instance.isPaid,
       'status': _$LoadStatusEnumMap[instance.status],
       'createdAt': const ServerTimeStampConverter().toJson(instance.createdAt),
     };
@@ -102,6 +106,7 @@ const _$LoadStatusEnumMap = {
   LoadStatus.TO_DROP: 'TO_DROP',
   LoadStatus.DROPPED_LOAD: 'DROPPED_LOAD',
   LoadStatus.RATED: 'RATED',
+  LoadStatus.CANCELED: 'CANCELED',
 };
 
 _$_LoadLocation _$_$_LoadLocationFromJson(Map<String, dynamic> json) {
