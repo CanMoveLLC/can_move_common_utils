@@ -35,8 +35,9 @@ class LoadRouteInformation {
 class MapsService {
   gm.LatLng? location;
   final Stream<gm.LatLng> locationStream = Geolocator.getPositionStream(
-    distanceFilter: 200,
-    intervalDuration: Duration(seconds: 10),
+    locationSettings: LocationSettings(
+      distanceFilter: 200,
+    ),
   )
       .map((event) => gm.LatLng(event.latitude, event.longitude))
       .handleError((error) => logError(error));
