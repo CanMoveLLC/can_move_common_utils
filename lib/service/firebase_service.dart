@@ -29,4 +29,14 @@ class FirebaseService {
     ))
         .authorizationStatus;
   }
+
+  Future<bool> resetPassword({required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return true;
+    } on Exception catch (error, stack) {
+      logError(error, stack);
+      return false;
+    }
+  }
 }

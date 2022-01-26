@@ -159,16 +159,13 @@ class ShadowedButton extends StatelessWidget {
           padding: padding ?? EdgeInsets.zero,
           elevation: 0,
           textColor: Colors.grey[100],
-          child: AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
-            child: isLoading
+          child: isLoading
                 ? Container(
                     width: 20,
                     height: 20,
                     child: progressIndicator(context),
                   )
                 : Text(label),
-          ),
         ),
       ),
     );

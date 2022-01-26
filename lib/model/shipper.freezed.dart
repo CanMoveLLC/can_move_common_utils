@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'shipper.dart';
 
@@ -193,7 +194,7 @@ class _$_Shipper extends _Shipper {
       : super._();
 
   factory _$_Shipper.fromJson(Map<String, dynamic> json) =>
-      _$_$_ShipperFromJson(json);
+      _$$_ShipperFromJson(json);
 
   @override
   final String uid;
@@ -252,7 +253,7 @@ class _$_Shipper extends _Shipper {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ShipperToJson(this);
+    return _$$_ShipperToJson(this);
   }
 }
 
@@ -416,7 +417,7 @@ class _$_ShipperMin implements _ShipperMin {
       this.userType = UserType.shipper});
 
   factory _$_ShipperMin.fromJson(Map<String, dynamic> json) =>
-      _$_$_ShipperMinFromJson(json);
+      _$$_ShipperMinFromJson(json);
 
   @override
   final String uid;
@@ -458,7 +459,7 @@ class _$_ShipperMin implements _ShipperMin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ShipperMinToJson(this);
+    return _$$_ShipperMinToJson(this);
   }
 }
 
