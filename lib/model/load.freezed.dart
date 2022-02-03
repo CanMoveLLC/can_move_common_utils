@@ -37,6 +37,8 @@ class _$LoadTearOff {
       String? image,
       String? payID,
       bool isPaid = false,
+      bool userHasBid = true,
+      bool driverHasBid = false,
       LoadStatus status = LoadStatus.PENDING,
       @ServerTimeStampConverter() FieldValue? createdAt}) {
     return _Load(
@@ -55,6 +57,8 @@ class _$LoadTearOff {
       image: image,
       payID: payID,
       isPaid: isPaid,
+      userHasBid: userHasBid,
+      driverHasBid: driverHasBid,
       status: status,
       createdAt: createdAt,
     );
@@ -93,6 +97,8 @@ mixin _$Load {
   String? get image => throw _privateConstructorUsedError;
   String? get payID => throw _privateConstructorUsedError;
   bool get isPaid => throw _privateConstructorUsedError;
+  bool get userHasBid => throw _privateConstructorUsedError;
+  bool get driverHasBid => throw _privateConstructorUsedError;
   LoadStatus get status => throw _privateConstructorUsedError;
   @ServerTimeStampConverter()
   FieldValue? get createdAt => throw _privateConstructorUsedError;
@@ -122,6 +128,8 @@ abstract class $LoadCopyWith<$Res> {
       String? image,
       String? payID,
       bool isPaid,
+      bool userHasBid,
+      bool driverHasBid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
@@ -155,6 +163,8 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
     Object? image = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
+    Object? userHasBid = freezed,
+    Object? driverHasBid = freezed,
     Object? status = freezed,
     Object? createdAt = freezed,
   }) {
@@ -219,6 +229,14 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
               as bool,
+      userHasBid: userHasBid == freezed
+          ? _value.userHasBid
+          : userHasBid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      driverHasBid: driverHasBid == freezed
+          ? _value.driverHasBid
+          : driverHasBid // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -277,6 +295,8 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       String? image,
       String? payID,
       bool isPaid,
+      bool userHasBid,
+      bool driverHasBid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
@@ -314,6 +334,8 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? image = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
+    Object? userHasBid = freezed,
+    Object? driverHasBid = freezed,
     Object? status = freezed,
     Object? createdAt = freezed,
   }) {
@@ -378,6 +400,14 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
           ? _value.isPaid
           : isPaid // ignore: cast_nullable_to_non_nullable
               as bool,
+      userHasBid: userHasBid == freezed
+          ? _value.userHasBid
+          : userHasBid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      driverHasBid: driverHasBid == freezed
+          ? _value.driverHasBid
+          : driverHasBid // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -409,6 +439,8 @@ class _$_Load extends _Load {
       this.image,
       this.payID,
       this.isPaid = false,
+      this.userHasBid = true,
+      this.driverHasBid = false,
       this.status = LoadStatus.PENDING,
       @ServerTimeStampConverter() this.createdAt})
       : super._();
@@ -453,6 +485,12 @@ class _$_Load extends _Load {
   @JsonKey(defaultValue: false)
   @override
   final bool isPaid;
+  @JsonKey(defaultValue: true)
+  @override
+  final bool userHasBid;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool driverHasBid;
   @JsonKey(defaultValue: LoadStatus.PENDING)
   @override
   final LoadStatus status;
@@ -462,7 +500,7 @@ class _$_Load extends _Load {
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, payID: $payID, isPaid: $isPaid, status: $status, createdAt: $createdAt)';
+    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -505,6 +543,12 @@ class _$_Load extends _Load {
                 const DeepCollectionEquality().equals(other.payID, payID)) &&
             (identical(other.isPaid, isPaid) ||
                 const DeepCollectionEquality().equals(other.isPaid, isPaid)) &&
+            (identical(other.userHasBid, userHasBid) ||
+                const DeepCollectionEquality()
+                    .equals(other.userHasBid, userHasBid)) &&
+            (identical(other.driverHasBid, driverHasBid) ||
+                const DeepCollectionEquality()
+                    .equals(other.driverHasBid, driverHasBid)) &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.createdAt, createdAt) ||
@@ -530,6 +574,8 @@ class _$_Load extends _Load {
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(payID) ^
       const DeepCollectionEquality().hash(isPaid) ^
+      const DeepCollectionEquality().hash(userHasBid) ^
+      const DeepCollectionEquality().hash(driverHasBid) ^
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(createdAt);
 
@@ -561,6 +607,8 @@ abstract class _Load extends Load {
       String? image,
       String? payID,
       bool isPaid,
+      bool userHasBid,
+      bool driverHasBid,
       LoadStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt}) = _$_Load;
   const _Load._() : super._();
@@ -604,6 +652,10 @@ abstract class _Load extends Load {
   String? get payID => throw _privateConstructorUsedError;
   @override
   bool get isPaid => throw _privateConstructorUsedError;
+  @override
+  bool get userHasBid => throw _privateConstructorUsedError;
+  @override
+  bool get driverHasBid => throw _privateConstructorUsedError;
   @override
   LoadStatus get status => throw _privateConstructorUsedError;
   @override

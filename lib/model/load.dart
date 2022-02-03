@@ -41,6 +41,8 @@ class Load with _$Load {
     String? image,
     String? payID,
     @Default(false) bool isPaid,
+    @Default(true) bool userHasBid,
+    @Default(false) bool driverHasBid,
     @Default(LoadStatus.PENDING) LoadStatus status,
     @ServerTimeStampConverter() FieldValue? createdAt,
   }) = _Load;

@@ -114,3 +114,34 @@ class PricePicker extends HookWidget {
     );
   }
 }
+
+class PriceDisplay extends StatelessWidget {
+  const PriceDisplay({
+    Key? key,
+    required this.price,
+    this.onTap,
+  }) : super(key: key);
+
+  final double price;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Text.rich(
+        TextSpan(
+          text: "\$",
+          style: textTheme(context).headline3?.copyWith(fontSize: 50),
+          children: [
+            TextSpan(
+              text: "${price.toInt()}",
+              style: textTheme(context).headline2?.copyWith(fontSize: 70),
+            ),
+          ],
+          recognizer: TapGestureRecognizer()..onTap = onTap,
+        ),
+      ),
+    );
+  }
+}

@@ -288,6 +288,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  fdottedline:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: null-safety
+      resolved-ref: "690e769f2f20f2a8613eaa7320ebe99adc33ad00"
+      url: "https://github.com/Taskulu/fdottedline.git"
+    source: git
+    version: "1.0.1"
   ffi:
     dependency: transitive
     description:

@@ -24,6 +24,8 @@ _$_Load _$$_LoadFromJson(Map<String, dynamic> json) => _$_Load(
       image: json['image'] as String?,
       payID: json['payID'] as String?,
       isPaid: json['isPaid'] as bool? ?? false,
+      userHasBid: json['userHasBid'] as bool? ?? true,
+      driverHasBid: json['driverHasBid'] as bool? ?? false,
       status: $enumDecodeNullable(_$LoadStatusEnumMap, json['status']) ??
           LoadStatus.PENDING,
       createdAt: const ServerTimeStampConverter().fromJson(json['createdAt']),
@@ -45,6 +47,8 @@ Map<String, dynamic> _$$_LoadToJson(_$_Load instance) => <String, dynamic>{
       'image': instance.image,
       'payID': instance.payID,
       'isPaid': instance.isPaid,
+      'userHasBid': instance.userHasBid,
+      'driverHasBid': instance.driverHasBid,
       'status': _$LoadStatusEnumMap[instance.status],
       'createdAt': const ServerTimeStampConverter().toJson(instance.createdAt),
     };

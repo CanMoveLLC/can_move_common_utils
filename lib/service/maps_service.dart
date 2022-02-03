@@ -1,9 +1,6 @@
 import 'dart:convert';
 
-import 'package:can_move_common_utils/model/constants.dart';
 import 'package:can_move_common_utils/ui/notify.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,7 +10,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart' as gm;
 import 'package:google_maps_webservice/directions.dart';
 import 'package:http/http.dart' as http;
 import 'package:location/location.dart' as loc;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../helpers/utils.dart';
 import '../model/load.dart';
@@ -33,15 +29,6 @@ class LoadRouteInformation {
 }
 
 class MapsService {
-  gm.LatLng? location;
-  final Stream<gm.LatLng> locationStream = Geolocator.getPositionStream(
-    locationSettings: LocationSettings(
-      distanceFilter: 200,
-    ),
-  )
-      .map((event) => gm.LatLng(event.latitude, event.longitude))
-      .handleError((error) => logError(error));
-
   Future changeLocationSettings({
     loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
     int? interval = 10000,
@@ -114,36 +101,6 @@ class MapsService {
     } on Exception catch (e, stack) {
       logError(e, stack);
       return null;
-    }
-  }
-
-  Future setLocation(
-      {required double latitude, required double longitude}) async {
-    if (location?.latitude == latitude && location?.longitude == longitude)
-      return;
-    location = gm.LatLng(latitude, longitude);
-    var uid = FirebaseAuth.instance.currentUser?.uid;
-    if (uid == null) return;
-    try {
-      var fb = FirebaseFirestore.instance;
-      await fb
-          .collection(usersCollection)
-          .doc(uid)
-          .update({"location": GeoPoint(latitude, longitude)});
-      var curLoad =
-          (await SharedPreferences.getInstance()).getString("currentLoad");
-      if (curLoad != null) {
-        var doc = await fb.collection(loadsCollection).doc(curLoad).get();
-        var load = Load.fromJson(doc.data()!).copyWith(uid: doc.id);
-        load = load.copyWith(
-          driver: load.driver?.copyWith(
-            location: GeoPoint(latitude, longitude),
-          ),
-        );
-        await fb.collection(loadsCollection).doc(curLoad).update(load.toJson());
-      }
-    } on Exception catch (error, stack) {
-      logError(error, stack);
     }
   }
 
