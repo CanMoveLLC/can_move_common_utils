@@ -83,6 +83,18 @@ class Load with _$Load {
 
   String get sizeStr =>
       size.toString().split('.').last.replaceAll("_", " ").toUpperCase();
+
+  bool get shouldPay {
+    return driver?.payID != null &&
+        !isPaid &&
+        (status != LoadStatus.PENDING || status != LoadStatus.CANCELED);
+  }
+
+  bool get isOnGoing {
+    return status == LoadStatus.DROPPED_LOAD ||
+        status == LoadStatus.RATED ||
+        status == LoadStatus.CANCELED;
+  }
 }
 
 @freezed
