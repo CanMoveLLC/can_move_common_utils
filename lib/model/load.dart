@@ -90,7 +90,7 @@ class Load with _$Load {
         (status != LoadStatus.PENDING || status != LoadStatus.CANCELED);
   }
 
-  bool get isOnGoing {
+  bool get isNotOnGoing {
     return status == LoadStatus.DROPPED_LOAD ||
         status == LoadStatus.RATED ||
         status == LoadStatus.CANCELED;
