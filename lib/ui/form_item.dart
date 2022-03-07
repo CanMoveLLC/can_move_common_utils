@@ -44,80 +44,74 @@ class TextFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
-    var inputTheme = Theme.of(context).inputDecorationTheme;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: textTheme.bodyText1?.copyWith(
-            color: textTheme.caption?.color,
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          initialValue: value,
-          obscureText: obscureText,
-          controller: controller,
-          focusNode: focusNode,
-          onChanged: (value) {
-            onChanged?.call(value);
-          },
-          onTap: () {
-            onTap?.call();
-          },
-          autofocus: autoFocus,
-          textInputAction: textInputAction,
-          autocorrect: autoCorrect,
-          maxLines: maxLines,
-          style: textTheme.bodyText2,
-          onFieldSubmitted: (value) {
-            onFieldSubmitted?.call(value);
-          },
-          onSaved: (value) {
-            onSaved?.call(value);
-          },
-          keyboardType: textInputType,
-          decoration: InputDecoration(
-            suffixIconConstraints: BoxConstraints.tight(
-              Size(20, 20),
+    var textTheme = Theme
+        .of(context)
+        .textTheme;
+    var inputTheme = Theme
+        .of(context)
+        .inputDecorationTheme;
+    return TextFormField(
+      initialValue: value,
+      obscureText: obscureText,
+      controller: controller,
+      focusNode: focusNode,
+      onChanged: (value) {
+        onChanged?.call(value);
+      },
+      onTap: () {
+        onTap?.call();
+      },
+      autofocus: autoFocus,
+      textInputAction: textInputAction,
+      autocorrect: autoCorrect,
+      maxLines: maxLines,
+      style: textTheme.bodyText2,
+      onFieldSubmitted: (value) {
+        onFieldSubmitted?.call(value);
+      },
+      onSaved: (value) {
+        onSaved?.call(value);
+      },
+      keyboardType: textInputType,
+      decoration: InputDecoration(
+        /*suffixIconConstraints: BoxConstraints.tight(
+          Size(20, 20),
+        ),*/
+        suffixIcon: isLoading
+            ? Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: SizedBox(
+            height: 15,
+            width: 15,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              backgroundColor: Theme
+                  .of(context)
+                  .primaryColor,
+              color: Theme
+                  .of(context)
+                  .colorScheme
+                  .secondary,
             ),
-            suffixIcon: isLoading
-                ? Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: SizedBox(
-                      height: 15,
-                      width: 15,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        backgroundColor: Theme.of(context).primaryColor,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    ),
-                  )
-                : suffixIcon,
-            filled: inputTheme.filled,
-            hintText: hint,
-            hintStyle: inputTheme.hintStyle,
-            fillColor: fillColor ?? inputTheme.fillColor,
-            focusColor: inputTheme.focusColor,
-            contentPadding: inputTheme.contentPadding,
-            enabledBorder: inputTheme.enabledBorder,
-            focusedBorder: inputTheme.focusedBorder,
-            errorBorder: inputTheme.errorBorder,
-            focusedErrorBorder: inputTheme.focusedErrorBorder,
           ),
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: (value) {
-            return validator?.call(value);
-          },
-        ),
-      ],
+        )
+            : suffixIcon,
+        filled: inputTheme.filled,
+        hintText: hint,
+        label: Text(label),
+        hintStyle: inputTheme.hintStyle,
+        fillColor: fillColor ?? inputTheme.fillColor,
+        focusColor: inputTheme.focusColor,
+        contentPadding: inputTheme.contentPadding,
+        enabledBorder: inputTheme.enabledBorder,
+        focusedBorder: inputTheme.focusedBorder,
+        errorBorder: inputTheme.errorBorder,
+        focusedErrorBorder: inputTheme.focusedErrorBorder,
+      ),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (value) {
+        return validator?.call(value);
+      },
     );
   }
 }
@@ -162,8 +156,12 @@ class NoLabelTextFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
-    var inputTheme = Theme.of(context).inputDecorationTheme;
+    var textTheme = Theme
+        .of(context)
+        .textTheme;
+    var inputTheme = Theme
+        .of(context)
+        .inputDecorationTheme;
     return TextFormField(
       initialValue: value,
       obscureText: obscureText,
@@ -193,17 +191,22 @@ class NoLabelTextFormItem extends StatelessWidget {
         ),
         suffixIcon: isLoading
             ? Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: SizedBox(
-                  height: 15,
-                  width: 15,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    backgroundColor: Theme.of(context).primaryColor,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                ),
-              )
+          padding: const EdgeInsets.all(3.0),
+          child: SizedBox(
+            height: 15,
+            width: 15,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              backgroundColor: Theme
+                  .of(context)
+                  .primaryColor,
+              color: Theme
+                  .of(context)
+                  .colorScheme
+                  .secondary,
+            ),
+          ),
+        )
             : suffixIcon,
         filled: inputTheme.filled,
         hintText: hint,
@@ -262,8 +265,12 @@ class SelectFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
-    var inputTheme = Theme.of(context).inputDecorationTheme;
+    var textTheme = Theme
+        .of(context)
+        .textTheme;
+    var inputTheme = Theme
+        .of(context)
+        .inputDecorationTheme;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -352,11 +359,12 @@ class SelectFormItem extends StatelessWidget {
             ),
             items: items
                 .map(
-                  (item) => DropdownMenuItem(
+                  (item) =>
+                  DropdownMenuItem(
                     child: Text(item.label),
                     value: item.value,
                   ),
-                )
+            )
                 .toList(),
             onChanged: (value) {
               onChanged?.call(value);

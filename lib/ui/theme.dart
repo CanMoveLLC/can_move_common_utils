@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData darkTheme(BuildContext context) {
@@ -36,31 +37,32 @@ ThemeData darkTheme(BuildContext context) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
+      suffixIconColor: Colors.grey[100],
       hintStyle: textTheme.caption,
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: colorScheme.secondary,
           width: 0.5,
         ),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.red,
           width: 0.5,
@@ -77,12 +79,12 @@ ThemeData darkTheme(BuildContext context) {
   return theme.copyWith(
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     cardTheme: theme.cardTheme.copyWith(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     iconTheme: IconThemeData(
@@ -92,17 +94,19 @@ ThemeData darkTheme(BuildContext context) {
       colorScheme: colorScheme,
       textTheme: ButtonTextTheme.primary,
       buttonColor: colorScheme.primary,
+      height: 50,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
     appBarTheme: theme.appBarTheme.copyWith(
       elevation: 2,
-      textTheme: textTheme,
       color: colorScheme.primary,
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
+      toolbarTextStyle: textTheme.bodyText2,
+      titleTextStyle: textTheme.headline6,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -146,33 +150,34 @@ ThemeData lightTheme(BuildContext context) {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
+      suffixIconColor: Colors.grey[900],
       hintStyle: textTheme.caption,
       fillColor: Colors.grey[100],
       // focusColor: Colors.grey[300],
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: colorScheme.secondary,
           width: 0.5,
         ),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.red,
           width: 0.5,
@@ -184,12 +189,12 @@ ThemeData lightTheme(BuildContext context) {
   return theme.copyWith(
     dialogTheme: DialogTheme(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     cardTheme: theme.cardTheme.copyWith(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(20),
       ),
     ),
     iconTheme: IconThemeData(
@@ -199,17 +204,19 @@ ThemeData lightTheme(BuildContext context) {
       colorScheme: colorScheme,
       textTheme: ButtonTextTheme.primary,
       buttonColor: colorScheme.primary,
+      height: 50,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
     appBarTheme: theme.appBarTheme.copyWith(
       elevation: 1,
-      textTheme: textTheme,
       color: colorScheme.primary,
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
+      toolbarTextStyle: textTheme.bodyText2,
+      titleTextStyle: textTheme.headline6,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -219,43 +226,51 @@ ThemeData lightTheme(BuildContext context) {
 TextTheme _buildTextTheme(BuildContext context) {
   var textTheme = Theme.of(context).textTheme;
 
-  return GoogleFonts.comfortaaTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.comfortaa(
+  return GoogleFonts.manropeTextTheme(textTheme).copyWith(
+    headline4: GoogleFonts.manrope(
       color: Colors.grey[900],
     ),
-    headline5: GoogleFonts.comfortaa(
-      color: Colors.grey[900],
-    ),
-    subtitle1: GoogleFonts.comfortaa(
+    subtitle1: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontWeight: FontWeight.w600,
     ),
-    headline6: GoogleFonts.comfortaa(
+    headline5: GoogleFonts.manrope(
       color: Colors.grey[900],
-      fontWeight: FontWeight.w600,
+      fontSize: 30,
+      fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.comfortaa(
+    headline6: GoogleFonts.manrope(
+      color: Colors.grey[900],
+      fontSize: 24,
+      fontWeight: FontWeight.w800,
+    ),
+    headline2: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    headline3: GoogleFonts.comfortaa(
+    headline3: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    bodyText2: GoogleFonts.comfortaa(
+    bodyText1: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    button: GoogleFonts.comfortaa(
+    bodyText2: GoogleFonts.manrope(
+      color: Colors.grey[900],
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    ),
+    button: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    subtitle2: GoogleFonts.comfortaa(
+    subtitle2: GoogleFonts.manrope(
       color: Colors.grey[700],
     ),
-    caption: GoogleFonts.comfortaa(
+    caption: GoogleFonts.manrope(
       fontSize: 15,
       color: Colors.grey,
     ),
@@ -265,43 +280,51 @@ TextTheme _buildTextTheme(BuildContext context) {
 TextTheme _buildDarkTextTheme(BuildContext context) {
   var textTheme = Theme.of(context).textTheme;
 
-  return GoogleFonts.comfortaaTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.comfortaa(
+  return GoogleFonts.manropeTextTheme(textTheme).copyWith(
+    headline4: GoogleFonts.manrope(
       color: Colors.grey[100],
     ),
-    headline5: GoogleFonts.comfortaa(
-      color: Colors.grey[100],
-    ),
-    subtitle1: GoogleFonts.comfortaa(
+    subtitle1: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontWeight: FontWeight.w600,
     ),
-    headline6: GoogleFonts.comfortaa(
+    headline5: GoogleFonts.manrope(
       color: Colors.grey[100],
-      fontWeight: FontWeight.w600,
+      fontSize: 30,
+      fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.comfortaa(
+    headline6: GoogleFonts.manrope(
+      color: Colors.grey[100],
+      fontSize: 24,
+      fontWeight: FontWeight.w800,
+    ),
+    headline2: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    headline3: GoogleFonts.comfortaa(
+    headline3: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    bodyText2: GoogleFonts.comfortaa(
+    bodyText1: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    button: GoogleFonts.comfortaa(
+    bodyText2: GoogleFonts.manrope(
+      color: Colors.grey[100],
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    ),
+    button: GoogleFonts.manrope(
       fontSize: 16,
       color: Colors.grey[100],
       fontWeight: FontWeight.w500,
     ),
-    subtitle2: GoogleFonts.comfortaa(
+    subtitle2: GoogleFonts.manrope(
       color: Colors.grey[300],
     ),
-    caption: GoogleFonts.comfortaa(
+    caption: GoogleFonts.manrope(
       fontSize: 15,
       color: Colors.grey[400],
     ),
