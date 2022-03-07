@@ -7,10 +7,17 @@ import 'package:flutter/services.dart' show PlatformException;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
+final CameraPosition kInitialMapPosition = CameraPosition(
+  target: LatLng(37.09024, -95.712891),
+  zoom: 5,
+  tilt: 50,
+);
+
 abstract class MapState<T extends StatefulWidget> extends State<T>
     with WidgetsBindingObserver {
   final Completer<GoogleMapController> mapController = Completer();
   final _mapThemeService = MapThemeService();
+  BitmapDescriptor? markerIcon;
 
   Brightness get brightness {
     return WidgetsBinding.instance?.window.platformBrightness ??
@@ -27,6 +34,7 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
     super.initState();
     WidgetsBinding.instance?.addObserver(this);
     _getBrightness();
+    getMarkerPin();
   }
 
   @override
@@ -40,6 +48,15 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
     changeMapTheme(newBright);
   }
 
+  Future<BitmapDescriptor?> getMarkerPin() async {
+    if (markerIcon == null)
+      markerIcon = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(devicePixelRatio: 1.5),
+        'assets/images/location.png',
+      );
+    return markerIcon;
+  }
+
   Future changeMapTheme([Brightness? platformBrightness]) async {
     var style = await _mapThemeService.getTheme(
       platformBrightness ?? Brightness.dark,
@@ -48,7 +65,8 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
     controller.setMapStyle(style);
   }
 
-  Future<void> moveMapToLatLngList(List<LatLng> list, {bool delay = true}) async {
+  Future<void> moveMapToLatLngList(List<LatLng> list,
+      {bool delay = true}) async {
     if (delay) await Future.delayed(Duration(seconds: 1));
     final controller = await mapController.future;
     await controller.animateCamera(

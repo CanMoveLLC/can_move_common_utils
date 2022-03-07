@@ -38,24 +38,26 @@ class RoundUrlImage extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: loading
               ? CircularProgressIndicator(
-                  strokeWidth: 2,
-                )
+            strokeWidth: 2,
+          )
               : imageUrl == null
-                  ? Icon(
-                      Icons.person_outline,
-                      size: width / 2,
-                    )
-                  : CachedNetworkImage(
-                      imageUrl: imageUrl!,
-                      fit: BoxFit.fill,
-                      width: width,
-                      height: height,
-                      progressIndicatorBuilder:
-                          (context, url, downloadProgress) =>
-                              CircularProgressIndicator(
-                                  value: downloadProgress.progress),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
+              ? Icon(
+            Icons.person_outline,
+            size: width / 2,
+          )
+              : imageUrl!.contains("assets") ?
+          Image.asset(imageUrl!)
+              : CachedNetworkImage(
+            imageUrl: imageUrl!,
+            fit: BoxFit.fill,
+            width: width,
+            height: height,
+            progressIndicatorBuilder:
+                (context, url, downloadProgress) =>
+                CircularProgressIndicator(
+                    value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
         ),
       ),
     );

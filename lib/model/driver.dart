@@ -46,6 +46,10 @@ class Driver with _$Driver {
 
   DriverMin get min =>
       DriverMin(uid: uid, name: name, location: location, payID: payID);
+  String get vehicleSizeTxt => vehicleSize
+      .toString()
+      .split(".")[1]
+      .replaceAll("_", " ");
 }
 
 @freezed
