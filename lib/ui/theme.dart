@@ -117,7 +117,7 @@ ThemeData lightTheme(BuildContext context) {
   var textTheme = _buildTextTheme(context);
   final colorScheme = const ColorScheme.light().copyWith(
     primary: Color(0xFFF6EBDD),
-    secondary: Color(0xFFFB8C00),
+    secondary: Color.fromRGBO(249, 158, 46, 1),
     /*
     * primary: Color(0xFFF6F4F6),
     secondary: Colors.purple,*/

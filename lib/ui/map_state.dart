@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:can_move_common_utils/helpers/utils.dart';
 import 'package:can_move_common_utils/service/map_theme_service.dart';
@@ -34,6 +35,11 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
     super.initState();
     WidgetsBinding.instance?.addObserver(this);
     _getBrightness();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     getMarkerPin();
   }
 
@@ -49,10 +55,19 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
   }
 
   Future<BitmapDescriptor?> getMarkerPin() async {
+    var iconName = "pin@2x";
+    if (Platform.isAndroid) {
+      double mq = MediaQuery.of(context).devicePixelRatio;
+      if (mq > 1.5 && mq < 2.5)
+        iconName = "pin@2x";
+      else if (mq >= 2.5) iconName = "pin@3x";
+    }
     if (markerIcon == null)
       markerIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 1.5),
-        'assets/images/location.png',
+        ImageConfiguration(
+          devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
+        ),
+        'assets/images/$iconName.png',
       );
     return markerIcon;
   }

@@ -54,8 +54,32 @@ class Load with _$Load {
         .copyWith(uid: snapshot.id);
   }
 
-  String get statusStr =>
-      status.toString().split('.').last.replaceAll("_", " ").toUpperCase();
+  // String get statusStr =>
+  //     status.toString().split('.').last.replaceAll("_", " ").toUpperCase();
+
+  String get statusStr {
+    switch (status) {
+      case LoadStatus.PENDING:
+        return "Pending";
+      case LoadStatus.ACCEPTED:
+        return "Accepted";
+      case LoadStatus.TO_PICKUP:
+        return "En Route";
+
+      case LoadStatus.HAS_LOAD:
+        return "Picked";
+
+      case LoadStatus.TO_DROP:
+        return "En Route";
+
+      case LoadStatus.DROPPED_LOAD:
+        return "Dropped";
+      case LoadStatus.RATED:
+        return "Dropped";
+      case LoadStatus.CANCELED:
+        return "Canceled";
+    }
+  }
 
   String get statusMsg {
     switch (status) {

@@ -4,6 +4,8 @@ import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import '../helpers/aliases.dart';
+
 /*
 class SliverShadowedButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -321,19 +323,88 @@ class TextyButton extends StatelessWidget {
 }
 
 class MoveBackButton extends StatelessWidget {
-  const MoveBackButton({Key? key, this.onTap}) : super(key: key);
+  const MoveBackButton({Key? key, this.onTap, this.elevate = false})
+      : super(key: key);
 
   final VoidCallback? onTap;
+  final bool elevate;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    var inkWell = InkWell(
       borderRadius: BorderRadius.circular(10),
       child: Image.asset(
         "assets/images/arrow-left.png",
         color: textTheme(context).bodyText2?.color,
       ),
       onTap: onTap ?? () => router(context).pop(),
+    );
+    if (!elevate) return inkWell;
+    return Material(
+      type: MaterialType.button,
+      color: theme(context).scaffoldBackgroundColor,
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Container(
+        height: 40,
+        width: 40,
+        child: inkWell,
+      ),
+    );
+  }
+}
+
+class FilterByDateBtn extends StatelessWidget {
+  const FilterByDateBtn({
+    Key? key,
+    required this.onPickDate,
+    required this.onClearTap,
+    this.initialDate,
+    this.label = "Filter by date",
+  }) : super(key: key);
+
+  final DateTimeCallback onPickDate;
+  final VoidCallback onClearTap;
+  final String label;
+  final DateTime? initialDate;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        InkWell(
+          onTap: () async {
+            var datE = await showDatePicker(
+              context: context,
+              initialDate: initialDate ?? DateTime.now(),
+              firstDate: DateTime.utc(2020),
+              lastDate: DateTime.now(),
+            );
+            if (datE == null) return;
+            onPickDate(datE);
+          },
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset("assets/images/calendar.png"),
+              SizedBox(width: 7),
+              Text(label),
+            ],
+          ),
+        ),
+        if (label != "Filter by date")
+          SizedBox(
+            width: 50,
+          ),
+        if (label != "Filter by date")
+          InkWell(
+            child: Text("Clear"),
+            onTap: onClearTap,
+          ),
+      ],
     );
   }
 }
