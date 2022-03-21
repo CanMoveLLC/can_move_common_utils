@@ -12,9 +12,10 @@ class TextFormItem extends StatelessWidget {
   final int maxLines;
   final bool autoCorrect;
   final bool autoFocus;
-  final bool obscureText, isLoading;
+  final bool obscureText, isLoading, enabled;
   final Color? fillColor;
   final Widget? suffixIcon;
+  final EdgeInsets? padding;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
   final FormFieldValidator<String>? validator;
@@ -38,6 +39,8 @@ class TextFormItem extends StatelessWidget {
     this.autoCorrect = true,
     this.obscureText = false,
     this.validator,
+    this.padding,
+    this.enabled = true,
     this.value,
     this.onSaved,
   }) : super(key: key);
@@ -53,6 +56,7 @@ class TextFormItem extends StatelessWidget {
     return TextFormField(
       initialValue: value,
       obscureText: obscureText,
+      enabled: enabled,
       controller: controller,
       focusNode: focusNode,
       onChanged: (value) {
@@ -102,8 +106,9 @@ class TextFormItem extends StatelessWidget {
         hintStyle: inputTheme.hintStyle,
         fillColor: fillColor ?? inputTheme.fillColor,
         focusColor: inputTheme.focusColor,
-        contentPadding: inputTheme.contentPadding,
+        contentPadding: padding ?? inputTheme.contentPadding,
         enabledBorder: inputTheme.enabledBorder,
+        disabledBorder: inputTheme.disabledBorder,
         focusedBorder: inputTheme.focusedBorder,
         errorBorder: inputTheme.errorBorder,
         focusedErrorBorder: inputTheme.focusedErrorBorder,

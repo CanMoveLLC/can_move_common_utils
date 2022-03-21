@@ -15,8 +15,12 @@ class CanMoveScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: theme(context).brightness == Brightness.light
-          ? SystemUiOverlayStyle.dark
-          : SystemUiOverlayStyle.light,
+          ? SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: Colors.transparent,
+      )
+          : SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.transparent,
+      ),
       child: Scaffold(
         body: body,
         floatingActionButton: floatingActionButton,

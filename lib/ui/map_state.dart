@@ -55,14 +55,15 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
   }
 
   Future<BitmapDescriptor?> getMarkerPin() async {
-    var iconName = "pin@2x";
+    if (markerIcon != null)
+      return markerIcon;
+      var iconName = "pin";
     if (Platform.isAndroid) {
       double mq = MediaQuery.of(context).devicePixelRatio;
       if (mq > 1.5 && mq < 2.5)
-        iconName = "pin@2x";
-      else if (mq >= 2.5) iconName = "pin@3x";
+        iconName = "3x/pin";
+      else if (mq >= 2.5) iconName = "3x/pin";
     }
-    if (markerIcon == null)
       markerIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(
           devicePixelRatio: MediaQuery.of(context).devicePixelRatio,

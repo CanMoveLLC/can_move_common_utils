@@ -2,11 +2,12 @@ import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:intl/intl.dart';
 
 import 'misc.dart';
 
 class PricePicker extends HookWidget {
-  const PricePicker({
+  PricePicker({
     Key? key,
     /*required this.onPriceChanged,*/
     /*this.initial = 0, */ required this.price$,
@@ -14,6 +15,8 @@ class PricePicker extends HookWidget {
 
   final ValueNotifier<double> price$;
   // final Function(double) onPriceChanged;
+  final _formatter =
+  NumberFormat.compactSimpleCurrency(locale: "en", name: "USD");
 
   @override
   Widget build(BuildContext context) {
@@ -30,22 +33,16 @@ class PricePicker extends HookWidget {
             // onPriceChanged(price.value + 0.0);
           },
           child: Container(
-            height: 40,
-            width: 40,
+            height: 50,
+            width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: colorScheme(context).primary,
-                width: 0.5,
-              ),
-              color: colorScheme(context).primary,
+              color: textTheme(context).caption?.color?.withOpacity(0.3),
             ),
             child: Center(
-              child: Text(
-                "-",
-                style: textTheme(context).headline4?.copyWith(
-                      color: theme(context).cardTheme.color,
-                    ),
+              child: Icon(
+                Icons.remove,
+                color: textTheme(context).bodyText2?.color,
               ),
             ),
           ),
@@ -53,33 +50,11 @@ class PricePicker extends HookWidget {
         SizedBox(
           width: 5,
         ),
-        Text.rich(
-          TextSpan(
-            text: "\$",
-            style: textTheme(context).headline3?.copyWith(
+          Text(
+            _formatter.format(price$.value),
+            style: textTheme(context).headline4?.copyWith(
                   fontSize: 50,
                 ),
-            children: [
-              TextSpan(
-                text: "${price$.value.toInt()}",
-                style: textTheme(context).headline2?.copyWith(
-                      fontSize: 70,
-                    ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () async {
-                    var p = await getSingleNumberInput(
-                      context,
-                      label: "Enter price.",
-                    );
-                    if (p != null) price$.value = p + 0.0;
-                  },
-              ),
-              /*TextSpan(
-                text: ".00",
-                style: textTheme(context).headline3,
-              ),*/
-            ],
-          ),
         ),
         SizedBox(
           width: 5,
@@ -90,22 +65,16 @@ class PricePicker extends HookWidget {
             // onPriceChanged(price.value + 0.0);
           },
           child: Container(
-            height: 40,
-            width: 40,
+            height: 50,
+            width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: colorScheme(context).primary,
-                width: 0.5,
-              ),
-              color: colorScheme(context).primary,
+              color: textTheme(context).caption?.color?.withOpacity(0.3),
             ),
             child: Center(
-              child: Text(
-                "+",
-                style: textTheme(context).headline4?.copyWith(
-                      color: theme(context).cardTheme.color,
-                    ),
+              child: Icon(
+                Icons.add,
+                color: textTheme(context).bodyText2?.color,
               ),
             ),
           ),

@@ -17,9 +17,10 @@ class VehicleSizePicker extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var widgets = <Widget>[
-      SizedBox(
-        width: 16,
-      ),
+      if (showAll)
+        SizedBox(
+          width: 30,
+        ),
     ];
     for (var size in VehicleSize.values) {
       if (showAll || (!showAll && size$.value == size)) {
@@ -32,15 +33,20 @@ class VehicleSizePicker extends HookWidget {
         );
       }
     }
+    if (showAll)
+      widgets.add(SizedBox(
+        width: 15,
+      ));
     var row = Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment:
-          showAll ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.center,
+      showAll ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.center,
       children: widgets,
     );
     if (showAll)
       return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(vertical: 1),
         child: row,
       );
     else

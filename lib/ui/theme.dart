@@ -36,11 +36,18 @@ ThemeData darkTheme(BuildContext context) {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      filled: true,
+      // filled: true,
       suffixIconColor: Colors.grey[100],
       hintStyle: textTheme.caption,
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(
+          color: Colors.grey,
+          width: 0.5,
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.grey,
@@ -130,7 +137,7 @@ ThemeData lightTheme(BuildContext context) {
     brightness: Brightness.light,
     primaryColor: colorScheme.primary,
     // accentColor: colorScheme.secondary,
-    scaffoldBackgroundColor: Colors.grey[50],
+    scaffoldBackgroundColor: Colors.white,
     cardTheme: CardTheme(
       elevation: 3,
       color: Colors.grey[100],
@@ -149,13 +156,20 @@ ThemeData lightTheme(BuildContext context) {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      filled: true,
+      // filled: true,
       suffixIconColor: Colors.grey[900],
       hintStyle: textTheme.caption,
-      fillColor: Colors.grey[100],
+      fillColor: Colors.grey[50],
       // focusColor: Colors.grey[300],
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(
+          color: Colors.grey,
+          width: 0.5,
+        ),
+      ),
+      disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(
           color: Colors.grey,
@@ -232,8 +246,13 @@ TextTheme _buildTextTheme(BuildContext context) {
     ),
     subtitle1: GoogleFonts.manrope(
       color: Colors.grey[900],
-      fontSize: 18,
-      fontWeight: FontWeight.w800,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    ),
+    subtitle2: GoogleFonts.manrope(
+      color: Colors.grey[900],
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
     ),
     headline5: GoogleFonts.manrope(
       color: Colors.grey[900],
@@ -268,9 +287,6 @@ TextTheme _buildTextTheme(BuildContext context) {
       color: Colors.grey[50],
       fontWeight: FontWeight.w500,
     ),
-    subtitle2: GoogleFonts.manrope(
-      color: Colors.grey[700],
-    ),
     caption: GoogleFonts.manrope(
       fontSize: 14,
       color: Colors.grey,
@@ -288,6 +304,11 @@ TextTheme _buildDarkTextTheme(BuildContext context) {
     subtitle1: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 18,
+      fontWeight: FontWeight.w800,
+    ),
+    subtitle2: GoogleFonts.manrope(
+      color: Colors.grey[300],
+      fontSize: 20,
       fontWeight: FontWeight.w800,
     ),
     headline5: GoogleFonts.manrope(
@@ -322,9 +343,6 @@ TextTheme _buildDarkTextTheme(BuildContext context) {
       fontSize: 16,
       color: Colors.grey[100],
       fontWeight: FontWeight.w500,
-    ),
-    subtitle2: GoogleFonts.manrope(
-      color: Colors.grey[300],
     ),
     caption: GoogleFonts.manrope(
       fontSize: 14,

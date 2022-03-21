@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:can_move_common_utils/ui/theme.dart';
+
 
 class RoundUrlImage extends StatelessWidget {
   const RoundUrlImage({
@@ -34,16 +36,20 @@ class RoundUrlImage extends StatelessWidget {
           height: height,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? 100),
+            color: imageUrl == null ? colorScheme(context).primary : null,
           ),
           clipBehavior: Clip.antiAlias,
           child: loading
-              ? CircularProgressIndicator(
-            strokeWidth: 2,
+              ? Padding(padding: EdgeInsets.all(20),
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+            ),
           )
               : imageUrl == null
               ? Icon(
             Icons.person_outline,
             size: width / 2,
+            color: Colors.grey[100],
           )
               : imageUrl!.contains("assets") ?
           Image.asset(imageUrl!)
@@ -54,8 +60,10 @@ class RoundUrlImage extends StatelessWidget {
             height: height,
             progressIndicatorBuilder:
                 (context, url, downloadProgress) =>
-                CircularProgressIndicator(
-                    value: downloadProgress.progress),
+                Padding(padding: EdgeInsets.all(20),
+                  child: CircularProgressIndicator(
+                    value: downloadProgress.progress, strokeWidth: 2,),
+                ),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
