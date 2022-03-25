@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
 
 
+import 'package:can_move_common_utils/helpers/utils.dart';
+import 'package:can_move_common_utils/ui/custom_buttons.dart';
+import 'package:can_move_common_utils/ui/notify.dart';
+import 'package:can_move_common_utils/ui/profile_stuff.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 class RoundUrlImage extends StatelessWidget {
   const RoundUrlImage({
     Key? key,
@@ -36,7 +44,7 @@ class RoundUrlImage extends StatelessWidget {
           height: height,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? 100),
-            color: imageUrl == null ? colorScheme(context).primary : null,
+            color: imageUrl == null ? colorScheme(context).secondary : null,
           ),
           clipBehavior: Clip.antiAlias,
           child: loading
@@ -49,10 +57,8 @@ class RoundUrlImage extends StatelessWidget {
               ? Icon(
             Icons.person_outline,
             size: width / 2,
-            color: Colors.grey[100],
+            color: colorScheme(context).primary,
           )
-              : imageUrl!.contains("assets") ?
-          Image.asset(imageUrl!)
               : CachedNetworkImage(
             imageUrl: imageUrl!,
             fit: BoxFit.fill,

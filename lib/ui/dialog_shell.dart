@@ -30,8 +30,9 @@ class DialogShell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(15),
       ),
+      insetPadding: EdgeInsets.symmetric(horizontal: 25),
       child: Container(
         constraints: BoxConstraints.expand(
           width: width,
@@ -54,7 +55,7 @@ class DialogShell extends StatelessWidget {
             centerTitle: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
-                top: Radius.circular(10),
+                top: Radius.circular(15),
               ),
             ),
             leading: IconButton(

@@ -23,7 +23,7 @@ ThemeData darkTheme(BuildContext context) {
     scaffoldBackgroundColor: const Color(0xFF1D1E1F),
     cardTheme: const CardTheme(
       elevation: 3,
-      color: Color(0xFF2B2D2F),
+      // color: Color(0xFF2B2D2F),
       shadowColor: Colors.black45,
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -90,6 +90,7 @@ ThemeData darkTheme(BuildContext context) {
       ),
     ),
     cardTheme: theme.cardTheme.copyWith(
+      color: Colors.grey[900],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -107,13 +108,13 @@ ThemeData darkTheme(BuildContext context) {
       ),
     ),
     appBarTheme: theme.appBarTheme.copyWith(
-      elevation: 2,
-      color: colorScheme.primary,
+      elevation: 0,
+      color: theme.scaffoldBackgroundColor,
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
       toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.headline6,
+      titleTextStyle: textTheme.subtitle2,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -207,6 +208,7 @@ ThemeData lightTheme(BuildContext context) {
       ),
     ),
     cardTheme: theme.cardTheme.copyWith(
+      color: theme.scaffoldBackgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -224,13 +226,14 @@ ThemeData lightTheme(BuildContext context) {
       ),
     ),
     appBarTheme: theme.appBarTheme.copyWith(
-      elevation: 1,
-      color: colorScheme.primary,
+      elevation: 0,
+      centerTitle: false,
+      color: theme.scaffoldBackgroundColor,
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
       toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.headline6,
+      titleTextStyle: textTheme.subtitle2,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,

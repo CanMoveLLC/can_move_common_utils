@@ -3,10 +3,15 @@ import 'dart:io';
 
 import 'package:can_move_common_utils/helpers/utils.dart';
 import 'package:can_move_common_utils/service/map_theme_service.dart';
+import 'package:custom_info_window/custom_info_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show PlatformException;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:location/location.dart';
+
+import '../model/settings.dart';
+import '../service/settings.service.dart';
 
 final CameraPosition kInitialMapPosition = CameraPosition(
   target: LatLng(37.09024, -95.712891),
@@ -14,28 +19,9 @@ final CameraPosition kInitialMapPosition = CameraPosition(
   tilt: 50,
 );
 
-abstract class MapState<T extends StatefulWidget> extends State<T>
-    with WidgetsBindingObserver {
+abstract class MapState<T extends StatefulWidget> extends State<T> {
   final Completer<GoogleMapController> mapController = Completer();
-  final _mapThemeService = MapThemeService();
   BitmapDescriptor? markerIcon;
-
-  Brightness get brightness {
-    return WidgetsBinding.instance?.window.platformBrightness ??
-        Brightness.light;
-  }
-
-  @override
-  void didChangePlatformBrightness() {
-    _getBrightness();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance?.addObserver(this);
-    _getBrightness();
-  }
 
   @override
   void didChangeDependencies() {
@@ -43,42 +29,22 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
     getMarkerPin();
   }
 
-  @override
-  void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
-    super.dispose();
-  }
-
-  _getBrightness() {
-    var newBright = WidgetsBinding.instance?.window.platformBrightness;
-    changeMapTheme(newBright);
-  }
-
   Future<BitmapDescriptor?> getMarkerPin() async {
-    if (markerIcon != null)
-      return markerIcon;
-      var iconName = "pin";
+    if (markerIcon != null) return markerIcon;
+    var iconName = "pin";
     if (Platform.isAndroid) {
       double mq = MediaQuery.of(context).devicePixelRatio;
       if (mq > 1.5 && mq < 2.5)
         iconName = "3x/pin";
       else if (mq >= 2.5) iconName = "3x/pin";
     }
-      markerIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(
-          devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
-        ),
-        'assets/images/$iconName.png',
-      );
-    return markerIcon;
-  }
-
-  Future changeMapTheme([Brightness? platformBrightness]) async {
-    var style = await _mapThemeService.getTheme(
-      platformBrightness ?? Brightness.dark,
+    markerIcon = await BitmapDescriptor.fromAssetImage(
+      ImageConfiguration(
+        devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
+      ),
+      'assets/images/$iconName.png',
     );
-    final controller = await mapController.future;
-    controller.setMapStyle(style);
+    return markerIcon;
   }
 
   Future<void> moveMapToLatLngList(List<LatLng> list,
@@ -107,7 +73,9 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
       }
     }
     return LatLngBounds(
-        northeast: LatLng(x1!, y1!), southwest: LatLng(x0!, y0!));
+      northeast: LatLng(x1!, y1!),
+      southwest: LatLng(x0!, y0!),
+    );
   }
 
   Future<LatLng?> getUserLocation() async {
@@ -161,5 +129,116 @@ abstract class MapState<T extends StatefulWidget> extends State<T>
         ),
       ),
     );
+  }
+}
+
+class CanMoveMap extends StatefulWidget {
+  CanMoveMap({
+    Key? key,
+    this.myLocationButtonEnabled = false,
+    this.zoomControlsEnabled = false,
+    this.tiltGesturesEnabled = true,
+    this.scrollGesturesEnabled = true,
+    this.myLocationEnabled = false,
+    this.compassEnabled = false,
+    this.initialCameraPosition,
+    this.onTap,
+    required this.onMapCreated,
+    this.markers = const {},
+  }) : super(key: key);
+
+  final Function(GoogleMapController, CustomInfoWindowController) onMapCreated;
+  final Function(LatLng)? onTap;
+  final CameraPosition? initialCameraPosition;
+  final Set<Marker> markers;
+  final bool myLocationButtonEnabled,
+      scrollGesturesEnabled,
+      zoomControlsEnabled,
+      tiltGesturesEnabled,
+      myLocationEnabled,
+      compassEnabled;
+
+  @override
+  State<CanMoveMap> createState() => _CanMoveMapState();
+}
+
+class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
+  final _customInfoWindowController = CustomInfoWindowController();
+  final Completer<GoogleMapController> mapController = Completer();
+  final _mapThemeService = MapThemeService();
+  ThemeMode themeMode = ThemeMode.system;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addObserver(this);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    _getBrightness();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance?.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: SettingsService.box.listenable(),
+      builder: (context, box, __) {
+        final settings = SettingsService.read();
+        themeMode = getThemeMode(settings.themeMode);
+        _getBrightness();
+
+        return GoogleMap(
+          myLocationButtonEnabled: widget.myLocationButtonEnabled,
+          zoomControlsEnabled: widget.zoomControlsEnabled,
+          tiltGesturesEnabled: widget.tiltGesturesEnabled,
+          scrollGesturesEnabled: widget.scrollGesturesEnabled,
+          myLocationEnabled: widget.myLocationEnabled,
+          compassEnabled: widget.compassEnabled,
+          initialCameraPosition:
+              widget.initialCameraPosition ?? kInitialMapPosition,
+          onTap: (position) {
+            _customInfoWindowController.hideInfoWindow?.call();
+            widget.onTap?.call(position);
+          },
+          onCameraMove: (position) {
+            _customInfoWindowController.onCameraMove?.call();
+          },
+          onMapCreated: (con) {
+            mapController.complete(con);
+            _customInfoWindowController.googleMapController = con;
+            widget.onMapCreated(con, _customInfoWindowController);
+          },
+          markers: widget.markers.toSet(),
+        );
+      },
+    );
+  }
+
+  _getBrightness() {
+    var newBright = WidgetsBinding.instance?.window.platformBrightness;
+    if (themeMode == ThemeMode.light)
+      newBright = Brightness.light;
+    else if (themeMode == ThemeMode.dark) newBright = Brightness.dark;
+    _changeMapTheme(newBright);
+  }
+
+  Future _changeMapTheme([Brightness? platformBrightness]) async {
+    var style = await _mapThemeService.getTheme(
+      platformBrightness ?? Brightness.dark,
+    );
+    final controller = await mapController.future;
+    controller.setMapStyle(style);
   }
 }

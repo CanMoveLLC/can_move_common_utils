@@ -35,11 +35,8 @@ dependencies:
   google_maps_flutter_web: ^0.3.2
   shared_preferences: ^2.0.6
   firebase_messaging: ^11.2.5
-  fdottedline:
-    git:
-      url: https://github.com/Taskulu/fdottedline.git
-      ref: null-safety
-
+  custom_info_window: ^1.0.1
+  fdottedline_nullsafety: ^2.0.0
 
 dev_dependencies:
   flutter_test:

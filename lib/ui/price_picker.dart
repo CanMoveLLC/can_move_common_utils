@@ -27,6 +27,7 @@ class PricePicker extends HookWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         InkWell(
+          borderRadius: BorderRadius.circular(15),
           onTap: () {
             if (price$.value == 0) return;
             price$.value -= 1;
@@ -60,6 +61,7 @@ class PricePicker extends HookWidget {
           width: 5,
         ),
         InkWell(
+          borderRadius: BorderRadius.circular(15),
           onTap: () {
             price$.value += 1;
             // onPriceChanged(price.value + 0.0);

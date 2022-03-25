@@ -212,7 +212,8 @@ class NoShadowButton extends StatelessWidget {
   // the radius of the container's corners
   final BorderRadiusGeometry? radius;
 
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? padding = EdgeInsets.zero;
+  final EdgeInsetsGeometry? /*padding,*/ margin;
   final bool safeTop, safeBottom, isLoading;
   final double? width;
   final double? height;
@@ -224,7 +225,8 @@ class NoShadowButton extends StatelessWidget {
     this.radius,
     this.safeBottom = false,
     this.safeTop = false,
-    this.padding,
+    // this.padding,
+    this.margin,
     this.onTap,
     this.width,
     this.height,
@@ -236,17 +238,18 @@ class NoShadowButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return SafeArea(
+      top: safeTop,
+      bottom: safeBottom,
+      child: Center(
       child: Stack(
         alignment: Alignment.center,
         children: [
-          SafeArea(
-            top: safeTop,
-            bottom: safeBottom,
+          Padding(
+            padding: margin ?? EdgeInsets.zero,
             child: AnimatedContainer(
               width: isLoading ? 50 : width,
               height: height,
-              padding: padding ?? EdgeInsets.zero,
               duration: Duration(milliseconds: 200),
               child: MaterialButton(
                 color: color ?? Theme.of(context).colorScheme.primary,
@@ -263,10 +266,10 @@ class NoShadowButton extends StatelessWidget {
                 textColor: Colors.grey[100],
                 child: isLoading
                     ? Container(
-                        width: 20,
-                        height: 20,
-                        child: progressIndicator(context),
-                      )
+                  width: 20,
+                  height: 20,
+                  child: progressIndicator(context),
+                )
                     : Text(""),
               ),
             ),
@@ -283,13 +286,13 @@ class NoShadowButton extends StatelessWidget {
                   },
               ),
               style: textTheme(context).bodyText2?.copyWith(
-                    color: Colors.grey[100],
-                  ),
+                color: Colors.grey[100],
+              ),
             ),
           )
         ],
       ),
-    );
+    ),);
   }
 }
 
@@ -332,7 +335,7 @@ class MoveBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var inkWell = InkWell(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(100),
       child: Image.asset(
         "assets/images/arrow-left.png",
         color: textTheme(context).bodyText2?.color,
@@ -345,7 +348,7 @@ class MoveBackButton extends StatelessWidget {
       color: theme(context).scaffoldBackgroundColor,
       elevation: 5,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(100),
       ),
       child: Container(
         height: 40,
