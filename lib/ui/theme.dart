@@ -11,6 +11,7 @@ ThemeData darkTheme(BuildContext context) {
       secondary: Colors.purple,*/
   );
   var theme = ThemeData(
+    errorColor: Colors.red[900],
     colorScheme: colorScheme.copyWith(
       primary: colorScheme.secondary,
       secondary: colorScheme.primary,
@@ -131,6 +132,7 @@ ThemeData lightTheme(BuildContext context) {
     secondary: Colors.purple,*/
   );
   var theme = ThemeData(
+    errorColor: Colors.red,
     colorScheme: colorScheme.copyWith(
       primary: colorScheme.secondary,
       secondary: colorScheme.primary,

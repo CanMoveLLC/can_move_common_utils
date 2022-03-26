@@ -27,7 +27,8 @@ class _$CanMoveNotificationTearOff {
       required String userUid,
       required String content,
       String? imgUrl,
-      String? loadUid}) {
+      String? loadUid,
+      String? roomUid}) {
     return _CanMoveNotification(
       uid: uid,
       time: time,
@@ -35,6 +36,7 @@ class _$CanMoveNotificationTearOff {
       content: content,
       imgUrl: imgUrl,
       loadUid: loadUid,
+      roomUid: roomUid,
     );
   }
 
@@ -55,6 +57,7 @@ mixin _$CanMoveNotification {
   String get content => throw _privateConstructorUsedError;
   String? get imgUrl => throw _privateConstructorUsedError;
   String? get loadUid => throw _privateConstructorUsedError;
+  String? get roomUid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,7 +76,8 @@ abstract class $CanMoveNotificationCopyWith<$Res> {
       String userUid,
       String content,
       String? imgUrl,
-      String? loadUid});
+      String? loadUid,
+      String? roomUid});
 }
 
 /// @nodoc
@@ -93,6 +97,7 @@ class _$CanMoveNotificationCopyWithImpl<$Res>
     Object? content = freezed,
     Object? imgUrl = freezed,
     Object? loadUid = freezed,
+    Object? roomUid = freezed,
   }) {
     return _then(_value.copyWith(
       uid: uid == freezed
@@ -119,6 +124,10 @@ class _$CanMoveNotificationCopyWithImpl<$Res>
           ? _value.loadUid
           : loadUid // ignore: cast_nullable_to_non_nullable
               as String?,
+      roomUid: roomUid == freezed
+          ? _value.roomUid
+          : roomUid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -136,7 +145,8 @@ abstract class _$CanMoveNotificationCopyWith<$Res>
       String userUid,
       String content,
       String? imgUrl,
-      String? loadUid});
+      String? loadUid,
+      String? roomUid});
 }
 
 /// @nodoc
@@ -158,6 +168,7 @@ class __$CanMoveNotificationCopyWithImpl<$Res>
     Object? content = freezed,
     Object? imgUrl = freezed,
     Object? loadUid = freezed,
+    Object? roomUid = freezed,
   }) {
     return _then(_CanMoveNotification(
       uid: uid == freezed
@@ -184,6 +195,10 @@ class __$CanMoveNotificationCopyWithImpl<$Res>
           ? _value.loadUid
           : loadUid // ignore: cast_nullable_to_non_nullable
               as String?,
+      roomUid: roomUid == freezed
+          ? _value.roomUid
+          : roomUid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -197,7 +212,8 @@ class _$_CanMoveNotification extends _CanMoveNotification {
       required this.userUid,
       required this.content,
       this.imgUrl,
-      this.loadUid})
+      this.loadUid,
+      this.roomUid})
       : super._();
 
   factory _$_CanMoveNotification.fromJson(Map<String, dynamic> json) =>
@@ -216,10 +232,12 @@ class _$_CanMoveNotification extends _CanMoveNotification {
   final String? imgUrl;
   @override
   final String? loadUid;
+  @override
+  final String? roomUid;
 
   @override
   String toString() {
-    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, imgUrl: $imgUrl, loadUid: $loadUid)';
+    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, imgUrl: $imgUrl, loadUid: $loadUid, roomUid: $roomUid)';
   }
 
   @override
@@ -239,7 +257,10 @@ class _$_CanMoveNotification extends _CanMoveNotification {
             (identical(other.imgUrl, imgUrl) ||
                 const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
             (identical(other.loadUid, loadUid) ||
-                const DeepCollectionEquality().equals(other.loadUid, loadUid)));
+                const DeepCollectionEquality()
+                    .equals(other.loadUid, loadUid)) &&
+            (identical(other.roomUid, roomUid) ||
+                const DeepCollectionEquality().equals(other.roomUid, roomUid)));
   }
 
   @override
@@ -250,7 +271,8 @@ class _$_CanMoveNotification extends _CanMoveNotification {
       const DeepCollectionEquality().hash(userUid) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(imgUrl) ^
-      const DeepCollectionEquality().hash(loadUid);
+      const DeepCollectionEquality().hash(loadUid) ^
+      const DeepCollectionEquality().hash(roomUid);
 
   @JsonKey(ignore: true)
   @override
@@ -271,7 +293,8 @@ abstract class _CanMoveNotification extends CanMoveNotification {
       required String userUid,
       required String content,
       String? imgUrl,
-      String? loadUid}) = _$_CanMoveNotification;
+      String? loadUid,
+      String? roomUid}) = _$_CanMoveNotification;
   const _CanMoveNotification._() : super._();
 
   factory _CanMoveNotification.fromJson(Map<String, dynamic> json) =
@@ -290,6 +313,8 @@ abstract class _CanMoveNotification extends CanMoveNotification {
   String? get imgUrl => throw _privateConstructorUsedError;
   @override
   String? get loadUid => throw _privateConstructorUsedError;
+  @override
+  String? get roomUid => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CanMoveNotificationCopyWith<_CanMoveNotification> get copyWith =>

@@ -15,6 +15,7 @@ _$_CanMoveNotification _$$_CanMoveNotificationFromJson(
       content: json['content'] as String,
       imgUrl: json['imgUrl'] as String?,
       loadUid: json['loadUid'] as String?,
+      roomUid: json['roomUid'] as String?,
     );
 
 Map<String, dynamic> _$$_CanMoveNotificationToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$_CanMoveNotificationToJson(
       'content': instance.content,
       'imgUrl': instance.imgUrl,
       'loadUid': instance.loadUid,
+      'roomUid': instance.roomUid,
     };

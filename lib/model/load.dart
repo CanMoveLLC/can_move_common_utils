@@ -37,7 +37,7 @@ class Load with _$Load {
     required VehicleSize size,
     required String detail,
     required double price,
-    required double distance,
+    // required double distance,
     String? image,
     String? payID,
     @Default(false) bool isPaid,

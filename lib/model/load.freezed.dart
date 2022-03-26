@@ -33,7 +33,6 @@ class _$LoadTearOff {
       required VehicleSize size,
       required String detail,
       required double price,
-      required double distance,
       String? image,
       String? payID,
       bool isPaid = false,
@@ -53,7 +52,6 @@ class _$LoadTearOff {
       size: size,
       detail: detail,
       price: price,
-      distance: distance,
       image: image,
       payID: payID,
       isPaid: isPaid,
@@ -92,8 +90,8 @@ mixin _$Load {
   ShipperMin get shipper => throw _privateConstructorUsedError;
   VehicleSize get size => throw _privateConstructorUsedError;
   String get detail => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
-  double get distance => throw _privateConstructorUsedError;
+  double get price =>
+      throw _privateConstructorUsedError; // required double distance,
   String? get image => throw _privateConstructorUsedError;
   String? get payID => throw _privateConstructorUsedError;
   bool get isPaid => throw _privateConstructorUsedError;
@@ -124,7 +122,6 @@ abstract class $LoadCopyWith<$Res> {
       VehicleSize size,
       String detail,
       double price,
-      double distance,
       String? image,
       String? payID,
       bool isPaid,
@@ -159,7 +156,6 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
     Object? size = freezed,
     Object? detail = freezed,
     Object? price = freezed,
-    Object? distance = freezed,
     Object? image = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
@@ -212,10 +208,6 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      distance: distance == freezed
-          ? _value.distance
-          : distance // ignore: cast_nullable_to_non_nullable
               as double,
       image: image == freezed
           ? _value.image
@@ -291,7 +283,6 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       VehicleSize size,
       String detail,
       double price,
-      double distance,
       String? image,
       String? payID,
       bool isPaid,
@@ -330,7 +321,6 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? size = freezed,
     Object? detail = freezed,
     Object? price = freezed,
-    Object? distance = freezed,
     Object? image = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
@@ -384,10 +374,6 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      distance: distance == freezed
-          ? _value.distance
-          : distance // ignore: cast_nullable_to_non_nullable
-              as double,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -435,7 +421,6 @@ class _$_Load extends _Load {
       required this.size,
       required this.detail,
       required this.price,
-      required this.distance,
       this.image,
       this.payID,
       this.isPaid = false,
@@ -476,9 +461,7 @@ class _$_Load extends _Load {
   final String detail;
   @override
   final double price;
-  @override
-  final double distance;
-  @override
+  @override // required double distance,
   final String? image;
   @override
   final String? payID;
@@ -500,7 +483,7 @@ class _$_Load extends _Load {
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, distance: $distance, image: $image, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
+    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, image: $image, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -534,9 +517,6 @@ class _$_Load extends _Load {
                 const DeepCollectionEquality().equals(other.detail, detail)) &&
             (identical(other.price, price) ||
                 const DeepCollectionEquality().equals(other.price, price)) &&
-            (identical(other.distance, distance) ||
-                const DeepCollectionEquality()
-                    .equals(other.distance, distance)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.payID, payID) ||
@@ -570,7 +550,6 @@ class _$_Load extends _Load {
       const DeepCollectionEquality().hash(size) ^
       const DeepCollectionEquality().hash(detail) ^
       const DeepCollectionEquality().hash(price) ^
-      const DeepCollectionEquality().hash(distance) ^
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(payID) ^
       const DeepCollectionEquality().hash(isPaid) ^
@@ -603,7 +582,6 @@ abstract class _Load extends Load {
       required VehicleSize size,
       required String detail,
       required double price,
-      required double distance,
       String? image,
       String? payID,
       bool isPaid,
@@ -644,9 +622,7 @@ abstract class _Load extends Load {
   String get detail => throw _privateConstructorUsedError;
   @override
   double get price => throw _privateConstructorUsedError;
-  @override
-  double get distance => throw _privateConstructorUsedError;
-  @override
+  @override // required double distance,
   String? get image => throw _privateConstructorUsedError;
   @override
   String? get payID => throw _privateConstructorUsedError;

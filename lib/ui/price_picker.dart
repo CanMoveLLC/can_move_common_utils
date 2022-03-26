@@ -1,10 +1,9 @@
+import 'package:can_move_common_utils/ui/misc.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
-
-import 'misc.dart';
 
 class PricePicker extends HookWidget {
   PricePicker({
@@ -14,9 +13,10 @@ class PricePicker extends HookWidget {
   }) : super(key: key);
 
   final ValueNotifier<double> price$;
+
   // final Function(double) onPriceChanged;
   final _formatter =
-  NumberFormat.compactSimpleCurrency(locale: "en", name: "USD");
+      NumberFormat.compactSimpleCurrency(locale: "en", name: "USD");
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +51,19 @@ class PricePicker extends HookWidget {
         SizedBox(
           width: 5,
         ),
-          Text(
+        InkWell(
+          onTap: () async {
+            var pri =
+                await getSingleNumberInput(context, label: "Enter a price");
+            if (pri == null) return;
+            price$.value = pri.toDouble();
+          },
+          child: Text(
             _formatter.format(price$.value),
             style: textTheme(context).headline4?.copyWith(
                   fontSize: 50,
                 ),
+          ),
         ),
         SizedBox(
           width: 5,
