@@ -33,7 +33,7 @@ class _$LoadTearOff {
       required VehicleSize size,
       required String detail,
       required double price,
-      String? image,
+      List<String> images = const [],
       String? payID,
       bool isPaid = false,
       bool userHasBid = true,
@@ -52,7 +52,7 @@ class _$LoadTearOff {
       size: size,
       detail: detail,
       price: price,
-      image: image,
+      images: images,
       payID: payID,
       isPaid: isPaid,
       userHasBid: userHasBid,
@@ -92,7 +92,7 @@ mixin _$Load {
   String get detail => throw _privateConstructorUsedError;
   double get price =>
       throw _privateConstructorUsedError; // required double distance,
-  String? get image => throw _privateConstructorUsedError;
+  List<String> get images => throw _privateConstructorUsedError;
   String? get payID => throw _privateConstructorUsedError;
   bool get isPaid => throw _privateConstructorUsedError;
   bool get userHasBid => throw _privateConstructorUsedError;
@@ -122,7 +122,7 @@ abstract class $LoadCopyWith<$Res> {
       VehicleSize size,
       String detail,
       double price,
-      String? image,
+      List<String> images,
       String? payID,
       bool isPaid,
       bool userHasBid,
@@ -156,7 +156,7 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
     Object? size = freezed,
     Object? detail = freezed,
     Object? price = freezed,
-    Object? image = freezed,
+    Object? images = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
     Object? userHasBid = freezed,
@@ -209,10 +209,10 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       payID: payID == freezed
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
@@ -283,7 +283,7 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       VehicleSize size,
       String detail,
       double price,
-      String? image,
+      List<String> images,
       String? payID,
       bool isPaid,
       bool userHasBid,
@@ -321,7 +321,7 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? size = freezed,
     Object? detail = freezed,
     Object? price = freezed,
-    Object? image = freezed,
+    Object? images = freezed,
     Object? payID = freezed,
     Object? isPaid = freezed,
     Object? userHasBid = freezed,
@@ -374,10 +374,10 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      image: image == freezed
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       payID: payID == freezed
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
@@ -421,7 +421,7 @@ class _$_Load extends _Load {
       required this.size,
       required this.detail,
       required this.price,
-      this.image,
+      this.images = const [],
       this.payID,
       this.isPaid = false,
       this.userHasBid = true,
@@ -461,8 +461,9 @@ class _$_Load extends _Load {
   final String detail;
   @override
   final double price;
+  @JsonKey(defaultValue: const [])
   @override // required double distance,
-  final String? image;
+  final List<String> images;
   @override
   final String? payID;
   @JsonKey(defaultValue: false)
@@ -483,7 +484,7 @@ class _$_Load extends _Load {
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, image: $image, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
+    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, images: $images, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -517,8 +518,8 @@ class _$_Load extends _Load {
                 const DeepCollectionEquality().equals(other.detail, detail)) &&
             (identical(other.price, price) ||
                 const DeepCollectionEquality().equals(other.price, price)) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.images, images) ||
+                const DeepCollectionEquality().equals(other.images, images)) &&
             (identical(other.payID, payID) ||
                 const DeepCollectionEquality().equals(other.payID, payID)) &&
             (identical(other.isPaid, isPaid) ||
@@ -550,7 +551,7 @@ class _$_Load extends _Load {
       const DeepCollectionEquality().hash(size) ^
       const DeepCollectionEquality().hash(detail) ^
       const DeepCollectionEquality().hash(price) ^
-      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(images) ^
       const DeepCollectionEquality().hash(payID) ^
       const DeepCollectionEquality().hash(isPaid) ^
       const DeepCollectionEquality().hash(userHasBid) ^
@@ -582,7 +583,7 @@ abstract class _Load extends Load {
       required VehicleSize size,
       required String detail,
       required double price,
-      String? image,
+      List<String> images,
       String? payID,
       bool isPaid,
       bool userHasBid,
@@ -623,7 +624,7 @@ abstract class _Load extends Load {
   @override
   double get price => throw _privateConstructorUsedError;
   @override // required double distance,
-  String? get image => throw _privateConstructorUsedError;
+  List<String> get images => throw _privateConstructorUsedError;
   @override
   String? get payID => throw _privateConstructorUsedError;
   @override

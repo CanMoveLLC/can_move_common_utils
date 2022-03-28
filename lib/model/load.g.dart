@@ -20,7 +20,10 @@ _$_Load _$$_LoadFromJson(Map<String, dynamic> json) => _$_Load(
       size: $enumDecode(_$VehicleSizeEnumMap, json['size']),
       detail: json['detail'] as String,
       price: (json['price'] as num).toDouble(),
-      image: json['image'] as String?,
+      images: (json['images'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
       payID: json['payID'] as String?,
       isPaid: json['isPaid'] as bool? ?? false,
       userHasBid: json['userHasBid'] as bool? ?? true,
@@ -42,7 +45,7 @@ Map<String, dynamic> _$$_LoadToJson(_$_Load instance) => <String, dynamic>{
       'size': _$VehicleSizeEnumMap[instance.size],
       'detail': instance.detail,
       'price': instance.price,
-      'image': instance.image,
+      'images': instance.images,
       'payID': instance.payID,
       'isPaid': instance.isPaid,
       'userHasBid': instance.userHasBid,

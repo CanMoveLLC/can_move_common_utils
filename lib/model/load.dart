@@ -38,7 +38,7 @@ class Load with _$Load {
     required String detail,
     required double price,
     // required double distance,
-    String? image,
+    @Default([]) List<String> images,
     String? payID,
     @Default(false) bool isPaid,
     @Default(true) bool userHasBid,
