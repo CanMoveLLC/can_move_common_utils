@@ -242,57 +242,58 @@ class NoShadowButton extends StatelessWidget {
       top: safeTop,
       bottom: safeBottom,
       child: Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Padding(
-            padding: margin ?? EdgeInsets.zero,
-            child: AnimatedContainer(
-              width: isLoading ? 50 : width,
-              height: height,
-              duration: Duration(milliseconds: 200),
-              child: MaterialButton(
-                color: color ?? Theme.of(context).colorScheme.primary,
-                disabledColor: shadowColor,
-                onPressed: () {
-                  if (!isLoading) onTap?.call();
-                },
-                padding: padding ?? EdgeInsets.zero,
-                elevation: 0,
-                focusElevation: 0,
-                disabledElevation: 0,
-                highlightElevation: 0,
-                hoverElevation: 5,
-                textColor: Colors.grey[100],
-                child: isLoading
-                    ? Container(
-                  width: 20,
-                  height: 20,
-                  child: progressIndicator(context),
-                )
-                    : Text(""),
-              ),
-            ),
-          ),
-          AnimatedOpacity(
-            duration: Duration(milliseconds: 200),
-            opacity: isLoading ? 0.0 : 1.0,
-            child: Text.rich(
-              TextSpan(
-                text: label,
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Padding(
+              padding: margin ?? EdgeInsets.zero,
+              child: AnimatedContainer(
+                width: isLoading ? 50 : width,
+                height: height,
+                duration: Duration(milliseconds: 200),
+                child: MaterialButton(
+                  color: color ?? Theme.of(context).colorScheme.primary,
+                  disabledColor: shadowColor,
+                  onPressed: () {
                     if (!isLoading) onTap?.call();
                   },
-              ),
-              style: textTheme(context).bodyText2?.copyWith(
-                color: Colors.grey[100],
+                  padding: padding ?? EdgeInsets.zero,
+                  elevation: 0,
+                  focusElevation: 0,
+                  disabledElevation: 0,
+                  highlightElevation: 0,
+                  hoverElevation: 5,
+                  textColor: Colors.grey[100],
+                  child: isLoading
+                      ? Container(
+                          width: 20,
+                          height: 20,
+                          child: progressIndicator(context),
+                        )
+                      : Text(""),
+                ),
               ),
             ),
-          )
-        ],
+            AnimatedOpacity(
+              duration: Duration(milliseconds: 200),
+              opacity: isLoading ? 0.0 : 1.0,
+              child: Text.rich(
+                TextSpan(
+                  text: label,
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      if (!isLoading) onTap?.call();
+                    },
+                ),
+                style: textTheme(context).bodyText2?.copyWith(
+                      color: Colors.grey[100],
+                    ),
+              ),
+            )
+          ],
+        ),
       ),
-    ),);
+    );
   }
 }
 
@@ -392,7 +393,11 @@ class FilterByDateBtn extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset("assets/images/calendar.png"),
+              Image.asset(
+                "assets/images/calendar.png",
+                height: 20,
+                color: textTheme(context).bodyText2?.color,
+              ),
               SizedBox(width: 7),
               Text(label),
             ],
