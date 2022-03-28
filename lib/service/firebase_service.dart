@@ -3,9 +3,11 @@ import 'package:can_move_common_utils/model/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 
 class FirebaseService {
   void getNSaveFCMToken() async {
+    if (kIsWeb) return;
     var token = await FirebaseMessaging.instance.getToken();
     var uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) return;
