@@ -28,7 +28,9 @@ class _$DriverTearOff {
       required String name,
       required String email,
       required String phone,
-      String? photoUrl,
+      required String photoUrl,
+      required List<String> vehicleDocs,
+      required List<String> vehicleImages,
       UserType userType = UserType.driver,
       @RatingConverter() required Rating rating,
       int totalLoads = 0,
@@ -43,6 +45,8 @@ class _$DriverTearOff {
       email: email,
       phone: phone,
       photoUrl: photoUrl,
+      vehicleDocs: vehicleDocs,
+      vehicleImages: vehicleImages,
       userType: userType,
       rating: rating,
       totalLoads: totalLoads,
@@ -68,7 +72,9 @@ mixin _$Driver {
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  String? get photoUrl => throw _privateConstructorUsedError;
+  String get photoUrl => throw _privateConstructorUsedError;
+  List<String> get vehicleDocs => throw _privateConstructorUsedError;
+  List<String> get vehicleImages => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
   @RatingConverter()
   Rating get rating => throw _privateConstructorUsedError;
@@ -96,7 +102,9 @@ abstract class $DriverCopyWith<$Res> {
       String name,
       String email,
       String phone,
-      String? photoUrl,
+      String photoUrl,
+      List<String> vehicleDocs,
+      List<String> vehicleImages,
       UserType userType,
       @RatingConverter() Rating rating,
       int totalLoads,
@@ -124,6 +132,8 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
     Object? email = freezed,
     Object? phone = freezed,
     Object? photoUrl = freezed,
+    Object? vehicleDocs = freezed,
+    Object? vehicleImages = freezed,
     Object? userType = freezed,
     Object? rating = freezed,
     Object? totalLoads = freezed,
@@ -159,7 +169,15 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      vehicleDocs: vehicleDocs == freezed
+          ? _value.vehicleDocs
+          : vehicleDocs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      vehicleImages: vehicleImages == freezed
+          ? _value.vehicleImages
+          : vehicleImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
@@ -207,7 +225,9 @@ abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
       String name,
       String email,
       String phone,
-      String? photoUrl,
+      String photoUrl,
+      List<String> vehicleDocs,
+      List<String> vehicleImages,
       UserType userType,
       @RatingConverter() Rating rating,
       int totalLoads,
@@ -237,6 +257,8 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
     Object? email = freezed,
     Object? phone = freezed,
     Object? photoUrl = freezed,
+    Object? vehicleDocs = freezed,
+    Object? vehicleImages = freezed,
     Object? userType = freezed,
     Object? rating = freezed,
     Object? totalLoads = freezed,
@@ -272,7 +294,15 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
       photoUrl: photoUrl == freezed
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      vehicleDocs: vehicleDocs == freezed
+          ? _value.vehicleDocs
+          : vehicleDocs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      vehicleImages: vehicleImages == freezed
+          ? _value.vehicleImages
+          : vehicleImages // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
@@ -311,7 +341,9 @@ class _$_Driver extends _Driver {
       required this.name,
       required this.email,
       required this.phone,
-      this.photoUrl,
+      required this.photoUrl,
+      required this.vehicleDocs,
+      required this.vehicleImages,
       this.userType = UserType.driver,
       @RatingConverter() required this.rating,
       this.totalLoads = 0,
@@ -337,7 +369,11 @@ class _$_Driver extends _Driver {
   @override
   final String phone;
   @override
-  final String? photoUrl;
+  final String photoUrl;
+  @override
+  final List<String> vehicleDocs;
+  @override
+  final List<String> vehicleImages;
   @JsonKey(defaultValue: UserType.driver)
   @override
   final UserType userType;
@@ -358,7 +394,7 @@ class _$_Driver extends _Driver {
 
   @override
   String toString() {
-    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
+    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
   }
 
   @override
@@ -381,6 +417,12 @@ class _$_Driver extends _Driver {
             (identical(other.photoUrl, photoUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.photoUrl, photoUrl)) &&
+            (identical(other.vehicleDocs, vehicleDocs) ||
+                const DeepCollectionEquality()
+                    .equals(other.vehicleDocs, vehicleDocs)) &&
+            (identical(other.vehicleImages, vehicleImages) ||
+                const DeepCollectionEquality()
+                    .equals(other.vehicleImages, vehicleImages)) &&
             (identical(other.userType, userType) ||
                 const DeepCollectionEquality()
                     .equals(other.userType, userType)) &&
@@ -409,6 +451,8 @@ class _$_Driver extends _Driver {
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(vehicleDocs) ^
+      const DeepCollectionEquality().hash(vehicleImages) ^
       const DeepCollectionEquality().hash(userType) ^
       const DeepCollectionEquality().hash(rating) ^
       const DeepCollectionEquality().hash(totalLoads) ^
@@ -435,7 +479,9 @@ abstract class _Driver extends Driver {
       required String name,
       required String email,
       required String phone,
-      String? photoUrl,
+      required String photoUrl,
+      required List<String> vehicleDocs,
+      required List<String> vehicleImages,
       UserType userType,
       @RatingConverter() required Rating rating,
       int totalLoads,
@@ -459,7 +505,11 @@ abstract class _Driver extends Driver {
   @override
   String get phone => throw _privateConstructorUsedError;
   @override
-  String? get photoUrl => throw _privateConstructorUsedError;
+  String get photoUrl => throw _privateConstructorUsedError;
+  @override
+  List<String> get vehicleDocs => throw _privateConstructorUsedError;
+  @override
+  List<String> get vehicleImages => throw _privateConstructorUsedError;
   @override
   UserType get userType => throw _privateConstructorUsedError;
   @override

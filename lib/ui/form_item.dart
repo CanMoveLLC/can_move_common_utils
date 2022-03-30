@@ -15,6 +15,7 @@ class TextFormItem extends StatelessWidget {
   final bool obscureText, isLoading, enabled;
   final Color? fillColor;
   final Widget? suffixIcon;
+  final Widget? prefix;
   final EdgeInsets? padding;
   final TextInputType textInputType;
   final TextInputAction textInputAction;
@@ -30,6 +31,7 @@ class TextFormItem extends StatelessWidget {
     this.onTap,
     this.onChanged,
     this.focusNode,
+    this.prefix,
     this.suffixIcon,
     this.textInputType = TextInputType.text,
     this.autoFocus = false,
@@ -47,12 +49,8 @@ class TextFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme
-        .of(context)
-        .textTheme;
-    var inputTheme = Theme
-        .of(context)
-        .inputDecorationTheme;
+    var textTheme = Theme.of(context).textTheme;
+    var inputTheme = Theme.of(context).inputDecorationTheme;
     return TextFormField(
       initialValue: value,
       obscureText: obscureText,
@@ -83,23 +81,19 @@ class TextFormItem extends StatelessWidget {
         ),*/
         suffixIcon: isLoading
             ? Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: SizedBox(
-            height: 15,
-            width: 15,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              backgroundColor: Theme
-                  .of(context)
-                  .primaryColor,
-              color: Theme
-                  .of(context)
-                  .colorScheme
-                  .secondary,
-            ),
-          ),
-        )
+                padding: const EdgeInsets.all(3.0),
+                child: SizedBox(
+                  height: 15,
+                  width: 15,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              )
             : suffixIcon,
+        prefix: prefix,
         filled: inputTheme.filled,
         hintText: hint,
         label: Text(label),
@@ -161,12 +155,8 @@ class NoLabelTextFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme
-        .of(context)
-        .textTheme;
-    var inputTheme = Theme
-        .of(context)
-        .inputDecorationTheme;
+    var textTheme = Theme.of(context).textTheme;
+    var inputTheme = Theme.of(context).inputDecorationTheme;
     return TextFormField(
       initialValue: value,
       obscureText: obscureText,
@@ -196,22 +186,17 @@ class NoLabelTextFormItem extends StatelessWidget {
         ),
         suffixIcon: isLoading
             ? Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: SizedBox(
-            height: 15,
-            width: 15,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              backgroundColor: Theme
-                  .of(context)
-                  .primaryColor,
-              color: Theme
-                  .of(context)
-                  .colorScheme
-                  .secondary,
-            ),
-          ),
-        )
+                padding: const EdgeInsets.all(3.0),
+                child: SizedBox(
+                  height: 15,
+                  width: 15,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              )
             : suffixIcon,
         filled: inputTheme.filled,
         hintText: hint,
@@ -270,12 +255,8 @@ class SelectFormItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme
-        .of(context)
-        .textTheme;
-    var inputTheme = Theme
-        .of(context)
-        .inputDecorationTheme;
+    var textTheme = Theme.of(context).textTheme;
+    var inputTheme = Theme.of(context).inputDecorationTheme;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -364,12 +345,11 @@ class SelectFormItem extends StatelessWidget {
             ),
             items: items
                 .map(
-                  (item) =>
-                  DropdownMenuItem(
+                  (item) => DropdownMenuItem(
                     child: Text(item.label),
                     value: item.value,
                   ),
-            )
+                )
                 .toList(),
             onChanged: (value) {
               onChanged?.call(value);

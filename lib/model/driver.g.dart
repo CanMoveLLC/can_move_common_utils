@@ -13,7 +13,13 @@ _$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
       name: json['name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
-      photoUrl: json['photoUrl'] as String?,
+      photoUrl: json['photoUrl'] as String,
+      vehicleDocs: (json['vehicleDocs'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      vehicleImages: (json['vehicleImages'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.driver,
       rating: const RatingConverter().fromJson(json['rating'] as Object),
@@ -30,6 +36,8 @@ Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'email': instance.email,
       'phone': instance.phone,
       'photoUrl': instance.photoUrl,
+      'vehicleDocs': instance.vehicleDocs,
+      'vehicleImages': instance.vehicleImages,
       'userType': _$UserTypeEnumMap[instance.userType],
       'rating': const RatingConverter().toJson(instance.rating),
       'totalLoads': instance.totalLoads,

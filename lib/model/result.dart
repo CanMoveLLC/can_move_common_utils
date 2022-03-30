@@ -51,10 +51,10 @@ class CMException implements Exception {
 }
 
 class Result<T> {
-  final T data;
+  final T value;
   final CMException? error;
 
-  const Result({required this.data, this.error});
+  const Result({required this.value, this.error});
 }
 
-Result<bool> get defaultOkRes => Result(data: true);
+Result<bool> get defaultOkRes => Result(value: true);
