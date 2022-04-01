@@ -15,6 +15,7 @@ class CanMoveNotification with _$CanMoveNotification {
     @TimeStampConverter() required Timestamp time,
     required String userUid,
     required String content,
+    required String title,
     String? imgUrl,
     String? loadUid,
     String? roomUid,

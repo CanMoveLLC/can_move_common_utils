@@ -54,7 +54,7 @@ abstract class MapState<T extends StatefulWidget> extends State<T> {
     await controller.animateCamera(
       CameraUpdate.newLatLngBounds(
         boundsFromLatLngList(list),
-        50,
+        100,
       ),
     );
   }

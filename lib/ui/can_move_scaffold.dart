@@ -5,14 +5,19 @@ import 'package:flutter/services.dart';
 // automatically change system overlay to appropriate brightness
 class CanMoveScaffold extends StatelessWidget {
   const CanMoveScaffold(
-      {Key? key, required this.body, 
-        this.floatingActionButton,
-        this.floatingActionButtonLocation,
-        this.appBar})
+      {Key? key,
+      required this.body,
+      this.floatingActionButton,
+      this.floatingActionButtonLocation,
+      this.bottomNavigationBar,
+      this.resizeToAvoidBottomInset,
+      this.appBar})
       : super(key: key);
 
   final Widget body;
   final Widget? floatingActionButton;
+  final Widget? bottomNavigationBar;
+  final bool? resizeToAvoidBottomInset;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   final PreferredSizeWidget? appBar;
 
@@ -21,16 +26,18 @@ class CanMoveScaffold extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: theme(context).brightness == Brightness.light
           ? SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.transparent,
-      )
+              statusBarColor: Colors.transparent,
+            )
           : SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Colors.transparent,
-      ),
+              statusBarColor: Colors.transparent,
+            ),
       child: Scaffold(
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         appBar: appBar,
         body: body,
         floatingActionButtonLocation: floatingActionButtonLocation,
         floatingActionButton: floatingActionButton,
+        bottomNavigationBar: bottomNavigationBar,
       ),
     );
   }

@@ -26,6 +26,7 @@ class _$CanMoveNotificationTearOff {
       @TimeStampConverter() required Timestamp time,
       required String userUid,
       required String content,
+      required String title,
       String? imgUrl,
       String? loadUid,
       String? roomUid}) {
@@ -34,6 +35,7 @@ class _$CanMoveNotificationTearOff {
       time: time,
       userUid: userUid,
       content: content,
+      title: title,
       imgUrl: imgUrl,
       loadUid: loadUid,
       roomUid: roomUid,
@@ -55,6 +57,7 @@ mixin _$CanMoveNotification {
   Timestamp get time => throw _privateConstructorUsedError;
   String get userUid => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String? get imgUrl => throw _privateConstructorUsedError;
   String? get loadUid => throw _privateConstructorUsedError;
   String? get roomUid => throw _privateConstructorUsedError;
@@ -75,6 +78,7 @@ abstract class $CanMoveNotificationCopyWith<$Res> {
       @TimeStampConverter() Timestamp time,
       String userUid,
       String content,
+      String title,
       String? imgUrl,
       String? loadUid,
       String? roomUid});
@@ -95,6 +99,7 @@ class _$CanMoveNotificationCopyWithImpl<$Res>
     Object? time = freezed,
     Object? userUid = freezed,
     Object? content = freezed,
+    Object? title = freezed,
     Object? imgUrl = freezed,
     Object? loadUid = freezed,
     Object? roomUid = freezed,
@@ -115,6 +120,10 @@ class _$CanMoveNotificationCopyWithImpl<$Res>
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       imgUrl: imgUrl == freezed
           ? _value.imgUrl
@@ -144,6 +153,7 @@ abstract class _$CanMoveNotificationCopyWith<$Res>
       @TimeStampConverter() Timestamp time,
       String userUid,
       String content,
+      String title,
       String? imgUrl,
       String? loadUid,
       String? roomUid});
@@ -166,6 +176,7 @@ class __$CanMoveNotificationCopyWithImpl<$Res>
     Object? time = freezed,
     Object? userUid = freezed,
     Object? content = freezed,
+    Object? title = freezed,
     Object? imgUrl = freezed,
     Object? loadUid = freezed,
     Object? roomUid = freezed,
@@ -186,6 +197,10 @@ class __$CanMoveNotificationCopyWithImpl<$Res>
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       imgUrl: imgUrl == freezed
           ? _value.imgUrl
@@ -211,6 +226,7 @@ class _$_CanMoveNotification extends _CanMoveNotification {
       @TimeStampConverter() required this.time,
       required this.userUid,
       required this.content,
+      required this.title,
       this.imgUrl,
       this.loadUid,
       this.roomUid})
@@ -229,6 +245,8 @@ class _$_CanMoveNotification extends _CanMoveNotification {
   @override
   final String content;
   @override
+  final String title;
+  @override
   final String? imgUrl;
   @override
   final String? loadUid;
@@ -237,7 +255,7 @@ class _$_CanMoveNotification extends _CanMoveNotification {
 
   @override
   String toString() {
-    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, imgUrl: $imgUrl, loadUid: $loadUid, roomUid: $roomUid)';
+    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, title: $title, imgUrl: $imgUrl, loadUid: $loadUid, roomUid: $roomUid)';
   }
 
   @override
@@ -254,6 +272,8 @@ class _$_CanMoveNotification extends _CanMoveNotification {
             (identical(other.content, content) ||
                 const DeepCollectionEquality()
                     .equals(other.content, content)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.imgUrl, imgUrl) ||
                 const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
             (identical(other.loadUid, loadUid) ||
@@ -270,6 +290,7 @@ class _$_CanMoveNotification extends _CanMoveNotification {
       const DeepCollectionEquality().hash(time) ^
       const DeepCollectionEquality().hash(userUid) ^
       const DeepCollectionEquality().hash(content) ^
+      const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(imgUrl) ^
       const DeepCollectionEquality().hash(loadUid) ^
       const DeepCollectionEquality().hash(roomUid);
@@ -292,6 +313,7 @@ abstract class _CanMoveNotification extends CanMoveNotification {
       @TimeStampConverter() required Timestamp time,
       required String userUid,
       required String content,
+      required String title,
       String? imgUrl,
       String? loadUid,
       String? roomUid}) = _$_CanMoveNotification;
@@ -309,6 +331,8 @@ abstract class _CanMoveNotification extends CanMoveNotification {
   String get userUid => throw _privateConstructorUsedError;
   @override
   String get content => throw _privateConstructorUsedError;
+  @override
+  String get title => throw _privateConstructorUsedError;
   @override
   String? get imgUrl => throw _privateConstructorUsedError;
   @override

@@ -22,7 +22,7 @@ class _$LoadTearOff {
   const _$LoadTearOff();
 
   _Load call(
-      {String? uid,
+      {required String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
@@ -72,7 +72,7 @@ const $Load = _$LoadTearOff();
 
 /// @nodoc
 mixin _$Load {
-  String? get uid => throw _privateConstructorUsedError;
+  String get uid => throw _privateConstructorUsedError;
   @NullTimeStampConverter()
   Timestamp? get startDate => throw _privateConstructorUsedError;
   @NullTimeStampConverter()
@@ -111,7 +111,7 @@ abstract class $LoadCopyWith<$Res> {
   factory $LoadCopyWith(Load value, $Res Function(Load) then) =
       _$LoadCopyWithImpl<$Res>;
   $Res call(
-      {String? uid,
+      {String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
@@ -168,7 +168,7 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
       uid: uid == freezed
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -272,7 +272,7 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       __$LoadCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? uid,
+      {String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
@@ -333,7 +333,7 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
       uid: uid == freezed
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -410,7 +410,7 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Load extends _Load {
   const _$_Load(
-      {this.uid,
+      {required this.uid,
       @NullTimeStampConverter() this.startDate,
       @NullTimeStampConverter() this.endDate,
       @TimeStampConverter() required this.pickUpDate,
@@ -433,7 +433,7 @@ class _$_Load extends _Load {
   factory _$_Load.fromJson(Map<String, dynamic> json) => _$$_LoadFromJson(json);
 
   @override
-  final String? uid;
+  final String uid;
   @override
   @NullTimeStampConverter()
   final Timestamp? startDate;
@@ -572,7 +572,7 @@ class _$_Load extends _Load {
 
 abstract class _Load extends Load {
   const factory _Load(
-      {String? uid,
+      {required String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
@@ -595,7 +595,7 @@ abstract class _Load extends Load {
   factory _Load.fromJson(Map<String, dynamic> json) = _$_Load.fromJson;
 
   @override
-  String? get uid => throw _privateConstructorUsedError;
+  String get uid => throw _privateConstructorUsedError;
   @override
   @NullTimeStampConverter()
   Timestamp? get startDate => throw _privateConstructorUsedError;

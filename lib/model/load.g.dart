@@ -7,7 +7,7 @@ part of 'load.dart';
 // **************************************************************************
 
 _$_Load _$$_LoadFromJson(Map<String, dynamic> json) => _$_Load(
-      uid: json['uid'] as String?,
+      uid: json['uid'] as String,
       startDate: const NullTimeStampConverter().fromJson(json['startDate']),
       endDate: const NullTimeStampConverter().fromJson(json['endDate']),
       pickUpDate:
@@ -71,7 +71,6 @@ const _$LoadStatusEnumMap = {
   LoadStatus.HAS_LOAD: 'HAS_LOAD',
   LoadStatus.TO_DROP: 'TO_DROP',
   LoadStatus.DROPPED_LOAD: 'DROPPED_LOAD',
-  LoadStatus.RATED: 'RATED',
   LoadStatus.CANCELED: 'CANCELED',
 };
 

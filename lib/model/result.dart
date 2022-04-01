@@ -18,7 +18,7 @@ class CMException implements Exception {
         msg = "No user associated with this email address.";
         break;
       case "network-request-failed":
-        msg = "Please check your internet.";
+        msg = "Please check your internet connection.";
         break;
       case "too-many-requests":
         msg = "Please try again later.";

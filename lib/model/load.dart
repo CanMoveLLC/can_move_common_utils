@@ -16,7 +16,6 @@ enum LoadStatus {
   HAS_LOAD,
   TO_DROP,
   DROPPED_LOAD,
-  RATED,
   CANCELED,
 }
 
@@ -25,7 +24,7 @@ class Load with _$Load {
   const Load._();
 
   const factory Load({
-    String? uid,
+    required String uid,
     @NullTimeStampConverter() Timestamp? startDate,
     @NullTimeStampConverter()
         Timestamp? endDate, // will be set on firebase func
@@ -74,8 +73,6 @@ class Load with _$Load {
 
       case LoadStatus.DROPPED_LOAD:
         return "Dropped";
-      case LoadStatus.RATED:
-        return "Dropped";
       case LoadStatus.CANCELED:
         return "Canceled";
     }
@@ -98,8 +95,6 @@ class Load with _$Load {
 
       case LoadStatus.DROPPED_LOAD:
         return "Driver has dropped off the load.";
-      case LoadStatus.RATED:
-        return "Service completed.";
       case LoadStatus.CANCELED:
         return "Service Canceled.";
     }
@@ -115,9 +110,7 @@ class Load with _$Load {
   }
 
   bool get isNotOnGoing {
-    return status == LoadStatus.DROPPED_LOAD ||
-        status == LoadStatus.RATED ||
-        status == LoadStatus.CANCELED;
+    return status == LoadStatus.DROPPED_LOAD || status == LoadStatus.CANCELED;
   }
 }
 
