@@ -12,7 +12,7 @@ class TextFormItem extends StatelessWidget {
   final int maxLines;
   final bool autoCorrect;
   final bool autoFocus;
-  final bool obscureText, isLoading, enabled;
+  final bool obscureText, isMoveing, enabled;
   final Color? fillColor;
   final Widget? suffixIcon;
   final Widget? prefix;
@@ -26,7 +26,7 @@ class TextFormItem extends StatelessWidget {
     required this.label,
     this.hint,
     this.controller,
-    this.isLoading = false,
+    this.isMoveing = false,
     this.fillColor,
     this.onTap,
     this.onChanged,
@@ -79,7 +79,7 @@ class TextFormItem extends StatelessWidget {
         /*suffixIconConstraints: BoxConstraints.tight(
           Size(20, 20),
         ),*/
-        suffixIcon: isLoading
+        suffixIcon: isMoveing
             ? Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: SizedBox(
@@ -124,7 +124,7 @@ class NoLabelTextFormItem extends StatelessWidget {
   final int maxLines;
   final bool autoCorrect;
   final bool autoFocus;
-  final bool obscureText, isLoading;
+  final bool obscureText, isMoveing;
   final Color? fillColor;
   final Widget? suffixIcon;
   final TextInputType textInputType;
@@ -135,7 +135,7 @@ class NoLabelTextFormItem extends StatelessWidget {
     Key? key,
     this.hint,
     this.controller,
-    this.isLoading = false,
+    this.isMoveing = false,
     this.fillColor,
     this.onTap,
     this.onChanged,
@@ -184,7 +184,7 @@ class NoLabelTextFormItem extends StatelessWidget {
         suffixIconConstraints: BoxConstraints.tight(
           Size(20, 20),
         ),
-        suffixIcon: isLoading
+        suffixIcon: isMoveing
             ? Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: SizedBox(
@@ -232,7 +232,7 @@ class SelectFormItem extends StatelessWidget {
   final FormFieldValidator<dynamic>? validator;
   final List<SelectFieldItem> items;
   final dynamic value;
-  final bool isLoading;
+  final bool isMoveing;
 
   const SelectFormItem({
     Key? key,
@@ -249,7 +249,7 @@ class SelectFormItem extends StatelessWidget {
     this.onSaved,
     this.validator,
     required this.items,
-    this.isLoading = false,
+    this.isMoveing = false,
     this.value,
   });
 
@@ -312,13 +312,13 @@ class SelectFormItem extends StatelessWidget {
               suffixIconConstraints: BoxConstraints.tight(
                 Size(20, 20),
               ),
-              /*suffixIcon: isLoading
+              /*suffixIcon: isMoveing
                   ? Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Container(
                         height: 15,
                         width: 15,
-                        child: AMLoadingIndicator(
+                        child: AMMoveingIndicator(
                             */ /* strokeWidth: 2,
                           backgroundColor: Theme.of(context).primaryColor,
                           color: Theme.of(context).accentColor,*/ /*

@@ -1,15 +1,15 @@
-import 'package:can_move_common_utils/model/load.dart';
+import 'package:can_move_common_utils/model/move.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:fdottedline_nullsafety/fdottedline__nullsafety.dart';
 import 'package:flutter/material.dart';
 
-class LoadDropOffAddressPart extends StatelessWidget {
-  const LoadDropOffAddressPart({
+class MoveDropOffAddressPart extends StatelessWidget {
+  const MoveDropOffAddressPart({
     Key? key,
-    required this.load,
+    required this.move,
   }) : super(key: key);
 
-  final Load load;
+  final Move move;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class LoadDropOffAddressPart extends StatelessWidget {
               vertical: 5,
             ),
             child: Column(
-              children: load.dropOffs
+              children: move.dropOffs
                   .map(
                     (e) => Padding(
                       padding: const EdgeInsets.symmetric(
@@ -67,13 +67,13 @@ class LoadDropOffAddressPart extends StatelessWidget {
   }
 }
 
-class LoadPickUpAddressPart extends StatelessWidget {
-  const LoadPickUpAddressPart({
+class MovePickUpAddressPart extends StatelessWidget {
+  const MovePickUpAddressPart({
     Key? key,
-    required this.load,
+    required this.move,
   }) : super(key: key);
 
-  final Load load;
+  final Move move;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class LoadPickUpAddressPart extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    load.pickUp.address,
+                    move.pickUp.address,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                   ),

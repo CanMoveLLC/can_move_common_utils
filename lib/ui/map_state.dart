@@ -29,22 +29,25 @@ abstract class MapState<T extends StatefulWidget> extends State<T> {
     getMarkerPin();
   }
 
-  Future<BitmapDescriptor?> getMarkerPin() async {
-    if (markerIcon != null) return markerIcon;
-    var iconName = "pin";
+  Future<void> getMarkerPin() async {
+    if (markerIcon != null) return;
+    markerIcon = await getPin("pin");
+  }
+
+  Future<BitmapDescriptor?> getPin(String imgName) async {
+    var iconName = imgName;
     if (Platform.isAndroid) {
       double mq = MediaQuery.of(context).devicePixelRatio;
       if (mq > 1.5 && mq < 2.5)
-        iconName = "3x/pin";
-      else if (mq >= 2.5) iconName = "3x/pin";
+        iconName = "3x/$iconName";
+      else if (mq >= 2.5) iconName = "3x/$iconName";
     }
-    markerIcon = await BitmapDescriptor.fromAssetImage(
+    return await BitmapDescriptor.fromAssetImage(
       ImageConfiguration(
         devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
       ),
       'assets/images/$iconName.png',
     );
-    return markerIcon;
   }
 
   Future<void> moveMapToLatLngList(List<LatLng> list,

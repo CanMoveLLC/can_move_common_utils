@@ -10,6 +10,8 @@ _$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
       uid: json['uid'] as String,
       payID: json['payID'] as String?,
       payEnabled: json['payEnabled'] as bool? ?? false,
+      online: json['online'] as bool? ?? false,
+      verified: json['verified'] as bool? ?? false,
       name: json['name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
@@ -23,7 +25,7 @@ _$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.driver,
       rating: const RatingConverter().fromJson(json['rating'] as Object),
-      totalLoads: json['totalLoads'] as int? ?? 0,
+      totalMoves: json['totalMoves'] as int? ?? 0,
       location: const NullGeoPointConverter().fromJson(json['location']),
       vehicleSize: $enumDecode(_$VehicleSizeEnumMap, json['vehicleSize']),
     );
@@ -32,6 +34,8 @@ Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'uid': instance.uid,
       'payID': instance.payID,
       'payEnabled': instance.payEnabled,
+      'online': instance.online,
+      'verified': instance.verified,
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
@@ -40,7 +44,7 @@ Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'vehicleImages': instance.vehicleImages,
       'userType': _$UserTypeEnumMap[instance.userType],
       'rating': const RatingConverter().toJson(instance.rating),
-      'totalLoads': instance.totalLoads,
+      'totalMoves': instance.totalMoves,
       'location': const NullGeoPointConverter().toJson(instance.location),
       'vehicleSize': _$VehicleSizeEnumMap[instance.vehicleSize],
     };

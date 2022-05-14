@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geoflutterfire2/geoflutterfire2.dart';
 
 import '../model/driver.dart';
-import '../model/load.dart';
+import '../model/move.dart';
 import '../model/shipper.dart';
 
 class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
@@ -97,13 +97,13 @@ class TimeStampConverter implements JsonConverter<Timestamp, Object> {
   }
 }
 
-class LoadLocationConverter implements JsonConverter<LoadLocation, Object> {
-  const LoadLocationConverter();
+class MoveLocationConverter implements JsonConverter<MoveLocation, Object> {
+  const MoveLocationConverter();
 
   @override
-  LoadLocation fromJson(Object json) {
+  MoveLocation fromJson(Object json) {
     if (json is Map<String, dynamic>) {
-      return LoadLocation(
+      return MoveLocation(
         location: GeoFirePoint(
           json["location"]["geopoint"].latitude,
           json["location"]["geopoint"].longitude,
@@ -111,11 +111,11 @@ class LoadLocationConverter implements JsonConverter<LoadLocation, Object> {
         address: json["address"],
       );
     }
-    return json as LoadLocation; // won't work though
+    return json as MoveLocation; // won't work though
   }
 
   @override
-  Object toJson(LoadLocation object) {
+  Object toJson(MoveLocation object) {
     return {
       "location": object.location.data,
       "address": object.address,
@@ -123,15 +123,15 @@ class LoadLocationConverter implements JsonConverter<LoadLocation, Object> {
   }
 }
 
-class ListLoadLocationConverter
-    implements JsonConverter<List<LoadLocation>, Object> {
-  const ListLoadLocationConverter();
+class ListMoveLocationConverter
+    implements JsonConverter<List<MoveLocation>, Object> {
+  const ListMoveLocationConverter();
 
   @override
-  List<LoadLocation> fromJson(Object json) {
+  List<MoveLocation> fromJson(Object json) {
     if (json is List<dynamic>) {
       return json
-          .map((e) => LoadLocation(
+          .map((e) => MoveLocation(
                 location: GeoFirePoint(
                   e["location"]["geopoint"].latitude,
                   e["location"]["geopoint"].longitude,
@@ -140,11 +140,11 @@ class ListLoadLocationConverter
               ))
           .toList();
     }
-    return json as List<LoadLocation>; // won't work though
+    return json as List<MoveLocation>; // won't work though
   }
 
   @override
-  Object toJson(List<LoadLocation> object) {
+  Object toJson(List<MoveLocation> object) {
     return object
         .map((e) => {
               "location": e.location.data,

@@ -25,6 +25,8 @@ class _$DriverTearOff {
       {required String uid,
       String? payID,
       bool payEnabled = false,
+      bool online = false,
+      bool verified = false,
       required String name,
       required String email,
       required String phone,
@@ -33,7 +35,7 @@ class _$DriverTearOff {
       required List<String> vehicleImages,
       UserType userType = UserType.driver,
       @RatingConverter() required Rating rating,
-      int totalLoads = 0,
+      int totalMoves = 0,
       @JsonKey(ignore: true) User? user,
       @NullGeoPointConverter() GeoPoint? location,
       required VehicleSize vehicleSize}) {
@@ -41,6 +43,8 @@ class _$DriverTearOff {
       uid: uid,
       payID: payID,
       payEnabled: payEnabled,
+      online: online,
+      verified: verified,
       name: name,
       email: email,
       phone: phone,
@@ -49,7 +53,7 @@ class _$DriverTearOff {
       vehicleImages: vehicleImages,
       userType: userType,
       rating: rating,
-      totalLoads: totalLoads,
+      totalMoves: totalMoves,
       user: user,
       location: location,
       vehicleSize: vehicleSize,
@@ -69,6 +73,8 @@ mixin _$Driver {
   String get uid => throw _privateConstructorUsedError;
   String? get payID => throw _privateConstructorUsedError;
   bool get payEnabled => throw _privateConstructorUsedError;
+  bool get online => throw _privateConstructorUsedError;
+  bool get verified => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
@@ -78,7 +84,7 @@ mixin _$Driver {
   UserType get userType => throw _privateConstructorUsedError;
   @RatingConverter()
   Rating get rating => throw _privateConstructorUsedError;
-  int get totalLoads => throw _privateConstructorUsedError;
+  int get totalMoves => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   User? get user =>
       throw _privateConstructorUsedError; // for storing in hive/sharedPrefs, make sure this is null first.
@@ -99,6 +105,8 @@ abstract class $DriverCopyWith<$Res> {
       {String uid,
       String? payID,
       bool payEnabled,
+      bool online,
+      bool verified,
       String name,
       String email,
       String phone,
@@ -107,7 +115,7 @@ abstract class $DriverCopyWith<$Res> {
       List<String> vehicleImages,
       UserType userType,
       @RatingConverter() Rating rating,
-      int totalLoads,
+      int totalMoves,
       @JsonKey(ignore: true) User? user,
       @NullGeoPointConverter() GeoPoint? location,
       VehicleSize vehicleSize});
@@ -128,6 +136,8 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
     Object? uid = freezed,
     Object? payID = freezed,
     Object? payEnabled = freezed,
+    Object? online = freezed,
+    Object? verified = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? phone = freezed,
@@ -136,7 +146,7 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
     Object? vehicleImages = freezed,
     Object? userType = freezed,
     Object? rating = freezed,
-    Object? totalLoads = freezed,
+    Object? totalMoves = freezed,
     Object? user = freezed,
     Object? location = freezed,
     Object? vehicleSize = freezed,
@@ -153,6 +163,14 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
       payEnabled: payEnabled == freezed
           ? _value.payEnabled
           : payEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verified: verified == freezed
+          ? _value.verified
+          : verified // ignore: cast_nullable_to_non_nullable
               as bool,
       name: name == freezed
           ? _value.name
@@ -186,9 +204,9 @@ class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Rating,
-      totalLoads: totalLoads == freezed
-          ? _value.totalLoads
-          : totalLoads // ignore: cast_nullable_to_non_nullable
+      totalMoves: totalMoves == freezed
+          ? _value.totalMoves
+          : totalMoves // ignore: cast_nullable_to_non_nullable
               as int,
       user: user == freezed
           ? _value.user
@@ -222,6 +240,8 @@ abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
       {String uid,
       String? payID,
       bool payEnabled,
+      bool online,
+      bool verified,
       String name,
       String email,
       String phone,
@@ -230,7 +250,7 @@ abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
       List<String> vehicleImages,
       UserType userType,
       @RatingConverter() Rating rating,
-      int totalLoads,
+      int totalMoves,
       @JsonKey(ignore: true) User? user,
       @NullGeoPointConverter() GeoPoint? location,
       VehicleSize vehicleSize});
@@ -253,6 +273,8 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
     Object? uid = freezed,
     Object? payID = freezed,
     Object? payEnabled = freezed,
+    Object? online = freezed,
+    Object? verified = freezed,
     Object? name = freezed,
     Object? email = freezed,
     Object? phone = freezed,
@@ -261,7 +283,7 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
     Object? vehicleImages = freezed,
     Object? userType = freezed,
     Object? rating = freezed,
-    Object? totalLoads = freezed,
+    Object? totalMoves = freezed,
     Object? user = freezed,
     Object? location = freezed,
     Object? vehicleSize = freezed,
@@ -278,6 +300,14 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
       payEnabled: payEnabled == freezed
           ? _value.payEnabled
           : payEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      online: online == freezed
+          ? _value.online
+          : online // ignore: cast_nullable_to_non_nullable
+              as bool,
+      verified: verified == freezed
+          ? _value.verified
+          : verified // ignore: cast_nullable_to_non_nullable
               as bool,
       name: name == freezed
           ? _value.name
@@ -311,9 +341,9 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Rating,
-      totalLoads: totalLoads == freezed
-          ? _value.totalLoads
-          : totalLoads // ignore: cast_nullable_to_non_nullable
+      totalMoves: totalMoves == freezed
+          ? _value.totalMoves
+          : totalMoves // ignore: cast_nullable_to_non_nullable
               as int,
       user: user == freezed
           ? _value.user
@@ -338,6 +368,8 @@ class _$_Driver extends _Driver {
       {required this.uid,
       this.payID,
       this.payEnabled = false,
+      this.online = false,
+      this.verified = false,
       required this.name,
       required this.email,
       required this.phone,
@@ -346,7 +378,7 @@ class _$_Driver extends _Driver {
       required this.vehicleImages,
       this.userType = UserType.driver,
       @RatingConverter() required this.rating,
-      this.totalLoads = 0,
+      this.totalMoves = 0,
       @JsonKey(ignore: true) this.user,
       @NullGeoPointConverter() this.location,
       required this.vehicleSize})
@@ -362,6 +394,12 @@ class _$_Driver extends _Driver {
   @JsonKey(defaultValue: false)
   @override
   final bool payEnabled;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool online;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool verified;
   @override
   final String name;
   @override
@@ -382,7 +420,7 @@ class _$_Driver extends _Driver {
   final Rating rating;
   @JsonKey(defaultValue: 0)
   @override
-  final int totalLoads;
+  final int totalMoves;
   @override
   @JsonKey(ignore: true)
   final User? user;
@@ -394,7 +432,7 @@ class _$_Driver extends _Driver {
 
   @override
   String toString() {
-    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalLoads: $totalLoads, user: $user, location: $location, vehicleSize: $vehicleSize)';
+    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, online: $online, verified: $verified, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalMoves: $totalMoves, user: $user, location: $location, vehicleSize: $vehicleSize)';
   }
 
   @override
@@ -408,6 +446,11 @@ class _$_Driver extends _Driver {
             (identical(other.payEnabled, payEnabled) ||
                 const DeepCollectionEquality()
                     .equals(other.payEnabled, payEnabled)) &&
+            (identical(other.online, online) ||
+                const DeepCollectionEquality().equals(other.online, online)) &&
+            (identical(other.verified, verified) ||
+                const DeepCollectionEquality()
+                    .equals(other.verified, verified)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.email, email) ||
@@ -428,9 +471,9 @@ class _$_Driver extends _Driver {
                     .equals(other.userType, userType)) &&
             (identical(other.rating, rating) ||
                 const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.totalLoads, totalLoads) ||
+            (identical(other.totalMoves, totalMoves) ||
                 const DeepCollectionEquality()
-                    .equals(other.totalLoads, totalLoads)) &&
+                    .equals(other.totalMoves, totalMoves)) &&
             (identical(other.user, user) ||
                 const DeepCollectionEquality().equals(other.user, user)) &&
             (identical(other.location, location) ||
@@ -447,6 +490,8 @@ class _$_Driver extends _Driver {
       const DeepCollectionEquality().hash(uid) ^
       const DeepCollectionEquality().hash(payID) ^
       const DeepCollectionEquality().hash(payEnabled) ^
+      const DeepCollectionEquality().hash(online) ^
+      const DeepCollectionEquality().hash(verified) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(phone) ^
@@ -455,7 +500,7 @@ class _$_Driver extends _Driver {
       const DeepCollectionEquality().hash(vehicleImages) ^
       const DeepCollectionEquality().hash(userType) ^
       const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(totalLoads) ^
+      const DeepCollectionEquality().hash(totalMoves) ^
       const DeepCollectionEquality().hash(user) ^
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(vehicleSize);
@@ -476,6 +521,8 @@ abstract class _Driver extends Driver {
       {required String uid,
       String? payID,
       bool payEnabled,
+      bool online,
+      bool verified,
       required String name,
       required String email,
       required String phone,
@@ -484,7 +531,7 @@ abstract class _Driver extends Driver {
       required List<String> vehicleImages,
       UserType userType,
       @RatingConverter() required Rating rating,
-      int totalLoads,
+      int totalMoves,
       @JsonKey(ignore: true) User? user,
       @NullGeoPointConverter() GeoPoint? location,
       required VehicleSize vehicleSize}) = _$_Driver;
@@ -498,6 +545,10 @@ abstract class _Driver extends Driver {
   String? get payID => throw _privateConstructorUsedError;
   @override
   bool get payEnabled => throw _privateConstructorUsedError;
+  @override
+  bool get online => throw _privateConstructorUsedError;
+  @override
+  bool get verified => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
@@ -516,7 +567,7 @@ abstract class _Driver extends Driver {
   @RatingConverter()
   Rating get rating => throw _privateConstructorUsedError;
   @override
-  int get totalLoads => throw _privateConstructorUsedError;
+  int get totalMoves => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   User? get user => throw _privateConstructorUsedError;

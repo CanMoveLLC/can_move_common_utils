@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'load.dart';
+part of 'move.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,21 +13,21 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Load _$LoadFromJson(Map<String, dynamic> json) {
-  return _Load.fromJson(json);
+Move _$MoveFromJson(Map<String, dynamic> json) {
+  return _Move.fromJson(json);
 }
 
 /// @nodoc
-class _$LoadTearOff {
-  const _$LoadTearOff();
+class _$MoveTearOff {
+  const _$MoveTearOff();
 
-  _Load call(
+  _Move call(
       {required String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
-      @LoadLocationConverter() required LoadLocation pickUp,
-      @ListLoadLocationConverter() required List<LoadLocation> dropOffs,
+      @MoveLocationConverter() required MoveLocation pickUp,
+      @ListMoveLocationConverter() required List<MoveLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() required ShipperMin shipper,
       required VehicleSize size,
@@ -38,9 +38,9 @@ class _$LoadTearOff {
       bool isPaid = false,
       bool userHasBid = true,
       bool driverHasBid = false,
-      LoadStatus status = LoadStatus.PENDING,
+      MoveStatus status = MoveStatus.PENDING,
       @ServerTimeStampConverter() FieldValue? createdAt}) {
-    return _Load(
+    return _Move(
       uid: uid,
       startDate: startDate,
       endDate: endDate,
@@ -62,16 +62,16 @@ class _$LoadTearOff {
     );
   }
 
-  Load fromJson(Map<String, Object> json) {
-    return Load.fromJson(json);
+  Move fromJson(Map<String, Object> json) {
+    return Move.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Load = _$LoadTearOff();
+const $Move = _$MoveTearOff();
 
 /// @nodoc
-mixin _$Load {
+mixin _$Move {
   String get uid => throw _privateConstructorUsedError;
   @NullTimeStampConverter()
   Timestamp? get startDate => throw _privateConstructorUsedError;
@@ -80,10 +80,10 @@ mixin _$Load {
       throw _privateConstructorUsedError; // will be set on firebase func
   @TimeStampConverter()
   Timestamp get pickUpDate => throw _privateConstructorUsedError;
-  @LoadLocationConverter()
-  LoadLocation get pickUp => throw _privateConstructorUsedError;
-  @ListLoadLocationConverter()
-  List<LoadLocation> get dropOffs => throw _privateConstructorUsedError;
+  @MoveLocationConverter()
+  MoveLocation get pickUp => throw _privateConstructorUsedError;
+  @ListMoveLocationConverter()
+  List<MoveLocation> get dropOffs => throw _privateConstructorUsedError;
   @NullDriverMinConverter()
   DriverMin? get driver => throw _privateConstructorUsedError;
   @UserMinConverter()
@@ -97,26 +97,26 @@ mixin _$Load {
   bool get isPaid => throw _privateConstructorUsedError;
   bool get userHasBid => throw _privateConstructorUsedError;
   bool get driverHasBid => throw _privateConstructorUsedError;
-  LoadStatus get status => throw _privateConstructorUsedError;
+  MoveStatus get status => throw _privateConstructorUsedError;
   @ServerTimeStampConverter()
   FieldValue? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoadCopyWith<Load> get copyWith => throw _privateConstructorUsedError;
+  $MoveCopyWith<Move> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadCopyWith<$Res> {
-  factory $LoadCopyWith(Load value, $Res Function(Load) then) =
-      _$LoadCopyWithImpl<$Res>;
+abstract class $MoveCopyWith<$Res> {
+  factory $MoveCopyWith(Move value, $Res Function(Move) then) =
+      _$MoveCopyWithImpl<$Res>;
   $Res call(
       {String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
-      @LoadLocationConverter() LoadLocation pickUp,
-      @ListLoadLocationConverter() List<LoadLocation> dropOffs,
+      @MoveLocationConverter() MoveLocation pickUp,
+      @ListMoveLocationConverter() List<MoveLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
@@ -127,21 +127,21 @@ abstract class $LoadCopyWith<$Res> {
       bool isPaid,
       bool userHasBid,
       bool driverHasBid,
-      LoadStatus status,
+      MoveStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
-  $LoadLocationCopyWith<$Res> get pickUp;
+  $MoveLocationCopyWith<$Res> get pickUp;
   $DriverMinCopyWith<$Res>? get driver;
   $ShipperMinCopyWith<$Res> get shipper;
 }
 
 /// @nodoc
-class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
-  _$LoadCopyWithImpl(this._value, this._then);
+class _$MoveCopyWithImpl<$Res> implements $MoveCopyWith<$Res> {
+  _$MoveCopyWithImpl(this._value, this._then);
 
-  final Load _value;
+  final Move _value;
   // ignore: unused_field
-  final $Res Function(Load) _then;
+  final $Res Function(Move) _then;
 
   @override
   $Res call({
@@ -184,11 +184,11 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
       pickUp: pickUp == freezed
           ? _value.pickUp
           : pickUp // ignore: cast_nullable_to_non_nullable
-              as LoadLocation,
+              as MoveLocation,
       dropOffs: dropOffs == freezed
           ? _value.dropOffs
           : dropOffs // ignore: cast_nullable_to_non_nullable
-              as List<LoadLocation>,
+              as List<MoveLocation>,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -232,7 +232,7 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as LoadStatus,
+              as MoveStatus,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -241,8 +241,8 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
   }
 
   @override
-  $LoadLocationCopyWith<$Res> get pickUp {
-    return $LoadLocationCopyWith<$Res>(_value.pickUp, (value) {
+  $MoveLocationCopyWith<$Res> get pickUp {
+    return $MoveLocationCopyWith<$Res>(_value.pickUp, (value) {
       return _then(_value.copyWith(pickUp: value));
     });
   }
@@ -267,17 +267,17 @@ class _$LoadCopyWithImpl<$Res> implements $LoadCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
-  factory _$LoadCopyWith(_Load value, $Res Function(_Load) then) =
-      __$LoadCopyWithImpl<$Res>;
+abstract class _$MoveCopyWith<$Res> implements $MoveCopyWith<$Res> {
+  factory _$MoveCopyWith(_Move value, $Res Function(_Move) then) =
+      __$MoveCopyWithImpl<$Res>;
   @override
   $Res call(
       {String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() Timestamp pickUpDate,
-      @LoadLocationConverter() LoadLocation pickUp,
-      @ListLoadLocationConverter() List<LoadLocation> dropOffs,
+      @MoveLocationConverter() MoveLocation pickUp,
+      @ListMoveLocationConverter() List<MoveLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
@@ -288,11 +288,11 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
       bool isPaid,
       bool userHasBid,
       bool driverHasBid,
-      LoadStatus status,
+      MoveStatus status,
       @ServerTimeStampConverter() FieldValue? createdAt});
 
   @override
-  $LoadLocationCopyWith<$Res> get pickUp;
+  $MoveLocationCopyWith<$Res> get pickUp;
   @override
   $DriverMinCopyWith<$Res>? get driver;
   @override
@@ -300,13 +300,13 @@ abstract class _$LoadCopyWith<$Res> implements $LoadCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
-    implements _$LoadCopyWith<$Res> {
-  __$LoadCopyWithImpl(_Load _value, $Res Function(_Load) _then)
-      : super(_value, (v) => _then(v as _Load));
+class __$MoveCopyWithImpl<$Res> extends _$MoveCopyWithImpl<$Res>
+    implements _$MoveCopyWith<$Res> {
+  __$MoveCopyWithImpl(_Move _value, $Res Function(_Move) _then)
+      : super(_value, (v) => _then(v as _Move));
 
   @override
-  _Load get _value => super._value as _Load;
+  _Move get _value => super._value as _Move;
 
   @override
   $Res call({
@@ -329,7 +329,7 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
     Object? status = freezed,
     Object? createdAt = freezed,
   }) {
-    return _then(_Load(
+    return _then(_Move(
       uid: uid == freezed
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -349,11 +349,11 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
       pickUp: pickUp == freezed
           ? _value.pickUp
           : pickUp // ignore: cast_nullable_to_non_nullable
-              as LoadLocation,
+              as MoveLocation,
       dropOffs: dropOffs == freezed
           ? _value.dropOffs
           : dropOffs // ignore: cast_nullable_to_non_nullable
-              as List<LoadLocation>,
+              as List<MoveLocation>,
       driver: driver == freezed
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -397,7 +397,7 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as LoadStatus,
+              as MoveStatus,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -408,14 +408,14 @@ class __$LoadCopyWithImpl<$Res> extends _$LoadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Load extends _Load {
-  const _$_Load(
+class _$_Move extends _Move {
+  const _$_Move(
       {required this.uid,
       @NullTimeStampConverter() this.startDate,
       @NullTimeStampConverter() this.endDate,
       @TimeStampConverter() required this.pickUpDate,
-      @LoadLocationConverter() required this.pickUp,
-      @ListLoadLocationConverter() required this.dropOffs,
+      @MoveLocationConverter() required this.pickUp,
+      @ListMoveLocationConverter() required this.dropOffs,
       @NullDriverMinConverter() this.driver,
       @UserMinConverter() required this.shipper,
       required this.size,
@@ -426,11 +426,11 @@ class _$_Load extends _Load {
       this.isPaid = false,
       this.userHasBid = true,
       this.driverHasBid = false,
-      this.status = LoadStatus.PENDING,
+      this.status = MoveStatus.PENDING,
       @ServerTimeStampConverter() this.createdAt})
       : super._();
 
-  factory _$_Load.fromJson(Map<String, dynamic> json) => _$$_LoadFromJson(json);
+  factory _$_Move.fromJson(Map<String, dynamic> json) => _$$_MoveFromJson(json);
 
   @override
   final String uid;
@@ -444,11 +444,11 @@ class _$_Load extends _Load {
   @TimeStampConverter()
   final Timestamp pickUpDate;
   @override
-  @LoadLocationConverter()
-  final LoadLocation pickUp;
+  @MoveLocationConverter()
+  final MoveLocation pickUp;
   @override
-  @ListLoadLocationConverter()
-  final List<LoadLocation> dropOffs;
+  @ListMoveLocationConverter()
+  final List<MoveLocation> dropOffs;
   @override
   @NullDriverMinConverter()
   final DriverMin? driver;
@@ -475,22 +475,22 @@ class _$_Load extends _Load {
   @JsonKey(defaultValue: false)
   @override
   final bool driverHasBid;
-  @JsonKey(defaultValue: LoadStatus.PENDING)
+  @JsonKey(defaultValue: MoveStatus.PENDING)
   @override
-  final LoadStatus status;
+  final MoveStatus status;
   @override
   @ServerTimeStampConverter()
   final FieldValue? createdAt;
 
   @override
   String toString() {
-    return 'Load(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, images: $images, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
+    return 'Move(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, images: $images, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Load &&
+        (other is _Move &&
             (identical(other.uid, uid) ||
                 const DeepCollectionEquality().equals(other.uid, uid)) &&
             (identical(other.startDate, startDate) ||
@@ -561,23 +561,23 @@ class _$_Load extends _Load {
 
   @JsonKey(ignore: true)
   @override
-  _$LoadCopyWith<_Load> get copyWith =>
-      __$LoadCopyWithImpl<_Load>(this, _$identity);
+  _$MoveCopyWith<_Move> get copyWith =>
+      __$MoveCopyWithImpl<_Move>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoadToJson(this);
+    return _$$_MoveToJson(this);
   }
 }
 
-abstract class _Load extends Load {
-  const factory _Load(
+abstract class _Move extends Move {
+  const factory _Move(
       {required String uid,
       @NullTimeStampConverter() Timestamp? startDate,
       @NullTimeStampConverter() Timestamp? endDate,
       @TimeStampConverter() required Timestamp pickUpDate,
-      @LoadLocationConverter() required LoadLocation pickUp,
-      @ListLoadLocationConverter() required List<LoadLocation> dropOffs,
+      @MoveLocationConverter() required MoveLocation pickUp,
+      @ListMoveLocationConverter() required List<MoveLocation> dropOffs,
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() required ShipperMin shipper,
       required VehicleSize size,
@@ -588,11 +588,11 @@ abstract class _Load extends Load {
       bool isPaid,
       bool userHasBid,
       bool driverHasBid,
-      LoadStatus status,
-      @ServerTimeStampConverter() FieldValue? createdAt}) = _$_Load;
-  const _Load._() : super._();
+      MoveStatus status,
+      @ServerTimeStampConverter() FieldValue? createdAt}) = _$_Move;
+  const _Move._() : super._();
 
-  factory _Load.fromJson(Map<String, dynamic> json) = _$_Load.fromJson;
+  factory _Move.fromJson(Map<String, dynamic> json) = _$_Move.fromJson;
 
   @override
   String get uid => throw _privateConstructorUsedError;
@@ -606,11 +606,11 @@ abstract class _Load extends Load {
   @TimeStampConverter()
   Timestamp get pickUpDate => throw _privateConstructorUsedError;
   @override
-  @LoadLocationConverter()
-  LoadLocation get pickUp => throw _privateConstructorUsedError;
+  @MoveLocationConverter()
+  MoveLocation get pickUp => throw _privateConstructorUsedError;
   @override
-  @ListLoadLocationConverter()
-  List<LoadLocation> get dropOffs => throw _privateConstructorUsedError;
+  @ListMoveLocationConverter()
+  List<MoveLocation> get dropOffs => throw _privateConstructorUsedError;
   @override
   @NullDriverMinConverter()
   DriverMin? get driver => throw _privateConstructorUsedError;
@@ -634,67 +634,67 @@ abstract class _Load extends Load {
   @override
   bool get driverHasBid => throw _privateConstructorUsedError;
   @override
-  LoadStatus get status => throw _privateConstructorUsedError;
+  MoveStatus get status => throw _privateConstructorUsedError;
   @override
   @ServerTimeStampConverter()
   FieldValue? get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LoadCopyWith<_Load> get copyWith => throw _privateConstructorUsedError;
+  _$MoveCopyWith<_Move> get copyWith => throw _privateConstructorUsedError;
 }
 
-LoadLocation _$LoadLocationFromJson(Map<String, dynamic> json) {
-  return _LoadLocation.fromJson(json);
+MoveLocation _$MoveLocationFromJson(Map<String, dynamic> json) {
+  return _MoveLocation.fromJson(json);
 }
 
 /// @nodoc
-class _$LoadLocationTearOff {
-  const _$LoadLocationTearOff();
+class _$MoveLocationTearOff {
+  const _$MoveLocationTearOff();
 
-  _LoadLocation call(
+  _MoveLocation call(
       {@GeoFirePointConverter() required GeoFirePoint location,
       required String address}) {
-    return _LoadLocation(
+    return _MoveLocation(
       location: location,
       address: address,
     );
   }
 
-  LoadLocation fromJson(Map<String, Object> json) {
-    return LoadLocation.fromJson(json);
+  MoveLocation fromJson(Map<String, Object> json) {
+    return MoveLocation.fromJson(json);
   }
 }
 
 /// @nodoc
-const $LoadLocation = _$LoadLocationTearOff();
+const $MoveLocation = _$MoveLocationTearOff();
 
 /// @nodoc
-mixin _$LoadLocation {
+mixin _$MoveLocation {
   @GeoFirePointConverter()
   GeoFirePoint get location => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LoadLocationCopyWith<LoadLocation> get copyWith =>
+  $MoveLocationCopyWith<MoveLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LoadLocationCopyWith<$Res> {
-  factory $LoadLocationCopyWith(
-          LoadLocation value, $Res Function(LoadLocation) then) =
-      _$LoadLocationCopyWithImpl<$Res>;
+abstract class $MoveLocationCopyWith<$Res> {
+  factory $MoveLocationCopyWith(
+          MoveLocation value, $Res Function(MoveLocation) then) =
+      _$MoveLocationCopyWithImpl<$Res>;
   $Res call({@GeoFirePointConverter() GeoFirePoint location, String address});
 }
 
 /// @nodoc
-class _$LoadLocationCopyWithImpl<$Res> implements $LoadLocationCopyWith<$Res> {
-  _$LoadLocationCopyWithImpl(this._value, this._then);
+class _$MoveLocationCopyWithImpl<$Res> implements $MoveLocationCopyWith<$Res> {
+  _$MoveLocationCopyWithImpl(this._value, this._then);
 
-  final LoadLocation _value;
+  final MoveLocation _value;
   // ignore: unused_field
-  final $Res Function(LoadLocation) _then;
+  final $Res Function(MoveLocation) _then;
 
   @override
   $Res call({
@@ -715,31 +715,31 @@ class _$LoadLocationCopyWithImpl<$Res> implements $LoadLocationCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LoadLocationCopyWith<$Res>
-    implements $LoadLocationCopyWith<$Res> {
-  factory _$LoadLocationCopyWith(
-          _LoadLocation value, $Res Function(_LoadLocation) then) =
-      __$LoadLocationCopyWithImpl<$Res>;
+abstract class _$MoveLocationCopyWith<$Res>
+    implements $MoveLocationCopyWith<$Res> {
+  factory _$MoveLocationCopyWith(
+          _MoveLocation value, $Res Function(_MoveLocation) then) =
+      __$MoveLocationCopyWithImpl<$Res>;
   @override
   $Res call({@GeoFirePointConverter() GeoFirePoint location, String address});
 }
 
 /// @nodoc
-class __$LoadLocationCopyWithImpl<$Res> extends _$LoadLocationCopyWithImpl<$Res>
-    implements _$LoadLocationCopyWith<$Res> {
-  __$LoadLocationCopyWithImpl(
-      _LoadLocation _value, $Res Function(_LoadLocation) _then)
-      : super(_value, (v) => _then(v as _LoadLocation));
+class __$MoveLocationCopyWithImpl<$Res> extends _$MoveLocationCopyWithImpl<$Res>
+    implements _$MoveLocationCopyWith<$Res> {
+  __$MoveLocationCopyWithImpl(
+      _MoveLocation _value, $Res Function(_MoveLocation) _then)
+      : super(_value, (v) => _then(v as _MoveLocation));
 
   @override
-  _LoadLocation get _value => super._value as _LoadLocation;
+  _MoveLocation get _value => super._value as _MoveLocation;
 
   @override
   $Res call({
     Object? location = freezed,
     Object? address = freezed,
   }) {
-    return _then(_LoadLocation(
+    return _then(_MoveLocation(
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -754,13 +754,13 @@ class __$LoadLocationCopyWithImpl<$Res> extends _$LoadLocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LoadLocation extends _LoadLocation {
-  const _$_LoadLocation(
+class _$_MoveLocation extends _MoveLocation {
+  const _$_MoveLocation(
       {@GeoFirePointConverter() required this.location, required this.address})
       : super._();
 
-  factory _$_LoadLocation.fromJson(Map<String, dynamic> json) =>
-      _$$_LoadLocationFromJson(json);
+  factory _$_MoveLocation.fromJson(Map<String, dynamic> json) =>
+      _$$_MoveLocationFromJson(json);
 
   @override
   @GeoFirePointConverter()
@@ -770,13 +770,13 @@ class _$_LoadLocation extends _LoadLocation {
 
   @override
   String toString() {
-    return 'LoadLocation(location: $location, address: $address)';
+    return 'MoveLocation(location: $location, address: $address)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadLocation &&
+        (other is _MoveLocation &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
                     .equals(other.location, location)) &&
@@ -792,23 +792,23 @@ class _$_LoadLocation extends _LoadLocation {
 
   @JsonKey(ignore: true)
   @override
-  _$LoadLocationCopyWith<_LoadLocation> get copyWith =>
-      __$LoadLocationCopyWithImpl<_LoadLocation>(this, _$identity);
+  _$MoveLocationCopyWith<_MoveLocation> get copyWith =>
+      __$MoveLocationCopyWithImpl<_MoveLocation>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoadLocationToJson(this);
+    return _$$_MoveLocationToJson(this);
   }
 }
 
-abstract class _LoadLocation extends LoadLocation {
-  const factory _LoadLocation(
+abstract class _MoveLocation extends MoveLocation {
+  const factory _MoveLocation(
       {@GeoFirePointConverter() required GeoFirePoint location,
-      required String address}) = _$_LoadLocation;
-  const _LoadLocation._() : super._();
+      required String address}) = _$_MoveLocation;
+  const _MoveLocation._() : super._();
 
-  factory _LoadLocation.fromJson(Map<String, dynamic> json) =
-      _$_LoadLocation.fromJson;
+  factory _MoveLocation.fromJson(Map<String, dynamic> json) =
+      _$_MoveLocation.fromJson;
 
   @override
   @GeoFirePointConverter()
@@ -817,6 +817,6 @@ abstract class _LoadLocation extends LoadLocation {
   String get address => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$LoadLocationCopyWith<_LoadLocation> get copyWith =>
+  _$MoveLocationCopyWith<_MoveLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }

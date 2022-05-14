@@ -52,21 +52,21 @@ class RoundUrlImage extends StatelessWidget {
                     )
                   : CachedNetworkImage(
                       imageUrl: imageUrl!,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       width: width,
                       height: height,
                       progressIndicatorBuilder:
                           (context, url, downloadProgress) => Center(
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              padding: EdgeInsets.all(20),
-                              child: CircularProgressIndicator(
-                                value: downloadProgress.progress,
-                                strokeWidth: 2,
-                              ),
-                            ),
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          padding: EdgeInsets.all(20),
+                          child: CircularProgressIndicator(
+                            value: downloadProgress.progress,
+                            strokeWidth: 2,
                           ),
+                        ),
+                      ),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
         ),

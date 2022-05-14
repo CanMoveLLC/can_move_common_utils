@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'load.dart';
+part of 'move.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Load _$$_LoadFromJson(Map<String, dynamic> json) => _$_Load(
+_$_Move _$$_MoveFromJson(Map<String, dynamic> json) => _$_Move(
       uid: json['uid'] as String,
       startDate: const NullTimeStampConverter().fromJson(json['startDate']),
       endDate: const NullTimeStampConverter().fromJson(json['endDate']),
       pickUpDate:
           const TimeStampConverter().fromJson(json['pickUpDate'] as Object),
-      pickUp: const LoadLocationConverter().fromJson(json['pickUp'] as Object),
-      dropOffs: const ListLoadLocationConverter()
+      pickUp: const MoveLocationConverter().fromJson(json['pickUp'] as Object),
+      dropOffs: const ListMoveLocationConverter()
           .fromJson(json['dropOffs'] as Object),
       driver: const NullDriverMinConverter().fromJson(json['driver']),
       shipper: const UserMinConverter().fromJson(json['shipper'] as Object),
@@ -28,18 +28,18 @@ _$_Load _$$_LoadFromJson(Map<String, dynamic> json) => _$_Load(
       isPaid: json['isPaid'] as bool? ?? false,
       userHasBid: json['userHasBid'] as bool? ?? true,
       driverHasBid: json['driverHasBid'] as bool? ?? false,
-      status: $enumDecodeNullable(_$LoadStatusEnumMap, json['status']) ??
-          LoadStatus.PENDING,
+      status: $enumDecodeNullable(_$MoveStatusEnumMap, json['status']) ??
+          MoveStatus.PENDING,
       createdAt: const ServerTimeStampConverter().fromJson(json['createdAt']),
     );
 
-Map<String, dynamic> _$$_LoadToJson(_$_Load instance) => <String, dynamic>{
+Map<String, dynamic> _$$_MoveToJson(_$_Move instance) => <String, dynamic>{
       'uid': instance.uid,
       'startDate': const NullTimeStampConverter().toJson(instance.startDate),
       'endDate': const NullTimeStampConverter().toJson(instance.endDate),
       'pickUpDate': const TimeStampConverter().toJson(instance.pickUpDate),
-      'pickUp': const LoadLocationConverter().toJson(instance.pickUp),
-      'dropOffs': const ListLoadLocationConverter().toJson(instance.dropOffs),
+      'pickUp': const MoveLocationConverter().toJson(instance.pickUp),
+      'dropOffs': const ListMoveLocationConverter().toJson(instance.dropOffs),
       'driver': const NullDriverMinConverter().toJson(instance.driver),
       'shipper': const UserMinConverter().toJson(instance.shipper),
       'size': _$VehicleSizeEnumMap[instance.size],
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$_LoadToJson(_$_Load instance) => <String, dynamic>{
       'isPaid': instance.isPaid,
       'userHasBid': instance.userHasBid,
       'driverHasBid': instance.driverHasBid,
-      'status': _$LoadStatusEnumMap[instance.status],
+      'status': _$MoveStatusEnumMap[instance.status],
       'createdAt': const ServerTimeStampConverter().toJson(instance.createdAt),
     };
 
@@ -64,24 +64,24 @@ const _$VehicleSizeEnumMap = {
   VehicleSize.Flat_Bed: 'Flat_Bed',
 };
 
-const _$LoadStatusEnumMap = {
-  LoadStatus.PENDING: 'PENDING',
-  LoadStatus.ACCEPTED: 'ACCEPTED',
-  LoadStatus.TO_PICKUP: 'TO_PICKUP',
-  LoadStatus.HAS_LOAD: 'HAS_LOAD',
-  LoadStatus.TO_DROP: 'TO_DROP',
-  LoadStatus.DROPPED_LOAD: 'DROPPED_LOAD',
-  LoadStatus.CANCELED: 'CANCELED',
+const _$MoveStatusEnumMap = {
+  MoveStatus.PENDING: 'PENDING',
+  MoveStatus.ACCEPTED: 'ACCEPTED',
+  MoveStatus.TO_PICKUP: 'TO_PICKUP',
+  MoveStatus.HAS_LOAD: 'HAS_LOAD',
+  MoveStatus.TO_DROP: 'TO_DROP',
+  MoveStatus.DROPPED_MOVE: 'DROPPED_MOVE',
+  MoveStatus.CANCELED: 'CANCELED',
 };
 
-_$_LoadLocation _$$_LoadLocationFromJson(Map<String, dynamic> json) =>
-    _$_LoadLocation(
+_$_MoveLocation _$$_MoveLocationFromJson(Map<String, dynamic> json) =>
+    _$_MoveLocation(
       location:
           const GeoFirePointConverter().fromJson(json['location'] as Object),
       address: json['address'] as String,
     );
 
-Map<String, dynamic> _$$_LoadLocationToJson(_$_LoadLocation instance) =>
+Map<String, dynamic> _$$_MoveLocationToJson(_$_MoveLocation instance) =>
     <String, dynamic>{
       'location': const GeoFirePointConverter().toJson(instance.location),
       'address': instance.address,

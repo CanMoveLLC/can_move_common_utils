@@ -29,6 +29,8 @@ class Driver with _$Driver {
     required String uid,
     String? payID,
     @Default(false) bool payEnabled,
+    @Default(false) bool online,
+    @Default(false) bool verified,
     required String name,
     required String email,
     required String phone,
@@ -37,7 +39,7 @@ class Driver with _$Driver {
     required List<String> vehicleImages,
     @Default(UserType.driver) UserType userType,
     @RatingConverter() required Rating rating,
-    @Default(0) int totalLoads,
+    @Default(0) int totalMoves,
     @JsonKey(ignore: true) User? user,
     // for storing in hive/sharedPrefs, make sure this is null first.
     @NullGeoPointConverter() GeoPoint? location,
@@ -48,10 +50,8 @@ class Driver with _$Driver {
 
   DriverMin get min =>
       DriverMin(uid: uid, name: name, location: location, payID: payID);
-  String get vehicleSizeTxt => vehicleSize
-      .toString()
-      .split(".")[1]
-      .replaceAll("_", " ");
+  String get vehicleSizeTxt =>
+      vehicleSize.toString().split(".")[1].replaceAll("_", " ");
 }
 
 @freezed

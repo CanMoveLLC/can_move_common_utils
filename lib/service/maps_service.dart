@@ -12,15 +12,15 @@ import 'package:http/http.dart' as http;
 import 'package:location/location.dart' as loc;
 
 import '../helpers/utils.dart';
-import '../model/load.dart';
+import '../model/move.dart';
 
-class LoadRouteInformation {
+class MoveRouteInformation {
   final gm.Polyline polyline;
   final double distance;
   final double price;
   final gm.LatLngBounds bounds;
 
-  LoadRouteInformation({
+  MoveRouteInformation({
     required this.price,
     required this.polyline,
     required this.distance,
@@ -105,8 +105,8 @@ class MapsService {
   }
 
   Future<DirectionsResponse> getWebDirections({
-    required LoadLocation origin,
-    required LoadLocation destination,
+    required MoveLocation origin,
+    required MoveLocation destination,
     List<Waypoint>? waypoints,
   }) async {
     var org = Uri.encodeComponent(
@@ -123,9 +123,9 @@ class MapsService {
     return DirectionsResponse.fromJson(json.decode(response.body));
   }
 
-  Future<LoadRouteInformation?> getDirections({
-    required LoadLocation origin,
-    required LoadLocation destination,
+  Future<MoveRouteInformation?> getDirections({
+    required MoveLocation origin,
+    required MoveLocation destination,
   }) async {
     DirectionsResponse res;
     try {
@@ -152,7 +152,7 @@ class MapsService {
           distance += leg.distance.value.toDouble();
         }
         distance = distance / 1609; // convert meters to miles
-        return LoadRouteInformation(
+        return MoveRouteInformation(
           price: distance.round() * 1.0 /* dollar */,
           polyline: _createRoute(res.routes.first.overviewPolyline.points),
           distance: distance,
@@ -176,9 +176,9 @@ class MapsService {
     }
   }
 
-  Future<LoadRouteInformation?> getDirection({
-    required LoadLocation origin,
-    required List<LoadLocation> destinations,
+  Future<MoveRouteInformation?> getDirection({
+    required MoveLocation origin,
+    required List<MoveLocation> destinations,
   }) async {
     DirectionsResponse res;
     try {
@@ -222,7 +222,7 @@ class MapsService {
           distance += leg.distance.value.toDouble();
         }
         distance = distance / 1609; // convert meters to miles
-        return LoadRouteInformation(
+        return MoveRouteInformation(
           price: distance.round() * 1.0 /* dollar */,
           polyline: _createRoute(res.routes.first.overviewPolyline.points),
           distance: distance,

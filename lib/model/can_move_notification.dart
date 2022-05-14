@@ -17,7 +17,7 @@ class CanMoveNotification with _$CanMoveNotification {
     required String content,
     required String title,
     String? imgUrl,
-    String? loadUid,
+    String? moveUid,
     String? roomUid,
   }) = _CanMoveNotification;
 
