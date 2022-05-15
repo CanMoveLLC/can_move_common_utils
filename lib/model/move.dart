@@ -14,7 +14,7 @@ enum MoveStatus {
   PENDING,
   ACCEPTED,
   TO_PICKUP,
-  HAS_LOAD,
+  HAS_MOVE,
   TO_DROP,
   DROPPED_MOVE,
   CANCELED,
@@ -65,7 +65,7 @@ class Move with _$Move {
       case MoveStatus.TO_PICKUP:
         return "En Route";
 
-      case MoveStatus.HAS_LOAD:
+      case MoveStatus.HAS_MOVE:
         return "Picked";
 
       case MoveStatus.TO_DROP:
@@ -89,7 +89,7 @@ class Move with _$Move {
         return "$drive has accepted.";
       case MoveStatus.TO_PICKUP:
         return "$drive is going to pick up the move.";
-      case MoveStatus.HAS_LOAD:
+      case MoveStatus.HAS_MOVE:
         return "$drive has picked up the move.";
       case MoveStatus.TO_DROP:
         return "$drive is going to drop off.";

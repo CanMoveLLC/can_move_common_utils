@@ -68,7 +68,7 @@ const _$MoveStatusEnumMap = {
   MoveStatus.PENDING: 'PENDING',
   MoveStatus.ACCEPTED: 'ACCEPTED',
   MoveStatus.TO_PICKUP: 'TO_PICKUP',
-  MoveStatus.HAS_LOAD: 'HAS_LOAD',
+  MoveStatus.HAS_MOVE: 'HAS_MOVE',
   MoveStatus.TO_DROP: 'TO_DROP',
   MoveStatus.DROPPED_MOVE: 'DROPPED_MOVE',
   MoveStatus.CANCELED: 'CANCELED',
