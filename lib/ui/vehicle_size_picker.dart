@@ -28,7 +28,7 @@ class _VehicleSizePickerState extends State<VehicleSizePicker> {
   void initState() {
     super.initState();
     if (widget.scrollToInitial)
-      WidgetsBinding.instance?.addPostFrameCallback((_) =>
+      WidgetsBinding.instance.addPostFrameCallback((_) =>
           itemScrollController.scrollTo(
               index: VehicleSize.values.indexOf(widget.size$.value) + 1,
               duration: Duration(milliseconds: 200)));
