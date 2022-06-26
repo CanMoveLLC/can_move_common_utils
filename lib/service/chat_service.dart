@@ -8,8 +8,11 @@ class ChatService {
   final _fireChat = FirebaseChatCore.instance;
 
   ChatService() {
-    _fireChat.setConfig(
-        FirebaseChatCoreConfig(chatRoomsCollection, chatUsersCollection));
+    _fireChat.setConfig(FirebaseChatCoreConfig(
+      chatRoomsCollection,
+      chatUsersCollection,
+      _fireChat.config.firebaseAppName!,
+    ));
   }
 
   Stream<List<types.Room>> rooms() {
