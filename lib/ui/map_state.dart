@@ -20,7 +20,7 @@ final CameraPosition kInitialMapPosition = CameraPosition(
   tilt: 50,
 );
 
-abstract class MapState<T extends ConsumerStatefulWidget> extends State<T> {
+abstract class MapState<T extends ConsumerStatefulWidget> extends ConsumerState<T> {
   final Completer<GoogleMapController> mapController = Completer();
   BitmapDescriptor? markerIcon;
 
