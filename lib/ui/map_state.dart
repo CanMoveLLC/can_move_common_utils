@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show PlatformException;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:location/location.dart';
 
 import '../model/settings.dart';
@@ -19,7 +20,7 @@ final CameraPosition kInitialMapPosition = CameraPosition(
   tilt: 50,
 );
 
-abstract class MapState<T extends StatefulWidget> extends State<T> {
+abstract class MapState<T extends ConsumerStatefulWidget> extends State<T> {
   final Completer<GoogleMapController> mapController = Completer();
   BitmapDescriptor? markerIcon;
 
