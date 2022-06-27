@@ -171,7 +171,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
@@ -186,7 +186,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
@@ -227,7 +227,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
   }
 
   _getBrightness() {
-    var newBright = WidgetsBinding.instance?.window.platformBrightness;
+    var newBright = WidgetsBinding.instance.window.platformBrightness;
     if (themeMode == ThemeMode.light)
       newBright = Brightness.light;
     else if (themeMode == ThemeMode.dark) newBright = Brightness.dark;

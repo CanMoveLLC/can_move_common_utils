@@ -1,6 +1,6 @@
 import 'package:can_move_common_utils/model/load.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
-import 'package:fdottedline/fdottedline.dart';
+import 'package:fdottedline_nullsafety/fdottedline__nullsafety.dart';
 import 'package:flutter/material.dart';
 
 class LoadDropOffAddressPart extends StatelessWidget {
