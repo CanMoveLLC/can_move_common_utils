@@ -1,5 +1,5 @@
 import 'package:can_move_common_utils/helpers/utils.dart';
-import 'package:can_move_common_utils/model/constants.dart';
+// import 'package:can_move_common_utils/model/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
@@ -7,13 +7,14 @@ import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 class ChatService {
   final _fireChat = FirebaseChatCore.instance;
 
-  ChatService() {
-    _fireChat.setConfig(FirebaseChatCoreConfig(
-      chatRoomsCollection,
-      chatUsersCollection,
-      "CanMove",
-    ));
-  }
+  // ChatService() {
+  //   _fireChat.setConfig(
+  //     FirebaseChatCoreConfig(
+  //     chatRoomsCollection,
+  //     chatUsersCollection,
+  //     _fireChat.config.firebaseAppName
+  //   ));
+  // }
 
   Stream<List<types.Room>> rooms() {
     return _fireChat.rooms();
