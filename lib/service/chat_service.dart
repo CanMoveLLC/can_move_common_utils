@@ -11,7 +11,7 @@ class ChatService {
     _fireChat.setConfig(FirebaseChatCoreConfig(
       chatRoomsCollection,
       chatUsersCollection,
-      _fireChat.config.firebaseAppName!,
+      "CanMove",
     ));
   }
 
