@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:can_move_common_utils/helpers/utils.dart';
 import 'package:can_move_common_utils/service/map_theme_service.dart';
@@ -20,7 +21,8 @@ final CameraPosition kInitialMapPosition = CameraPosition(
   tilt: 50,
 );
 
-abstract class MapState<T extends ConsumerStatefulWidget> extends ConsumerState<T> {
+abstract class MapState<T extends ConsumerStatefulWidget>
+    extends ConsumerState<T> {
   final Completer<GoogleMapController> mapController = Completer();
   BitmapDescriptor? markerIcon;
 
@@ -231,18 +233,20 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
   }
 
   _getBrightness() {
-    var newBright = WidgetsBinding.instance.window.platformBrightness;
-    if (themeMode == ThemeMode.light)
+    Brightness newBright = PlatformDispatcher.instance.platformBrightness;
+    if (themeMode == ThemeMode.light) {
       newBright = Brightness.light;
-    else if (themeMode == ThemeMode.dark) newBright = Brightness.dark;
+    } else if (themeMode == ThemeMode.dark) {
+      newBright = Brightness.dark;
+    }
     _changeMapTheme(newBright);
   }
 
-  Future _changeMapTheme([Brightness? platformBrightness]) async {
-    var style = await _mapThemeService.getTheme(
-      platformBrightness ?? Brightness.dark,
+  Future<void> _changeMapTheme([Brightness? platformBrightness]) {
+    return mapController.future.then(
+      (GoogleMapController controller) async => controller.setMapStyle(
+        await _mapThemeService.getTheme(platformBrightness ?? Brightness.dark),
+      ),
     );
-    final controller = await mapController.future;
-    controller.setMapStyle(style);
   }
 }

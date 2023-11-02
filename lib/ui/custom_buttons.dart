@@ -186,7 +186,7 @@ class ShadowedButton extends StatelessWidget {
                     if (!isLoading) onTap?.call();
                   },
               ),
-              style: textTheme(context).bodyText2?.copyWith(
+              style: textTheme(context).bodyMedium?.copyWith(
                     color: Colors.grey[100],
                   ),
             ),
@@ -285,7 +285,7 @@ class NoShadowButton extends StatelessWidget {
                       if (!isLoading) onTap?.call();
                     },
                 ),
-                style: textTheme(context).bodyText2?.copyWith(
+                style: textTheme(context).bodyMedium?.copyWith(
                       color: Colors.grey[100],
                     ),
               ),
@@ -314,7 +314,7 @@ class TextyButton extends StatelessWidget {
       child: TextButton(
         child: Text(
           label,
-          style: textTheme(context).button?.copyWith(
+          style: textTheme(context).labelLarge?.copyWith(
                 color: onTap == null
                     ? Colors.grey
                     : color ?? colorScheme(context).primary,
@@ -339,7 +339,7 @@ class MoveBackButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(100),
       child: Image.asset(
         "assets/images/arrow-left.png",
-        color: textTheme(context).bodyText2?.color,
+        color: textTheme(context).bodyMedium?.color,
       ),
       onTap: onTap ?? () => router(context).pop(),
     );
@@ -381,13 +381,15 @@ class FilterByDateBtn extends StatelessWidget {
       children: [
         InkWell(
           onTap: () async {
-            var datE = await showDatePicker(
+            final DateTime? datE = await showDatePicker(
               context: context,
               initialDate: initialDate ?? DateTime.now(),
               firstDate: DateTime.utc(2020),
               lastDate: DateTime.now(),
             );
-            if (datE == null) return;
+            if (datE == null) {
+              return;
+            }
             onPickDate(datE);
           },
           child: Row(
@@ -396,22 +398,16 @@ class FilterByDateBtn extends StatelessWidget {
               Image.asset(
                 "assets/images/calendar.png",
                 height: 20,
-                color: textTheme(context).bodyText2?.color,
+                color: textTheme(context).bodyMedium?.color,
               ),
               SizedBox(width: 7),
               Text(label),
             ],
           ),
         ),
+        if (label != "Filter by date") SizedBox(width: 50),
         if (label != "Filter by date")
-          SizedBox(
-            width: 50,
-          ),
-        if (label != "Filter by date")
-          InkWell(
-            child: Text("Clear"),
-            onTap: onClearTap,
-          ),
+          InkWell(child: Text("Clear"), onTap: onClearTap),
       ],
     );
   }

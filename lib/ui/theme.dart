@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData darkTheme(BuildContext context) {
-  var textTheme = _buildDarkTextTheme(context);
-  final colorScheme = const ColorScheme.dark().copyWith(
+  final TextTheme textTheme = _buildDarkTextTheme(context);
+  final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
     primary: Color(0xFF361F01),
     secondary: Color(0xFFB46503),
     /*primary: Color(0xFF2B2D2F),
       secondary: Colors.purple,*/
   );
-  var theme = ThemeData(
-    errorColor: Colors.red[900],
+  final ThemeData theme = ThemeData(
     colorScheme: colorScheme.copyWith(
+      error: Colors.red.shade900,
       primary: colorScheme.secondary,
       secondary: colorScheme.primary,
     ),
@@ -29,17 +28,17 @@ ThemeData darkTheme(BuildContext context) {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: colorScheme.secondary,
+        foregroundColor: colorScheme.secondary,
         backgroundColor: Colors.grey[850],
         side: BorderSide(
-          color: Colors.grey[800]!,
+          color: Colors.grey.shade800,
         ),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
-      suffixIconColor: Colors.grey[100],
-      hintStyle: textTheme.caption,
+      suffixIconColor: Colors.grey.shade100,
+      hintStyle: textTheme.bodySmall,
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -114,8 +113,8 @@ ThemeData darkTheme(BuildContext context) {
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
-      toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.subtitle2,
+      toolbarTextStyle: textTheme.bodyMedium,
+      titleTextStyle: textTheme.titleSmall,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -132,8 +131,8 @@ ThemeData lightTheme(BuildContext context) {
     secondary: Colors.purple,*/
   );
   var theme = ThemeData(
-    errorColor: Colors.red,
     colorScheme: colorScheme.copyWith(
+      error: Colors.red,
       primary: colorScheme.secondary,
       secondary: colorScheme.primary,
     ),
@@ -155,13 +154,13 @@ ThemeData lightTheme(BuildContext context) {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: colorScheme.secondary,
+        foregroundColor: colorScheme.secondary,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
       suffixIconColor: Colors.grey[900],
-      hintStyle: textTheme.caption,
+      hintStyle: textTheme.bodySmall,
       fillColor: Colors.grey[50],
       // focusColor: Colors.grey[300],
       contentPadding: const EdgeInsets.all(15),
@@ -234,8 +233,8 @@ ThemeData lightTheme(BuildContext context) {
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
-      toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.subtitle2,
+      toolbarTextStyle: textTheme.bodyMedium,
+      titleTextStyle: textTheme.titleSmall,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -243,56 +242,56 @@ ThemeData lightTheme(BuildContext context) {
 }
 
 TextTheme _buildTextTheme(BuildContext context) {
-  var textTheme = Theme.of(context).textTheme;
+  final TextTheme textTheme = Theme.of(context).textTheme;
 
   return GoogleFonts.manropeTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.manrope(
+    headlineMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
     ),
-    subtitle1: GoogleFonts.manrope(
+    titleMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
-    subtitle2: GoogleFonts.manrope(
+    titleSmall: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 20,
       fontWeight: FontWeight.w700,
     ),
-    headline5: GoogleFonts.manrope(
+    headlineSmall: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 30,
       fontWeight: FontWeight.w800,
     ),
-    headline6: GoogleFonts.manrope(
+    titleLarge: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 24,
       fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.manrope(
+    displayMedium: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    headline3: GoogleFonts.manrope(
+    displaySmall: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    bodyText1: GoogleFonts.manrope(
+    bodyLarge: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    bodyText2: GoogleFonts.manrope(
+    bodyMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
-    button: GoogleFonts.manrope(
+    labelLarge: GoogleFonts.manrope(
       fontSize: 16,
       color: Colors.grey[50],
       fontWeight: FontWeight.w500,
     ),
-    caption: GoogleFonts.manrope(
+    bodySmall: GoogleFonts.manrope(
       fontSize: 14,
       color: Colors.grey,
     ),
@@ -301,55 +300,54 @@ TextTheme _buildTextTheme(BuildContext context) {
 
 TextTheme _buildDarkTextTheme(BuildContext context) {
   var textTheme = Theme.of(context).textTheme;
-
   return GoogleFonts.manropeTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.manrope(
+    headlineMedium: GoogleFonts.manrope(
       color: Colors.grey[100],
     ),
-    subtitle1: GoogleFonts.manrope(
+    titleMedium: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 18,
       fontWeight: FontWeight.w800,
     ),
-    subtitle2: GoogleFonts.manrope(
+    titleSmall: GoogleFonts.manrope(
       color: Colors.grey[300],
       fontSize: 20,
       fontWeight: FontWeight.w800,
     ),
-    headline5: GoogleFonts.manrope(
+    headlineSmall: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 30,
       fontWeight: FontWeight.w800,
     ),
-    headline6: GoogleFonts.manrope(
+    titleLarge: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 24,
       fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.manrope(
+    displayMedium: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    headline3: GoogleFonts.manrope(
+    displaySmall: GoogleFonts.manrope(
         // color: Colors.grey[100],
         // fontWeight: FontWeight.w600,
         ),
-    bodyText1: GoogleFonts.manrope(
+    bodyLarge: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    bodyText2: GoogleFonts.manrope(
+    bodyMedium: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
-    button: GoogleFonts.manrope(
+    labelLarge: GoogleFonts.manrope(
       fontSize: 16,
       color: Colors.grey[100],
       fontWeight: FontWeight.w500,
     ),
-    caption: GoogleFonts.manrope(
+    bodySmall: GoogleFonts.manrope(
       fontSize: 14,
       color: Colors.grey[400],
     ),

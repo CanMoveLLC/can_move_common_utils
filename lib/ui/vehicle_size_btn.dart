@@ -21,10 +21,7 @@ class VehicleSizeBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var str = size
-        .toString()
-        .split(".")
-        .last;
+    var str = size.toString().split(".").last;
     var name = str.replaceAll("_", " ");
     var img = str.toLowerCase();
     return Padding(
@@ -40,8 +37,9 @@ class VehicleSizeBtn extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-              color: selected ? colorScheme(context).primary : textTheme(
-                  context).caption!.color!,
+              color: selected
+                  ? colorScheme(context).primary
+                  : textTheme(context).bodySmall!.color!,
               width: 0.5,
             ),
             color: selected ? colorScheme(context).secondary : null,

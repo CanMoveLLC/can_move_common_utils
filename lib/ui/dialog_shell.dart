@@ -44,14 +44,14 @@ class DialogShell extends StatelessWidget {
             bottom: !loading
                 ? null
                 : PreferredSize(
-              child: LinearProgressIndicator(
-                minHeight: 2,
-              ),
-              preferredSize: Size(
-                screenWidth(context),
-                1,
-              ),
-            ),
+                    child: LinearProgressIndicator(
+                      minHeight: 2,
+                    ),
+                    preferredSize: Size(
+                      screenWidth(context),
+                      1,
+                    ),
+                  ),
             centerTitle: true,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
@@ -61,26 +61,20 @@ class DialogShell extends StatelessWidget {
             leading: IconButton(
               color: Colors.red,
               onPressed:
-              loading ? null : onCancel ?? () => _defaultAction(context),
+                  loading ? null : onCancel ?? () => _defaultAction(context),
               icon: Icon(Icons.close),
             ),
-            title: Text(
-              title,
-              style: textTheme(context).subtitle1,
-            ),
+            title: Text(title, style: textTheme(context).titleMedium),
             actions: [
               IconButton(
                 onPressed:
-                loading ? null : onOk ?? () => _defaultAction(context),
+                    loading ? null : onOk ?? () => _defaultAction(context),
                 icon: Icon(Icons.check),
               )
             ],
           ),
           body: SingleChildScrollView(
-            child: Padding(
-              padding: padding,
-              child: child,
-            ),
+            child: Padding(padding: padding, child: child),
           ),
         ),
       ),
@@ -92,7 +86,8 @@ class DialogShell extends StatelessWidget {
   }
 }
 
-Future showInfoDialog(BuildContext context, {
+Future showInfoDialog(
+  BuildContext context, {
   String title = 'Info',
   double height = 500,
   double width = 400,
@@ -114,7 +109,8 @@ Future showInfoDialog(BuildContext context, {
       });
 }
 
-Future showFormDialog(BuildContext context, {
+Future showFormDialog(
+  BuildContext context, {
   String title = 'Form',
   double height = 500,
   double? width,

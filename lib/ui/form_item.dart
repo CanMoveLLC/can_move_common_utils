@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../helpers/aliases.dart';
@@ -67,7 +68,7 @@ class TextFormItem extends StatelessWidget {
       textInputAction: textInputAction,
       autocorrect: autoCorrect,
       maxLines: maxLines,
-      style: textTheme.bodyText2,
+      style: textTheme.bodyMedium,
       onFieldSubmitted: (value) {
         onFieldSubmitted?.call(value);
       },
@@ -158,32 +159,30 @@ class NoLabelTextFormItem extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
     var inputTheme = Theme.of(context).inputDecorationTheme;
     return TextFormField(
-      initialValue: value,
-      obscureText: obscureText,
-      controller: controller,
-      focusNode: focusNode,
       onChanged: (value) {
         onChanged?.call(value);
       },
       onTap: () {
         onTap?.call();
       },
-      autofocus: autoFocus,
-      textInputAction: textInputAction,
-      autocorrect: autoCorrect,
       maxLines: maxLines,
-      style: textTheme.bodyText2,
-      onFieldSubmitted: (value) {
+      initialValue: value,
+      autofocus: autoFocus,
+      focusNode: focusNode,
+      controller: controller,
+      obscureText: obscureText,
+      autocorrect: autoCorrect,
+      style: textTheme.bodyMedium,
+      textInputAction: textInputAction,
+      onFieldSubmitted: (String value) {
         onFieldSubmitted?.call(value);
       },
-      onSaved: (value) {
+      onSaved: (String? value) {
         onSaved?.call(value);
       },
       keyboardType: textInputType,
       decoration: InputDecoration(
-        suffixIconConstraints: BoxConstraints.tight(
-          Size(20, 20),
-        ),
+        suffixIconConstraints: BoxConstraints.tight(Size(20, 20)),
         suffixIcon: isMoveing
             ? Padding(
                 padding: const EdgeInsets.all(3.0),
@@ -198,19 +197,19 @@ class NoLabelTextFormItem extends StatelessWidget {
                 ),
               )
             : suffixIcon,
-        filled: inputTheme.filled,
         hintText: hint,
+        filled: inputTheme.filled,
         hintStyle: inputTheme.hintStyle,
-        fillColor: fillColor ?? inputTheme.fillColor,
         focusColor: inputTheme.focusColor,
-        contentPadding: inputTheme.contentPadding,
-        enabledBorder: inputTheme.enabledBorder,
-        focusedBorder: inputTheme.focusedBorder,
         errorBorder: inputTheme.errorBorder,
+        focusedBorder: inputTheme.focusedBorder,
+        enabledBorder: inputTheme.enabledBorder,
+        contentPadding: inputTheme.contentPadding,
+        fillColor: fillColor ?? inputTheme.fillColor,
         focusedErrorBorder: inputTheme.focusedErrorBorder,
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: (value) {
+      validator: (String? value) {
         return validator?.call(value);
       },
     );
@@ -265,13 +264,11 @@ class SelectFormItem extends StatelessWidget {
       children: [
         Text(
           label,
-          style: textTheme.bodyText1?.copyWith(
-            color: textTheme.caption?.color,
+          style: textTheme.bodyLarge?.copyWith(
+            color: textTheme.bodySmall?.color,
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
         DropdownButtonFormField(
             focusNode: focusNode,
             onTap: () {
@@ -285,13 +282,13 @@ class SelectFormItem extends StatelessWidget {
             onSaved: (item) {
               onSaved?.call(item);
             },
-            style: textTheme.bodyText2,
+            style: textTheme.bodyMedium,
             icon: Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 1,
             decoration: InputDecoration(
               filled: true,
               hintText: hint,
-              hintStyle: textTheme.caption,
+              hintStyle: textTheme.bodySmall,
               fillColor: fillColor ?? inputTheme.fillColor,
               focusColor: inputTheme.focusColor,
               contentPadding: const EdgeInsets.all(15),
@@ -365,4 +362,18 @@ class SelectFieldItem {
   final dynamic extra;
 
   SelectFieldItem(this.label, this.value, {this.extra});
+
+  @override
+  bool operator ==(covariant SelectFieldItem other) {
+    if (identical(this, other)) return true;
+
+    return other.label == label && other.value == value && other.extra == extra;
+  }
+
+  @override
+  int get hashCode => label.hashCode ^ value.hashCode ^ extra.hashCode;
+
+  @override
+  String toString() =>
+      'SelectFieldItem(label: $label, value: $value, extra: $extra)';
 }

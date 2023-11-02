@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:can_move_common_utils/ui/notify.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
@@ -50,7 +49,7 @@ class MapsService {
     try {
       var perm = await Geolocator.checkPermission();
       if (perm == LocationPermission.whileInUse ||
-          perm == LocationPermission.always) perm;
+          perm == LocationPermission.always) {}
       return await Geolocator.requestPermission();
     } on PlatformException catch (e, stack) {
       logError(e, stack);

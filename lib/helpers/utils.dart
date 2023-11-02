@@ -37,65 +37,71 @@ String get mapKey {
 Future<String?> selectImage(BuildContext context) {
   return showDialog(
     context: context,
-    builder: (context) =>
-        AlertDialog(
-          contentPadding: EdgeInsets.symmetric(
-            vertical: 10,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(7.0)),
-          ),
-          titleTextStyle: TextStyle(
-            color: colorScheme(context).primary,
-            fontWeight: FontWeight.bold,
-          ),
-          title: Text("Add Photo"),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              InkWell(
-                onTap: () async {
-                  Navigator.of(context).pop(await _takePhoto());
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.camera,
-                        color: colorScheme(context).primary,
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(child: Text("Take a picture",
-                        style: textTheme(context).bodyText2,),),
-                    ],
+    builder: (context) => AlertDialog(
+      contentPadding: EdgeInsets.symmetric(
+        vertical: 10,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+      ),
+      titleTextStyle: TextStyle(
+        color: colorScheme(context).primary,
+        fontWeight: FontWeight.bold,
+      ),
+      title: Text("Add Photo"),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          InkWell(
+            onTap: () async {
+              Navigator.of(context).pop(await _takePhoto());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.camera,
+                    color: colorScheme(context).primary,
                   ),
-                ),
-              ),
-              Divider(height: 1.0),
-              InkWell(
-                onTap: () async {
-                  Navigator.of(context).pop(await _selectFromGallery());
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.image,
-                        color: colorScheme(context).primary,
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: Text("Select from gallery", style: textTheme(context).bodyText2,),
-                      ),
-                    ],
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      "Take a picture",
+                      style: textTheme(context).bodyMedium,
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          Divider(height: 1.0),
+          InkWell(
+            onTap: () async {
+              Navigator.of(context).pop(await _selectFromGallery());
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.image,
+                    color: colorScheme(context).primary,
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      "Select from gallery",
+                      style: textTheme(context).bodyMedium,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
   );
 }
 
