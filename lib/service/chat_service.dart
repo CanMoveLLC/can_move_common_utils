@@ -7,8 +7,8 @@ import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 class ChatService {
   final _fireChat = FirebaseChatCore.instance;
   ChatService() {
-    _fireChat.setConfig(
-      FirebaseChatCoreConfig(
+    _fireChat.setConfig(FirebaseChatCoreConfig(
+      null,
       chatRoomsCollection,
       chatUsersCollection,
     ));
