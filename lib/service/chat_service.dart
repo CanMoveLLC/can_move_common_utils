@@ -5,7 +5,7 @@ import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 
 class ChatService {
-  final _fireChat = FirebaseChatCore.instance;
+  final FirebaseChatCore _fireChat = FirebaseChatCore.instance;
   ChatService() {
     _fireChat.setConfig(FirebaseChatCoreConfig(
       null,
@@ -27,14 +27,16 @@ class ChatService {
   }
 
   void updateMessage(types.Message updatedMessage, String id) {
-    _fireChat.updateMessage(updatedMessage, id);
+    return _fireChat.updateMessage(updatedMessage, id);
   }
 
   Future<bool> createUser(User user) async {
-    var names = user.displayName!.split(" ");
-    var firstName = names[0];
-    var lastName = "";
-    if (names.length > 2) lastName = names[names.length - 1];
+    final List<String> names = user.displayName!.split(" ");
+    final String firstName = names[0];
+    String lastName = "";
+    if (names.length > 2) {
+      lastName = names[names.length - 1];
+    }
     try {
       await _fireChat.createUserInFirestore(types.User(
         firstName: firstName,
@@ -50,10 +52,7 @@ class ChatService {
   }
 
   void sendMessage(types.PartialText message, String roomId) {
-    _fireChat.sendMessage(
-      message,
-      roomId,
-    );
+    return _fireChat.sendMessage(message, roomId);
   }
 
   Future<types.Room?> createRoom({required types.User other}) async {
