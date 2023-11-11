@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../model/driver.dart';
 
+/// This class defines a reusable button widget for selecting vehicle sizes.
+/// It encapsulates the visual representation of the button along with logic for handling taps and styling based on the selected state.
+/// The code is well-organized, making use of Flutter's widget structure effectively.
+/// It facilitates easy integration into a broader application for selecting and displaying vehicle sizes.
 class VehicleSizeBtn extends StatelessWidget {
   const VehicleSizeBtn({
     Key? key,
@@ -13,6 +17,9 @@ class VehicleSizeBtn extends StatelessWidget {
     this.selected = false,
   }) : super(key: key);
 
+  /// Defining the attributes of the widget, including the size of the vehicle,
+  /// dimensions (width and height) of the button, whether it is selected or not,
+  /// and a callback function onTap for handling button taps.
   final VehicleSize size;
   final double width;
   final double height;
@@ -21,6 +28,8 @@ class VehicleSizeBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Extracting details from the VehicleSize enum.
+    /// Converting the enum to a string, modifying its format, and converting it to lowercase to create an image path.
     var str = size.toString().split(".").last;
     var name = str.replaceAll("_", " ");
     var img = str.toLowerCase();

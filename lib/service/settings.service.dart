@@ -1,41 +1,42 @@
 import 'package:can_move_common_utils/model/settings.dart';
 import 'package:hive/hive.dart';
 
-/// Settings service
+/// Settings service for managing application settings
 class SettingsService {
   SettingsService._();
 
-  /// Storage key
+  /// Storage key for the settings box
   static const key = 'settings_box';
 
-  /// Storage box
+  /// Storage box for AppSettings
   static late Box<AppSettings> box;
 
-  /// Initialize storage
+  /// Initialize the storage box
   static Future<void> init() async {
-    // await Hive.deleteBoxFromDisk(key);
+    // Open or create the Hive box for AppSettings
     box = await Hive.openBox<AppSettings>(key);
   }
 
-  /// Save asset_management_front settings
+  /// Save the provided settings to the storage box
   static Future<void> save(AppSettings settings) async {
     await box.put(AppSettings.key, settings);
   }
 
-  /// Read asset_management_front settings
+  /// Read and retrieve the saved settings from the storage box
   static AppSettings read() {
-    // Make sure its initialized
+    // Ensure that the box is initialized
     final settings = box.get(AppSettings.key);
     if (settings != null) {
       return settings;
     } else {
+      // Return default settings if none are found
       return AppSettings();
     }
   }
 
-  /// Reset settings
+  /// Reset the settings to default values
   static Future<AppSettings> reset() async {
-    /// Will set all AppSettings to default
+    // Set all AppSettings to default values
     final emptySettings = AppSettings();
     await box.put(AppSettings.key, emptySettings);
     return emptySettings;

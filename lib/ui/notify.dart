@@ -3,6 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 
+/// This class appears to be a utility class for showing notifications using the oktoast library in a Flutter application.
+/// It provides two main functions, showNotification and notify, for displaying notifications with different styles and options.
+/// The notifications include a card-based UI with a title and content. Additionally,
+/// There's a function notifyError which is essentially a shorthand for showing an error-style notification.
 void showNotification(
   BuildContext context,
   String title,
@@ -10,27 +14,34 @@ void showNotification(
   Duration? duration,
   VoidCallback? onTap,
 }) {
+  // Use the showToastWidget function from the oktoast library.
   showToastWidget(
+    // Define a Card with specific properties for styling.
     Card(
       elevation: 10,
       margin: EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
+      // Create an InkWell to make the notification tappable.
       child: InkWell(
         onTap: () => onTap?.call(),
+        // Container for the main notification content.
         child: Container(
           width: kIsWeb ? 300 : double.infinity,
           padding: EdgeInsets.all(20),
+          // Display title and content in a column layout.
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Display the title with a specific text style.
               Text(
                 title,
                 style: textTheme(context).bodyMedium,
               ),
+              // Display the content with a limited number of lines.
               Text(
                 content,
                 maxLines: 3,
@@ -42,6 +53,7 @@ void showNotification(
         ),
       ),
     ),
+    // Configure showToastWidget options.
     handleTouch: true,
     dismissOtherToast: true,
     duration: duration ?? Duration(seconds: 3),
@@ -49,9 +61,11 @@ void showNotification(
   );
 }
 
+// Function to show a simple notification.
 void notify(String message, {bool error = false, Duration? duration}) {
   showToast(
     message,
+    // Configure showToast options.
     dismissOtherToast: true,
     backgroundColor: error ? Colors.redAccent : Colors.white,
     radius: 5,
@@ -65,6 +79,7 @@ void notify(String message, {bool error = false, Duration? duration}) {
   );
 }
 
+// Shorthand function to show an error-style notification.
 void notifyError(String message) {
   notify(message, error: true);
 }

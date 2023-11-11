@@ -15,29 +15,44 @@ import 'package:location/location.dart';
 import '../model/settings.dart';
 import '../service/settings.service.dart';
 
+// Define a constant CameraPosition named kInitialMapPosition.
 final CameraPosition kInitialMapPosition = CameraPosition(
+  // Set the target coordinates (latitude and longitude) for the initial position.
   target: LatLng(37.09024, -95.712891),
+  // Set the initial zoom level for the map.
   zoom: 5,
+  // Set the tilt angle for the map camera.
   tilt: 50,
 );
 
+/// This class is an abstract class that extends ConsumerState,
+/// Implying that it is intended to be used in conjunction with a widget that consumes a provider (perhaps for a map-related functionality).
+/// The class provides methods for managing the state of a map, including setting up markers, moving to specific locations, and handling user location.
 abstract class MapState<T extends ConsumerStatefulWidget>
     extends ConsumerState<T> {
+  // Completer to handle asynchronous completion of GoogleMapController
   final Completer<GoogleMapController> mapController = Completer();
+  // Holds the marker icon
   BitmapDescriptor? markerIcon;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    // On dependency change (e.g., widget changes), get the marker pin
     getMarkerPin();
   }
 
+  // Gets the marker pin and sets it to markerIcon if not already set
   Future<void> getMarkerPin() async {
     if (markerIcon != null) return;
     markerIcon = await getPin("pin");
   }
 
+// Loads the marker pin from assets
   Future<BitmapDescriptor?> getPin(String imgName) async {
+    // Adjusts the icon name based on device pixel ratio
+    // for Android devices
+    // Uses ImageConfiguration to load the image
     var iconName = imgName;
     if (Platform.isAndroid) {
       double mq = MediaQuery.of(context).devicePixelRatio;
@@ -53,8 +68,10 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     );
   }
 
+  /// Moves the map to fit a list of LatLng locations with optional delay
   Future<void> moveMapToLatLngList(List<LatLng> list,
       {bool delay = true}) async {
+    // Obtains the map controller and animates the camera to fit the LatLng list
     if (delay) await Future.delayed(Duration(seconds: 1));
     final controller = await mapController.future;
     await controller.animateCamera(
@@ -65,7 +82,9 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     );
   }
 
+  /// Calculates bounds from a list of LatLng locations
   LatLngBounds boundsFromLatLngList(List<LatLng> list) {
+    // Calculates the northeast and southwest bounds
     double? x0, x1, y0, y1;
     for (var latLng in list) {
       if (x0 == null) {
@@ -84,6 +103,7 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     );
   }
 
+  /// Gets the user's location
   Future<LatLng?> getUserLocation() async {
     try {
       var location = await Location().getLocation();
@@ -97,6 +117,7 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     }
   }
 
+  /// Animates the camera to fit given bounds
   void animateToBounds(LatLngBounds bounds) async {
     var con = await mapController.future;
     con.animateCamera(
@@ -107,6 +128,7 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     );
   }
 
+  /// Moves the map to a specific location with a delay
   void moveMapToLocation(LatLng location) async {
     var con = await mapController.future;
     await Future.delayed(Duration(seconds: 1));
@@ -121,6 +143,7 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     );
   }
 
+  /// Moves the map to the user's location with a delay
   void moveToUser() async {
     var loc = await getUserLocation();
     if (loc == null) return;
@@ -138,7 +161,12 @@ abstract class MapState<T extends ConsumerStatefulWidget>
   }
 }
 
+/// This Flutter class, CanMoveMap, is a StatefulWidget that represents a Google Map with customizable properties and functionalities.
+/// It utilizes the Google Maps Flutter plugin. The class allows the user to interact with the map and handles various lifecycle events.
+/// It incorporates features such as customizable markers, initial camera position, and the ability to react to user interactions like taps and camera movements.
 class CanMoveMap extends StatefulWidget {
+  // Constructor with default values for various map features
+  // that can be customized when creating an instance.
   CanMoveMap({
     Key? key,
     this.myLocationButtonEnabled = false,
@@ -153,10 +181,15 @@ class CanMoveMap extends StatefulWidget {
     this.markers = const {},
   }) : super(key: key);
 
+  // Callback when the map is created.
   final Function(GoogleMapController, CustomInfoWindowController) onMapCreated;
+  // Callback when the map is tapped.
   final Function(LatLng)? onTap;
+  // Initial camera position of the map.
   final CameraPosition? initialCameraPosition;
+  // Set of markers to be displayed on the map.
   final Set<Marker> markers;
+  // Boolean flags for controlling map features.
   final bool myLocationButtonEnabled,
       scrollGesturesEnabled,
       zoomControlsEnabled,
@@ -164,47 +197,63 @@ class CanMoveMap extends StatefulWidget {
       myLocationEnabled,
       compassEnabled;
 
+  // Override to create the associated State object.
   @override
   State<CanMoveMap> createState() => _CanMoveMapState();
 }
 
 class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
+  // Controller for managing custom info windows.
   final _customInfoWindowController = CustomInfoWindowController();
+  // Completer to handle the asynchronous initialization of GoogleMapController.
   final Completer<GoogleMapController> mapController = Completer();
+  // Service for managing the map theme.
   final _mapThemeService = MapThemeService();
+  // Variable to store the current theme mode.
   ThemeMode themeMode = ThemeMode.system;
 
+  // Lifecycle method called when the state is initialized.
   @override
   void initState() {
     super.initState();
+    // Add the widget as an observer to lifecycle events.
     WidgetsBinding.instance.addObserver(this);
   }
 
+  // Lifecycle method called when dependencies change.
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
   }
 
+  // Lifecycle method called when the platform brightness changes.
   @override
   void didChangePlatformBrightness() {
     _getBrightness();
   }
 
+  // Lifecycle method called when the state is disposed.
   @override
   void dispose() {
+    // Remove the widget as an observer.
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
+  // Build method to construct the widget tree.
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
+      // Rebuilds the widget tree when settings change.
       valueListenable: SettingsService.box.listenable(),
       builder: (context, box, __) {
+        // Read the current settings.
         final settings = SettingsService.read();
+        // Determine the current theme mode.
         themeMode = getThemeMode(settings.themeMode);
         _getBrightness();
 
+        // Return a GoogleMap widget with customized properties.
         return GoogleMap(
           myLocationButtonEnabled: widget.myLocationButtonEnabled,
           zoomControlsEnabled: widget.zoomControlsEnabled,
@@ -215,15 +264,21 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
           initialCameraPosition:
               widget.initialCameraPosition ?? kInitialMapPosition,
           onTap: (position) {
+            // Hide info window on map tap.
             _customInfoWindowController.hideInfoWindow?.call();
+            // Trigger the onTap callback.
             widget.onTap?.call(position);
           },
           onCameraMove: (position) {
+            // Trigger the onCameraMove callback.
             _customInfoWindowController.onCameraMove?.call();
           },
           onMapCreated: (con) {
+            // Complete the map controller initialization.
             mapController.complete(con);
+            // Connect the info window controller to the map controller.
             _customInfoWindowController.googleMapController = con;
+            // Trigger the onMapCreated callback.
             widget.onMapCreated(con, _customInfoWindowController);
           },
           markers: widget.markers.toSet(),
@@ -232,6 +287,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
     );
   }
 
+  // Method to determine the brightness and update the map theme accordingly.
   _getBrightness() {
     Brightness newBright = PlatformDispatcher.instance.platformBrightness;
     if (themeMode == ThemeMode.light) {
@@ -242,6 +298,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
     _changeMapTheme(newBright);
   }
 
+  // Method to change the map theme based on brightness.
   Future<void> _changeMapTheme([Brightness? platformBrightness]) {
     return mapController.future.then(
       (GoogleMapController controller) async => controller.setMapStyle(

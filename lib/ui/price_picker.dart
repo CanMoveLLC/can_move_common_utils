@@ -5,30 +5,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
 
+/// The PricePicker class is a Flutter widget designed to allow users to pick a price.
+/// It uses a ValueNotifier<double> to keep track of the selected price,
+/// And the UI consists of buttons to increment and decrement the price and a text field for direct input.
+/// The class utilizes the NumberFormat class to format the displayed price as compact currency.
 class PricePicker extends HookWidget {
   PricePicker({
     Key? key,
-    /*required this.onPriceChanged,*/
-    /*this.initial = 0, */ required this.price$,
+    required this.price$,
   }) : super(key: key);
 
+  // ValueNotifier to track the selected price
   final ValueNotifier<double> price$;
 
-  // final Function(double) onPriceChanged;
+  // NumberFormat for formatting the displayed price
   final _formatter =
       NumberFormat.compactSimpleCurrency(locale: "en", name: "USD");
 
   @override
   Widget build(BuildContext context) {
-    // var price = useState(initial);
-    // print(initial);
+    // UI build method
+    // Row widget to hold the price picker components
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        // Button to decrement the price
         InkWell(
           borderRadius: BorderRadius.circular(15),
           onTap: () {
+            // Ensure the price is not negative before decrementing
             if (price$.value == 0) return;
             price$.value -= 1;
             // onPriceChanged(price.value + 0.0);
@@ -51,8 +57,10 @@ class PricePicker extends HookWidget {
         SizedBox(
           width: 5,
         ),
+        // Text field to display and edit the price
         InkWell(
           onTap: () async {
+            // Show a number input dialog and update the price on confirmation
             var pri =
                 await getSingleNumberInput(context, label: "Enter a price");
             if (pri == null) return;
@@ -68,9 +76,11 @@ class PricePicker extends HookWidget {
         SizedBox(
           width: 5,
         ),
+        // Button to increment the price
         InkWell(
           borderRadius: BorderRadius.circular(15),
           onTap: () {
+            // Increment the price
             price$.value += 1;
             // onPriceChanged(price.value + 0.0);
           },
@@ -94,6 +104,8 @@ class PricePicker extends HookWidget {
   }
 }
 
+/// The PriceDisplay class is a stateless widget in Flutter designed to display a price.
+/// It consists of a text widget, stylized to resemble a price display, and it allows a callback function to be triggered when tapped.
 class PriceDisplay extends StatelessWidget {
   const PriceDisplay({
     Key? key,

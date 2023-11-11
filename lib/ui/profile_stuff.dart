@@ -2,6 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:flutter/material.dart';
 
+/// The RoundUrlImage class is a Flutter widget designed to display a round image fetched from a URL.
+/// It provides options for customization, such as specifying dimensions, elevation, radius, and an optional loading indicator.
+/// If no image URL is provided, it shows a placeholder.
+/// It uses the CachedNetworkImage package for efficient loading and caching of network images.
 class RoundUrlImage extends StatelessWidget {
   const RoundUrlImage({
     Key? key,
@@ -19,6 +23,10 @@ class RoundUrlImage extends StatelessWidget {
   final VoidCallback? onTap;
   final String? imageUrl;
 
+  /// The widget is wrapped in a Material widget with rounded shape and elevation.
+  /// An InkWell is used for tapping functionality.
+  /// The Container is the main content holder with specified dimensions and decoration.
+  /// If loading is true, it shows a loading indicator; otherwise, it displays the image or placeholder.
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -37,6 +45,10 @@ class RoundUrlImage extends StatelessWidget {
             color: imageUrl == null ? colorScheme(context).secondary : null,
           ),
           clipBehavior: Clip.antiAlias,
+
+          /// The main content of the widget includes either a placeholder icon or the CachedNetworkImage widget for displaying the image from the provided URL.
+          /// The placeholder icon is an outline person icon with primary color.
+          /// CachedNetworkImage efficiently loads and caches network images with a progress indicator during loading and an error icon in case of failure.
           child: loading
               ? Padding(
                   padding: EdgeInsets.all(20),

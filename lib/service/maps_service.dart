@@ -13,6 +13,7 @@ import 'package:location/location.dart' as loc;
 import '../helpers/utils.dart';
 import '../model/move.dart';
 
+// Class representing route information for a move
 class MoveRouteInformation {
   final gm.Polyline polyline;
   final double distance;
@@ -27,7 +28,9 @@ class MoveRouteInformation {
   });
 }
 
+// Service class for handling map-related functionalities
 class MapsService {
+  // Method to change location settings
   Future changeLocationSettings({
     loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
     int? interval = 10000,
@@ -45,6 +48,7 @@ class MapsService {
     }
   }
 
+  // Method to request location permission
   Future<LocationPermission> requestPermission() async {
     try {
       var perm = await Geolocator.checkPermission();
@@ -57,6 +61,7 @@ class MapsService {
     }
   }
 
+  // Method to get the user's current location
   Future<gm.LatLng?> getUserLocation() async {
     try {
       // Test if location services are enabled.
@@ -103,6 +108,7 @@ class MapsService {
     }
   }
 
+  // Method to get directions for a move
   Future<DirectionsResponse> getWebDirections({
     required MoveLocation origin,
     required MoveLocation destination,
@@ -122,6 +128,7 @@ class MapsService {
     return DirectionsResponse.fromJson(json.decode(response.body));
   }
 
+  // Method to get route information for a move
   Future<MoveRouteInformation?> getDirections({
     required MoveLocation origin,
     required MoveLocation destination,
@@ -175,6 +182,7 @@ class MapsService {
     }
   }
 
+  // Method to get route information for a move with multiple destinations
   Future<MoveRouteInformation?> getDirection({
     required MoveLocation origin,
     required List<MoveLocation> destinations,
@@ -245,18 +253,14 @@ class MapsService {
     }
   }
 
+  // Method to create a Google Maps Polyline from encoded points
   gm.Polyline _createRoute(String encondedPoly) {
     var result = PolylinePoints().decodePolyline(encondedPoly);
     var points = result.map((e) => gm.LatLng(e.latitude, e.longitude)).toList();
-    // var points = _convertToLatLng(_decodePoly(encondedPoly));
     return gm.Polyline(
       polylineId: gm.PolylineId('polylineid'),
       color: Color(0xFFFB8C00),
-      // jointType: gm.JointType.round,
-      // endCap: gm.Cap.roundCap,
-      // startCap: gm.Cap.roundCap,
       points: points,
-      // width: 5,
     );
   }
 }
