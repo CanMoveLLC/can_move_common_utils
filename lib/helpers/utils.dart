@@ -123,14 +123,9 @@ Future<String?> selectImage(BuildContext context) {
 Future<String?> _selectFromGallery() async {
   try {
     // Use the ImagesPicker package to select an image from the gallery.
-    final XFile? res = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-    );
-    if (res == null) {
-      return null;
-    } else {
-      return res.path;
-    }
+    return ImagePicker()
+        .pickImage(source: ImageSource.gallery)
+        .then<String?>((XFile? result) => result?.path);
   } on Exception catch (error, stack) {
     // Log errors that occur during image selection.
     logError(error, stack);
@@ -142,14 +137,9 @@ Future<String?> _selectFromGallery() async {
 Future<String?> _takePhoto() async {
   try {
     // Use the ImagesPicker package to take a photo.
-    final XFile? res = await ImagePicker().pickImage(
-      source: ImageSource.camera,
-    );
-    if (res == null) {
-      return null;
-    } else {
-      return res.path;
-    }
+    return ImagePicker()
+        .pickImage(source: ImageSource.camera)
+        .then<String?>((XFile? result) => result?.path);
   } on Exception catch (error, stack) {
     // Log errors that occur during photo capture.
     logError(error, stack);
