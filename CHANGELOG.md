@@ -1,3 +1,8 @@
+## 0.0.5
+
+- Image Picker Package is replaced.
+- `images_picker` is replaced with `image_picker`
+
 ## 0.0.4
 
 - Material 3 Disabled.

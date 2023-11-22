@@ -1,6 +1,6 @@
 name: can_move_common_utils
 description: A new Flutter project.
-version: 0.0.5
+version: 0.0.6
 publish_to: none
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   catcher: ^0.7.0
-  images_picker: ^1.2.11
+  image_picker: ^1.0.4
   animations: ^2.0.8
   oktoast: ^3.3.2+1
   flutter_rating_bar: ^4.0.1

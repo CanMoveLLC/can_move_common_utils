@@ -5,7 +5,7 @@ import 'package:can_move_common_utils/ui/theme.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:images_picker/images_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 // Function to log errors using the Catcher package
 void logError(Exception error, [StackTrace? trace]) {
@@ -123,15 +123,14 @@ Future<String?> selectImage(BuildContext context) {
 Future<String?> _selectFromGallery() async {
   try {
     // Use the ImagesPicker package to select an image from the gallery.
-    final res = await ImagesPicker.pick(
-      count: 1,
-      pickType: PickType.image,
-      gif: false,
-      quality: 0.3,
-      maxSize: 500,
+    final XFile? res = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
     );
-    if (res == null || res.isEmpty == true) return null;
-    return res.first.path;
+    if (res == null) {
+      return null;
+    } else {
+      return res.path;
+    }
   } on Exception catch (error, stack) {
     // Log errors that occur during image selection.
     logError(error, stack);
@@ -143,11 +142,14 @@ Future<String?> _selectFromGallery() async {
 Future<String?> _takePhoto() async {
   try {
     // Use the ImagesPicker package to take a photo.
-    final res = await ImagesPicker.openCamera(
-      pickType: PickType.image,
+    final XFile? res = await ImagePicker().pickImage(
+      source: ImageSource.camera,
     );
-    if (res == null || res.isEmpty == true) return null;
-    return res.first.path;
+    if (res == null) {
+      return null;
+    } else {
+      return res.path;
+    }
   } on Exception catch (error, stack) {
     // Log errors that occur during photo capture.
     logError(error, stack);
