@@ -17,7 +17,7 @@ dependencies:
   catcher: ^0.7.0
   images_picker: ^1.2.11
   animations: ^2.0.8
-  oktoast: ^3.4.0
+  oktoast: ^3.3.2+1
   flutter_rating_bar: ^4.0.1
   cached_network_image: ^3.3.0
   google_maps_webservice: ^0.0.20-nullsafety.5
@@ -37,7 +37,7 @@ dependencies:
   flutter_chat_ui: ^1.6.10
   scrollable_positioned_list: ^0.3.8
   flutter_hooks: ^0.20.3
-  hooks_riverpod: ^2.4.8
+  hooks_riverpod: ^2.4.5
 
 dev_dependencies:
   flutter_test:
