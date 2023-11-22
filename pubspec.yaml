@@ -1,23 +1,23 @@
 name: can_move_common_utils
 description: A new Flutter project.
-version: 0.0.3
+version: 0.0.4
 publish_to: none
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.4
-  cloud_firestore: ^4.13.0
-  firebase_auth: ^4.13.0
+  cloud_firestore: ^4.13.2
+  firebase_auth: ^4.14.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  catcher: ^0.7.0
+  catcher: ^0.8.0
   images_picker: ^1.2.11
   animations: ^2.0.8
-  oktoast: ^3.3.2+1
+  oktoast: ^3.4.0
   flutter_rating_bar: ^4.0.1
   cached_network_image: ^3.3.0
   google_maps_webservice: ^0.0.20-nullsafety.5
@@ -30,14 +30,14 @@ dependencies:
   geolocator: ^10.1.0
   google_maps_flutter_web: ^0.5.4+2
   shared_preferences: ^2.2.2
-  firebase_messaging: ^14.7.4
+  firebase_messaging: ^14.7.5
   custom_info_window: ^1.0.1
   fdottedline_nullsafety: ^2.0.1
   flutter_firebase_chat_core: ^1.5.0
   flutter_chat_ui: ^1.6.10
   scrollable_positioned_list: ^0.3.8
   flutter_hooks: ^0.20.3
-  hooks_riverpod: ^2.4.5
+  hooks_riverpod: ^2.4.8
 
 dev_dependencies:
   flutter_test:
