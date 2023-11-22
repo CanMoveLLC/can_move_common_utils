@@ -10,6 +10,7 @@ ThemeData darkTheme(BuildContext context) {
       secondary: Colors.purple,*/
   );
   final ThemeData theme = ThemeData(
+    useMaterial3: false,
     colorScheme: colorScheme.copyWith(
       error: Colors.red.shade900,
       primary: colorScheme.secondary,
@@ -122,15 +123,16 @@ ThemeData darkTheme(BuildContext context) {
 }
 
 ThemeData lightTheme(BuildContext context) {
-  var textTheme = _buildTextTheme(context);
-  final colorScheme = const ColorScheme.light().copyWith(
+  final TextTheme textTheme = _buildTextTheme(context);
+  final ColorScheme colorScheme = const ColorScheme.light().copyWith(
     primary: Color(0xFFF6EBDD),
     secondary: Color.fromRGBO(249, 158, 46, 1),
     /*
     * primary: Color(0xFFF6F4F6),
     secondary: Colors.purple,*/
   );
-  var theme = ThemeData(
+  final ThemeData theme = ThemeData(
+    useMaterial3: false,
     colorScheme: colorScheme.copyWith(
       error: Colors.red,
       primary: colorScheme.secondary,
