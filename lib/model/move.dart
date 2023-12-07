@@ -27,7 +27,8 @@ class Move with _$Move {
   const factory Move({
     required String uid,
     @NullTimeStampConverter() Timestamp? startDate,
-    @NullTimeStampConverter() Timestamp? endDate, // will be set on firebase func
+    @NullTimeStampConverter()
+    Timestamp? endDate, // will be set on firebase func
     @TimeStampConverter() required Timestamp pickUpDate,
     @MoveLocationConverter() required MoveLocation pickUp,
     @ListMoveLocationConverter() required List<MoveLocation> dropOffs,
@@ -80,8 +81,7 @@ class Move with _$Move {
 
   String get statusMsg {
     var drive = "Driver";
-    if (driver != null)
-      drive = driver!.name.split(" ").first;
+    if (driver != null) drive = driver!.name.split(" ").first;
     switch (status) {
       case MoveStatus.PENDING:
         return "Waiting for $drive to accept.";
@@ -101,12 +101,7 @@ class Move with _$Move {
   }
 
   String get sizeStr =>
-      size
-          .toString()
-          .split('.')
-          .last
-          .replaceAll("_", " ")
-          .toUpperCase();
+      size.toString().split('.').last.replaceAll("_", " ").toUpperCase();
 
   bool get shouldPay {
     return driver?.payID != null &&

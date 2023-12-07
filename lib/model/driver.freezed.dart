@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'driver.dart';
 
@@ -11,62 +12,11 @@ part of 'driver.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Driver _$DriverFromJson(Map<String, dynamic> json) {
   return _Driver.fromJson(json);
 }
-
-/// @nodoc
-class _$DriverTearOff {
-  const _$DriverTearOff();
-
-  _Driver call(
-      {required String uid,
-      String? payID,
-      bool payEnabled = false,
-      bool online = false,
-      bool verified = false,
-      required String name,
-      required String email,
-      required String phone,
-      required String photoUrl,
-      required List<String> vehicleDocs,
-      required List<String> vehicleImages,
-      UserType userType = UserType.driver,
-      @RatingConverter() required Rating rating,
-      int totalMoves = 0,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      required VehicleSize vehicleSize}) {
-    return _Driver(
-      uid: uid,
-      payID: payID,
-      payEnabled: payEnabled,
-      online: online,
-      verified: verified,
-      name: name,
-      email: email,
-      phone: phone,
-      photoUrl: photoUrl,
-      vehicleDocs: vehicleDocs,
-      vehicleImages: vehicleImages,
-      userType: userType,
-      rating: rating,
-      totalMoves: totalMoves,
-      user: user,
-      location: location,
-      vehicleSize: vehicleSize,
-    );
-  }
-
-  Driver fromJson(Map<String, Object> json) {
-    return Driver.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Driver = _$DriverTearOff();
 
 /// @nodoc
 mixin _$Driver {
@@ -100,7 +50,8 @@ mixin _$Driver {
 /// @nodoc
 abstract class $DriverCopyWith<$Res> {
   factory $DriverCopyWith(Driver value, $Res Function(Driver) then) =
-      _$DriverCopyWithImpl<$Res>;
+      _$DriverCopyWithImpl<$Res, Driver>;
+  @useResult
   $Res call(
       {String uid,
       String? payID,
@@ -124,118 +75,124 @@ abstract class $DriverCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DriverCopyWithImpl<$Res> implements $DriverCopyWith<$Res> {
+class _$DriverCopyWithImpl<$Res, $Val extends Driver>
+    implements $DriverCopyWith<$Res> {
   _$DriverCopyWithImpl(this._value, this._then);
 
-  final Driver _value;
   // ignore: unused_field
-  final $Res Function(Driver) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? uid = null,
     Object? payID = freezed,
-    Object? payEnabled = freezed,
-    Object? online = freezed,
-    Object? verified = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? photoUrl = freezed,
-    Object? vehicleDocs = freezed,
-    Object? vehicleImages = freezed,
-    Object? userType = freezed,
-    Object? rating = freezed,
-    Object? totalMoves = freezed,
+    Object? payEnabled = null,
+    Object? online = null,
+    Object? verified = null,
+    Object? name = null,
+    Object? email = null,
+    Object? phone = null,
+    Object? photoUrl = null,
+    Object? vehicleDocs = null,
+    Object? vehicleImages = null,
+    Object? userType = null,
+    Object? rating = null,
+    Object? totalMoves = null,
     Object? user = freezed,
     Object? location = freezed,
-    Object? vehicleSize = freezed,
+    Object? vehicleSize = null,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      payID: payID == freezed
+      payID: freezed == payID
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      payEnabled: payEnabled == freezed
+      payEnabled: null == payEnabled
           ? _value.payEnabled
           : payEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      online: online == freezed
+      online: null == online
           ? _value.online
           : online // ignore: cast_nullable_to_non_nullable
               as bool,
-      verified: verified == freezed
+      verified: null == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: null == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      vehicleDocs: vehicleDocs == freezed
+      vehicleDocs: null == vehicleDocs
           ? _value.vehicleDocs
           : vehicleDocs // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      vehicleImages: vehicleImages == freezed
+      vehicleImages: null == vehicleImages
           ? _value.vehicleImages
           : vehicleImages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-      rating: rating == freezed
+      rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Rating,
-      totalMoves: totalMoves == freezed
+      totalMoves: null == totalMoves
           ? _value.totalMoves
           : totalMoves // ignore: cast_nullable_to_non_nullable
               as int,
-      user: user == freezed
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
-      vehicleSize: vehicleSize == freezed
+      vehicleSize: null == vehicleSize
           ? _value.vehicleSize
           : vehicleSize // ignore: cast_nullable_to_non_nullable
               as VehicleSize,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $RatingCopyWith<$Res> get rating {
     return $RatingCopyWith<$Res>(_value.rating, (value) {
-      return _then(_value.copyWith(rating: value));
+      return _then(_value.copyWith(rating: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
-  factory _$DriverCopyWith(_Driver value, $Res Function(_Driver) then) =
-      __$DriverCopyWithImpl<$Res>;
+abstract class _$$DriverImplCopyWith<$Res> implements $DriverCopyWith<$Res> {
+  factory _$$DriverImplCopyWith(
+          _$DriverImpl value, $Res Function(_$DriverImpl) then) =
+      __$$DriverImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uid,
       String? payID,
@@ -260,100 +217,100 @@ abstract class _$DriverCopyWith<$Res> implements $DriverCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
-    implements _$DriverCopyWith<$Res> {
-  __$DriverCopyWithImpl(_Driver _value, $Res Function(_Driver) _then)
-      : super(_value, (v) => _then(v as _Driver));
+class __$$DriverImplCopyWithImpl<$Res>
+    extends _$DriverCopyWithImpl<$Res, _$DriverImpl>
+    implements _$$DriverImplCopyWith<$Res> {
+  __$$DriverImplCopyWithImpl(
+      _$DriverImpl _value, $Res Function(_$DriverImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _Driver get _value => super._value as _Driver;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? uid = null,
     Object? payID = freezed,
-    Object? payEnabled = freezed,
-    Object? online = freezed,
-    Object? verified = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
-    Object? phone = freezed,
-    Object? photoUrl = freezed,
-    Object? vehicleDocs = freezed,
-    Object? vehicleImages = freezed,
-    Object? userType = freezed,
-    Object? rating = freezed,
-    Object? totalMoves = freezed,
+    Object? payEnabled = null,
+    Object? online = null,
+    Object? verified = null,
+    Object? name = null,
+    Object? email = null,
+    Object? phone = null,
+    Object? photoUrl = null,
+    Object? vehicleDocs = null,
+    Object? vehicleImages = null,
+    Object? userType = null,
+    Object? rating = null,
+    Object? totalMoves = null,
     Object? user = freezed,
     Object? location = freezed,
-    Object? vehicleSize = freezed,
+    Object? vehicleSize = null,
   }) {
-    return _then(_Driver(
-      uid: uid == freezed
+    return _then(_$DriverImpl(
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      payID: payID == freezed
+      payID: freezed == payID
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      payEnabled: payEnabled == freezed
+      payEnabled: null == payEnabled
           ? _value.payEnabled
           : payEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
-      online: online == freezed
+      online: null == online
           ? _value.online
           : online // ignore: cast_nullable_to_non_nullable
               as bool,
-      verified: verified == freezed
+      verified: null == verified
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: null == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      vehicleDocs: vehicleDocs == freezed
-          ? _value.vehicleDocs
+      vehicleDocs: null == vehicleDocs
+          ? _value._vehicleDocs
           : vehicleDocs // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      vehicleImages: vehicleImages == freezed
-          ? _value.vehicleImages
+      vehicleImages: null == vehicleImages
+          ? _value._vehicleImages
           : vehicleImages // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-      rating: rating == freezed
+      rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as Rating,
-      totalMoves: totalMoves == freezed
+      totalMoves: null == totalMoves
           ? _value.totalMoves
           : totalMoves // ignore: cast_nullable_to_non_nullable
               as int,
-      user: user == freezed
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
-      vehicleSize: vehicleSize == freezed
+      vehicleSize: null == vehicleSize
           ? _value.vehicleSize
           : vehicleSize // ignore: cast_nullable_to_non_nullable
               as VehicleSize,
@@ -363,8 +320,8 @@ class __$DriverCopyWithImpl<$Res> extends _$DriverCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Driver extends _Driver {
-  const _$_Driver(
+class _$DriverImpl extends _Driver {
+  const _$DriverImpl(
       {required this.uid,
       this.payID,
       this.payEnabled = false,
@@ -374,31 +331,33 @@ class _$_Driver extends _Driver {
       required this.email,
       required this.phone,
       required this.photoUrl,
-      required this.vehicleDocs,
-      required this.vehicleImages,
+      required final List<String> vehicleDocs,
+      required final List<String> vehicleImages,
       this.userType = UserType.driver,
       @RatingConverter() required this.rating,
       this.totalMoves = 0,
       @JsonKey(ignore: true) this.user,
       @NullGeoPointConverter() this.location,
       required this.vehicleSize})
-      : super._();
+      : _vehicleDocs = vehicleDocs,
+        _vehicleImages = vehicleImages,
+        super._();
 
-  factory _$_Driver.fromJson(Map<String, dynamic> json) =>
-      _$$_DriverFromJson(json);
+  factory _$DriverImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DriverImplFromJson(json);
 
   @override
   final String uid;
   @override
   final String? payID;
-  @JsonKey(defaultValue: false)
   @override
+  @JsonKey()
   final bool payEnabled;
-  @JsonKey(defaultValue: false)
   @override
+  @JsonKey()
   final bool online;
-  @JsonKey(defaultValue: false)
   @override
+  @JsonKey()
   final bool verified;
   @override
   final String name;
@@ -408,23 +367,36 @@ class _$_Driver extends _Driver {
   final String phone;
   @override
   final String photoUrl;
+  final List<String> _vehicleDocs;
   @override
-  final List<String> vehicleDocs;
+  List<String> get vehicleDocs {
+    if (_vehicleDocs is EqualUnmodifiableListView) return _vehicleDocs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_vehicleDocs);
+  }
+
+  final List<String> _vehicleImages;
   @override
-  final List<String> vehicleImages;
-  @JsonKey(defaultValue: UserType.driver)
+  List<String> get vehicleImages {
+    if (_vehicleImages is EqualUnmodifiableListView) return _vehicleImages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_vehicleImages);
+  }
+
   @override
+  @JsonKey()
   final UserType userType;
   @override
   @RatingConverter()
   final Rating rating;
-  @JsonKey(defaultValue: 0)
   @override
+  @JsonKey()
   final int totalMoves;
   @override
   @JsonKey(ignore: true)
   final User? user;
-  @override // for storing in hive/sharedPrefs, make sure this is null first.
+// for storing in hive/sharedPrefs, make sure this is null first.
+  @override
   @NullGeoPointConverter()
   final GeoPoint? location;
   @override
@@ -438,171 +410,141 @@ class _$_Driver extends _Driver {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Driver &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.payID, payID) ||
-                const DeepCollectionEquality().equals(other.payID, payID)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$DriverImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.payID, payID) || other.payID == payID) &&
             (identical(other.payEnabled, payEnabled) ||
-                const DeepCollectionEquality()
-                    .equals(other.payEnabled, payEnabled)) &&
-            (identical(other.online, online) ||
-                const DeepCollectionEquality().equals(other.online, online)) &&
+                other.payEnabled == payEnabled) &&
+            (identical(other.online, online) || other.online == online) &&
             (identical(other.verified, verified) ||
-                const DeepCollectionEquality()
-                    .equals(other.verified, verified)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)) &&
+                other.verified == verified) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.photoUrl, photoUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.photoUrl, photoUrl)) &&
-            (identical(other.vehicleDocs, vehicleDocs) ||
-                const DeepCollectionEquality()
-                    .equals(other.vehicleDocs, vehicleDocs)) &&
-            (identical(other.vehicleImages, vehicleImages) ||
-                const DeepCollectionEquality()
-                    .equals(other.vehicleImages, vehicleImages)) &&
+                other.photoUrl == photoUrl) &&
+            const DeepCollectionEquality()
+                .equals(other._vehicleDocs, _vehicleDocs) &&
+            const DeepCollectionEquality()
+                .equals(other._vehicleImages, _vehicleImages) &&
             (identical(other.userType, userType) ||
-                const DeepCollectionEquality()
-                    .equals(other.userType, userType)) &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
+                other.userType == userType) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.totalMoves, totalMoves) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalMoves, totalMoves)) &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)) &&
+                other.totalMoves == totalMoves) &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
+                other.location == location) &&
             (identical(other.vehicleSize, vehicleSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.vehicleSize, vehicleSize)));
+                other.vehicleSize == vehicleSize));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(payID) ^
-      const DeepCollectionEquality().hash(payEnabled) ^
-      const DeepCollectionEquality().hash(online) ^
-      const DeepCollectionEquality().hash(verified) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(photoUrl) ^
-      const DeepCollectionEquality().hash(vehicleDocs) ^
-      const DeepCollectionEquality().hash(vehicleImages) ^
-      const DeepCollectionEquality().hash(userType) ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(totalMoves) ^
-      const DeepCollectionEquality().hash(user) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(vehicleSize);
 
   @JsonKey(ignore: true)
   @override
-  _$DriverCopyWith<_Driver> get copyWith =>
-      __$DriverCopyWithImpl<_Driver>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      uid,
+      payID,
+      payEnabled,
+      online,
+      verified,
+      name,
+      email,
+      phone,
+      photoUrl,
+      const DeepCollectionEquality().hash(_vehicleDocs),
+      const DeepCollectionEquality().hash(_vehicleImages),
+      userType,
+      rating,
+      totalMoves,
+      user,
+      location,
+      vehicleSize);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverImplCopyWith<_$DriverImpl> get copyWith =>
+      __$$DriverImplCopyWithImpl<_$DriverImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DriverToJson(this);
+    return _$$DriverImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Driver extends Driver {
   const factory _Driver(
-      {required String uid,
-      String? payID,
-      bool payEnabled,
-      bool online,
-      bool verified,
-      required String name,
-      required String email,
-      required String phone,
-      required String photoUrl,
-      required List<String> vehicleDocs,
-      required List<String> vehicleImages,
-      UserType userType,
-      @RatingConverter() required Rating rating,
-      int totalMoves,
-      @JsonKey(ignore: true) User? user,
-      @NullGeoPointConverter() GeoPoint? location,
-      required VehicleSize vehicleSize}) = _$_Driver;
+      {required final String uid,
+      final String? payID,
+      final bool payEnabled,
+      final bool online,
+      final bool verified,
+      required final String name,
+      required final String email,
+      required final String phone,
+      required final String photoUrl,
+      required final List<String> vehicleDocs,
+      required final List<String> vehicleImages,
+      final UserType userType,
+      @RatingConverter() required final Rating rating,
+      final int totalMoves,
+      @JsonKey(ignore: true) final User? user,
+      @NullGeoPointConverter() final GeoPoint? location,
+      required final VehicleSize vehicleSize}) = _$DriverImpl;
   const _Driver._() : super._();
 
-  factory _Driver.fromJson(Map<String, dynamic> json) = _$_Driver.fromJson;
+  factory _Driver.fromJson(Map<String, dynamic> json) = _$DriverImpl.fromJson;
 
   @override
-  String get uid => throw _privateConstructorUsedError;
+  String get uid;
   @override
-  String? get payID => throw _privateConstructorUsedError;
+  String? get payID;
   @override
-  bool get payEnabled => throw _privateConstructorUsedError;
+  bool get payEnabled;
   @override
-  bool get online => throw _privateConstructorUsedError;
+  bool get online;
   @override
-  bool get verified => throw _privateConstructorUsedError;
+  bool get verified;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String get phone => throw _privateConstructorUsedError;
+  String get phone;
   @override
-  String get photoUrl => throw _privateConstructorUsedError;
+  String get photoUrl;
   @override
-  List<String> get vehicleDocs => throw _privateConstructorUsedError;
+  List<String> get vehicleDocs;
   @override
-  List<String> get vehicleImages => throw _privateConstructorUsedError;
+  List<String> get vehicleImages;
   @override
-  UserType get userType => throw _privateConstructorUsedError;
+  UserType get userType;
   @override
   @RatingConverter()
-  Rating get rating => throw _privateConstructorUsedError;
+  Rating get rating;
   @override
-  int get totalMoves => throw _privateConstructorUsedError;
+  int get totalMoves;
   @override
   @JsonKey(ignore: true)
-  User? get user => throw _privateConstructorUsedError;
+  User? get user;
   @override // for storing in hive/sharedPrefs, make sure this is null first.
   @NullGeoPointConverter()
-  GeoPoint? get location => throw _privateConstructorUsedError;
+  GeoPoint? get location;
   @override
-  VehicleSize get vehicleSize => throw _privateConstructorUsedError;
+  VehicleSize get vehicleSize;
   @override
   @JsonKey(ignore: true)
-  _$DriverCopyWith<_Driver> get copyWith => throw _privateConstructorUsedError;
+  _$$DriverImplCopyWith<_$DriverImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Rating _$RatingFromJson(Map<String, dynamic> json) {
   return _Rating.fromJson(json);
 }
-
-/// @nodoc
-class _$RatingTearOff {
-  const _$RatingTearOff();
-
-  _Rating call({double rating = 0.0, int total = 0}) {
-    return _Rating(
-      rating: rating,
-      total: total,
-    );
-  }
-
-  Rating fromJson(Map<String, Object> json) {
-    return Rating.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Rating = _$RatingTearOff();
 
 /// @nodoc
 mixin _$Rating {
@@ -617,64 +559,70 @@ mixin _$Rating {
 /// @nodoc
 abstract class $RatingCopyWith<$Res> {
   factory $RatingCopyWith(Rating value, $Res Function(Rating) then) =
-      _$RatingCopyWithImpl<$Res>;
+      _$RatingCopyWithImpl<$Res, Rating>;
+  @useResult
   $Res call({double rating, int total});
 }
 
 /// @nodoc
-class _$RatingCopyWithImpl<$Res> implements $RatingCopyWith<$Res> {
+class _$RatingCopyWithImpl<$Res, $Val extends Rating>
+    implements $RatingCopyWith<$Res> {
   _$RatingCopyWithImpl(this._value, this._then);
 
-  final Rating _value;
   // ignore: unused_field
-  final $Res Function(Rating) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rating = freezed,
-    Object? total = freezed,
+    Object? rating = null,
+    Object? total = null,
   }) {
     return _then(_value.copyWith(
-      rating: rating == freezed
+      rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$RatingCopyWith<$Res> implements $RatingCopyWith<$Res> {
-  factory _$RatingCopyWith(_Rating value, $Res Function(_Rating) then) =
-      __$RatingCopyWithImpl<$Res>;
+abstract class _$$RatingImplCopyWith<$Res> implements $RatingCopyWith<$Res> {
+  factory _$$RatingImplCopyWith(
+          _$RatingImpl value, $Res Function(_$RatingImpl) then) =
+      __$$RatingImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double rating, int total});
 }
 
 /// @nodoc
-class __$RatingCopyWithImpl<$Res> extends _$RatingCopyWithImpl<$Res>
-    implements _$RatingCopyWith<$Res> {
-  __$RatingCopyWithImpl(_Rating _value, $Res Function(_Rating) _then)
-      : super(_value, (v) => _then(v as _Rating));
+class __$$RatingImplCopyWithImpl<$Res>
+    extends _$RatingCopyWithImpl<$Res, _$RatingImpl>
+    implements _$$RatingImplCopyWith<$Res> {
+  __$$RatingImplCopyWithImpl(
+      _$RatingImpl _value, $Res Function(_$RatingImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _Rating get _value => super._value as _Rating;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rating = freezed,
-    Object? total = freezed,
+    Object? rating = null,
+    Object? total = null,
   }) {
-    return _then(_Rating(
-      rating: rating == freezed
+    return _then(_$RatingImpl(
+      rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      total: total == freezed
+      total: null == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as int,
@@ -684,17 +632,17 @@ class __$RatingCopyWithImpl<$Res> extends _$RatingCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Rating extends _Rating {
-  const _$_Rating({this.rating = 0.0, this.total = 0}) : super._();
+class _$RatingImpl extends _Rating {
+  const _$RatingImpl({this.rating = 0.0, this.total = 0}) : super._();
 
-  factory _$_Rating.fromJson(Map<String, dynamic> json) =>
-      _$$_RatingFromJson(json);
+  factory _$RatingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RatingImplFromJson(json);
 
-  @JsonKey(defaultValue: 0.0)
   @override
+  @JsonKey()
   final double rating;
-  @JsonKey(defaultValue: 0)
   @override
+  @JsonKey()
   final int total;
 
   @override
@@ -705,75 +653,49 @@ class _$_Rating extends _Rating {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Rating &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.total, total) ||
-                const DeepCollectionEquality().equals(other.total, total)));
+        (other.runtimeType == runtimeType &&
+            other is _$RatingImpl &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.total, total) || other.total == total));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(total);
 
   @JsonKey(ignore: true)
   @override
-  _$RatingCopyWith<_Rating> get copyWith =>
-      __$RatingCopyWithImpl<_Rating>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, rating, total);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RatingImplCopyWith<_$RatingImpl> get copyWith =>
+      __$$RatingImplCopyWithImpl<_$RatingImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RatingToJson(this);
+    return _$$RatingImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Rating extends Rating {
-  const factory _Rating({double rating, int total}) = _$_Rating;
+  const factory _Rating({final double rating, final int total}) = _$RatingImpl;
   const _Rating._() : super._();
 
-  factory _Rating.fromJson(Map<String, dynamic> json) = _$_Rating.fromJson;
+  factory _Rating.fromJson(Map<String, dynamic> json) = _$RatingImpl.fromJson;
 
   @override
-  double get rating => throw _privateConstructorUsedError;
+  double get rating;
   @override
-  int get total => throw _privateConstructorUsedError;
+  int get total;
   @override
   @JsonKey(ignore: true)
-  _$RatingCopyWith<_Rating> get copyWith => throw _privateConstructorUsedError;
+  _$$RatingImplCopyWith<_$RatingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 DriverMin _$DriverMinFromJson(Map<String, dynamic> json) {
   return _DriverMin.fromJson(json);
 }
-
-/// @nodoc
-class _$DriverMinTearOff {
-  const _$DriverMinTearOff();
-
-  _DriverMin call(
-      {required String uid,
-      String? payID,
-      required String name,
-      @NullGeoPointConverter() GeoPoint? location,
-      UserType userType = UserType.driver}) {
-    return _DriverMin(
-      uid: uid,
-      payID: payID,
-      name: name,
-      location: location,
-      userType: userType,
-    );
-  }
-
-  DriverMin fromJson(Map<String, Object> json) {
-    return DriverMin.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $DriverMin = _$DriverMinTearOff();
 
 /// @nodoc
 mixin _$DriverMin {
@@ -793,7 +715,8 @@ mixin _$DriverMin {
 /// @nodoc
 abstract class $DriverMinCopyWith<$Res> {
   factory $DriverMinCopyWith(DriverMin value, $Res Function(DriverMin) then) =
-      _$DriverMinCopyWithImpl<$Res>;
+      _$DriverMinCopyWithImpl<$Res, DriverMin>;
+  @useResult
   $Res call(
       {String uid,
       String? payID,
@@ -803,52 +726,57 @@ abstract class $DriverMinCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DriverMinCopyWithImpl<$Res> implements $DriverMinCopyWith<$Res> {
+class _$DriverMinCopyWithImpl<$Res, $Val extends DriverMin>
+    implements $DriverMinCopyWith<$Res> {
   _$DriverMinCopyWithImpl(this._value, this._then);
 
-  final DriverMin _value;
   // ignore: unused_field
-  final $Res Function(DriverMin) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? uid = null,
     Object? payID = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? location = freezed,
-    Object? userType = freezed,
+    Object? userType = null,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      payID: payID == freezed
+      payID: freezed == payID
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$DriverMinCopyWith<$Res> implements $DriverMinCopyWith<$Res> {
-  factory _$DriverMinCopyWith(
-          _DriverMin value, $Res Function(_DriverMin) then) =
-      __$DriverMinCopyWithImpl<$Res>;
+abstract class _$$DriverMinImplCopyWith<$Res>
+    implements $DriverMinCopyWith<$Res> {
+  factory _$$DriverMinImplCopyWith(
+          _$DriverMinImpl value, $Res Function(_$DriverMinImpl) then) =
+      __$$DriverMinImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uid,
       String? payID,
@@ -858,40 +786,40 @@ abstract class _$DriverMinCopyWith<$Res> implements $DriverMinCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DriverMinCopyWithImpl<$Res> extends _$DriverMinCopyWithImpl<$Res>
-    implements _$DriverMinCopyWith<$Res> {
-  __$DriverMinCopyWithImpl(_DriverMin _value, $Res Function(_DriverMin) _then)
-      : super(_value, (v) => _then(v as _DriverMin));
+class __$$DriverMinImplCopyWithImpl<$Res>
+    extends _$DriverMinCopyWithImpl<$Res, _$DriverMinImpl>
+    implements _$$DriverMinImplCopyWith<$Res> {
+  __$$DriverMinImplCopyWithImpl(
+      _$DriverMinImpl _value, $Res Function(_$DriverMinImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _DriverMin get _value => super._value as _DriverMin;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
+    Object? uid = null,
     Object? payID = freezed,
-    Object? name = freezed,
+    Object? name = null,
     Object? location = freezed,
-    Object? userType = freezed,
+    Object? userType = null,
   }) {
-    return _then(_DriverMin(
-      uid: uid == freezed
+    return _then(_$DriverMinImpl(
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      payID: payID == freezed
+      payID: freezed == payID
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      location: location == freezed
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as GeoPoint?,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
@@ -901,16 +829,16 @@ class __$DriverMinCopyWithImpl<$Res> extends _$DriverMinCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DriverMin implements _DriverMin {
-  const _$_DriverMin(
+class _$DriverMinImpl implements _DriverMin {
+  const _$DriverMinImpl(
       {required this.uid,
       this.payID,
       required this.name,
       @NullGeoPointConverter() this.location,
       this.userType = UserType.driver});
 
-  factory _$_DriverMin.fromJson(Map<String, dynamic> json) =>
-      _$$_DriverMinFromJson(json);
+  factory _$DriverMinImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DriverMinImplFromJson(json);
 
   @override
   final String uid;
@@ -921,8 +849,8 @@ class _$_DriverMin implements _DriverMin {
   @override
   @NullGeoPointConverter()
   final GeoPoint? location;
-  @JsonKey(defaultValue: UserType.driver)
   @override
+  @JsonKey()
   final UserType userType;
 
   @override
@@ -933,65 +861,60 @@ class _$_DriverMin implements _DriverMin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DriverMin &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.payID, payID) ||
-                const DeepCollectionEquality().equals(other.payID, payID)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$DriverMinImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.payID, payID) || other.payID == payID) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
+                other.location == location) &&
             (identical(other.userType, userType) ||
-                const DeepCollectionEquality()
-                    .equals(other.userType, userType)));
+                other.userType == userType));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(payID) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(userType);
 
   @JsonKey(ignore: true)
   @override
-  _$DriverMinCopyWith<_DriverMin> get copyWith =>
-      __$DriverMinCopyWithImpl<_DriverMin>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, uid, payID, name, location, userType);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DriverMinImplCopyWith<_$DriverMinImpl> get copyWith =>
+      __$$DriverMinImplCopyWithImpl<_$DriverMinImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DriverMinToJson(this);
+    return _$$DriverMinImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _DriverMin implements DriverMin {
   const factory _DriverMin(
-      {required String uid,
-      String? payID,
-      required String name,
-      @NullGeoPointConverter() GeoPoint? location,
-      UserType userType}) = _$_DriverMin;
+      {required final String uid,
+      final String? payID,
+      required final String name,
+      @NullGeoPointConverter() final GeoPoint? location,
+      final UserType userType}) = _$DriverMinImpl;
 
   factory _DriverMin.fromJson(Map<String, dynamic> json) =
-      _$_DriverMin.fromJson;
+      _$DriverMinImpl.fromJson;
 
   @override
-  String get uid => throw _privateConstructorUsedError;
+  String get uid;
   @override
-  String? get payID => throw _privateConstructorUsedError;
+  String? get payID;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
   @NullGeoPointConverter()
-  GeoPoint? get location => throw _privateConstructorUsedError;
+  GeoPoint? get location;
   @override
-  UserType get userType => throw _privateConstructorUsedError;
+  UserType get userType;
   @override
   @JsonKey(ignore: true)
-  _$DriverMinCopyWith<_DriverMin> get copyWith =>
+  _$$DriverMinImplCopyWith<_$DriverMinImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

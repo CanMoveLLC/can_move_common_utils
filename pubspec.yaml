@@ -10,13 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.4
-  cloud_firestore: ^4.13.2
-  firebase_auth: ^4.14.1
+  cloud_firestore: ^4.13.3
+  firebase_auth: ^4.15.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   catcher: ^0.7.0
   image_picker: ^1.0.4
-  animations: ^2.0.8
+  animations: ^2.0.10
   oktoast: ^3.3.2+1
   flutter_rating_bar: ^4.0.1
   cached_network_image: ^3.3.0
@@ -30,20 +30,23 @@ dependencies:
   geolocator: ^10.1.0
   google_maps_flutter_web: ^0.5.4+2
   shared_preferences: ^2.2.2
-  firebase_messaging: ^14.7.5
+  firebase_messaging: ^14.7.6
   custom_info_window: ^1.0.1
   fdottedline_nullsafety: ^2.0.1
   flutter_firebase_chat_core: ^1.5.0
   flutter_chat_ui: ^1.6.10
   scrollable_positioned_list: ^0.3.8
   flutter_hooks: ^0.20.3
-  hooks_riverpod: ^2.4.5
+  hooks_riverpod: ^2.4.9
+  http: ^0.13.6
+  intl: ^0.17.0
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.4.5
-  build_runner: ^2.2.0
+  build_runner: ^2.4.7
   flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the

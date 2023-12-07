@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData darkTheme(BuildContext context) {
   final TextTheme textTheme = _buildDarkTextTheme(context);
   final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
-    primary: Color(0xFF361F01),
-    secondary: Color(0xFFB46503),
+    primary: const Color(0xFF361F01),
+    secondary: const Color(0xFFB46503),
     /*primary: Color(0xFF2B2D2F),
       secondary: Colors.purple,*/
   );
@@ -43,14 +43,14 @@ ThemeData darkTheme(BuildContext context) {
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
@@ -64,14 +64,14 @@ ThemeData darkTheme(BuildContext context) {
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
@@ -125,8 +125,8 @@ ThemeData darkTheme(BuildContext context) {
 ThemeData lightTheme(BuildContext context) {
   final TextTheme textTheme = _buildTextTheme(context);
   final ColorScheme colorScheme = const ColorScheme.light().copyWith(
-    primary: Color(0xFFF6EBDD),
-    secondary: Color.fromRGBO(249, 158, 46, 1),
+    primary: const Color(0xFFF6EBDD),
+    secondary: const Color.fromRGBO(249, 158, 46, 1),
     /*
     * primary: Color(0xFFF6F4F6),
     secondary: Colors.purple,*/
@@ -168,14 +168,14 @@ ThemeData lightTheme(BuildContext context) {
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
       ),
       disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.grey,
           width: 0.5,
         ),
@@ -189,14 +189,14 @@ ThemeData lightTheme(BuildContext context) {
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.red,
           width: 0.5,
         ),
@@ -363,8 +363,8 @@ Widget progressIndicator(BuildContext context) {
   );
 }
 
-get _textButtonThemeData {
-  TextButtonThemeData(
+TextButtonThemeData get _textButtonThemeData {
+  return TextButtonThemeData(
     style: TextButton.styleFrom(
       tapTargetSize: MaterialTapTargetSize.padded,
       padding: const EdgeInsets.symmetric(horizontal: 20),

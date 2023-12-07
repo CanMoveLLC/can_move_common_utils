@@ -11,8 +11,7 @@ import 'package:flutter/material.dart';
 /// The animation duration is set for a smooth transition, and the use of `theme` and `textTheme` suggests that it's designed to adhere to the overall theme styling of the app.
 class ProgressBar extends StatelessWidget {
   // Constructor with optional parameters for percentage and color
-  const ProgressBar({Key? key, this.percentage = 50.0, this.color})
-      : super(key: key);
+  const ProgressBar({super.key, this.percentage = 50.0, this.color});
 
   // Declare variables for percentage and color
   final double percentage;
@@ -40,7 +39,7 @@ class ProgressBar extends StatelessWidget {
         // Animated container representing the actual progress
         AnimatedContainer(
           // Set duration for the animation
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
             // Set color based on the provided color or use the primary color from the theme
             color: color ?? theme(context).colorScheme.primary,

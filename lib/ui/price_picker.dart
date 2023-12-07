@@ -11,9 +11,9 @@ import 'package:intl/intl.dart';
 /// The class utilizes the NumberFormat class to format the displayed price as compact currency.
 class PricePicker extends HookWidget {
   PricePicker({
-    Key? key,
+    super.key,
     required this.price$,
-  }) : super(key: key);
+  });
 
   // ValueNotifier to track the selected price
   final ValueNotifier<double> price$;
@@ -54,9 +54,7 @@ class PricePicker extends HookWidget {
             ),
           ),
         ),
-        SizedBox(
-          width: 5,
-        ),
+        const SizedBox(width: 5),
         // Text field to display and edit the price
         InkWell(
           onTap: () async {
@@ -73,9 +71,7 @@ class PricePicker extends HookWidget {
                 ),
           ),
         ),
-        SizedBox(
-          width: 5,
-        ),
+        const SizedBox(width: 5),
         // Button to increment the price
         InkWell(
           borderRadius: BorderRadius.circular(15),
@@ -108,10 +104,10 @@ class PricePicker extends HookWidget {
 /// It consists of a text widget, stylized to resemble a price display, and it allows a callback function to be triggered when tapped.
 class PriceDisplay extends StatelessWidget {
   const PriceDisplay({
-    Key? key,
+    super.key,
     required this.price,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final double price;
   final VoidCallback? onTap;

@@ -10,7 +10,7 @@ class ChatService {
 
   // Constructor to initialize Firebase Chat Core configuration
   ChatService() {
-    _fireChat.setConfig(FirebaseChatCoreConfig(
+    _fireChat.setConfig(const FirebaseChatCoreConfig(
       null, // Add your Firebase App options here if needed
       chatRoomsCollection,
       chatUsersCollection,
@@ -65,22 +65,22 @@ class ChatService {
   }
 
   // Method to create a new room with another user
-  Future<types.Room?> createRoom({required types.User other}) async {
+  Future<types.Room?> createRoom({required types.User other}) {
     try {
       return _fireChat.createRoom(other);
     } on Exception catch (error, stack) {
       logError(error, stack);
-      return null;
+      return Future<types.Room?>.value(null);
     }
   }
 
   // Method to get details of an existing room
-  Future<types.Room?> getRoom({required String id}) async {
+  Future<types.Room?> getRoom({required String id}) {
     try {
-      return await _fireChat.room(id).first;
+      return _fireChat.room(id).first;
     } on Exception catch (error, stack) {
       logError(error, stack);
-      return null;
+      return Future<types.Room?>.value(null);
     }
   }
 }

@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 class MoveDropOffAddressPart extends StatelessWidget {
   // Constructor for the widget, taking a 'Move' object as a parameter.
   const MoveDropOffAddressPart({
-    Key? key,
+    super.key,
     required this.move,
-  }) : super(key: key);
+  });
 
   // The 'Move' object containing information about the move.
   final Move move;
@@ -93,9 +93,9 @@ class MoveDropOffAddressPart extends StatelessWidget {
 /// The class uses Flutter widgets like Container, Column, Padding, Row, Text, Image, and a custom-drawn dotted line (FDottedLine).
 class MovePickUpAddressPart extends StatelessWidget {
   const MovePickUpAddressPart({
-    Key? key,
+    super.key,
     required this.move,
-  }) : super(key: key);
+  });
 
   // Represents the move for which the pickup address is displayed
   final Move move;

@@ -8,8 +8,8 @@ import '../helpers/aliases.dart';
 
 class BackBtn extends StatelessWidget {
   const BackBtn({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class ShadowedButton extends StatelessWidget {
   final String label;
 
   const ShadowedButton({
-    Key? key,
+    super.key,
     required this.label,
     this.radius,
     this.safeBottom = false,
@@ -73,7 +73,7 @@ class ShadowedButton extends StatelessWidget {
     this.offset = const Offset(0, 10),
     this.shadowColor,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -103,16 +103,16 @@ class ShadowedButton extends StatelessWidget {
               hoverElevation: 5,
               textColor: Colors.grey[100],
               child: isLoading
-                  ? Container(
+                  ? SizedBox(
                       width: 20,
                       height: 20,
                       child: progressIndicator(context),
                     )
-                  : Text(""),
+                  : const Text(""),
             ),
           ),
           AnimatedOpacity(
-            duration: Duration(milliseconds: 200),
+            duration: const Duration(milliseconds: 200),
             opacity: isLoading ? 0.0 : 1.0,
             child: Text.rich(
               TextSpan(
@@ -156,7 +156,7 @@ class NoShadowButton extends StatelessWidget {
   final String label;
 
   const NoShadowButton({
-    Key? key,
+    super.key,
     required this.label,
     this.radius,
     this.safeBottom = false,
@@ -170,7 +170,7 @@ class NoShadowButton extends StatelessWidget {
     this.offset = const Offset(0, 10),
     this.shadowColor,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +186,7 @@ class NoShadowButton extends StatelessWidget {
               child: AnimatedContainer(
                 width: isLoading ? 50 : width,
                 height: height,
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 child: MaterialButton(
                   color: color ?? Theme.of(context).colorScheme.primary,
                   disabledColor: shadowColor,
@@ -201,17 +201,17 @@ class NoShadowButton extends StatelessWidget {
                   hoverElevation: 5,
                   textColor: Colors.grey[100],
                   child: isLoading
-                      ? Container(
+                      ? SizedBox(
                           width: 20,
                           height: 20,
                           child: progressIndicator(context),
                         )
-                      : Text(""),
+                      : const Text(""),
                 ),
               ),
             ),
             AnimatedOpacity(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               opacity: isLoading ? 0.0 : 1.0,
               child: Text.rich(
                 TextSpan(
@@ -239,15 +239,20 @@ class TextyButton extends StatelessWidget {
   final EdgeInsets? padding;
   final Color? color;
 
-  const TextyButton(
-      {Key? key, this.padding, this.onTap, required this.label, this.color})
-      : super(key: key);
+  const TextyButton({
+    super.key,
+    this.padding,
+    this.onTap,
+    required this.label,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: padding ?? const EdgeInsets.all(8.0),
       child: TextButton(
+        onPressed: onTap,
         child: Text(
           label,
           style: textTheme(context).labelLarge?.copyWith(
@@ -256,15 +261,13 @@ class TextyButton extends StatelessWidget {
                     : color ?? colorScheme(context).primary,
               ),
         ),
-        onPressed: onTap,
       ),
     );
   }
 }
 
 class MoveBackButton extends StatelessWidget {
-  const MoveBackButton({Key? key, this.onTap, this.elevate = false})
-      : super(key: key);
+  const MoveBackButton({super.key, this.onTap, this.elevate = false});
 
   final VoidCallback? onTap;
   final bool elevate;
@@ -273,37 +276,35 @@ class MoveBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var inkWell = InkWell(
       borderRadius: BorderRadius.circular(100),
+      onTap: onTap ?? () => router(context).pop(),
       child: Image.asset(
         "assets/images/arrow-left.png",
         color: textTheme(context).bodyMedium?.color,
       ),
-      onTap: onTap ?? () => router(context).pop(),
     );
-    if (!elevate) return inkWell;
+    if (!elevate) {
+      return inkWell;
+    }
     return Material(
+      elevation: 5,
       type: MaterialType.button,
       color: theme(context).scaffoldBackgroundColor,
-      elevation: 5,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(100),
       ),
-      child: Container(
-        height: 40,
-        width: 40,
-        child: inkWell,
-      ),
+      child: SizedBox(height: 40, width: 40, child: inkWell),
     );
   }
 }
 
 class FilterByDateBtn extends StatelessWidget {
   const FilterByDateBtn({
-    Key? key,
+    super.key,
     required this.onPickDate,
     required this.onClearTap,
     this.initialDate,
     this.label = "Filter by date",
-  }) : super(key: key);
+  });
 
   final DateTimeCallback onPickDate;
   final VoidCallback onClearTap;
@@ -336,14 +337,14 @@ class FilterByDateBtn extends StatelessWidget {
                 height: 20,
                 color: textTheme(context).bodyMedium?.color,
               ),
-              SizedBox(width: 7),
+              const SizedBox(width: 7),
               Text(label),
             ],
           ),
         ),
-        if (label != "Filter by date") SizedBox(width: 50),
+        if (label != "Filter by date") const SizedBox(width: 50),
         if (label != "Filter by date")
-          InkWell(child: Text("Clear"), onTap: onClearTap),
+          InkWell(onTap: onClearTap, child: const Text("Clear")),
       ],
     );
   }

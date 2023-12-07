@@ -6,7 +6,8 @@ part of 'shipper.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Shipper _$$_ShipperFromJson(Map<String, dynamic> json) => _$_Shipper(
+_$ShipperImpl _$$ShipperImplFromJson(Map<String, dynamic> json) =>
+    _$ShipperImpl(
       uid: json['uid'] as String,
       name: json['name'] as String,
       email: json['email'] as String,
@@ -15,13 +16,13 @@ _$_Shipper _$$_ShipperFromJson(Map<String, dynamic> json) => _$_Shipper(
           UserType.shipper,
     );
 
-Map<String, dynamic> _$$_ShipperToJson(_$_Shipper instance) =>
+Map<String, dynamic> _$$ShipperImplToJson(_$ShipperImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
       'email': instance.email,
       'photoUrl': instance.photoUrl,
-      'userType': _$UserTypeEnumMap[instance.userType],
+      'userType': _$UserTypeEnumMap[instance.userType]!,
     };
 
 const _$UserTypeEnumMap = {
@@ -29,17 +30,17 @@ const _$UserTypeEnumMap = {
   UserType.driver: 'driver',
 };
 
-_$_ShipperMin _$$_ShipperMinFromJson(Map<String, dynamic> json) =>
-    _$_ShipperMin(
+_$ShipperMinImpl _$$ShipperMinImplFromJson(Map<String, dynamic> json) =>
+    _$ShipperMinImpl(
       uid: json['uid'] as String,
       name: json['name'] as String,
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.shipper,
     );
 
-Map<String, dynamic> _$$_ShipperMinToJson(_$_ShipperMin instance) =>
+Map<String, dynamic> _$$ShipperMinImplToJson(_$ShipperMinImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
-      'userType': _$UserTypeEnumMap[instance.userType],
+      'userType': _$UserTypeEnumMap[instance.userType]!,
     };

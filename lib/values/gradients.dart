@@ -14,13 +14,11 @@ class Gradients {
       // Define the ending point of the gradient
       end: Alignment.bottomRight,
       // Define the colors of the gradient using the primary and secondary colors from the theme
-      colors: [
-        theme(context)
-            .colorScheme
-            .primary, // Color from the primary color in the theme
-        theme(context)
-            .colorScheme
-            .secondary, // Color from the secondary color in the theme
+      colors: <Color>[
+        // Color from the primary color in the theme
+        theme(context).colorScheme.primary,
+        // Color from the secondary color in the theme
+        theme(context).colorScheme.secondary,
       ],
     );
   }

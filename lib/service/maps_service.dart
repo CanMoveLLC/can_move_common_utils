@@ -31,20 +31,20 @@ class MoveRouteInformation {
 // Service class for handling map-related functionalities
 class MapsService {
   // Method to change location settings
-  Future changeLocationSettings({
-    loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
+  Future<bool> changeLocationSettings({
     int? interval = 10000,
     double? distanceFilter = 200,
-  }) async {
+    loc.LocationAccuracy? accuracy = loc.LocationAccuracy.high,
+  }) {
     try {
-      return await loc.Location().changeSettings(
+      return loc.Location().changeSettings(
         interval: interval,
         accuracy: accuracy,
         distanceFilter: distanceFilter,
       );
     } on Exception catch (error, stack) {
       logError(error, stack);
-      return false;
+      return Future<bool>.value(false);
     }
   }
 
@@ -114,17 +114,19 @@ class MapsService {
     required MoveLocation destination,
     List<Waypoint>? waypoints,
   }) async {
-    var org = Uri.encodeComponent(
-        "${origin.location.latitude},${origin.location.longitude}");
-    var dest = Uri.encodeComponent(
-        "${destination.location.latitude},${destination.location.longitude}");
-    var mapUrl =
+    final String org = Uri.encodeComponent(
+      "${origin.location.latitude},${origin.location.longitude}",
+    );
+    final String dest = Uri.encodeComponent(
+      "${destination.location.latitude},${destination.location.longitude}",
+    );
+    String mapUrl =
         "$mapApiUrl/directions/json?origin=$org&destination=$dest&key=$mapKey";
     if (waypoints?.isNotEmpty == true) {
       mapUrl = "$mapUrl&waypoints=${Uri.encodeComponent(waypoints!.join("|"))}";
     }
-    var url = Uri.parse('$proxyUrl/$mapUrl');
-    var response = await http.get(url);
+    final Uri url = Uri.parse('$proxyUrl/$mapUrl');
+    final http.Response response = await http.get(url);
     return DirectionsResponse.fromJson(json.decode(response.body));
   }
 
@@ -135,10 +137,15 @@ class MapsService {
   }) async {
     DirectionsResponse res;
     try {
-      if (kIsWeb)
-        res = await getWebDirections(origin: origin, destination: destination);
-      else {
-        var directions = GoogleMapsDirections(apiKey: mapKey);
+      if (kIsWeb) {
+        res = await getWebDirections(
+          origin: origin,
+          destination: destination,
+        );
+      } else {
+        final GoogleMapsDirections directions = GoogleMapsDirections(
+          apiKey: mapKey,
+        );
         res = await directions.directionsWithLocation(
           Location(
             lat: origin.location.latitude,
@@ -153,15 +160,15 @@ class MapsService {
       if (res.isOkay &&
           res.routes.isNotEmpty &&
           res.routes.first.legs.isNotEmpty) {
-        var distance = 0.0;
-        for (var leg in res.routes.first.legs) {
+        double distance = 0.0;
+        for (final Leg leg in res.routes.first.legs) {
           distance += leg.distance.value.toDouble();
         }
         distance = distance / 1609; // convert meters to miles
         return MoveRouteInformation(
-          price: distance.round() * 1.0 /* dollar */,
-          polyline: _createRoute(res.routes.first.overviewPolyline.points),
           distance: distance,
+          price: (distance.round() * 1.0) /* dollar */,
+          polyline: _createRoute(res.routes.first.overviewPolyline.points),
           bounds: gm.LatLngBounds(
             northeast: gm.LatLng(
               res.routes.first.bounds.northeast.lat,
@@ -189,20 +196,22 @@ class MapsService {
   }) async {
     DirectionsResponse res;
     try {
-      if (kIsWeb)
+      if (kIsWeb) {
         res = await getWebDirections(
           origin: origin,
           destination: destinations.last,
           waypoints: destinations
               .sublist(0, destinations.length - 1)
-              .map((e) => Waypoint.fromLocation(Location(
-                    lat: e.location.latitude,
-                    lng: e.location.longitude,
-                  )))
-              .toList(),
+              .map<Waypoint>((MoveLocation e) {
+            return Waypoint.fromLocation(Location(
+              lat: e.location.latitude,
+              lng: e.location.longitude,
+            ));
+          }).toList(),
         );
-      else {
-        var directions = GoogleMapsDirections(apiKey: mapKey);
+      } else {
+        final GoogleMapsDirections directions =
+            GoogleMapsDirections(apiKey: mapKey);
         res = await directions.directionsWithLocation(
           Location(
             lat: origin.location.latitude,
@@ -214,18 +223,19 @@ class MapsService {
           ),
           waypoints: destinations
               .sublist(0, destinations.length - 1)
-              .map((e) => Waypoint.fromLocation(Location(
-                    lat: e.location.latitude,
-                    lng: e.location.longitude,
-                  )))
-              .toList(),
+              .map<Waypoint>((MoveLocation e) {
+            return Waypoint.fromLocation(Location(
+              lat: e.location.latitude,
+              lng: e.location.longitude,
+            ));
+          }).toList(),
         );
       }
       if (res.isOkay &&
           res.routes.isNotEmpty &&
           res.routes.first.legs.isNotEmpty) {
-        var distance = 0.0;
-        for (var leg in res.routes.first.legs) {
+        double distance = 0.0;
+        for (final Leg leg in res.routes.first.legs) {
           distance += leg.distance.value.toDouble();
         }
         distance = distance / 1609; // convert meters to miles
@@ -255,12 +265,16 @@ class MapsService {
 
   // Method to create a Google Maps Polyline from encoded points
   gm.Polyline _createRoute(String encondedPoly) {
-    var result = PolylinePoints().decodePolyline(encondedPoly);
-    var points = result.map((e) => gm.LatLng(e.latitude, e.longitude)).toList();
+    final List<PointLatLng> result = PolylinePoints().decodePolyline(
+      encondedPoly,
+    );
+    final List<gm.LatLng> points = result.map<gm.LatLng>((PointLatLng e) {
+      return gm.LatLng(e.latitude, e.longitude);
+    }).toList();
     return gm.Polyline(
-      polylineId: gm.PolylineId('polylineid'),
-      color: Color(0xFFFB8C00),
       points: points,
+      color: const Color(0xFFFB8C00),
+      polylineId: const gm.PolylineId('polylineid'),
     );
   }
 }

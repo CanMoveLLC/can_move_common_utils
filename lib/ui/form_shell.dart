@@ -8,7 +8,7 @@ import 'notify.dart';
 class FormShell extends StatelessWidget {
   // Constructor for the FormShell widget.
   const FormShell({
-    Key? key,
+    super.key,
     // Required parameters for the FormShell.
     required this.title,
     required this.height,
@@ -22,7 +22,7 @@ class FormShell extends StatelessWidget {
       horizontal: 30.0,
       vertical: 10,
     ),
-  }) : super(key: key);
+  });
 
   // Height of the form shell.
   final double height;
@@ -73,14 +73,10 @@ class FormShell extends StatelessWidget {
         key: formKey,
         child: Column(
           children: [
-            SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             // Includes form children.
             ...children,
-            SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

@@ -21,7 +21,8 @@ class ElevatedContainer extends StatelessWidget {
   final double? width;
   final double? height;
 
-  ElevatedContainer({
+  const ElevatedContainer({
+    super.key,
     required this.child,
     this.radius,
     this.padding,
@@ -58,7 +59,7 @@ class ElevatedContainer extends StatelessWidget {
         decoration: decoration,
         padding: padding ?? EdgeInsets.zero,
         margin: margin ?? EdgeInsets.zero,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         child: child,
       ),
     );

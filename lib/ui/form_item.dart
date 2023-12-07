@@ -23,7 +23,7 @@ class TextFormItem extends StatelessWidget {
   final FormFieldValidator<String>? validator;
 
   const TextFormItem({
-    Key? key,
+    super.key,
     required this.label,
     this.hint,
     this.controller,
@@ -46,7 +46,7 @@ class TextFormItem extends StatelessWidget {
     this.enabled = true,
     this.value,
     this.onSaved,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +133,7 @@ class NoLabelTextFormItem extends StatelessWidget {
   final FormFieldValidator<String>? validator;
 
   const NoLabelTextFormItem({
-    Key? key,
+    super.key,
     this.hint,
     this.controller,
     this.isMoveing = false,
@@ -152,7 +152,7 @@ class NoLabelTextFormItem extends StatelessWidget {
     this.validator,
     this.value,
     this.onSaved,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +182,7 @@ class NoLabelTextFormItem extends StatelessWidget {
       },
       keyboardType: textInputType,
       decoration: InputDecoration(
-        suffixIconConstraints: BoxConstraints.tight(Size(20, 20)),
+        suffixIconConstraints: BoxConstraints.tight(const Size(20, 20)),
         suffixIcon: isMoveing
             ? Padding(
                 padding: const EdgeInsets.all(3.0),
@@ -234,7 +234,7 @@ class SelectFormItem extends StatelessWidget {
   final bool isMoveing;
 
   const SelectFormItem({
-    Key? key,
+    super.key,
     required this.label,
     this.onChanged,
     this.hint,
@@ -268,7 +268,7 @@ class SelectFormItem extends StatelessWidget {
             color: textTheme.bodySmall?.color,
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         DropdownButtonFormField(
             focusNode: focusNode,
             onTap: () {
@@ -283,7 +283,7 @@ class SelectFormItem extends StatelessWidget {
               onSaved?.call(item);
             },
             style: textTheme.bodyMedium,
-            icon: Icon(Icons.keyboard_arrow_down_outlined),
+            icon: const Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 1,
             decoration: InputDecoration(
               filled: true,
@@ -307,7 +307,7 @@ class SelectFormItem extends StatelessWidget {
                 ),
               ),
               suffixIconConstraints: BoxConstraints.tight(
-                Size(20, 20),
+                const Size(20, 20),
               ),
               /*suffixIcon: isMoveing
                   ? Padding(
@@ -343,8 +343,8 @@ class SelectFormItem extends StatelessWidget {
             items: items
                 .map(
                   (item) => DropdownMenuItem(
-                    child: Text(item.label),
                     value: item.value,
+                    child: Text(item.label),
                   ),
                 )
                 .toList(),

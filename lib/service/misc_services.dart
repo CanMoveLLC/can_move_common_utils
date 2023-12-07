@@ -6,8 +6,8 @@ import '../model/result.dart';
 
 // Service class for reporting issues
 class ReportService {
-  final _store = FirebaseFirestore.instance;
-  final _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _store = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Method to report an issue
   Future<Result<bool>> reportIssue({

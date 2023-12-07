@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// It uses the CachedNetworkImage package for efficient loading and caching of network images.
 class RoundUrlImage extends StatelessWidget {
   const RoundUrlImage({
-    Key? key,
+    super.key,
     this.width = 150,
     this.height = 150,
     this.elevation = 0,
@@ -16,7 +16,7 @@ class RoundUrlImage extends StatelessWidget {
     this.imageUrl,
     this.loading = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final double width, height, elevation, radius;
   final bool loading;
@@ -50,7 +50,7 @@ class RoundUrlImage extends StatelessWidget {
           /// The placeholder icon is an outline person icon with primary color.
           /// CachedNetworkImage efficiently loads and caches network images with a progress indicator during loading and an error icon in case of failure.
           child: loading
-              ? Padding(
+              ? const Padding(
                   padding: EdgeInsets.all(20),
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
@@ -68,18 +68,22 @@ class RoundUrlImage extends StatelessWidget {
                       width: width,
                       height: height,
                       progressIndicatorBuilder:
-                          (context, url, downloadProgress) => Center(
-                        child: Container(
-                          height: 50,
-                          width: 50,
-                          padding: EdgeInsets.all(20),
-                          child: CircularProgressIndicator(
-                            value: downloadProgress.progress,
-                            strokeWidth: 2,
+                          (_, String url, DownloadProgress downloadProgress) {
+                        return Center(
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            padding: const EdgeInsets.all(20),
+                            child: CircularProgressIndicator(
+                              value: downloadProgress.progress,
+                              strokeWidth: 2,
+                            ),
                           ),
-                        ),
-                      ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                        );
+                      },
+                      errorWidget: (_, String url, error) {
+                        return const Icon(Icons.error);
+                      },
                     ),
         ),
       ),

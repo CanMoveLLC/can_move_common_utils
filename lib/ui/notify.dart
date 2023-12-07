@@ -19,7 +19,7 @@ void showNotification(
     // Define a Card with specific properties for styling.
     Card(
       elevation: 10,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
@@ -29,7 +29,7 @@ void showNotification(
         // Container for the main notification content.
         child: Container(
           width: kIsWeb ? 300 : double.infinity,
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           // Display title and content in a column layout.
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -56,7 +56,7 @@ void showNotification(
     // Configure showToastWidget options.
     handleTouch: true,
     dismissOtherToast: true,
-    duration: duration ?? Duration(seconds: 3),
+    duration: duration ?? const Duration(seconds: 3),
     position: ToastPosition.top,
   );
 }
@@ -70,7 +70,7 @@ void notify(String message, {bool error = false, Duration? duration}) {
     backgroundColor: error ? Colors.redAccent : Colors.white,
     radius: 5,
     textPadding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-    duration: duration ?? Duration(seconds: 3),
+    duration: duration ?? const Duration(seconds: 3),
     position: ToastPosition.bottom,
     textStyle: TextStyle(
       color: error ? Colors.white : Colors.black,
@@ -81,5 +81,5 @@ void notify(String message, {bool error = false, Duration? duration}) {
 
 // Shorthand function to show an error-style notification.
 void notifyError(String message) {
-  notify(message, error: true);
+  return notify(message, error: true);
 }

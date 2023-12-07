@@ -9,13 +9,13 @@ import '../model/driver.dart';
 /// It facilitates easy integration into a broader application for selecting and displaying vehicle sizes.
 class VehicleSizeBtn extends StatelessWidget {
   const VehicleSizeBtn({
-    Key? key,
+    super.key,
     required this.size,
     required this.onTap,
     this.width = 120,
     this.height = 130,
     this.selected = false,
-  }) : super(key: key);
+  });
 
   /// Defining the attributes of the widget, including the size of the vehicle,
   /// dimensions (width and height) of the button, whether it is selected or not,
@@ -24,7 +24,7 @@ class VehicleSizeBtn extends StatelessWidget {
   final double width;
   final double height;
   final bool selected;
-  final Function(VehicleSize size) onTap;
+  final void Function(VehicleSize size) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,10 @@ class VehicleSizeBtn extends StatelessWidget {
     var name = str.replaceAll("_", " ");
     var img = str.toLowerCase();
     return Padding(
-      padding: EdgeInsets.only(right: 16),
+      padding: const EdgeInsets.only(right: 16),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
-        onTap: () {
-          onTap(size);
-        },
+        onTap: () => onTap(size),
         child: Container(
           height: height,
           width: width,

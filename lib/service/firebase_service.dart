@@ -8,22 +8,26 @@ import 'package:flutter/foundation.dart';
 // Service class for handling Firebase-related functionalities
 class FirebaseService {
   // Method to retrieve and save the FCM token for the current user
-  void getNSaveFCMToken() async {
+  Future<void> getNSaveFCMToken() async {
     // Do nothing on the web platform
-    if (kIsWeb) return;
+    if (kIsWeb) {
+      return;
+    }
 
     // Get the FCM token
-    var token = await FirebaseMessaging.instance.getToken();
+    final String? token = await FirebaseMessaging.instance.getToken();
 
     // Get the UID of the current user
-    var uid = FirebaseAuth.instance.currentUser?.uid;
+    final String? uid = FirebaseAuth.instance.currentUser?.uid;
 
     // If UID is not available, return
-    if (uid == null) return;
+    if (uid == null) {
+      return;
+    }
 
     try {
       // Update the user's document in Firestore with the FCM token
-      var fb = FirebaseFirestore.instance;
+      final FirebaseFirestore fb = FirebaseFirestore.instance;
       await fb.collection(usersCollection).doc(uid).update({"fcmToken": token});
     } on Exception catch (error, stack) {
       // Log any errors that occur during the process

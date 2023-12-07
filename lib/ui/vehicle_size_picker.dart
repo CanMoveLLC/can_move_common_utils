@@ -9,12 +9,12 @@ import 'vehicle_size_btn.dart'; // Importing a custom widget for the vehicle siz
 /// It uses a custom widget, VehicleSizeBtn, to represent each size.
 /// The widget includes features such as scrolling to the initially selected size and the option to show either all sizes or only the selected one.
 class VehicleSizePicker extends StatefulHookWidget {
-  VehicleSizePicker({
-    Key? key,
+  const VehicleSizePicker({
+    super.key,
     required this.size$,
     this.showAll = true,
     this.scrollToInitial = false,
-  }) : super(key: key);
+  });
 
   /// The class VehicleSizePicker is defined as a stateful widget with parameters for managing the selected vehicle size (size$),
   /// A flag to show all sizes or only the selected one (showAll),
@@ -36,11 +36,15 @@ class _VehicleSizePickerState extends State<VehicleSizePicker> {
   void initState() {
     super.initState();
     // Scroll to the initially selected size if scrollToInitial is true
-    if (widget.scrollToInitial)
-      WidgetsBinding.instance.addPostFrameCallback((_) =>
-          itemScrollController.scrollTo(
-              index: VehicleSize.values.indexOf(widget.size$.value) + 1,
-              duration: Duration(milliseconds: 200)));
+    if (widget.scrollToInitial) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        itemScrollController.scrollTo(
+          duration: const Duration(milliseconds: 200),
+          index: VehicleSize.values.indexOf(widget.size$.value) + 1,
+        );
+        return;
+      });
+    }
   }
 
   /// The build method generates the widget tree.
@@ -50,7 +54,7 @@ class _VehicleSizePickerState extends State<VehicleSizePicker> {
   @override
   Widget build(BuildContext context) {
     // If showAll is false, display only the selected vehicle size
-    if (!widget.showAll)
+    if (!widget.showAll) {
       return Center(
         child: VehicleSizeBtn(
           size: widget.size$.value,
@@ -58,21 +62,22 @@ class _VehicleSizePickerState extends State<VehicleSizePicker> {
           onTap: (s) => widget.size$.value = s,
         ),
       );
+    }
 
     // Create a list of vehicle size buttons
-    var widgets = <Widget>[
-      SizedBox(width: 25),
-      for (var size in VehicleSize.values)
+    final List<Widget> widgets = <Widget>[
+      const SizedBox(width: 25),
+      for (final VehicleSize size in VehicleSize.values)
         VehicleSizeBtn(
           size: size,
           selected: widget.size$.value == size,
-          onTap: (s) => widget.size$.value = s,
+          onTap: (VehicleSize s) => widget.size$.value = s,
         ),
-      SizedBox(width: 15)
+      const SizedBox(width: 15)
     ];
 
     // Display the list of vehicle size buttons in a horizontal scrollable list
-    return Container(
+    return SizedBox(
       height: 130,
       child: ScrollablePositionedList.builder(
         scrollDirection: Axis.horizontal,

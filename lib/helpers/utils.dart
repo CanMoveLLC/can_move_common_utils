@@ -34,12 +34,13 @@ String get mapApiUrl {
 // Get the appropriate Google Maps API key based on the platform
 String get mapKey {
   // Return the Google Maps API key based on the platform (Web, Android, iOS).
-  if (kIsWeb)
+  if (kIsWeb) {
     return "AIzaSyCb7VJJwNI702hJzsSnyV7xs-ppfSitp0Q";
-  else if (Platform.isAndroid)
+  } else if (Platform.isAndroid) {
     return "AIzaSyALM_J69fPCvTvXVE3DfPXPjBaN3FcvVk0";
-  else
+  } else {
     return "AIzaSyCuOdg0tpuyPK3me3oQGYAmo6iTLXAEbBI";
+  }
 }
 
 // Function to display a dialog for selecting an image source
@@ -48,17 +49,17 @@ Future<String?> selectImage(BuildContext context) {
   return showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      contentPadding: EdgeInsets.symmetric(
+      contentPadding: const EdgeInsets.symmetric(
         vertical: 10,
       ),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(7.0)),
       ),
       titleTextStyle: TextStyle(
         color: colorScheme(context).primary,
         fontWeight: FontWeight.bold,
       ),
-      title: Text("Add Photo"),
+      title: const Text("Add Photo"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -76,7 +77,7 @@ Future<String?> selectImage(BuildContext context) {
                     Icons.camera,
                     color: colorScheme(context).primary,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       "Take a picture",
@@ -87,7 +88,7 @@ Future<String?> selectImage(BuildContext context) {
               ),
             ),
           ),
-          Divider(height: 1.0),
+          const Divider(height: 1.0),
           // Option to select from the gallery
           InkWell(
             onTap: () async {
@@ -97,12 +98,12 @@ Future<String?> selectImage(BuildContext context) {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Row(
-                children: [
+                children: <Widget>[
                   Icon(
                     Icons.image,
                     color: colorScheme(context).primary,
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       "Select from gallery",

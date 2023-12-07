@@ -6,7 +6,7 @@ class SettingsService {
   SettingsService._();
 
   /// Storage key for the settings box
-  static const key = 'settings_box';
+  static const String key = 'settings_box';
 
   /// Storage box for AppSettings
   static late Box<AppSettings> box;
@@ -15,17 +15,18 @@ class SettingsService {
   static Future<void> init() async {
     // Open or create the Hive box for AppSettings
     box = await Hive.openBox<AppSettings>(key);
+    return;
   }
 
   /// Save the provided settings to the storage box
-  static Future<void> save(AppSettings settings) async {
-    await box.put(AppSettings.key, settings);
+  static Future<void> save(AppSettings settings) {
+    return box.put(AppSettings.key, settings);
   }
 
   /// Read and retrieve the saved settings from the storage box
   static AppSettings read() {
     // Ensure that the box is initialized
-    final settings = box.get(AppSettings.key);
+    final AppSettings? settings = box.get(AppSettings.key);
     if (settings != null) {
       return settings;
     } else {
@@ -37,7 +38,7 @@ class SettingsService {
   /// Reset the settings to default values
   static Future<AppSettings> reset() async {
     // Set all AppSettings to default values
-    final emptySettings = AppSettings();
+    final AppSettings emptySettings = AppSettings();
     await box.put(AppSettings.key, emptySettings);
     return emptySettings;
   }

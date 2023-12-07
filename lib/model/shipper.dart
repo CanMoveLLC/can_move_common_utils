@@ -41,9 +41,9 @@ class ShipperMin with _$ShipperMin {
 }
 
 class ShipperAdapter extends TypeAdapter<Shipper> {
+  // this is unique, no other Adapter can have the same id.
   @override
-  int get typeId =>
-      10; // this is unique, no other Adapter can have the same id.
+  int get typeId => 10;
 
   @override
   Shipper read(BinaryReader reader) {

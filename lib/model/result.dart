@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_auth/firebase_auth.dart';
 
 class CMException implements Exception {
@@ -7,9 +8,11 @@ class CMException implements Exception {
 
   const CMException({required this.message, this.stackTrace, this.exception});
 
-  factory CMException.fromFBAuthError(FirebaseAuthException exception,
-      [StackTrace? trace]) {
-    var msg = "Could not authenticate";
+  factory CMException.fromFBAuthError(
+    FirebaseAuthException exception, [
+    StackTrace? trace,
+  ]) {
+    String msg = "Could not authenticate";
     switch (exception.code) {
       case "requires-recent-login":
         msg = "You need to have logged in recently or log in again to do this.";
@@ -46,7 +49,11 @@ class CMException implements Exception {
         break;
       default:
     }
-    return CMException(message: msg, exception: exception, stackTrace: trace);
+    return CMException(
+      message: msg,
+      exception: exception,
+      stackTrace: trace,
+    );
   }
 }
 
@@ -55,6 +62,19 @@ class Result<T> {
   final CMException? error;
 
   const Result({required this.value, this.error});
+
+  @override
+  bool operator ==(covariant Result<T> other) {
+    if (identical(this, other)) return true;
+
+    return other.value == value && other.error == error;
+  }
+
+  @override
+  int get hashCode => value.hashCode ^ error.hashCode;
+
+  @override
+  String toString() => 'Result(value: $value, error: $error)';
 }
 
-Result<bool> get defaultOkRes => Result(value: true);
+Result<bool> get defaultOkRes => const Result(value: true);

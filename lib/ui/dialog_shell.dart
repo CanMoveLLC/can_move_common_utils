@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class DialogShell extends StatelessWidget {
   const DialogShell({
-    Key? key,
+    super.key,
     this.title = 'Info',
     this.height = 200,
     this.width,
@@ -16,7 +16,7 @@ class DialogShell extends StatelessWidget {
       horizontal: 30.0,
       vertical: 10,
     ),
-  }) : super(key: key);
+  });
 
   final double height;
   final double? width;
@@ -32,7 +32,7 @@ class DialogShell extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
-      insetPadding: EdgeInsets.symmetric(horizontal: 25),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 25),
       child: Container(
         constraints: BoxConstraints.expand(
           width: width,
@@ -44,16 +44,14 @@ class DialogShell extends StatelessWidget {
             bottom: !loading
                 ? null
                 : PreferredSize(
-                    child: LinearProgressIndicator(
-                      minHeight: 2,
-                    ),
                     preferredSize: Size(
                       screenWidth(context),
                       1,
                     ),
+                    child: const LinearProgressIndicator(minHeight: 2),
                   ),
             centerTitle: true,
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: Radius.circular(15),
               ),
@@ -62,14 +60,14 @@ class DialogShell extends StatelessWidget {
               color: Colors.red,
               onPressed:
                   loading ? null : onCancel ?? () => _defaultAction(context),
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
             ),
             title: Text(title, style: textTheme(context).titleMedium),
             actions: [
               IconButton(
                 onPressed:
                     loading ? null : onOk ?? () => _defaultAction(context),
-                icon: Icon(Icons.check),
+                icon: const Icon(Icons.check),
               )
             ],
           ),
@@ -81,12 +79,12 @@ class DialogShell extends StatelessWidget {
     );
   }
 
-  _defaultAction(BuildContext context) {
-    Navigator.of(context).pop();
+  void _defaultAction(BuildContext context) {
+    return Navigator.of(context).pop();
   }
 }
 
-Future showInfoDialog(
+Future<void> showInfoDialog(
   BuildContext context, {
   String title = 'Info',
   double height = 500,
@@ -94,22 +92,23 @@ Future showInfoDialog(
   VoidCallback? onOk,
   VoidCallback? onCancel,
   required Widget child,
-}) async {
-  return await showModal(
-      context: context,
-      builder: (context) {
-        return DialogShell(
-          height: height,
-          width: width,
-          onCancel: onCancel,
-          onOk: onOk,
-          title: title,
-          child: child,
-        );
-      });
+}) {
+  return showModal<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return DialogShell(
+        height: height,
+        width: width,
+        onCancel: onCancel,
+        onOk: onOk,
+        title: title,
+        child: child,
+      );
+    },
+  );
 }
 
-Future showFormDialog(
+Future<void> showFormDialog(
   BuildContext context, {
   String title = 'Form',
   double height = 500,
@@ -117,17 +116,18 @@ Future showFormDialog(
   VoidCallback? onOk,
   VoidCallback? onCancel,
   required Widget child,
-}) async {
-  return await showModal(
-      context: context,
-      builder: (context) {
-        return DialogShell(
-          height: height,
-          width: width,
-          onCancel: onCancel,
-          onOk: onOk,
-          title: title,
-          child: child,
-        );
-      });
+}) {
+  return showModal<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return DialogShell(
+        height: height,
+        width: width,
+        onCancel: onCancel,
+        onOk: onOk,
+        title: title,
+        child: child,
+      );
+    },
+  );
 }

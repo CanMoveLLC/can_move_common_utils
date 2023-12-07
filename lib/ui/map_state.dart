@@ -16,7 +16,7 @@ import '../model/settings.dart';
 import '../service/settings.service.dart';
 
 // Define a constant CameraPosition named kInitialMapPosition.
-final CameraPosition kInitialMapPosition = CameraPosition(
+const CameraPosition kInitialMapPosition = CameraPosition(
   // Set the target coordinates (latitude and longitude) for the initial position.
   target: LatLng(37.09024, -95.712891),
   // Set the initial zoom level for the map.
@@ -44,7 +44,9 @@ abstract class MapState<T extends ConsumerStatefulWidget>
 
   // Gets the marker pin and sets it to markerIcon if not already set
   Future<void> getMarkerPin() async {
-    if (markerIcon != null) return;
+    if (markerIcon != null) {
+      return;
+    }
     markerIcon = await getPin("pin");
   }
 
@@ -53,14 +55,16 @@ abstract class MapState<T extends ConsumerStatefulWidget>
     // Adjusts the icon name based on device pixel ratio
     // for Android devices
     // Uses ImageConfiguration to load the image
-    var iconName = imgName;
+    String iconName = imgName;
     if (Platform.isAndroid) {
-      double mq = MediaQuery.of(context).devicePixelRatio;
-      if (mq > 1.5 && mq < 2.5)
+      final double mq = MediaQuery.of(context).devicePixelRatio;
+      if (mq > 1.5 && mq < 2.5) {
         iconName = "3x/$iconName";
-      else if (mq >= 2.5) iconName = "3x/$iconName";
+      } else if (mq >= 2.5) {
+        iconName = "3x/$iconName";
+      }
     }
-    return await BitmapDescriptor.fromAssetImage(
+    return BitmapDescriptor.fromAssetImage(
       ImageConfiguration(
         devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
       ),
@@ -72,7 +76,9 @@ abstract class MapState<T extends ConsumerStatefulWidget>
   Future<void> moveMapToLatLngList(List<LatLng> list,
       {bool delay = true}) async {
     // Obtains the map controller and animates the camera to fit the LatLng list
-    if (delay) await Future.delayed(Duration(seconds: 1));
+    if (delay) {
+      await Future<void>.delayed(const Duration(seconds: 1));
+    }
     final controller = await mapController.future;
     await controller.animateCamera(
       CameraUpdate.newLatLngBounds(
@@ -86,15 +92,23 @@ abstract class MapState<T extends ConsumerStatefulWidget>
   LatLngBounds boundsFromLatLngList(List<LatLng> list) {
     // Calculates the northeast and southwest bounds
     double? x0, x1, y0, y1;
-    for (var latLng in list) {
+    for (final LatLng latLng in list) {
       if (x0 == null) {
         x0 = x1 = latLng.latitude;
         y0 = y1 = latLng.longitude;
       } else {
-        if (latLng.latitude > x1!) x1 = latLng.latitude;
-        if (latLng.latitude < x0) x0 = latLng.latitude;
-        if (latLng.longitude > y1!) y1 = latLng.longitude;
-        if (latLng.longitude < y0!) y0 = latLng.longitude;
+        if (latLng.latitude > x1!) {
+          x1 = latLng.latitude;
+        }
+        if (latLng.latitude < x0) {
+          x0 = latLng.latitude;
+        }
+        if (latLng.longitude > y1!) {
+          y1 = latLng.longitude;
+        }
+        if (latLng.longitude < y0!) {
+          y0 = latLng.longitude;
+        }
       }
     }
     return LatLngBounds(
@@ -106,10 +120,12 @@ abstract class MapState<T extends ConsumerStatefulWidget>
   /// Gets the user's location
   Future<LatLng?> getUserLocation() async {
     try {
-      var location = await Location().getLocation();
+      final LocationData location = await Location().getLocation();
       return LatLng(location.latitude!, location.longitude!);
     } on PlatformException catch (error, stack) {
-      if (error.code != "PERMISSION_DENIED") logError(error, stack);
+      if (error.code != "PERMISSION_DENIED") {
+        logError(error, stack);
+      }
       return null;
     } on Exception catch (e, stack) {
       logError(e, stack);
@@ -118,46 +134,35 @@ abstract class MapState<T extends ConsumerStatefulWidget>
   }
 
   /// Animates the camera to fit given bounds
-  void animateToBounds(LatLngBounds bounds) async {
-    var con = await mapController.future;
-    con.animateCamera(
-      CameraUpdate.newLatLngBounds(
-        bounds,
-        50,
-      ),
-    );
+  Future<void> animateToBounds(LatLngBounds bounds) async {
+    final GoogleMapController con = await mapController.future;
+    return con.animateCamera(CameraUpdate.newLatLngBounds(bounds, 50));
   }
 
   /// Moves the map to a specific location with a delay
-  void moveMapToLocation(LatLng location) async {
-    var con = await mapController.future;
-    await Future.delayed(Duration(seconds: 1));
-    con.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: location,
-          tilt: 40.440717697143555,
-          zoom: 15.151926040649414,
-        ),
-      ),
-    );
+  Future<void> moveMapToLocation(LatLng location) async {
+    final GoogleMapController con = await mapController.future;
+    await Future<void>.delayed(const Duration(seconds: 1));
+    return con.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: location,
+      tilt: 40.440717697143555,
+      zoom: 15.151926040649414,
+    )));
   }
 
   /// Moves the map to the user's location with a delay
-  void moveToUser() async {
-    var loc = await getUserLocation();
-    if (loc == null) return;
-    var con = await mapController.future;
-    await Future.delayed(Duration(seconds: 1));
-    con.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: LatLng(loc.latitude, loc.longitude),
-          tilt: 59.440717697143555,
-          zoom: 19.151926040649414,
-        ),
-      ),
-    );
+  Future<void> moveToUser() async {
+    final LatLng? loc = await getUserLocation();
+    if (loc == null) {
+      return;
+    }
+    final GoogleMapController con = await mapController.future;
+    await Future<void>.delayed(const Duration(seconds: 1));
+    return con.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: LatLng(loc.latitude, loc.longitude),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414,
+    )));
   }
 }
 
@@ -167,8 +172,8 @@ abstract class MapState<T extends ConsumerStatefulWidget>
 class CanMoveMap extends StatefulWidget {
   // Constructor with default values for various map features
   // that can be customized when creating an instance.
-  CanMoveMap({
-    Key? key,
+  const CanMoveMap({
+    super.key,
     this.myLocationButtonEnabled = false,
     this.zoomControlsEnabled = false,
     this.tiltGesturesEnabled = true,
@@ -179,12 +184,13 @@ class CanMoveMap extends StatefulWidget {
     this.onTap,
     required this.onMapCreated,
     this.markers = const {},
-  }) : super(key: key);
+  });
 
   // Callback when the map is created.
-  final Function(GoogleMapController, CustomInfoWindowController) onMapCreated;
+  final void Function(GoogleMapController, CustomInfoWindowController)
+      onMapCreated;
   // Callback when the map is tapped.
-  final Function(LatLng)? onTap;
+  final void Function(LatLng)? onTap;
   // Initial camera position of the map.
   final CameraPosition? initialCameraPosition;
   // Set of markers to be displayed on the map.
@@ -204,7 +210,8 @@ class CanMoveMap extends StatefulWidget {
 
 class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
   // Controller for managing custom info windows.
-  final _customInfoWindowController = CustomInfoWindowController();
+  final CustomInfoWindowController _customInfoWindowController =
+      CustomInfoWindowController();
   // Completer to handle the asynchronous initialization of GoogleMapController.
   final Completer<GoogleMapController> mapController = Completer();
   // Service for managing the map theme.
@@ -288,7 +295,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
   }
 
   // Method to determine the brightness and update the map theme accordingly.
-  _getBrightness() {
+  void _getBrightness() {
     Brightness newBright = PlatformDispatcher.instance.platformBrightness;
     if (themeMode == ThemeMode.light) {
       newBright = Brightness.light;
@@ -300,7 +307,7 @@ class _CanMoveMapState extends State<CanMoveMap> with WidgetsBindingObserver {
 
   // Method to change the map theme based on brightness.
   Future<void> _changeMapTheme([Brightness? platformBrightness]) {
-    return mapController.future.then(
+    return mapController.future.then<void>(
       (GoogleMapController controller) async => controller.setMapStyle(
         await _mapThemeService.getTheme(platformBrightness ?? Brightness.dark),
       ),

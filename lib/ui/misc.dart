@@ -14,47 +14,44 @@ void popUpText(BuildContext context, String text, {String title = 'Info'}) {
     context,
     height: 300,
     title: title,
-    child: Center(
-      child: Text(
-        text,
-      ),
-    ),
+    child: Center(child: Text(text)),
   );
 }
 
-Future<String?> getSingleTextInput(BuildContext context,
-    {required String label, bool isLong = false}) async {
-  return await showModal(
-      context: context,
-      builder: (context) {
-        return _SingleTextForm(
-          label: label,
-          isLong: isLong,
-        );
-      });
+Future<String?> getSingleTextInput(
+  BuildContext context, {
+  required String label,
+  bool isLong = false,
+}) {
+  return showModal<String?>(
+    context: context,
+    builder: (BuildContext context) {
+      return _SingleTextForm(label: label, isLong: isLong);
+    },
+  );
 }
 
-Future<int?> getSingleNumberInput(BuildContext context,
-    {required String label}) async {
+Future<int?> getSingleNumberInput(
+  BuildContext context, {
+  required String label,
+}) async {
   return await showModal(
-      context: context,
-      builder: (context) {
-        return _SingleNumberForm(
-          label: label,
-        );
-      });
+    context: context,
+    builder: (BuildContext context) {
+      return _SingleNumberForm(label: label);
+    },
+  );
 }
 
 class _SingleTextForm extends HookWidget {
-  _SingleTextForm({Key? key, required this.label, this.isLong = false})
-      : super(key: key);
+  _SingleTextForm({required this.label, this.isLong = false});
   final String label;
   final bool isLong;
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    var input = useState<String?>(null);
+    final ValueNotifier<String?> input = useState<String?>(null);
 
     return FormShell(
       title: label,
@@ -83,18 +80,15 @@ class _SingleTextForm extends HookWidget {
     );
   }
 
-  _done(
-    BuildContext context,
-    String? value,
-  ) async {
-    Navigator.of(context).pop(value);
+  void _done(BuildContext context, String? value) {
+    return Navigator.of(context).pop(value);
   }
 }
 
 class _SingleNumberForm extends HookWidget {
-  _SingleNumberForm({Key? key, required this.label}) : super(key: key);
+  _SingleNumberForm({required this.label});
   final String label;
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -134,17 +128,18 @@ class _SingleNumberForm extends HookWidget {
     );
   }
 
-  _done(
+  void _done(
     BuildContext context,
     String? value,
-  ) async {
-    if (_formKey.currentState?.validate() ?? false)
-      Navigator.of(context).pop(int.parse(value!));
+  ) {
+    if (_formKey.currentState?.validate() ?? false) {
+      return Navigator.of(context).pop(int.parse(value!));
+    }
   }
 }
 
 class _RatingForm extends HookWidget {
-  _RatingForm({Key? key, required this.label}) : super(key: key);
+  const _RatingForm({required this.label});
   final String label;
 
   @override
@@ -168,8 +163,8 @@ class _RatingForm extends HookWidget {
           direction: Axis.horizontal,
           allowHalfRating: false,
           itemCount: 5,
-          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-          itemBuilder: (context, _) => Icon(
+          itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+          itemBuilder: (context, _) => const Icon(
             Icons.star,
             color: Colors.amber,
           ),
@@ -181,21 +176,19 @@ class _RatingForm extends HookWidget {
     );
   }
 
-  _done(
-    BuildContext context,
-    double value,
-  ) async {
-    Navigator.of(context).pop(value);
+  void _done(BuildContext context, double value) {
+    return Navigator.of(context).pop(value);
   }
 }
 
-Future<double?> getRating(BuildContext context,
-    {String label = "Rate this driver"}) async {
-  return await showModal(
-      context: context,
-      builder: (context) {
-        return _RatingForm(
-          label: label,
-        );
-      });
+Future<double?> getRating(
+  BuildContext context, {
+  String label = "Rate this driver",
+}) {
+  return showModal<double?>(
+    context: context,
+    builder: (context) {
+      return _RatingForm(label: label);
+    },
+  );
 }

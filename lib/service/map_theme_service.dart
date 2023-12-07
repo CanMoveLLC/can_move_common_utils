@@ -8,14 +8,11 @@ class MapThemeService {
   // Future<String> getTheme(Brightness brightness) async {
   // If the brightness is set to dark, load the dark map style from the assets.
   // Note: Caching is enabled for improved performance.
-  Future<String> getTheme(Brightness brightness) async {
-    if (brightness == Brightness.dark)
-      return await rootBundle.loadString('assets/map_styles/dark.json',
-          cache: true);
-    // If the brightness is not dark, load the light map style from the assets.
-    // Note: Caching is enabled for improved performance.
-    else
-      return await rootBundle.loadString('assets/map_styles/light.json',
-          cache: true);
+  Future<String> getTheme(Brightness brightness) {
+    if (brightness == Brightness.dark) {
+      return rootBundle.loadString('assets/map_styles/dark.json', cache: true);
+    } else {
+      return rootBundle.loadString('assets/map_styles/light.json', cache: true);
+    }
   }
 }

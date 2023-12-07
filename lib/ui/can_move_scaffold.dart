@@ -4,15 +4,15 @@ import 'package:flutter/services.dart';
 
 // automatically change system overlay to appropriate brightness
 class CanMoveScaffold extends StatelessWidget {
-  const CanMoveScaffold(
-      {Key? key,
-      required this.body,
-      this.floatingActionButton,
-      this.floatingActionButtonLocation,
-      this.bottomNavigationBar,
-      this.resizeToAvoidBottomInset,
-      this.appBar})
-      : super(key: key);
+  const CanMoveScaffold({
+    super.key,
+    required this.body,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
+    this.bottomNavigationBar,
+    this.resizeToAvoidBottomInset,
+    this.appBar,
+  });
 
   final Widget body;
   final Widget? floatingActionButton;
@@ -32,12 +32,12 @@ class CanMoveScaffold extends StatelessWidget {
               statusBarColor: Colors.transparent,
             ),
       child: Scaffold(
-        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        appBar: appBar,
         body: body,
-        floatingActionButtonLocation: floatingActionButtonLocation,
-        floatingActionButton: floatingActionButton,
+        appBar: appBar,
         bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: floatingActionButton,
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+        floatingActionButtonLocation: floatingActionButtonLocation,
       ),
     );
   }

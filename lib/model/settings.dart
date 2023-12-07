@@ -4,9 +4,9 @@ import 'package:hive/hive.dart';
 
 // Class defining possible theme modes
 class SettingsThemeMode {
-  static const light = 'light';
-  static const dark = 'dark';
-  static const system = 'system';
+  static const String light = 'light';
+  static const String dark = 'dark';
+  static const String system = 'system';
   const SettingsThemeMode(); // A constant class to hold theme mode constants
 }
 
@@ -24,12 +24,10 @@ ThemeMode getThemeMode(String themeMode) {
 // Class defining the AppSettings model
 class AppSettings {
   // Constructor with default values
-  AppSettings({
-    this.themeMode = SettingsThemeMode.system,
-  });
+  AppSettings({this.themeMode = SettingsThemeMode.system});
 
   // Storage key for the settings
-  static const key = 'settings_key';
+  static const String key = 'settings_key';
 
   // Theme mode property
   String themeMode;
@@ -49,10 +47,8 @@ class AppSettings {
   String toJson() => json.encode(toMap());
 
   // Convert AppSettings to a map
-  Map<String, dynamic> toMap() {
-    return {
-      'themeMode': themeMode,
-    };
+  Map<String, String> toMap() {
+    return <String, String>{'themeMode': themeMode};
   }
 }
 

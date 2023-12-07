@@ -6,9 +6,9 @@ part of 'can_move_notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CanMoveNotification _$$_CanMoveNotificationFromJson(
+_$CanMoveNotificationImpl _$$CanMoveNotificationImplFromJson(
         Map<String, dynamic> json) =>
-    _$_CanMoveNotification(
+    _$CanMoveNotificationImpl(
       uid: json['uid'] as String?,
       time: const TimeStampConverter().fromJson(json['time'] as Object),
       userUid: json['userUid'] as String,
@@ -19,8 +19,8 @@ _$_CanMoveNotification _$$_CanMoveNotificationFromJson(
       roomUid: json['roomUid'] as String?,
     );
 
-Map<String, dynamic> _$$_CanMoveNotificationToJson(
-        _$_CanMoveNotification instance) =>
+Map<String, dynamic> _$$CanMoveNotificationImplToJson(
+        _$CanMoveNotificationImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'time': const TimeStampConverter().toJson(instance.time),
