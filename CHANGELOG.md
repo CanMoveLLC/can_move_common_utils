@@ -1,3 +1,11 @@
+## 0.0.7
+
+- Dependencies Upgraded.
+
+## 0.0.6
+
+- Dependencies Upgraded.
+
 ## 0.0.5
 
 - Image Picker Package is replaced.
