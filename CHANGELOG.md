@@ -1,3 +1,7 @@
+## 0.0.8
+
+- Dependencies Upgraded.
+
 ## 0.0.7
 
 - Dependencies Upgraded.

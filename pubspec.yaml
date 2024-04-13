@@ -1,53 +1,54 @@
 name: can_move_common_utils
 description: A new Flutter project.
-version: 0.0.7
+version: 0.0.8
 publish_to: none
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.4
-  cloud_firestore: ^4.14.0
-  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.16.1
+  firebase_auth: ^4.19.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   catcher: ^0.7.0
-  image_picker: ^1.0.7
+  image_picker: ^1.0.8
   animations: ^2.0.11
   oktoast: ^3.3.2+1
   flutter_rating_bar: ^4.0.1
   cached_network_image: ^3.3.1
   google_maps_webservice: ^0.0.20-nullsafety.5
   flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.5.3
-  location: ^5.0.3
+  google_maps_flutter: ^2.6.0
+  location: ^6.0.1
   json_serializable: ^6.7.1
-  geoflutterfire2: ^2.3.10
-  auto_route: ^7.8.4
-  geolocator: ^10.1.0
-  google_maps_flutter_web: ^0.5.4+2
-  shared_preferences: ^2.2.2
-  firebase_messaging: ^14.7.10
+  geoflutterfire2: ^2.3.15
+  auto_route: ^8.0.3
+  geolocator: ^11.0.0
+  google_maps_flutter_web: ^0.5.6+2
+  shared_preferences: ^2.2.3
+  firebase_messaging: ^14.8.1
   custom_info_window: ^1.0.1
   fdottedline_nullsafety: ^2.0.1
-  flutter_firebase_chat_core: ^1.5.0
-  flutter_chat_ui: ^1.6.10
+  flutter_firebase_chat_core: ^1.6.7
+  flutter_chat_ui: ^1.6.12
   scrollable_positioned_list: ^0.3.8
-  flutter_hooks: ^0.20.4
-  hooks_riverpod: ^2.4.9
+  flutter_hooks: ^0.20.5
+  hooks_riverpod: ^2.5.1
   http: ^0.13.6
   intl: ^0.17.0
   json_annotation: ^4.8.1
+  freezed_annotation: ^2.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: ^2.4.6
-  build_runner: ^2.4.8
-  flutter_lints: ^3.0.1
+  freezed: ^2.5.2
+  build_runner: ^2.4.9
+  flutter_lints: ^3.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
