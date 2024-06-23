@@ -11,11 +11,6 @@ ThemeData darkTheme(BuildContext context) {
       secondary: Colors.purple,*/
   );
   var theme = ThemeData(
-    errorColor: Colors.red[900],
-    colorScheme: colorScheme.copyWith(
-      primary: colorScheme.secondary,
-      secondary: colorScheme.primary,
-    ),
     brightness: Brightness.dark,
     primaryColor: colorScheme.primary,
     // accentColor: colorScheme.secondary,
@@ -29,7 +24,7 @@ ThemeData darkTheme(BuildContext context) {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: colorScheme.secondary,
+        foregroundColor: colorScheme.secondary,
         backgroundColor: Colors.grey[850],
         side: BorderSide(
           color: Colors.grey[800]!,
@@ -39,7 +34,7 @@ ThemeData darkTheme(BuildContext context) {
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
       suffixIconColor: Colors.grey[100],
-      hintStyle: textTheme.caption,
+      hintStyle: textTheme.bodySmall,
       contentPadding: const EdgeInsets.all(15),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -81,7 +76,10 @@ ThemeData darkTheme(BuildContext context) {
       cursorColor: colorScheme.secondary,
       selectionColor: colorScheme.secondary,
       selectionHandleColor: colorScheme.secondary,
-    ),
+    ), colorScheme: colorScheme.copyWith(
+      primary: colorScheme.secondary,
+      secondary: colorScheme.primary,
+    ).copyWith(error: Colors.red[900]),
   );
 
   return theme.copyWith(
@@ -114,8 +112,8 @@ ThemeData darkTheme(BuildContext context) {
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
-      toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.subtitle2,
+      toolbarTextStyle: textTheme.labelMedium,
+      titleTextStyle: textTheme.bodyMedium,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -132,7 +130,6 @@ ThemeData lightTheme(BuildContext context) {
     secondary: Colors.purple,*/
   );
   var theme = ThemeData(
-    errorColor: Colors.red,
     colorScheme: colorScheme.copyWith(
       primary: colorScheme.secondary,
       secondary: colorScheme.primary,
@@ -155,13 +152,13 @@ ThemeData lightTheme(BuildContext context) {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        primary: colorScheme.secondary,
+        foregroundColor: colorScheme.secondary,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       // filled: true,
       suffixIconColor: Colors.grey[900],
-      hintStyle: textTheme.caption,
+      hintStyle: textTheme.bodySmall,
       fillColor: Colors.grey[50],
       // focusColor: Colors.grey[300],
       contentPadding: const EdgeInsets.all(15),
@@ -234,8 +231,8 @@ ThemeData lightTheme(BuildContext context) {
       iconTheme: IconThemeData(
         color: colorScheme.secondary,
       ),
-      toolbarTextStyle: textTheme.bodyText2,
-      titleTextStyle: textTheme.subtitle2,
+      toolbarTextStyle: textTheme.bodyMedium,
+      titleTextStyle: textTheme.titleSmall,
     ),
     textTheme: textTheme,
     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -246,55 +243,38 @@ TextTheme _buildTextTheme(BuildContext context) {
   var textTheme = Theme.of(context).textTheme;
 
   return GoogleFonts.manropeTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.manrope(
+    headlineLarge: GoogleFonts.manrope(
       color: Colors.grey[900],
     ),
-    subtitle1: GoogleFonts.manrope(
+    bodyLarge: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
-    subtitle2: GoogleFonts.manrope(
+    bodyMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 20,
       fontWeight: FontWeight.w700,
     ),
-    headline5: GoogleFonts.manrope(
+    headlineMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 30,
       fontWeight: FontWeight.w800,
     ),
-    headline6: GoogleFonts.manrope(
+    headlineSmall: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 24,
       fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.manrope(
-        // color: Colors.grey[100],
-        // fontWeight: FontWeight.w600,
-        ),
-    headline3: GoogleFonts.manrope(
-        // color: Colors.grey[100],
-        // fontWeight: FontWeight.w600,
-        ),
-    bodyText1: GoogleFonts.manrope(
+    labelLarge: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    bodyText2: GoogleFonts.manrope(
+    labelMedium: GoogleFonts.manrope(
       color: Colors.grey[900],
       fontSize: 16,
       fontWeight: FontWeight.w600,
-    ),
-    button: GoogleFonts.manrope(
-      fontSize: 16,
-      color: Colors.grey[50],
-      fontWeight: FontWeight.w500,
-    ),
-    caption: GoogleFonts.manrope(
-      fontSize: 14,
-      color: Colors.grey,
     ),
   );
 }
@@ -303,55 +283,38 @@ TextTheme _buildDarkTextTheme(BuildContext context) {
   var textTheme = Theme.of(context).textTheme;
 
   return GoogleFonts.manropeTextTheme(textTheme).copyWith(
-    headline4: GoogleFonts.manrope(
+    headlineLarge: GoogleFonts.manrope(
       color: Colors.grey[100],
     ),
-    subtitle1: GoogleFonts.manrope(
+    bodyLarge: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 18,
       fontWeight: FontWeight.w800,
     ),
-    subtitle2: GoogleFonts.manrope(
+    bodyMedium: GoogleFonts.manrope(
       color: Colors.grey[300],
       fontSize: 20,
       fontWeight: FontWeight.w800,
     ),
-    headline5: GoogleFonts.manrope(
+    headlineMedium: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 30,
       fontWeight: FontWeight.w800,
     ),
-    headline6: GoogleFonts.manrope(
+    headlineSmall: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 24,
       fontWeight: FontWeight.w800,
     ),
-    headline2: GoogleFonts.manrope(
-        // color: Colors.grey[100],
-        // fontWeight: FontWeight.w600,
-        ),
-    headline3: GoogleFonts.manrope(
-        // color: Colors.grey[100],
-        // fontWeight: FontWeight.w600,
-        ),
-    bodyText1: GoogleFonts.manrope(
+    labelLarge: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
-    bodyText2: GoogleFonts.manrope(
+    labelMedium: GoogleFonts.manrope(
       color: Colors.grey[100],
       fontSize: 16,
       fontWeight: FontWeight.w600,
-    ),
-    button: GoogleFonts.manrope(
-      fontSize: 16,
-      color: Colors.grey[100],
-      fontWeight: FontWeight.w500,
-    ),
-    caption: GoogleFonts.manrope(
-      fontSize: 14,
-      color: Colors.grey[400],
     ),
   );
 }

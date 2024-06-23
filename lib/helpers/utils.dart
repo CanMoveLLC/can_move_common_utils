@@ -67,7 +67,7 @@ Future<String?> selectImage(BuildContext context) {
                       ),
                       SizedBox(width: 10),
                       Expanded(child: Text("Take a picture",
-                        style: textTheme(context).bodyText2,),),
+                        style: textTheme(context).labelMedium,),),
                     ],
                   ),
                 ),
@@ -87,7 +87,7 @@ Future<String?> selectImage(BuildContext context) {
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: Text("Select from gallery", style: textTheme(context).bodyText2,),
+                        child: Text("Select from gallery", style: textTheme(context).labelMedium,),
                       ),
                     ],
                   ),

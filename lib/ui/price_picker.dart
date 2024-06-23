@@ -38,12 +38,12 @@ class PricePicker extends HookWidget {
             width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: textTheme(context).caption?.color?.withOpacity(0.3),
+              color: textTheme(context).bodySmall?.color?.withOpacity(0.3),
             ),
             child: Center(
               child: Icon(
                 Icons.remove,
-                color: textTheme(context).bodyText2?.color,
+                color: textTheme(context).labelMedium?.color,
               ),
             ),
           ),
@@ -60,7 +60,7 @@ class PricePicker extends HookWidget {
           },
           child: Text(
             _formatter.format(price$.value),
-            style: textTheme(context).headline4?.copyWith(
+            style: textTheme(context).headlineLarge?.copyWith(
                   fontSize: 50,
                 ),
           ),
@@ -79,12 +79,12 @@ class PricePicker extends HookWidget {
             width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: textTheme(context).caption?.color?.withOpacity(0.3),
+              color: textTheme(context).bodySmall?.color?.withOpacity(0.3),
             ),
             child: Center(
               child: Icon(
                 Icons.add,
-                color: textTheme(context).bodyText2?.color,
+                color: textTheme(context).labelMedium?.color,
               ),
             ),
           ),
@@ -111,11 +111,11 @@ class PriceDisplay extends StatelessWidget {
       child: Text.rich(
         TextSpan(
           text: "\$",
-          style: textTheme(context).headline3?.copyWith(fontSize: 50),
+          style: textTheme(context).headlineLarge?.copyWith(fontSize: 50),
           children: [
             TextSpan(
               text: "${price.toInt()}",
-              style: textTheme(context).headline2?.copyWith(fontSize: 70),
+              style: textTheme(context).headlineLarge?.copyWith(fontSize: 70),
             ),
           ],
           recognizer: TapGestureRecognizer()..onTap = onTap,

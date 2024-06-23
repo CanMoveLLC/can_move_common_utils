@@ -29,13 +29,13 @@ void showNotification(
             children: [
               Text(
                 title,
-                style: textTheme(context).bodyText2,
+                style: textTheme(context).labelMedium,
               ),
               Text(
                 content,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: textTheme(context).caption,
+                style: textTheme(context).bodySmall,
               ),
             ],
           ),

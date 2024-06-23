@@ -34,6 +34,7 @@ class Move with _$Move {
     @NullDriverMinConverter() DriverMin? driver,
     @UserMinConverter() required ShipperMin shipper,
     required VehicleSize size,
+    required String title,
     required String detail,
     required double price,
     // required double distance,
