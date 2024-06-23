@@ -66,7 +66,7 @@ class DialogShell extends StatelessWidget {
             ),
             title: Text(
               title,
-              style: textTheme(context).subtitle1,
+              style: textTheme(context).bodyLarge,
             ),
             actions: [
               IconButton(

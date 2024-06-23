@@ -67,7 +67,7 @@ class TextFormItem extends StatelessWidget {
       textInputAction: textInputAction,
       autocorrect: autoCorrect,
       maxLines: maxLines,
-      style: textTheme.bodyText2,
+      style: textTheme.labelMedium,
       onFieldSubmitted: (value) {
         onFieldSubmitted?.call(value);
       },
@@ -172,7 +172,7 @@ class NoLabelTextFormItem extends StatelessWidget {
       textInputAction: textInputAction,
       autocorrect: autoCorrect,
       maxLines: maxLines,
-      style: textTheme.bodyText2,
+      style: textTheme.labelMedium,
       onFieldSubmitted: (value) {
         onFieldSubmitted?.call(value);
       },
@@ -265,8 +265,8 @@ class SelectFormItem extends StatelessWidget {
       children: [
         Text(
           label,
-          style: textTheme.bodyText1?.copyWith(
-            color: textTheme.caption?.color,
+          style: textTheme.labelLarge?.copyWith(
+            color: textTheme.bodySmall?.color,
           ),
         ),
         SizedBox(
@@ -285,13 +285,13 @@ class SelectFormItem extends StatelessWidget {
             onSaved: (item) {
               onSaved?.call(item);
             },
-            style: textTheme.bodyText2,
+            style: textTheme.labelMedium,
             icon: Icon(Icons.keyboard_arrow_down_outlined),
             elevation: 1,
             decoration: InputDecoration(
               filled: true,
               hintText: hint,
-              hintStyle: textTheme.caption,
+              hintStyle: textTheme.bodySmall,
               fillColor: fillColor ?? inputTheme.fillColor,
               focusColor: inputTheme.focusColor,
               contentPadding: const EdgeInsets.all(15),

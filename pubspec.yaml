@@ -44,8 +44,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: ^0.14.2
-  build_runner: ^2.0.6
+  build_runner: ^2.4.11
+  freezed: ^2.5.3
 
 
 # For information on the generic Dart part of this file, see the

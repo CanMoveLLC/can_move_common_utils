@@ -41,7 +41,7 @@ class VehicleSizeBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               color: selected ? colorScheme(context).primary : textTheme(
-                  context).caption!.color!,
+                  context).bodySmall!.color!,
               width: 0.5,
             ),
             color: selected ? colorScheme(context).secondary : null,

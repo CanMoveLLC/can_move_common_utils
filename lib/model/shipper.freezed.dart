@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'shipper.dart';
 
@@ -11,40 +12,11 @@ part of 'shipper.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Shipper _$ShipperFromJson(Map<String, dynamic> json) {
   return _Shipper.fromJson(json);
 }
-
-/// @nodoc
-class _$ShipperTearOff {
-  const _$ShipperTearOff();
-
-  _Shipper call(
-      {required String uid,
-      required String name,
-      required String email,
-      String? photoUrl,
-      UserType userType = UserType.shipper,
-      @JsonKey(ignore: true) User? user}) {
-    return _Shipper(
-      uid: uid,
-      name: name,
-      email: email,
-      photoUrl: photoUrl,
-      userType: userType,
-      user: user,
-    );
-  }
-
-  Shipper fromJson(Map<String, Object> json) {
-    return Shipper.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Shipper = _$ShipperTearOff();
 
 /// @nodoc
 mixin _$Shipper {
@@ -64,7 +36,8 @@ mixin _$Shipper {
 /// @nodoc
 abstract class $ShipperCopyWith<$Res> {
   factory $ShipperCopyWith(Shipper value, $Res Function(Shipper) then) =
-      _$ShipperCopyWithImpl<$Res>;
+      _$ShipperCopyWithImpl<$Res, Shipper>;
+  @useResult
   $Res call(
       {String uid,
       String name,
@@ -75,56 +48,61 @@ abstract class $ShipperCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ShipperCopyWithImpl<$Res> implements $ShipperCopyWith<$Res> {
+class _$ShipperCopyWithImpl<$Res, $Val extends Shipper>
+    implements $ShipperCopyWith<$Res> {
   _$ShipperCopyWithImpl(this._value, this._then);
 
-  final Shipper _value;
   // ignore: unused_field
-  final $Res Function(Shipper) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? uid = null,
+    Object? name = null,
+    Object? email = null,
     Object? photoUrl = freezed,
-    Object? userType = freezed,
+    Object? userType = null,
     Object? user = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-      user: user == freezed
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ShipperCopyWith<$Res> implements $ShipperCopyWith<$Res> {
-  factory _$ShipperCopyWith(_Shipper value, $Res Function(_Shipper) then) =
-      __$ShipperCopyWithImpl<$Res>;
+abstract class _$$ShipperImplCopyWith<$Res> implements $ShipperCopyWith<$Res> {
+  factory _$$ShipperImplCopyWith(
+          _$ShipperImpl value, $Res Function(_$ShipperImpl) then) =
+      __$$ShipperImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String uid,
       String name,
@@ -135,45 +113,45 @@ abstract class _$ShipperCopyWith<$Res> implements $ShipperCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ShipperCopyWithImpl<$Res> extends _$ShipperCopyWithImpl<$Res>
-    implements _$ShipperCopyWith<$Res> {
-  __$ShipperCopyWithImpl(_Shipper _value, $Res Function(_Shipper) _then)
-      : super(_value, (v) => _then(v as _Shipper));
+class __$$ShipperImplCopyWithImpl<$Res>
+    extends _$ShipperCopyWithImpl<$Res, _$ShipperImpl>
+    implements _$$ShipperImplCopyWith<$Res> {
+  __$$ShipperImplCopyWithImpl(
+      _$ShipperImpl _value, $Res Function(_$ShipperImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _Shipper get _value => super._value as _Shipper;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? uid = null,
+    Object? name = null,
+    Object? email = null,
     Object? photoUrl = freezed,
-    Object? userType = freezed,
+    Object? userType = null,
     Object? user = freezed,
   }) {
-    return _then(_Shipper(
-      uid: uid == freezed
+    return _then(_$ShipperImpl(
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      email: email == freezed
+      email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      photoUrl: photoUrl == freezed
+      photoUrl: freezed == photoUrl
           ? _value.photoUrl
           : photoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-      user: user == freezed
+      user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
@@ -183,8 +161,8 @@ class __$ShipperCopyWithImpl<$Res> extends _$ShipperCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Shipper extends _Shipper {
-  const _$_Shipper(
+class _$ShipperImpl extends _Shipper {
+  const _$ShipperImpl(
       {required this.uid,
       required this.name,
       required this.email,
@@ -193,8 +171,8 @@ class _$_Shipper extends _Shipper {
       @JsonKey(ignore: true) this.user})
       : super._();
 
-  factory _$_Shipper.fromJson(Map<String, dynamic> json) =>
-      _$$_ShipperFromJson(json);
+  factory _$ShipperImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShipperImplFromJson(json);
 
   @override
   final String uid;
@@ -204,8 +182,8 @@ class _$_Shipper extends _Shipper {
   final String email;
   @override
   final String? photoUrl;
-  @JsonKey(defaultValue: UserType.shipper)
   @override
+  @JsonKey()
   final UserType userType;
   @override
   @JsonKey(ignore: true)
@@ -217,103 +195,73 @@ class _$_Shipper extends _Shipper {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _Shipper &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ShipperImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.photoUrl, photoUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.photoUrl, photoUrl)) &&
+                other.photoUrl == photoUrl) &&
             (identical(other.userType, userType) ||
-                const DeepCollectionEquality()
-                    .equals(other.userType, userType)) &&
-            (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+                other.userType == userType) &&
+            (identical(other.user, user) || other.user == user));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(photoUrl) ^
-      const DeepCollectionEquality().hash(userType) ^
-      const DeepCollectionEquality().hash(user);
 
   @JsonKey(ignore: true)
   @override
-  _$ShipperCopyWith<_Shipper> get copyWith =>
-      __$ShipperCopyWithImpl<_Shipper>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, uid, name, email, photoUrl, userType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShipperImplCopyWith<_$ShipperImpl> get copyWith =>
+      __$$ShipperImplCopyWithImpl<_$ShipperImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShipperToJson(this);
+    return _$$ShipperImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Shipper extends Shipper {
   const factory _Shipper(
-      {required String uid,
-      required String name,
-      required String email,
-      String? photoUrl,
-      UserType userType,
-      @JsonKey(ignore: true) User? user}) = _$_Shipper;
+      {required final String uid,
+      required final String name,
+      required final String email,
+      final String? photoUrl,
+      final UserType userType,
+      @JsonKey(ignore: true) final User? user}) = _$ShipperImpl;
   const _Shipper._() : super._();
 
-  factory _Shipper.fromJson(Map<String, dynamic> json) = _$_Shipper.fromJson;
+  factory _Shipper.fromJson(Map<String, dynamic> json) = _$ShipperImpl.fromJson;
 
   @override
-  String get uid => throw _privateConstructorUsedError;
+  String get uid;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get email => throw _privateConstructorUsedError;
+  String get email;
   @override
-  String? get photoUrl => throw _privateConstructorUsedError;
+  String? get photoUrl;
   @override
-  UserType get userType => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  User? get user => throw _privateConstructorUsedError;
+  UserType get userType;
   @override
   @JsonKey(ignore: true)
-  _$ShipperCopyWith<_Shipper> get copyWith =>
+  User? get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$ShipperImplCopyWith<_$ShipperImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 ShipperMin _$ShipperMinFromJson(Map<String, dynamic> json) {
   return _ShipperMin.fromJson(json);
 }
-
-/// @nodoc
-class _$ShipperMinTearOff {
-  const _$ShipperMinTearOff();
-
-  _ShipperMin call(
-      {required String uid,
-      required String name,
-      UserType userType = UserType.shipper}) {
-    return _ShipperMin(
-      uid: uid,
-      name: name,
-      userType: userType,
-    );
-  }
-
-  ShipperMin fromJson(Map<String, Object> json) {
-    return ShipperMin.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ShipperMin = _$ShipperMinTearOff();
 
 /// @nodoc
 mixin _$ShipperMin {
@@ -331,76 +279,81 @@ mixin _$ShipperMin {
 abstract class $ShipperMinCopyWith<$Res> {
   factory $ShipperMinCopyWith(
           ShipperMin value, $Res Function(ShipperMin) then) =
-      _$ShipperMinCopyWithImpl<$Res>;
+      _$ShipperMinCopyWithImpl<$Res, ShipperMin>;
+  @useResult
   $Res call({String uid, String name, UserType userType});
 }
 
 /// @nodoc
-class _$ShipperMinCopyWithImpl<$Res> implements $ShipperMinCopyWith<$Res> {
+class _$ShipperMinCopyWithImpl<$Res, $Val extends ShipperMin>
+    implements $ShipperMinCopyWith<$Res> {
   _$ShipperMinCopyWithImpl(this._value, this._then);
 
-  final ShipperMin _value;
   // ignore: unused_field
-  final $Res Function(ShipperMin) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? userType = freezed,
+    Object? uid = null,
+    Object? name = null,
+    Object? userType = null,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$ShipperMinCopyWith<$Res> implements $ShipperMinCopyWith<$Res> {
-  factory _$ShipperMinCopyWith(
-          _ShipperMin value, $Res Function(_ShipperMin) then) =
-      __$ShipperMinCopyWithImpl<$Res>;
+abstract class _$$ShipperMinImplCopyWith<$Res>
+    implements $ShipperMinCopyWith<$Res> {
+  factory _$$ShipperMinImplCopyWith(
+          _$ShipperMinImpl value, $Res Function(_$ShipperMinImpl) then) =
+      __$$ShipperMinImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String uid, String name, UserType userType});
 }
 
 /// @nodoc
-class __$ShipperMinCopyWithImpl<$Res> extends _$ShipperMinCopyWithImpl<$Res>
-    implements _$ShipperMinCopyWith<$Res> {
-  __$ShipperMinCopyWithImpl(
-      _ShipperMin _value, $Res Function(_ShipperMin) _then)
-      : super(_value, (v) => _then(v as _ShipperMin));
+class __$$ShipperMinImplCopyWithImpl<$Res>
+    extends _$ShipperMinCopyWithImpl<$Res, _$ShipperMinImpl>
+    implements _$$ShipperMinImplCopyWith<$Res> {
+  __$$ShipperMinImplCopyWithImpl(
+      _$ShipperMinImpl _value, $Res Function(_$ShipperMinImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _ShipperMin get _value => super._value as _ShipperMin;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = freezed,
-    Object? name = freezed,
-    Object? userType = freezed,
+    Object? uid = null,
+    Object? name = null,
+    Object? userType = null,
   }) {
-    return _then(_ShipperMin(
-      uid: uid == freezed
+    return _then(_$ShipperMinImpl(
+      uid: null == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userType: userType == freezed
+      userType: null == userType
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
               as UserType,
@@ -410,21 +363,21 @@ class __$ShipperMinCopyWithImpl<$Res> extends _$ShipperMinCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ShipperMin implements _ShipperMin {
-  const _$_ShipperMin(
+class _$ShipperMinImpl implements _ShipperMin {
+  const _$ShipperMinImpl(
       {required this.uid,
       required this.name,
       this.userType = UserType.shipper});
 
-  factory _$_ShipperMin.fromJson(Map<String, dynamic> json) =>
-      _$$_ShipperMinFromJson(json);
+  factory _$ShipperMinImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShipperMinImplFromJson(json);
 
   @override
   final String uid;
   @override
   final String name;
-  @JsonKey(defaultValue: UserType.shipper)
   @override
+  @JsonKey()
   final UserType userType;
 
   @override
@@ -433,53 +386,51 @@ class _$_ShipperMin implements _ShipperMin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _ShipperMin &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$ShipperMinImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.userType, userType) ||
-                const DeepCollectionEquality()
-                    .equals(other.userType, userType)));
+                other.userType == userType));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(userType);
 
   @JsonKey(ignore: true)
   @override
-  _$ShipperMinCopyWith<_ShipperMin> get copyWith =>
-      __$ShipperMinCopyWithImpl<_ShipperMin>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, uid, name, userType);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShipperMinImplCopyWith<_$ShipperMinImpl> get copyWith =>
+      __$$ShipperMinImplCopyWithImpl<_$ShipperMinImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShipperMinToJson(this);
+    return _$$ShipperMinImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ShipperMin implements ShipperMin {
   const factory _ShipperMin(
-      {required String uid,
-      required String name,
-      UserType userType}) = _$_ShipperMin;
+      {required final String uid,
+      required final String name,
+      final UserType userType}) = _$ShipperMinImpl;
 
   factory _ShipperMin.fromJson(Map<String, dynamic> json) =
-      _$_ShipperMin.fromJson;
+      _$ShipperMinImpl.fromJson;
 
   @override
-  String get uid => throw _privateConstructorUsedError;
+  String get uid;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  UserType get userType => throw _privateConstructorUsedError;
+  UserType get userType;
   @override
   @JsonKey(ignore: true)
-  _$ShipperMinCopyWith<_ShipperMin> get copyWith =>
+  _$$ShipperMinImplCopyWith<_$ShipperMinImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

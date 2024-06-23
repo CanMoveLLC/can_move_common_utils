@@ -6,7 +6,7 @@ part of 'driver.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
+_$DriverImpl _$$DriverImplFromJson(Map<String, dynamic> json) => _$DriverImpl(
       uid: json['uid'] as String,
       payID: json['payID'] as String?,
       payEnabled: json['payEnabled'] as bool? ?? false,
@@ -25,12 +25,13 @@ _$_Driver _$$_DriverFromJson(Map<String, dynamic> json) => _$_Driver(
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.driver,
       rating: const RatingConverter().fromJson(json['rating'] as Object),
-      totalMoves: json['totalMoves'] as int? ?? 0,
+      totalMoves: (json['totalMoves'] as num?)?.toInt() ?? 0,
       location: const NullGeoPointConverter().fromJson(json['location']),
       vehicleSize: $enumDecode(_$VehicleSizeEnumMap, json['vehicleSize']),
     );
 
-Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
+Map<String, dynamic> _$$DriverImplToJson(_$DriverImpl instance) =>
+    <String, dynamic>{
       'uid': instance.uid,
       'payID': instance.payID,
       'payEnabled': instance.payEnabled,
@@ -42,11 +43,11 @@ Map<String, dynamic> _$$_DriverToJson(_$_Driver instance) => <String, dynamic>{
       'photoUrl': instance.photoUrl,
       'vehicleDocs': instance.vehicleDocs,
       'vehicleImages': instance.vehicleImages,
-      'userType': _$UserTypeEnumMap[instance.userType],
+      'userType': _$UserTypeEnumMap[instance.userType]!,
       'rating': const RatingConverter().toJson(instance.rating),
       'totalMoves': instance.totalMoves,
       'location': const NullGeoPointConverter().toJson(instance.location),
-      'vehicleSize': _$VehicleSizeEnumMap[instance.vehicleSize],
+      'vehicleSize': _$VehicleSizeEnumMap[instance.vehicleSize]!,
     };
 
 const _$UserTypeEnumMap = {
@@ -64,17 +65,19 @@ const _$VehicleSizeEnumMap = {
   VehicleSize.Flat_Bed: 'Flat_Bed',
 };
 
-_$_Rating _$$_RatingFromJson(Map<String, dynamic> json) => _$_Rating(
+_$RatingImpl _$$RatingImplFromJson(Map<String, dynamic> json) => _$RatingImpl(
       rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
-      total: json['total'] as int? ?? 0,
+      total: (json['total'] as num?)?.toInt() ?? 0,
     );
 
-Map<String, dynamic> _$$_RatingToJson(_$_Rating instance) => <String, dynamic>{
+Map<String, dynamic> _$$RatingImplToJson(_$RatingImpl instance) =>
+    <String, dynamic>{
       'rating': instance.rating,
       'total': instance.total,
     };
 
-_$_DriverMin _$$_DriverMinFromJson(Map<String, dynamic> json) => _$_DriverMin(
+_$DriverMinImpl _$$DriverMinImplFromJson(Map<String, dynamic> json) =>
+    _$DriverMinImpl(
       uid: json['uid'] as String,
       payID: json['payID'] as String?,
       name: json['name'] as String,
@@ -83,11 +86,11 @@ _$_DriverMin _$$_DriverMinFromJson(Map<String, dynamic> json) => _$_DriverMin(
           UserType.driver,
     );
 
-Map<String, dynamic> _$$_DriverMinToJson(_$_DriverMin instance) =>
+Map<String, dynamic> _$$DriverMinImplToJson(_$DriverMinImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'payID': instance.payID,
       'name': instance.name,
       'location': const NullGeoPointConverter().toJson(instance.location),
-      'userType': _$UserTypeEnumMap[instance.userType],
+      'userType': _$UserTypeEnumMap[instance.userType]!,
     };

@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'can_move_notification.dart';
 
@@ -11,44 +12,11 @@ part of 'can_move_notification.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CanMoveNotification _$CanMoveNotificationFromJson(Map<String, dynamic> json) {
   return _CanMoveNotification.fromJson(json);
 }
-
-/// @nodoc
-class _$CanMoveNotificationTearOff {
-  const _$CanMoveNotificationTearOff();
-
-  _CanMoveNotification call(
-      {String? uid,
-      @TimeStampConverter() required Timestamp time,
-      required String userUid,
-      required String content,
-      required String title,
-      String? imgUrl,
-      String? moveUid,
-      String? roomUid}) {
-    return _CanMoveNotification(
-      uid: uid,
-      time: time,
-      userUid: userUid,
-      content: content,
-      title: title,
-      imgUrl: imgUrl,
-      moveUid: moveUid,
-      roomUid: roomUid,
-    );
-  }
-
-  CanMoveNotification fromJson(Map<String, Object> json) {
-    return CanMoveNotification.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CanMoveNotification = _$CanMoveNotificationTearOff();
 
 /// @nodoc
 mixin _$CanMoveNotification {
@@ -72,7 +40,8 @@ mixin _$CanMoveNotification {
 abstract class $CanMoveNotificationCopyWith<$Res> {
   factory $CanMoveNotificationCopyWith(
           CanMoveNotification value, $Res Function(CanMoveNotification) then) =
-      _$CanMoveNotificationCopyWithImpl<$Res>;
+      _$CanMoveNotificationCopyWithImpl<$Res, CanMoveNotification>;
+  @useResult
   $Res call(
       {String? uid,
       @TimeStampConverter() Timestamp time,
@@ -85,69 +54,72 @@ abstract class $CanMoveNotificationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CanMoveNotificationCopyWithImpl<$Res>
+class _$CanMoveNotificationCopyWithImpl<$Res, $Val extends CanMoveNotification>
     implements $CanMoveNotificationCopyWith<$Res> {
   _$CanMoveNotificationCopyWithImpl(this._value, this._then);
 
-  final CanMoveNotification _value;
   // ignore: unused_field
-  final $Res Function(CanMoveNotification) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uid = freezed,
-    Object? time = freezed,
-    Object? userUid = freezed,
-    Object? content = freezed,
-    Object? title = freezed,
+    Object? time = null,
+    Object? userUid = null,
+    Object? content = null,
+    Object? title = null,
     Object? imgUrl = freezed,
     Object? moveUid = freezed,
     Object? roomUid = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: uid == freezed
+      uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String?,
-      time: time == freezed
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as Timestamp,
-      userUid: userUid == freezed
+      userUid: null == userUid
           ? _value.userUid
           : userUid // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      imgUrl: imgUrl == freezed
+      imgUrl: freezed == imgUrl
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      moveUid: moveUid == freezed
+      moveUid: freezed == moveUid
           ? _value.moveUid
           : moveUid // ignore: cast_nullable_to_non_nullable
               as String?,
-      roomUid: roomUid == freezed
+      roomUid: freezed == roomUid
           ? _value.roomUid
           : roomUid // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$CanMoveNotificationCopyWith<$Res>
+abstract class _$$CanMoveNotificationImplCopyWith<$Res>
     implements $CanMoveNotificationCopyWith<$Res> {
-  factory _$CanMoveNotificationCopyWith(_CanMoveNotification value,
-          $Res Function(_CanMoveNotification) then) =
-      __$CanMoveNotificationCopyWithImpl<$Res>;
+  factory _$$CanMoveNotificationImplCopyWith(_$CanMoveNotificationImpl value,
+          $Res Function(_$CanMoveNotificationImpl) then) =
+      __$$CanMoveNotificationImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? uid,
       @TimeStampConverter() Timestamp time,
@@ -160,57 +132,55 @@ abstract class _$CanMoveNotificationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CanMoveNotificationCopyWithImpl<$Res>
-    extends _$CanMoveNotificationCopyWithImpl<$Res>
-    implements _$CanMoveNotificationCopyWith<$Res> {
-  __$CanMoveNotificationCopyWithImpl(
-      _CanMoveNotification _value, $Res Function(_CanMoveNotification) _then)
-      : super(_value, (v) => _then(v as _CanMoveNotification));
+class __$$CanMoveNotificationImplCopyWithImpl<$Res>
+    extends _$CanMoveNotificationCopyWithImpl<$Res, _$CanMoveNotificationImpl>
+    implements _$$CanMoveNotificationImplCopyWith<$Res> {
+  __$$CanMoveNotificationImplCopyWithImpl(_$CanMoveNotificationImpl _value,
+      $Res Function(_$CanMoveNotificationImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _CanMoveNotification get _value => super._value as _CanMoveNotification;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? uid = freezed,
-    Object? time = freezed,
-    Object? userUid = freezed,
-    Object? content = freezed,
-    Object? title = freezed,
+    Object? time = null,
+    Object? userUid = null,
+    Object? content = null,
+    Object? title = null,
     Object? imgUrl = freezed,
     Object? moveUid = freezed,
     Object? roomUid = freezed,
   }) {
-    return _then(_CanMoveNotification(
-      uid: uid == freezed
+    return _then(_$CanMoveNotificationImpl(
+      uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String?,
-      time: time == freezed
+      time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as Timestamp,
-      userUid: userUid == freezed
+      userUid: null == userUid
           ? _value.userUid
           : userUid // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      imgUrl: imgUrl == freezed
+      imgUrl: freezed == imgUrl
           ? _value.imgUrl
           : imgUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      moveUid: moveUid == freezed
+      moveUid: freezed == moveUid
           ? _value.moveUid
           : moveUid // ignore: cast_nullable_to_non_nullable
               as String?,
-      roomUid: roomUid == freezed
+      roomUid: freezed == roomUid
           ? _value.roomUid
           : roomUid // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -220,8 +190,8 @@ class __$CanMoveNotificationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CanMoveNotification extends _CanMoveNotification {
-  const _$_CanMoveNotification(
+class _$CanMoveNotificationImpl extends _CanMoveNotification {
+  const _$CanMoveNotificationImpl(
       {this.uid,
       @TimeStampConverter() required this.time,
       required this.userUid,
@@ -232,8 +202,8 @@ class _$_CanMoveNotification extends _CanMoveNotification {
       this.roomUid})
       : super._();
 
-  factory _$_CanMoveNotification.fromJson(Map<String, dynamic> json) =>
-      _$$_CanMoveNotificationFromJson(json);
+  factory _$CanMoveNotificationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CanMoveNotificationImplFromJson(json);
 
   @override
   final String? uid;
@@ -259,88 +229,74 @@ class _$_CanMoveNotification extends _CanMoveNotification {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is _CanMoveNotification &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.time, time) ||
-                const DeepCollectionEquality().equals(other.time, time)) &&
-            (identical(other.userUid, userUid) ||
-                const DeepCollectionEquality()
-                    .equals(other.userUid, userUid)) &&
-            (identical(other.content, content) ||
-                const DeepCollectionEquality()
-                    .equals(other.content, content)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.imgUrl, imgUrl) ||
-                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
-            (identical(other.moveUid, moveUid) ||
-                const DeepCollectionEquality()
-                    .equals(other.moveUid, moveUid)) &&
-            (identical(other.roomUid, roomUid) ||
-                const DeepCollectionEquality().equals(other.roomUid, roomUid)));
+        (other.runtimeType == runtimeType &&
+            other is _$CanMoveNotificationImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.userUid, userUid) || other.userUid == userUid) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.imgUrl, imgUrl) || other.imgUrl == imgUrl) &&
+            (identical(other.moveUid, moveUid) || other.moveUid == moveUid) &&
+            (identical(other.roomUid, roomUid) || other.roomUid == roomUid));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(time) ^
-      const DeepCollectionEquality().hash(userUid) ^
-      const DeepCollectionEquality().hash(content) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(imgUrl) ^
-      const DeepCollectionEquality().hash(moveUid) ^
-      const DeepCollectionEquality().hash(roomUid);
 
   @JsonKey(ignore: true)
   @override
-  _$CanMoveNotificationCopyWith<_CanMoveNotification> get copyWith =>
-      __$CanMoveNotificationCopyWithImpl<_CanMoveNotification>(
+  int get hashCode => Object.hash(runtimeType, uid, time, userUid, content,
+      title, imgUrl, moveUid, roomUid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CanMoveNotificationImplCopyWith<_$CanMoveNotificationImpl> get copyWith =>
+      __$$CanMoveNotificationImplCopyWithImpl<_$CanMoveNotificationImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CanMoveNotificationToJson(this);
+    return _$$CanMoveNotificationImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _CanMoveNotification extends CanMoveNotification {
   const factory _CanMoveNotification(
-      {String? uid,
-      @TimeStampConverter() required Timestamp time,
-      required String userUid,
-      required String content,
-      required String title,
-      String? imgUrl,
-      String? moveUid,
-      String? roomUid}) = _$_CanMoveNotification;
+      {final String? uid,
+      @TimeStampConverter() required final Timestamp time,
+      required final String userUid,
+      required final String content,
+      required final String title,
+      final String? imgUrl,
+      final String? moveUid,
+      final String? roomUid}) = _$CanMoveNotificationImpl;
   const _CanMoveNotification._() : super._();
 
   factory _CanMoveNotification.fromJson(Map<String, dynamic> json) =
-      _$_CanMoveNotification.fromJson;
+      _$CanMoveNotificationImpl.fromJson;
 
   @override
-  String? get uid => throw _privateConstructorUsedError;
+  String? get uid;
   @override
   @TimeStampConverter()
-  Timestamp get time => throw _privateConstructorUsedError;
+  Timestamp get time;
   @override
-  String get userUid => throw _privateConstructorUsedError;
+  String get userUid;
   @override
-  String get content => throw _privateConstructorUsedError;
+  String get content;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String? get imgUrl => throw _privateConstructorUsedError;
+  String? get imgUrl;
   @override
-  String? get moveUid => throw _privateConstructorUsedError;
+  String? get moveUid;
   @override
-  String? get roomUid => throw _privateConstructorUsedError;
+  String? get roomUid;
   @override
   @JsonKey(ignore: true)
-  _$CanMoveNotificationCopyWith<_CanMoveNotification> get copyWith =>
+  _$$CanMoveNotificationImplCopyWith<_$CanMoveNotificationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
