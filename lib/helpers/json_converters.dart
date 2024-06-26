@@ -42,7 +42,9 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
     if (json is Map<String, dynamic>) {
       return ShipperMin(
         uid: json["uid"],
-        name: json["name"],
+        // name: json["name"],
+        fname: json["fname"],
+        lname: json["lname"],
       );
     }
     return json as ShipperMin; // won't work though
@@ -51,7 +53,9 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
   @override
   Object toJson(ShipperMin object) {
     return {
-      "name": object.name,
+      "fname": object.fname,
+      "lname": object.lname,
+      // "name": object.name,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };

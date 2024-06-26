@@ -9,7 +9,8 @@ part of 'shipper.dart';
 _$ShipperImpl _$$ShipperImplFromJson(Map<String, dynamic> json) =>
     _$ShipperImpl(
       uid: json['uid'] as String,
-      name: json['name'] as String,
+      fname: json['fname'] as String,
+      lname: json['lname'] as String,
       email: json['email'] as String,
       photoUrl: json['photoUrl'] as String?,
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
@@ -19,7 +20,8 @@ _$ShipperImpl _$$ShipperImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ShipperImplToJson(_$ShipperImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
-      'name': instance.name,
+      'fname': instance.fname,
+      'lname': instance.lname,
       'email': instance.email,
       'photoUrl': instance.photoUrl,
       'userType': _$UserTypeEnumMap[instance.userType]!,
@@ -33,7 +35,8 @@ const _$UserTypeEnumMap = {
 _$ShipperMinImpl _$$ShipperMinImplFromJson(Map<String, dynamic> json) =>
     _$ShipperMinImpl(
       uid: json['uid'] as String,
-      name: json['name'] as String,
+      fname: json['fname'] as String,
+      lname: json['lname'] as String,
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.shipper,
     );
@@ -41,6 +44,7 @@ _$ShipperMinImpl _$$ShipperMinImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$ShipperMinImplToJson(_$ShipperMinImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
-      'name': instance.name,
+      'fname': instance.fname,
+      'lname': instance.lname,
       'userType': _$UserTypeEnumMap[instance.userType]!,
     };

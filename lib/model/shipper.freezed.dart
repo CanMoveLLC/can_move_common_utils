@@ -21,7 +21,8 @@ Shipper _$ShipperFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Shipper {
   String get uid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get fname => throw _privateConstructorUsedError;
+  String get lname => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String? get photoUrl => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
@@ -40,7 +41,8 @@ abstract class $ShipperCopyWith<$Res> {
   @useResult
   $Res call(
       {String uid,
-      String name,
+      String fname,
+      String lname,
       String email,
       String? photoUrl,
       UserType userType,
@@ -61,7 +63,8 @@ class _$ShipperCopyWithImpl<$Res, $Val extends Shipper>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = null,
+    Object? fname = null,
+    Object? lname = null,
     Object? email = null,
     Object? photoUrl = freezed,
     Object? userType = null,
@@ -72,9 +75,13 @@ class _$ShipperCopyWithImpl<$Res, $Val extends Shipper>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -105,7 +112,8 @@ abstract class _$$ShipperImplCopyWith<$Res> implements $ShipperCopyWith<$Res> {
   @useResult
   $Res call(
       {String uid,
-      String name,
+      String fname,
+      String lname,
       String email,
       String? photoUrl,
       UserType userType,
@@ -124,7 +132,8 @@ class __$$ShipperImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = null,
+    Object? fname = null,
+    Object? lname = null,
     Object? email = null,
     Object? photoUrl = freezed,
     Object? userType = null,
@@ -135,9 +144,13 @@ class __$$ShipperImplCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -164,7 +177,8 @@ class __$$ShipperImplCopyWithImpl<$Res>
 class _$ShipperImpl extends _Shipper {
   const _$ShipperImpl(
       {required this.uid,
-      required this.name,
+      required this.fname,
+      required this.lname,
       required this.email,
       this.photoUrl,
       this.userType = UserType.shipper,
@@ -177,7 +191,9 @@ class _$ShipperImpl extends _Shipper {
   @override
   final String uid;
   @override
-  final String name;
+  final String fname;
+  @override
+  final String lname;
   @override
   final String email;
   @override
@@ -191,7 +207,7 @@ class _$ShipperImpl extends _Shipper {
 
   @override
   String toString() {
-    return 'Shipper(uid: $uid, name: $name, email: $email, photoUrl: $photoUrl, userType: $userType, user: $user)';
+    return 'Shipper(uid: $uid, fname: $fname, lname: $lname, email: $email, photoUrl: $photoUrl, userType: $userType, user: $user)';
   }
 
   @override
@@ -200,7 +216,8 @@ class _$ShipperImpl extends _Shipper {
         (other.runtimeType == runtimeType &&
             other is _$ShipperImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fname, fname) || other.fname == fname) &&
+            (identical(other.lname, lname) || other.lname == lname) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.photoUrl, photoUrl) ||
                 other.photoUrl == photoUrl) &&
@@ -211,8 +228,8 @@ class _$ShipperImpl extends _Shipper {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, uid, name, email, photoUrl, userType, user);
+  int get hashCode => Object.hash(
+      runtimeType, uid, fname, lname, email, photoUrl, userType, user);
 
   @JsonKey(ignore: true)
   @override
@@ -231,7 +248,8 @@ class _$ShipperImpl extends _Shipper {
 abstract class _Shipper extends Shipper {
   const factory _Shipper(
       {required final String uid,
-      required final String name,
+      required final String fname,
+      required final String lname,
       required final String email,
       final String? photoUrl,
       final UserType userType,
@@ -243,7 +261,9 @@ abstract class _Shipper extends Shipper {
   @override
   String get uid;
   @override
-  String get name;
+  String get fname;
+  @override
+  String get lname;
   @override
   String get email;
   @override
@@ -266,7 +286,8 @@ ShipperMin _$ShipperMinFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ShipperMin {
   String get uid => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String get fname => throw _privateConstructorUsedError;
+  String get lname => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -281,7 +302,7 @@ abstract class $ShipperMinCopyWith<$Res> {
           ShipperMin value, $Res Function(ShipperMin) then) =
       _$ShipperMinCopyWithImpl<$Res, ShipperMin>;
   @useResult
-  $Res call({String uid, String name, UserType userType});
+  $Res call({String uid, String fname, String lname, UserType userType});
 }
 
 /// @nodoc
@@ -298,7 +319,8 @@ class _$ShipperMinCopyWithImpl<$Res, $Val extends ShipperMin>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = null,
+    Object? fname = null,
+    Object? lname = null,
     Object? userType = null,
   }) {
     return _then(_value.copyWith(
@@ -306,9 +328,13 @@ class _$ShipperMinCopyWithImpl<$Res, $Val extends ShipperMin>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
               as String,
       userType: null == userType
           ? _value.userType
@@ -326,7 +352,7 @@ abstract class _$$ShipperMinImplCopyWith<$Res>
       __$$ShipperMinImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uid, String name, UserType userType});
+  $Res call({String uid, String fname, String lname, UserType userType});
 }
 
 /// @nodoc
@@ -341,7 +367,8 @@ class __$$ShipperMinImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = null,
-    Object? name = null,
+    Object? fname = null,
+    Object? lname = null,
     Object? userType = null,
   }) {
     return _then(_$ShipperMinImpl(
@@ -349,9 +376,13 @@ class __$$ShipperMinImplCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      fname: null == fname
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as String,
+      lname: null == lname
+          ? _value.lname
+          : lname // ignore: cast_nullable_to_non_nullable
               as String,
       userType: null == userType
           ? _value.userType
@@ -366,7 +397,8 @@ class __$$ShipperMinImplCopyWithImpl<$Res>
 class _$ShipperMinImpl implements _ShipperMin {
   const _$ShipperMinImpl(
       {required this.uid,
-      required this.name,
+      required this.fname,
+      required this.lname,
       this.userType = UserType.shipper});
 
   factory _$ShipperMinImpl.fromJson(Map<String, dynamic> json) =>
@@ -375,14 +407,16 @@ class _$ShipperMinImpl implements _ShipperMin {
   @override
   final String uid;
   @override
-  final String name;
+  final String fname;
+  @override
+  final String lname;
   @override
   @JsonKey()
   final UserType userType;
 
   @override
   String toString() {
-    return 'ShipperMin(uid: $uid, name: $name, userType: $userType)';
+    return 'ShipperMin(uid: $uid, fname: $fname, lname: $lname, userType: $userType)';
   }
 
   @override
@@ -391,14 +425,15 @@ class _$ShipperMinImpl implements _ShipperMin {
         (other.runtimeType == runtimeType &&
             other is _$ShipperMinImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fname, fname) || other.fname == fname) &&
+            (identical(other.lname, lname) || other.lname == lname) &&
             (identical(other.userType, userType) ||
                 other.userType == userType));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, name, userType);
+  int get hashCode => Object.hash(runtimeType, uid, fname, lname, userType);
 
   @JsonKey(ignore: true)
   @override
@@ -417,7 +452,8 @@ class _$ShipperMinImpl implements _ShipperMin {
 abstract class _ShipperMin implements ShipperMin {
   const factory _ShipperMin(
       {required final String uid,
-      required final String name,
+      required final String fname,
+      required final String lname,
       final UserType userType}) = _$ShipperMinImpl;
 
   factory _ShipperMin.fromJson(Map<String, dynamic> json) =
@@ -426,7 +462,9 @@ abstract class _ShipperMin implements ShipperMin {
   @override
   String get uid;
   @override
-  String get name;
+  String get fname;
+  @override
+  String get lname;
   @override
   UserType get userType;
   @override
