@@ -11,6 +11,7 @@ class ChatService {
       FirebaseChatCoreConfig(
       chatRoomsCollection,
       chatUsersCollection,
+      chatUsersCollection,
     ));
   }
 
