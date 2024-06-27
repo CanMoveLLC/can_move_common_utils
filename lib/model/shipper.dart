@@ -15,8 +15,8 @@ class Shipper with _$Shipper {
 
   const factory Shipper({
     required String uid,
-    required String fname,
-    required String lname,
+    required String firstName,
+    required String lastName,
     required String email,
     String? photoUrl,
     @Default(UserType.shipper) UserType userType,
@@ -26,15 +26,15 @@ class Shipper with _$Shipper {
   factory Shipper.fromJson(Map<String, dynamic> json) =>
       _$ShipperFromJson(json);
 
-  ShipperMin get min => ShipperMin(uid: uid, fname: fname,lname: lname);
+  ShipperMin get min => ShipperMin(uid: uid, firstName: firstName,lastName: lastName);
 }
 
 @freezed
 class ShipperMin with _$ShipperMin {
   const factory ShipperMin({
     required String uid,
-    required String fname,
-    required String lname,
+    required String firstName,
+    required String lastName,
     @Default(UserType.shipper) UserType userType,
   }) = _ShipperMin;
 

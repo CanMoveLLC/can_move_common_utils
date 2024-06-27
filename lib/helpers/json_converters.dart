@@ -43,8 +43,8 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
       return ShipperMin(
         uid: json["uid"],
         // name: json["name"],
-        fname: json["fname"],
-        lname: json["lname"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
       );
     }
     return json as ShipperMin; // won't work though
@@ -53,8 +53,8 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
   @override
   Object toJson(ShipperMin object) {
     return {
-      "fname": object.fname,
-      "lname": object.lname,
+      "firstName": object.firstName,
+      "lastName": object.lastName,
       // "name": object.name,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
