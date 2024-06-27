@@ -7,8 +7,7 @@ void showNotification(
   BuildContext context,
   String title,
   String content, {
-  Duration? duration,
-  onTap: VoidCallback,
+  Duration? duration, VoidCallback? onTap,
 }) {
   showToastWidget(
     Card(
