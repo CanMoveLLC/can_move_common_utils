@@ -7,7 +7,7 @@ void showNotification(
   BuildContext context,
   String title,
   String content, {
-  Duration? duration, VoidCallback? onTap,
+  Duration? duration= const Duration(seconds: 3), VoidCallback? onTap,
 }) {
   showToastWidget(
     Card(
@@ -65,5 +65,5 @@ void notify(String message, {bool error = false, Duration? duration}) {
 }
 
 void notifyError(String message) {
-  notify(message, error: true);
+  return notify(message, error: true);
 }
