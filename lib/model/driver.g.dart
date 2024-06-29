@@ -12,7 +12,8 @@ _$DriverImpl _$$DriverImplFromJson(Map<String, dynamic> json) => _$DriverImpl(
       payEnabled: json['payEnabled'] as bool? ?? false,
       online: json['online'] as bool? ?? false,
       verified: json['verified'] as bool? ?? false,
-      name: json['name'] as String,
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
       photoUrl: json['photoUrl'] as String,
@@ -25,7 +26,7 @@ _$DriverImpl _$$DriverImplFromJson(Map<String, dynamic> json) => _$DriverImpl(
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.driver,
       rating: const RatingConverter().fromJson(json['rating'] as Object),
-      totalMoves: json['totalMoves'] as int? ?? 0,
+      totalMoves: (json['totalMoves'] as num?)?.toInt() ?? 0,
       location: const NullGeoPointConverter().fromJson(json['location']),
       vehicleSize: $enumDecode(_$VehicleSizeEnumMap, json['vehicleSize']),
     );
@@ -37,7 +38,8 @@ Map<String, dynamic> _$$DriverImplToJson(_$DriverImpl instance) =>
       'payEnabled': instance.payEnabled,
       'online': instance.online,
       'verified': instance.verified,
-      'name': instance.name,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
       'email': instance.email,
       'phone': instance.phone,
       'photoUrl': instance.photoUrl,
@@ -67,7 +69,7 @@ const _$VehicleSizeEnumMap = {
 
 _$RatingImpl _$$RatingImplFromJson(Map<String, dynamic> json) => _$RatingImpl(
       rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
-      total: json['total'] as int? ?? 0,
+      total: (json['total'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$RatingImplToJson(_$RatingImpl instance) =>
@@ -80,7 +82,8 @@ _$DriverMinImpl _$$DriverMinImplFromJson(Map<String, dynamic> json) =>
     _$DriverMinImpl(
       uid: json['uid'] as String,
       payID: json['payID'] as String?,
-      name: json['name'] as String,
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
       location: const NullGeoPointConverter().fromJson(json['location']),
       userType: $enumDecodeNullable(_$UserTypeEnumMap, json['userType']) ??
           UserType.driver,
@@ -90,7 +93,8 @@ Map<String, dynamic> _$$DriverMinImplToJson(_$DriverMinImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'payID': instance.payID,
-      'name': instance.name,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
       'location': const NullGeoPointConverter().toJson(instance.location),
       'userType': _$UserTypeEnumMap[instance.userType]!,
     };

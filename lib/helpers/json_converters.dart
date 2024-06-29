@@ -17,7 +17,8 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
       return DriverMin(
         location: json["location"],
         uid: json["uid"],
-        name: json["name"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
         payID: json["payID"],
       );
     }
@@ -30,7 +31,8 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
     // Convert DriverMin to JSON
     return {
       "location": object.location,
-      "name": object.name,
+      "firstName": object.firstName,
+      "lastName": object.lastName,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };
@@ -47,7 +49,8 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
       // Convert JSON to ShipperMin
       return ShipperMin(
         uid: json["uid"],
-        name: json["name"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
       );
     }
     return json as ShipperMin;
@@ -57,7 +60,8 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
   Object toJson(ShipperMin object) {
     // Convert ShipperMin to JSON
     return {
-      "name": object.name,
+      "firstName": object.firstName,
+      "lastName": object.lastName,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };
