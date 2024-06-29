@@ -37,6 +37,7 @@ mixin _$Move {
   @UserMinConverter()
   ShipperMin get shipper => throw _privateConstructorUsedError;
   VehicleSize get size => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get detail => throw _privateConstructorUsedError;
   double get price =>
       throw _privateConstructorUsedError; // required double distance,
@@ -69,6 +70,7 @@ abstract class $MoveCopyWith<$Res> {
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
+      String title,
       String detail,
       double price,
       List<String> images,
@@ -106,6 +108,7 @@ class _$MoveCopyWithImpl<$Res, $Val extends Move>
     Object? driver = freezed,
     Object? shipper = null,
     Object? size = null,
+    Object? title = null,
     Object? detail = null,
     Object? price = null,
     Object? images = null,
@@ -153,6 +156,10 @@ class _$MoveCopyWithImpl<$Res, $Val extends Move>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as VehicleSize,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       detail: null == detail
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
@@ -238,6 +245,7 @@ abstract class _$$MoveImplCopyWith<$Res> implements $MoveCopyWith<$Res> {
       @NullDriverMinConverter() DriverMin? driver,
       @UserMinConverter() ShipperMin shipper,
       VehicleSize size,
+      String title,
       String detail,
       double price,
       List<String> images,
@@ -275,6 +283,7 @@ class __$$MoveImplCopyWithImpl<$Res>
     Object? driver = freezed,
     Object? shipper = null,
     Object? size = null,
+    Object? title = null,
     Object? detail = null,
     Object? price = null,
     Object? images = null,
@@ -322,6 +331,10 @@ class __$$MoveImplCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as VehicleSize,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       detail: null == detail
           ? _value.detail
           : detail // ignore: cast_nullable_to_non_nullable
@@ -375,6 +388,7 @@ class _$MoveImpl extends _Move {
       @NullDriverMinConverter() this.driver,
       @UserMinConverter() required this.shipper,
       required this.size,
+      required this.title,
       required this.detail,
       required this.price,
       final List<String> images = const [],
@@ -424,6 +438,8 @@ class _$MoveImpl extends _Move {
   @override
   final VehicleSize size;
   @override
+  final String title;
+  @override
   final String detail;
   @override
   final double price;
@@ -458,7 +474,7 @@ class _$MoveImpl extends _Move {
 
   @override
   String toString() {
-    return 'Move(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, detail: $detail, price: $price, images: $images, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
+    return 'Move(uid: $uid, startDate: $startDate, endDate: $endDate, pickUpDate: $pickUpDate, pickUp: $pickUp, dropOffs: $dropOffs, driver: $driver, shipper: $shipper, size: $size, title: $title, detail: $detail, price: $price, images: $images, payID: $payID, isPaid: $isPaid, userHasBid: $userHasBid, driverHasBid: $driverHasBid, status: $status, createdAt: $createdAt)';
   }
 
   @override
@@ -477,6 +493,7 @@ class _$MoveImpl extends _Move {
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.shipper, shipper) || other.shipper == shipper) &&
             (identical(other.size, size) || other.size == size) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.detail, detail) || other.detail == detail) &&
             (identical(other.price, price) || other.price == price) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
@@ -493,26 +510,28 @@ class _$MoveImpl extends _Move {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      uid,
-      startDate,
-      endDate,
-      pickUpDate,
-      pickUp,
-      const DeepCollectionEquality().hash(_dropOffs),
-      driver,
-      shipper,
-      size,
-      detail,
-      price,
-      const DeepCollectionEquality().hash(_images),
-      payID,
-      isPaid,
-      userHasBid,
-      driverHasBid,
-      status,
-      createdAt);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        uid,
+        startDate,
+        endDate,
+        pickUpDate,
+        pickUp,
+        const DeepCollectionEquality().hash(_dropOffs),
+        driver,
+        shipper,
+        size,
+        title,
+        detail,
+        price,
+        const DeepCollectionEquality().hash(_images),
+        payID,
+        isPaid,
+        userHasBid,
+        driverHasBid,
+        status,
+        createdAt
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -539,6 +558,7 @@ abstract class _Move extends Move {
       @NullDriverMinConverter() final DriverMin? driver,
       @UserMinConverter() required final ShipperMin shipper,
       required final VehicleSize size,
+      required final String title,
       required final String detail,
       required final double price,
       final List<String> images,
@@ -577,6 +597,8 @@ abstract class _Move extends Move {
   ShipperMin get shipper;
   @override
   VehicleSize get size;
+  @override
+  String get title;
   @override
   String get detail;
   @override

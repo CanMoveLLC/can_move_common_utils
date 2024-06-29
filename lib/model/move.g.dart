@@ -18,6 +18,7 @@ _$MoveImpl _$$MoveImplFromJson(Map<String, dynamic> json) => _$MoveImpl(
       driver: const NullDriverMinConverter().fromJson(json['driver']),
       shipper: const UserMinConverter().fromJson(json['shipper'] as Object),
       size: $enumDecode(_$VehicleSizeEnumMap, json['size']),
+      title: json['title'] as String,
       detail: json['detail'] as String,
       price: (json['price'] as num).toDouble(),
       images: (json['images'] as List<dynamic>?)
@@ -44,6 +45,7 @@ Map<String, dynamic> _$$MoveImplToJson(_$MoveImpl instance) =>
       'driver': const NullDriverMinConverter().toJson(instance.driver),
       'shipper': const UserMinConverter().toJson(instance.shipper),
       'size': _$VehicleSizeEnumMap[instance.size]!,
+      'title': instance.title,
       'detail': instance.detail,
       'price': instance.price,
       'images': instance.images,
