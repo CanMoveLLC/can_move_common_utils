@@ -154,7 +154,7 @@ class NoShadowButton extends StatelessWidget {
   final double? width;
   final double? height;
   final String label;
-  final bool? isSignupPage;
+  final bool isSignupPage;
 
   const NoShadowButton({
     super.key,
@@ -171,7 +171,7 @@ class NoShadowButton extends StatelessWidget {
     this.offset = const Offset(0, 10),
     this.shadowColor,
     this.isLoading = false,
-    this.isSignupPage,
+    this.isSignupPage = false,
   });
 
   @override
@@ -218,7 +218,7 @@ class NoShadowButton extends StatelessWidget {
               child: Text.rich(
                 TextSpan(
                   text: label,
-                  style: isSignupPage!
+                  style: isSignupPage
                       ? const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 24,
