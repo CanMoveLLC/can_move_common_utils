@@ -154,6 +154,7 @@ class NoShadowButton extends StatelessWidget {
   final double? width;
   final double? height;
   final String label;
+  final bool? isSignupPage;
 
   const NoShadowButton({
     super.key,
@@ -170,6 +171,7 @@ class NoShadowButton extends StatelessWidget {
     this.offset = const Offset(0, 10),
     this.shadowColor,
     this.isLoading = false,
+    this.isSignupPage,
   });
 
   @override
@@ -216,6 +218,12 @@ class NoShadowButton extends StatelessWidget {
               child: Text.rich(
                 TextSpan(
                   text: label,
+                  style: isSignupPage!
+                      ? const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 24,
+                        )
+                      : null,
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       if (!isLoading) onTap?.call();
@@ -256,9 +264,7 @@ class TextyButton extends StatelessWidget {
         child: Text(
           label,
           style: textTheme(context).labelLarge?.copyWith(
-                color: onTap == null
-                    ? Colors.grey
-                    : color ?? colorScheme(context).primary,
+                color: onTap == null ? Colors.grey : color ?? colorScheme(context).primary,
               ),
         ),
       ),
@@ -343,8 +349,7 @@ class FilterByDateBtn extends StatelessWidget {
           ),
         ),
         if (label != "Filter by date") const SizedBox(width: 50),
-        if (label != "Filter by date")
-          InkWell(onTap: onClearTap, child: const Text("Clear")),
+        if (label != "Filter by date") InkWell(onTap: onClearTap, child: const Text("Clear")),
       ],
     );
   }
