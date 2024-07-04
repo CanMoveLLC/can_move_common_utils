@@ -221,7 +221,7 @@ class NoShadowButton extends StatelessWidget {
                   style: isSignupPage
                       ? const TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 24,
+                          fontSize: 20,
                         )
                       : null,
                   recognizer: TapGestureRecognizer()
