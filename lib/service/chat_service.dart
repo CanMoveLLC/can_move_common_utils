@@ -9,7 +9,8 @@ class ChatService {
   ChatService() {
     _fireChat.setConfig(
       FirebaseChatCoreConfig(
-      chatRoomsCollection,
+      null,
+      chatUsersCollection,
       chatUsersCollection,
     ));
   }

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
 const usersCollection = "users";
+
 const movesCollection = "moves";
 const notificationsCollection = "notifications";
 const chatUsersCollection = "chatUsers";
