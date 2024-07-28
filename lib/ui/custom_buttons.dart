@@ -200,32 +200,36 @@ class ShadowedButton extends StatelessWidget {
 class NoShadowButton extends StatelessWidget {
   final VoidCallback? onTap;
 
-  // offset of the elevation
+  // Offset of the elevation
   final Offset offset;
 
-  // the color of the shadow
+  // The color of the shadow
   final Color? shadowColor;
 
-  // color  of the container
+  // Color of the container
   final Color? color;
 
-  // the radius of the container's corners
+  // The radius of the container's corners
   final BorderRadiusGeometry? radius;
 
-  final EdgeInsetsGeometry? padding = EdgeInsets.zero;
-  final EdgeInsetsGeometry? /*padding,*/ margin;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final bool safeTop, safeBottom, isLoading;
   final double? width;
   final double? height;
   final String label;
+  final bool isSignupPage;
+
+  // New property to control the enabled/disabled state
+  final bool isDisabled;
 
   const NoShadowButton({
-    Key? key,
+    super.key,
     required this.label,
     this.radius,
     this.safeBottom = false,
     this.safeTop = false,
-    // this.padding,
+    this.padding = EdgeInsets.zero,
     this.margin,
     this.onTap,
     this.width,
@@ -234,7 +238,9 @@ class NoShadowButton extends StatelessWidget {
     this.offset = const Offset(0, 10),
     this.shadowColor,
     this.isLoading = false,
-  }) : super(key: key);
+    this.isSignupPage = false,
+    this.isDisabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -250,11 +256,11 @@ class NoShadowButton extends StatelessWidget {
               child: AnimatedContainer(
                 width: isLoading ? 50 : width,
                 height: height,
-                duration: Duration(milliseconds: 200),
+                duration: const Duration(milliseconds: 200),
                 child: MaterialButton(
                   color: color ?? Theme.of(context).colorScheme.primary,
                   disabledColor: shadowColor,
-                  onPressed: () {
+                  onPressed: isDisabled ? null : () {
                     if (!isLoading) onTap?.call();
                   },
                   padding: padding ?? EdgeInsets.zero,
@@ -265,29 +271,35 @@ class NoShadowButton extends StatelessWidget {
                   hoverElevation: 5,
                   textColor: Colors.grey[100],
                   child: isLoading
-                      ? Container(
-                          width: 20,
-                          height: 20,
-                          child: progressIndicator(context),
-                        )
-                      : Text(""),
+                      ? SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: progressIndicator(context),
+                  )
+                      : const Text(""),
                 ),
               ),
             ),
             AnimatedOpacity(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               opacity: isLoading ? 0.0 : 1.0,
               child: Text.rich(
                 TextSpan(
                   text: label,
+                  style: isSignupPage
+                      ? const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                  )
+                      : null,
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      if (!isLoading) onTap?.call();
+                      if (!isLoading && !isDisabled) onTap?.call();
                     },
                 ),
-                style: textTheme(context).labelMedium?.copyWith(
-                      color: Colors.grey[100],
-                    ),
+                style: textTheme(context).bodyMedium?.copyWith(
+                  color: Colors.grey[100],
+                ),
               ),
             )
           ],
