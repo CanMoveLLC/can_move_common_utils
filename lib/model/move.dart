@@ -17,6 +17,7 @@ enum MoveStatus {
   HAS_MOVE,
   TO_DROP,
   DROPPED_MOVE,
+  UPLOAD_PARCEL_PHOTO,
   CANCELED,
 }
 
@@ -75,6 +76,8 @@ class Move with _$Move {
 
       case MoveStatus.DROPPED_MOVE:
         return "Dropped";
+      case MoveStatus.UPLOAD_PARCEL_PHOTO:
+        return "UPLOADED";
       case MoveStatus.CANCELED:
         return "Canceled";
     }
@@ -96,6 +99,8 @@ class Move with _$Move {
         return "$drive is going to drop off.";
       case MoveStatus.DROPPED_MOVE:
         return "$drive has dropped off the move.";
+      case MoveStatus.UPLOAD_PARCEL_PHOTO:
+        return "$drive has Uploaded Parcel image";
       case MoveStatus.CANCELED:
         return "Service Canceled.";
     }
