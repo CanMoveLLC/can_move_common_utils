@@ -31,8 +31,9 @@ class Driver with _$Driver {
     @Default(false) bool payEnabled,
     @Default(false) bool online,
     @Default(false) bool verified,
-    required String firstName,
-    required String lastName,
+    // required String firstName,
+    // required String lastName,
+    required String name,
     required String email,
     required String phone,
     required String photoUrl,
@@ -49,8 +50,10 @@ class Driver with _$Driver {
 
   factory Driver.fromJson(Map<String, dynamic> json) => _$DriverFromJson(json);
 
+  // DriverMin get min =>
+  //     DriverMin(uid: uid, firstName:firstName,lastName: lastName, location: location, payID: payID);
   DriverMin get min =>
-      DriverMin(uid: uid, firstName:firstName,lastName: lastName, location: location, payID: payID);
+      DriverMin(uid: uid, name:name, location: location, payID: payID);
   String get vehicleSizeTxt =>
       vehicleSize.toString().split(".")[1].replaceAll("_", " ");
 }
@@ -72,8 +75,9 @@ class DriverMin with _$DriverMin {
   const factory DriverMin({
     required String uid,
     String? payID,
-    required String firstName,
-    required String lastName,
+    // required String firstName,
+    // required String lastName,
+    required String name,
     @NullGeoPointConverter() GeoPoint? location,
     @Default(UserType.driver) UserType userType,
   }) = _DriverMin;
