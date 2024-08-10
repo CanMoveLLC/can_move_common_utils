@@ -16,10 +16,10 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
       // Convert JSON to DriverMin, handling null values
       return DriverMin(
         location: json["location"],
-        // uid: json["uid"],
+        uid: json["uid"],
         firstName: json["firstName"],
         lastName: json["lastName"],
-        name: json["name"],
+        // name: json["name"],
           payID: json["payID"],
       );
     }

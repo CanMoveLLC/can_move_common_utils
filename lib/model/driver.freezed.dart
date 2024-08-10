@@ -24,10 +24,10 @@ mixin _$Driver {
   String? get payID => throw _privateConstructorUsedError;
   bool get payEnabled => throw _privateConstructorUsedError;
   bool get online => throw _privateConstructorUsedError;
-  bool get verified =>
-      throw _privateConstructorUsedError; // required String firstName,
-// required String lastName,
-  String get name => throw _privateConstructorUsedError;
+  bool get verified => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName =>
+      throw _privateConstructorUsedError; // required String name,
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get photoUrl => throw _privateConstructorUsedError;
@@ -60,7 +60,8 @@ abstract class $DriverCopyWith<$Res> {
       bool payEnabled,
       bool online,
       bool verified,
-      String name,
+      String firstName,
+      String lastName,
       String email,
       String phone,
       String photoUrl,
@@ -94,7 +95,8 @@ class _$DriverCopyWithImpl<$Res, $Val extends Driver>
     Object? payEnabled = null,
     Object? online = null,
     Object? verified = null,
-    Object? name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? email = null,
     Object? phone = null,
     Object? photoUrl = null,
@@ -128,9 +130,13 @@ class _$DriverCopyWithImpl<$Res, $Val extends Driver>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -201,7 +207,8 @@ abstract class _$$DriverImplCopyWith<$Res> implements $DriverCopyWith<$Res> {
       bool payEnabled,
       bool online,
       bool verified,
-      String name,
+      String firstName,
+      String lastName,
       String email,
       String phone,
       String photoUrl,
@@ -234,7 +241,8 @@ class __$$DriverImplCopyWithImpl<$Res>
     Object? payEnabled = null,
     Object? online = null,
     Object? verified = null,
-    Object? name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? email = null,
     Object? phone = null,
     Object? photoUrl = null,
@@ -268,9 +276,13 @@ class __$$DriverImplCopyWithImpl<$Res>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       email: null == email
           ? _value.email
@@ -329,7 +341,8 @@ class _$DriverImpl extends _Driver {
       this.payEnabled = false,
       this.online = false,
       this.verified = false,
-      required this.name,
+      required this.firstName,
+      required this.lastName,
       required this.email,
       required this.phone,
       required this.photoUrl,
@@ -361,10 +374,11 @@ class _$DriverImpl extends _Driver {
   @override
   @JsonKey()
   final bool verified;
-// required String firstName,
-// required String lastName,
   @override
-  final String name;
+  final String firstName;
+  @override
+  final String lastName;
+// required String name,
   @override
   final String email;
   @override
@@ -408,7 +422,7 @@ class _$DriverImpl extends _Driver {
 
   @override
   String toString() {
-    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, online: $online, verified: $verified, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalMoves: $totalMoves, user: $user, location: $location, vehicleSize: $vehicleSize)';
+    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, online: $online, verified: $verified, firstName: $firstName, lastName: $lastName, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalMoves: $totalMoves, user: $user, location: $location, vehicleSize: $vehicleSize)';
   }
 
   @override
@@ -423,7 +437,10 @@ class _$DriverImpl extends _Driver {
             (identical(other.online, online) || other.online == online) &&
             (identical(other.verified, verified) ||
                 other.verified == verified) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.photoUrl, photoUrl) ||
@@ -453,7 +470,8 @@ class _$DriverImpl extends _Driver {
       payEnabled,
       online,
       verified,
-      name,
+      firstName,
+      lastName,
       email,
       phone,
       photoUrl,
@@ -487,7 +505,8 @@ abstract class _Driver extends Driver {
       final bool payEnabled,
       final bool online,
       final bool verified,
-      required final String name,
+      required final String firstName,
+      required final String lastName,
       required final String email,
       required final String phone,
       required final String photoUrl,
@@ -513,10 +532,11 @@ abstract class _Driver extends Driver {
   bool get online;
   @override
   bool get verified;
-  @override // required String firstName,
-// required String lastName,
-  String get name;
   @override
+  String get firstName;
+  @override
+  String get lastName;
+  @override // required String name,
   String get email;
   @override
   String get phone;
@@ -705,10 +725,10 @@ DriverMin _$DriverMinFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DriverMin {
   String get uid => throw _privateConstructorUsedError;
-  String? get payID =>
-      throw _privateConstructorUsedError; // required String firstName,
-// required String lastName,
-  String get name => throw _privateConstructorUsedError;
+  String? get payID => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName =>
+      throw _privateConstructorUsedError; // required String name,
   @NullGeoPointConverter()
   GeoPoint? get location => throw _privateConstructorUsedError;
   UserType get userType => throw _privateConstructorUsedError;
@@ -727,7 +747,8 @@ abstract class $DriverMinCopyWith<$Res> {
   $Res call(
       {String uid,
       String? payID,
-      String name,
+      String firstName,
+      String lastName,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType});
 }
@@ -747,7 +768,8 @@ class _$DriverMinCopyWithImpl<$Res, $Val extends DriverMin>
   $Res call({
     Object? uid = null,
     Object? payID = freezed,
-    Object? name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? location = freezed,
     Object? userType = null,
   }) {
@@ -760,9 +782,13 @@ class _$DriverMinCopyWithImpl<$Res, $Val extends DriverMin>
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       location: freezed == location
           ? _value.location
@@ -787,7 +813,8 @@ abstract class _$$DriverMinImplCopyWith<$Res>
   $Res call(
       {String uid,
       String? payID,
-      String name,
+      String firstName,
+      String lastName,
       @NullGeoPointConverter() GeoPoint? location,
       UserType userType});
 }
@@ -805,7 +832,8 @@ class __$$DriverMinImplCopyWithImpl<$Res>
   $Res call({
     Object? uid = null,
     Object? payID = freezed,
-    Object? name = null,
+    Object? firstName = null,
+    Object? lastName = null,
     Object? location = freezed,
     Object? userType = null,
   }) {
@@ -818,9 +846,13 @@ class __$$DriverMinImplCopyWithImpl<$Res>
           ? _value.payID
           : payID // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      firstName: null == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastName: null == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
               as String,
       location: freezed == location
           ? _value.location
@@ -840,7 +872,8 @@ class _$DriverMinImpl implements _DriverMin {
   const _$DriverMinImpl(
       {required this.uid,
       this.payID,
-      required this.name,
+      required this.firstName,
+      required this.lastName,
       @NullGeoPointConverter() this.location,
       this.userType = UserType.driver});
 
@@ -851,10 +884,11 @@ class _$DriverMinImpl implements _DriverMin {
   final String uid;
   @override
   final String? payID;
-// required String firstName,
-// required String lastName,
   @override
-  final String name;
+  final String firstName;
+  @override
+  final String lastName;
+// required String name,
   @override
   @NullGeoPointConverter()
   final GeoPoint? location;
@@ -864,7 +898,7 @@ class _$DriverMinImpl implements _DriverMin {
 
   @override
   String toString() {
-    return 'DriverMin(uid: $uid, payID: $payID, name: $name, location: $location, userType: $userType)';
+    return 'DriverMin(uid: $uid, payID: $payID, firstName: $firstName, lastName: $lastName, location: $location, userType: $userType)';
   }
 
   @override
@@ -874,7 +908,10 @@ class _$DriverMinImpl implements _DriverMin {
             other is _$DriverMinImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.payID, payID) || other.payID == payID) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
             (identical(other.location, location) ||
                 other.location == location) &&
             (identical(other.userType, userType) ||
@@ -883,8 +920,8 @@ class _$DriverMinImpl implements _DriverMin {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, uid, payID, name, location, userType);
+  int get hashCode => Object.hash(
+      runtimeType, uid, payID, firstName, lastName, location, userType);
 
   @JsonKey(ignore: true)
   @override
@@ -904,7 +941,8 @@ abstract class _DriverMin implements DriverMin {
   const factory _DriverMin(
       {required final String uid,
       final String? payID,
-      required final String name,
+      required final String firstName,
+      required final String lastName,
       @NullGeoPointConverter() final GeoPoint? location,
       final UserType userType}) = _$DriverMinImpl;
 
@@ -915,10 +953,11 @@ abstract class _DriverMin implements DriverMin {
   String get uid;
   @override
   String? get payID;
-  @override // required String firstName,
-// required String lastName,
-  String get name;
   @override
+  String get firstName;
+  @override
+  String get lastName;
+  @override // required String name,
   @NullGeoPointConverter()
   GeoPoint? get location;
   @override

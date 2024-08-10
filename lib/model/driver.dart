@@ -75,9 +75,9 @@ class DriverMin with _$DriverMin {
   const factory DriverMin({
     required String uid,
     String? payID,
-    // required String firstName,
-    // required String lastName,
-    required String name,
+    required String firstName,
+    required String lastName,
+    // required String name,
     @NullGeoPointConverter() GeoPoint? location,
     @Default(UserType.driver) UserType userType,
   }) = _DriverMin;
