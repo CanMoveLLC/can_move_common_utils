@@ -17,9 +17,9 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
       return DriverMin(
         location: json["location"],
         uid: json["uid"],
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        // name: json["name"],
+        // firstName: json["firstName"],
+        // lastName: json["lastName"],
+        name: json["name"],
           payID: json["payID"],
       );
     }
@@ -32,9 +32,9 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
     // Convert DriverMin to JSON
     return {
       "location": object.location,
-      "firstName": object.firstName,
-      "lastName": object.lastName,
-      // "name":object.name,
+      // "firstName": object.firstName,
+      // "lastName": object.lastName,
+      "name":object.name,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };
