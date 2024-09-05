@@ -15,7 +15,8 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
       return DriverMin(
         location: json["location"],
         uid: json["uid"],
-        name: json["name"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
         payID: json["payID"]
       );
     }
@@ -27,7 +28,8 @@ class NullDriverMinConverter implements JsonConverter<DriverMin?, Object?> {
     if (object == null) return null;
     return {
       "location": object.location,
-      "name": object.name,
+      "firstName": object.firstName,
+      "lastName": object.lastName,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };
@@ -42,7 +44,9 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
     if (json is Map<String, dynamic>) {
       return ShipperMin(
         uid: json["uid"],
-        name: json["name"],
+        // name: json["name"],
+        firstName: json["firstName"],
+        lastName: json["lastName"],
       );
     }
     return json as ShipperMin; // won't work though
@@ -51,9 +55,9 @@ class UserMinConverter implements JsonConverter<ShipperMin, Object> {
   @override
   Object toJson(ShipperMin object) {
     return {
-      // "firstName": object.firstName,
-      // "lastName": object.lastName,
-      "name": object.name,
+      "firstName": object.firstName,
+      "lastName": object.lastName,
+      // "name": object.name,
       "uid": object.uid,
       "userType": object.userType.toString().split('.').last,
     };
