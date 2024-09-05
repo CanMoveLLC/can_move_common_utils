@@ -82,7 +82,7 @@ class Move with _$Move {
   String get statusMsg {
     var drive = "Driver";
     if (driver != null)
-      drive = driver!.firstName.split(" ").first;
+      drive = driver!.name.split(" ").first;
     switch (status) {
       case MoveStatus.PENDING:
         return "Waiting for $drive to accept.";
