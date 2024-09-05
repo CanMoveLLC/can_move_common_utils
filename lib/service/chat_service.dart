@@ -33,8 +33,8 @@ class ChatService {
 
   Future<bool> createUser(User user) async {
     var names = user.displayName!.split(" ");
-    var firstName = names[0];
-    var lastName = names.length > 1 ? names[names.length - 1] : "";
+    var firstName = names.first;
+    var lastName = names.last;
 
     try {
       await _fireChat.createUserInFirestore(types.User(
