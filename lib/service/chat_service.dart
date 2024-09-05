@@ -34,8 +34,8 @@ class ChatService {
   Future<bool> createUser(User user) async {
     var names = user.displayName!.split(" ");
     var firstName = names[0];
-    var lastName = "";
-    if (names.length > 2) lastName = names[names.length - 1];
+    var lastName = names.length > 1 ? names[names.length - 1] : "";
+
     try {
       await _fireChat.createUserInFirestore(types.User(
         firstName: firstName,
@@ -49,6 +49,7 @@ class ChatService {
       return false;
     }
   }
+
 
   void sendMessage(types.PartialText message, String roomId) {
     _fireChat.sendMessage(
