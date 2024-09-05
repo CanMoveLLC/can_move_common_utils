@@ -17,6 +17,7 @@ _$CanMoveNotificationImpl _$$CanMoveNotificationImplFromJson(
       imgUrl: json['imgUrl'] as String?,
       moveUid: json['moveUid'] as String?,
       roomUid: json['roomUid'] as String?,
+      isNotes: json['isNotes'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$CanMoveNotificationImplToJson(
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$CanMoveNotificationImplToJson(
       'imgUrl': instance.imgUrl,
       'moveUid': instance.moveUid,
       'roomUid': instance.roomUid,
+      'isNotes': instance.isNotes,
     };

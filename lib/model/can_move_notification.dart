@@ -19,6 +19,7 @@ class CanMoveNotification with _$CanMoveNotification {
     String? imgUrl,
     String? moveUid,
     String? roomUid,
+    @Default(false) bool isNotes,
   }) = _CanMoveNotification;
 
   factory CanMoveNotification.fromJson(Map<String, dynamic> json) =>
