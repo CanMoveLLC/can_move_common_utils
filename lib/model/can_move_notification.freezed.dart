@@ -29,7 +29,6 @@ mixin _$CanMoveNotification {
   String? get imgUrl => throw _privateConstructorUsedError;
   String? get moveUid => throw _privateConstructorUsedError;
   String? get roomUid => throw _privateConstructorUsedError;
-  bool get isNotes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,8 +50,7 @@ abstract class $CanMoveNotificationCopyWith<$Res> {
       String title,
       String? imgUrl,
       String? moveUid,
-      String? roomUid,
-      bool isNotes});
+      String? roomUid});
 }
 
 /// @nodoc
@@ -76,7 +74,6 @@ class _$CanMoveNotificationCopyWithImpl<$Res, $Val extends CanMoveNotification>
     Object? imgUrl = freezed,
     Object? moveUid = freezed,
     Object? roomUid = freezed,
-    Object? isNotes = null,
   }) {
     return _then(_value.copyWith(
       uid: freezed == uid
@@ -111,10 +108,6 @@ class _$CanMoveNotificationCopyWithImpl<$Res, $Val extends CanMoveNotification>
           ? _value.roomUid
           : roomUid // ignore: cast_nullable_to_non_nullable
               as String?,
-      isNotes: null == isNotes
-          ? _value.isNotes
-          : isNotes // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -135,8 +128,7 @@ abstract class _$$CanMoveNotificationImplCopyWith<$Res>
       String title,
       String? imgUrl,
       String? moveUid,
-      String? roomUid,
-      bool isNotes});
+      String? roomUid});
 }
 
 /// @nodoc
@@ -158,7 +150,6 @@ class __$$CanMoveNotificationImplCopyWithImpl<$Res>
     Object? imgUrl = freezed,
     Object? moveUid = freezed,
     Object? roomUid = freezed,
-    Object? isNotes = null,
   }) {
     return _then(_$CanMoveNotificationImpl(
       uid: freezed == uid
@@ -193,10 +184,6 @@ class __$$CanMoveNotificationImplCopyWithImpl<$Res>
           ? _value.roomUid
           : roomUid // ignore: cast_nullable_to_non_nullable
               as String?,
-      isNotes: null == isNotes
-          ? _value.isNotes
-          : isNotes // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -212,8 +199,7 @@ class _$CanMoveNotificationImpl extends _CanMoveNotification {
       required this.title,
       this.imgUrl,
       this.moveUid,
-      this.roomUid,
-      this.isNotes = false})
+      this.roomUid})
       : super._();
 
   factory _$CanMoveNotificationImpl.fromJson(Map<String, dynamic> json) =>
@@ -236,13 +222,10 @@ class _$CanMoveNotificationImpl extends _CanMoveNotification {
   final String? moveUid;
   @override
   final String? roomUid;
-  @override
-  @JsonKey()
-  final bool isNotes;
 
   @override
   String toString() {
-    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, title: $title, imgUrl: $imgUrl, moveUid: $moveUid, roomUid: $roomUid, isNotes: $isNotes)';
+    return 'CanMoveNotification(uid: $uid, time: $time, userUid: $userUid, content: $content, title: $title, imgUrl: $imgUrl, moveUid: $moveUid, roomUid: $roomUid)';
   }
 
   @override
@@ -257,14 +240,13 @@ class _$CanMoveNotificationImpl extends _CanMoveNotification {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.imgUrl, imgUrl) || other.imgUrl == imgUrl) &&
             (identical(other.moveUid, moveUid) || other.moveUid == moveUid) &&
-            (identical(other.roomUid, roomUid) || other.roomUid == roomUid) &&
-            (identical(other.isNotes, isNotes) || other.isNotes == isNotes));
+            (identical(other.roomUid, roomUid) || other.roomUid == roomUid));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, uid, time, userUid, content,
-      title, imgUrl, moveUid, roomUid, isNotes);
+      title, imgUrl, moveUid, roomUid);
 
   @JsonKey(ignore: true)
   @override
@@ -290,8 +272,7 @@ abstract class _CanMoveNotification extends CanMoveNotification {
       required final String title,
       final String? imgUrl,
       final String? moveUid,
-      final String? roomUid,
-      final bool isNotes}) = _$CanMoveNotificationImpl;
+      final String? roomUid}) = _$CanMoveNotificationImpl;
   const _CanMoveNotification._() : super._();
 
   factory _CanMoveNotification.fromJson(Map<String, dynamic> json) =
@@ -314,8 +295,6 @@ abstract class _CanMoveNotification extends CanMoveNotification {
   String? get moveUid;
   @override
   String? get roomUid;
-  @override
-  bool get isNotes;
   @override
   @JsonKey(ignore: true)
   _$$CanMoveNotificationImplCopyWith<_$CanMoveNotificationImpl> get copyWith =>
