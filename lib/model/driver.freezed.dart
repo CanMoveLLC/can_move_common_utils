@@ -24,7 +24,8 @@ mixin _$Driver {
   String? get payID => throw _privateConstructorUsedError;
   bool get payEnabled => throw _privateConstructorUsedError;
   bool get online => throw _privateConstructorUsedError;
-  bool get verified =>
+  bool get verified => throw _privateConstructorUsedError;
+  String get isDocumentRejectedReason =>
       throw _privateConstructorUsedError; // required String firstName,
 // required String lastName,
   String get name => throw _privateConstructorUsedError;
@@ -60,6 +61,7 @@ abstract class $DriverCopyWith<$Res> {
       bool payEnabled,
       bool online,
       bool verified,
+      String isDocumentRejectedReason,
       String name,
       String email,
       String phone,
@@ -94,6 +96,7 @@ class _$DriverCopyWithImpl<$Res, $Val extends Driver>
     Object? payEnabled = null,
     Object? online = null,
     Object? verified = null,
+    Object? isDocumentRejectedReason = null,
     Object? name = null,
     Object? email = null,
     Object? phone = null,
@@ -128,6 +131,10 @@ class _$DriverCopyWithImpl<$Res, $Val extends Driver>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDocumentRejectedReason: null == isDocumentRejectedReason
+          ? _value.isDocumentRejectedReason
+          : isDocumentRejectedReason // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -201,6 +208,7 @@ abstract class _$$DriverImplCopyWith<$Res> implements $DriverCopyWith<$Res> {
       bool payEnabled,
       bool online,
       bool verified,
+      String isDocumentRejectedReason,
       String name,
       String email,
       String phone,
@@ -234,6 +242,7 @@ class __$$DriverImplCopyWithImpl<$Res>
     Object? payEnabled = null,
     Object? online = null,
     Object? verified = null,
+    Object? isDocumentRejectedReason = null,
     Object? name = null,
     Object? email = null,
     Object? phone = null,
@@ -268,6 +277,10 @@ class __$$DriverImplCopyWithImpl<$Res>
           ? _value.verified
           : verified // ignore: cast_nullable_to_non_nullable
               as bool,
+      isDocumentRejectedReason: null == isDocumentRejectedReason
+          ? _value.isDocumentRejectedReason
+          : isDocumentRejectedReason // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -329,6 +342,7 @@ class _$DriverImpl extends _Driver {
       this.payEnabled = false,
       this.online = false,
       this.verified = false,
+      this.isDocumentRejectedReason = '',
       required this.name,
       required this.email,
       required this.phone,
@@ -361,6 +375,9 @@ class _$DriverImpl extends _Driver {
   @override
   @JsonKey()
   final bool verified;
+  @override
+  @JsonKey()
+  final String isDocumentRejectedReason;
 // required String firstName,
 // required String lastName,
   @override
@@ -408,7 +425,7 @@ class _$DriverImpl extends _Driver {
 
   @override
   String toString() {
-    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, online: $online, verified: $verified, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalMoves: $totalMoves, user: $user, location: $location, vehicleSize: $vehicleSize)';
+    return 'Driver(uid: $uid, payID: $payID, payEnabled: $payEnabled, online: $online, verified: $verified, isDocumentRejectedReason: $isDocumentRejectedReason, name: $name, email: $email, phone: $phone, photoUrl: $photoUrl, vehicleDocs: $vehicleDocs, vehicleImages: $vehicleImages, userType: $userType, rating: $rating, totalMoves: $totalMoves, user: $user, location: $location, vehicleSize: $vehicleSize)';
   }
 
   @override
@@ -423,6 +440,9 @@ class _$DriverImpl extends _Driver {
             (identical(other.online, online) || other.online == online) &&
             (identical(other.verified, verified) ||
                 other.verified == verified) &&
+            (identical(
+                    other.isDocumentRejectedReason, isDocumentRejectedReason) ||
+                other.isDocumentRejectedReason == isDocumentRejectedReason) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -453,6 +473,7 @@ class _$DriverImpl extends _Driver {
       payEnabled,
       online,
       verified,
+      isDocumentRejectedReason,
       name,
       email,
       phone,
@@ -487,6 +508,7 @@ abstract class _Driver extends Driver {
       final bool payEnabled,
       final bool online,
       final bool verified,
+      final String isDocumentRejectedReason,
       required final String name,
       required final String email,
       required final String phone,
@@ -513,6 +535,8 @@ abstract class _Driver extends Driver {
   bool get online;
   @override
   bool get verified;
+  @override
+  String get isDocumentRejectedReason;
   @override // required String firstName,
 // required String lastName,
   String get name;

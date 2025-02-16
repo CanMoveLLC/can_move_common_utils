@@ -31,6 +31,7 @@ class Driver with _$Driver {
     @Default(false) bool payEnabled,
     @Default(false) bool online,
     @Default(false) bool verified,
+    @Default('') String isDocumentRejectedReason,
     // required String firstName,
     // required String lastName,
     required String name,

@@ -12,6 +12,8 @@ _$DriverImpl _$$DriverImplFromJson(Map<String, dynamic> json) => _$DriverImpl(
       payEnabled: json['payEnabled'] as bool? ?? false,
       online: json['online'] as bool? ?? false,
       verified: json['verified'] as bool? ?? false,
+      isDocumentRejectedReason:
+          json['isDocumentRejectedReason'] as String? ?? '',
       name: json['name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
@@ -37,6 +39,7 @@ Map<String, dynamic> _$$DriverImplToJson(_$DriverImpl instance) =>
       'payEnabled': instance.payEnabled,
       'online': instance.online,
       'verified': instance.verified,
+      'isDocumentRejectedReason': instance.isDocumentRejectedReason,
       'name': instance.name,
       'email': instance.email,
       'phone': instance.phone,
