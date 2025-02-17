@@ -16,7 +16,7 @@ dependencies:
   firebase_auth_web:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  catcher: ^0.7.0
+  catcher: ^0.8.0
   images_picker: ^1.2.1
   animations: ^2.0.11
   oktoast: ^3.4.0
