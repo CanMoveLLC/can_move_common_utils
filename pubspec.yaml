@@ -22,7 +22,8 @@ dependencies:
   cached_network_image: ^3.3.1
   google_maps_webservice: ^0.0.20-nullsafety.5
   flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.6.1
+  google_maps_flutter: ^2.10.0
+  google_maps_flutter_ios: ^2.13.2
   location: ^6.0.2
   json_serializable: ^6.8.0
   geoflutterfire2: ^2.3.15
